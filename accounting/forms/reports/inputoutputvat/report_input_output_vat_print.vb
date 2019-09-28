@@ -1,0 +1,2 @@
+﻿Public Class report_input_output_vat_print
+End Class

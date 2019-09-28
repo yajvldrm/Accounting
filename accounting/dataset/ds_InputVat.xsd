@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_InputVat" targetNamespace="http://tempuri.org/ds_InputVat.xsd" xmlns:mstns="http://tempuri.org/ds_InputVat.xsd" xmlns="http://tempuri.org/ds_InputVat.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_InputVat" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_InputVat" msprop:Generator_UserDSName="ds_InputVat">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InputVat_dat" msprop:Generator_TableClassName="InputVat_datDataTable" msprop:Generator_TableVarName="tableInputVat_dat" msprop:Generator_TablePropName="InputVat_dat" msprop:Generator_RowDeletingName="InputVat_datRowDeleting" msprop:Generator_RowChangingName="InputVat_datRowChanging" msprop:Generator_RowEvHandlerName="InputVat_datRowChangeEventHandler" msprop:Generator_RowDeletedName="InputVat_datRowDeleted" msprop:Generator_UserTableName="InputVat_dat" msprop:Generator_RowChangedName="InputVat_datRowChanged" msprop:Generator_RowEvArgName="InputVat_datRowChangeEvent" msprop:Generator_RowClassName="InputVat_datRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="general_id" msprop:Generator_ColumnVarNameInTable="columngeneral_id" msprop:Generator_ColumnPropNameInRow="general_id" msprop:Generator_ColumnPropNameInTable="general_idColumn" msprop:Generator_UserColumnName="general_id" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="general_code" msprop:Generator_ColumnVarNameInTable="columngeneral_code" msprop:Generator_ColumnPropNameInRow="general_code" msprop:Generator_ColumnPropNameInTable="general_codeColumn" msprop:Generator_UserColumnName="general_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="general_name" msprop:Generator_ColumnVarNameInTable="columngeneral_name" msprop:Generator_ColumnPropNameInRow="general_name" msprop:Generator_ColumnPropNameInTable="general_nameColumn" msprop:Generator_UserColumnName="general_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="tin" msprop:Generator_ColumnVarNameInTable="columntin" msprop:Generator_ColumnPropNameInRow="tin" msprop:Generator_ColumnPropNameInTable="tinColumn" msprop:Generator_UserColumnName="tin" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="address1" msprop:Generator_ColumnVarNameInTable="columnaddress1" msprop:Generator_ColumnPropNameInRow="address1" msprop:Generator_ColumnPropNameInTable="address1Column" msprop:Generator_UserColumnName="address1" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="address2" msprop:Generator_ColumnVarNameInTable="columnaddress2" msprop:Generator_ColumnPropNameInRow="address2" msprop:Generator_ColumnPropNameInTable="address2Column" msprop:Generator_UserColumnName="address2" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="service_amount" msprop:Generator_ColumnVarNameInTable="columnservice_amount" msprop:Generator_ColumnPropNameInRow="service_amount" msprop:Generator_ColumnPropNameInTable="service_amountColumn" msprop:Generator_UserColumnName="service_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="service_amount_based" msprop:Generator_ColumnVarNameInTable="columnservice_amount_based" msprop:Generator_ColumnPropNameInRow="service_amount_based" msprop:Generator_ColumnPropNameInTable="service_amount_basedColumn" msprop:Generator_UserColumnName="service_amount_based" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="capital_amount" msprop:Generator_ColumnVarNameInTable="columncapital_amount" msprop:Generator_ColumnPropNameInRow="capital_amount" msprop:Generator_ColumnPropNameInTable="capital_amountColumn" msprop:Generator_UserColumnName="capital_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="capital_amount_based" msprop:Generator_ColumnVarNameInTable="columncapital_amount_based" msprop:Generator_ColumnPropNameInRow="capital_amount_based" msprop:Generator_ColumnPropNameInTable="capital_amount_basedColumn" msprop:Generator_UserColumnName="capital_amount_based" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="other_amount" msprop:Generator_ColumnVarNameInTable="columnother_amount" msprop:Generator_ColumnPropNameInRow="other_amount" msprop:Generator_ColumnPropNameInTable="other_amountColumn" msprop:Generator_UserColumnName="other_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="other_amount_based" msprop:Generator_ColumnVarNameInTable="columnother_amount_based" msprop:Generator_ColumnPropNameInRow="other_amount_based" msprop:Generator_ColumnPropNameInTable="other_amount_basedColumn" msprop:Generator_UserColumnName="other_amount_based" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="vat_amount" msprop:Generator_ColumnVarNameInTable="columnvat_amount" msprop:Generator_ColumnPropNameInRow="vat_amount" msprop:Generator_ColumnPropNameInTable="vat_amountColumn" msprop:Generator_UserColumnName="vat_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="vat_amount_based" msprop:Generator_ColumnVarNameInTable="columnvat_amount_based" msprop:Generator_ColumnPropNameInRow="vat_amount_based" msprop:Generator_ColumnPropNameInTable="vat_amount_basedColumn" msprop:Generator_UserColumnName="vat_amount_based" type="xs:decimal" default="0.00" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

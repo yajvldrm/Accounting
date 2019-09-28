@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ewt_report_set" targetNamespace="http://tempuri.org/ewt_report_set.xsd" xmlns:mstns="http://tempuri.org/ewt_report_set.xsd" xmlns="http://tempuri.org/ewt_report_set.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ewt_report_set" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ewt_report_set" msprop:Generator_UserDSName="ewt_report_set">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EWT" msprop:Generator_TableClassName="EWTDataTable" msprop:Generator_TableVarName="tableEWT" msprop:Generator_RowChangedName="EWTRowChanged" msprop:Generator_TablePropName="EWT" msprop:Generator_RowDeletingName="EWTRowDeleting" msprop:Generator_RowChangingName="EWTRowChanging" msprop:Generator_RowEvHandlerName="EWTRowChangeEventHandler" msprop:Generator_RowDeletedName="EWTRowDeleted" msprop:Generator_RowClassName="EWTRow" msprop:Generator_UserTableName="EWT" msprop:Generator_RowEvArgName="EWTRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ewt_id" msprop:Generator_ColumnVarNameInTable="columnewt_id" msprop:Generator_ColumnPropNameInRow="ewt_id" msprop:Generator_ColumnPropNameInTable="ewt_idColumn" msprop:Generator_UserColumnName="ewt_id" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="ewt_code" msprop:Generator_ColumnVarNameInTable="columnewt_code" msprop:Generator_ColumnPropNameInRow="ewt_code" msprop:Generator_ColumnPropNameInTable="ewt_codeColumn" msprop:Generator_UserColumnName="ewt_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="ewt_name" msprop:Generator_ColumnVarNameInTable="columnewt_name" msprop:Generator_ColumnPropNameInRow="ewt_name" msprop:Generator_ColumnPropNameInTable="ewt_nameColumn" msprop:Generator_UserColumnName="ewt_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="tax_rate" msprop:Generator_ColumnVarNameInTable="columntax_rate" msprop:Generator_ColumnPropNameInRow="tax_rate" msprop:Generator_ColumnPropNameInTable="tax_rateColumn" msprop:Generator_UserColumnName="tax_rate" type="xs:decimal" default="0.0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Final_x0020_Tax" msprop:Generator_TableClassName="Final_TaxDataTable" msprop:Generator_TableVarName="tableFinal_Tax" msprop:Generator_TablePropName="Final_Tax" msprop:Generator_RowDeletingName="Final_TaxRowDeleting" msprop:Generator_RowChangingName="Final_TaxRowChanging" msprop:Generator_RowEvHandlerName="Final_TaxRowChangeEventHandler" msprop:Generator_RowDeletedName="Final_TaxRowDeleted" msprop:Generator_UserTableName="Final Tax" msprop:Generator_RowChangedName="Final_TaxRowChanged" msprop:Generator_RowEvArgName="Final_TaxRowChangeEvent" msprop:Generator_RowClassName="Final_TaxRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="final_tax_id" msprop:Generator_ColumnVarNameInTable="columnfinal_tax_id" msprop:Generator_ColumnPropNameInRow="final_tax_id" msprop:Generator_ColumnPropNameInTable="final_tax_idColumn" msprop:Generator_UserColumnName="final_tax_id" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="final_tax_code" msprop:Generator_ColumnVarNameInTable="columnfinal_tax_code" msprop:Generator_ColumnPropNameInRow="final_tax_code" msprop:Generator_ColumnPropNameInTable="final_tax_codeColumn" msprop:Generator_UserColumnName="final_tax_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="final_tax_name" msprop:Generator_ColumnVarNameInTable="columnfinal_tax_name" msprop:Generator_ColumnPropNameInRow="final_tax_name" msprop:Generator_ColumnPropNameInTable="final_tax_nameColumn" msprop:Generator_UserColumnName="final_tax_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="final_tax_rate" msprop:Generator_ColumnVarNameInTable="columnfinal_tax_rate" msprop:Generator_ColumnPropNameInRow="final_tax_rate" msprop:Generator_ColumnPropNameInTable="final_tax_rateColumn" msprop:Generator_UserColumnName="final_tax_rate" type="xs:decimal" default="0.0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

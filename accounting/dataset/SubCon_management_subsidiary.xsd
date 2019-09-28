@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SubCon_management_subsidiary" targetNamespace="http://tempuri.org/SubCon_management_subsidiary.xsd" xmlns:mstns="http://tempuri.org/SubCon_management_subsidiary.xsd" xmlns="http://tempuri.org/SubCon_management_subsidiary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SubCon_management_subsidiary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SubCon_management_subsidiary" msprop:Generator_UserDSName="SubCon_management_subsidiary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Subcon_subsidiary" msprop:Generator_TableClassName="Subcon_subsidiaryDataTable" msprop:Generator_TableVarName="tableSubcon_subsidiary" msprop:Generator_RowChangedName="Subcon_subsidiaryRowChanged" msprop:Generator_TablePropName="Subcon_subsidiary" msprop:Generator_RowDeletingName="Subcon_subsidiaryRowDeleting" msprop:Generator_RowChangingName="Subcon_subsidiaryRowChanging" msprop:Generator_RowEvHandlerName="Subcon_subsidiaryRowChangeEventHandler" msprop:Generator_RowDeletedName="Subcon_subsidiaryRowDeleted" msprop:Generator_RowClassName="Subcon_subsidiaryRow" msprop:Generator_UserTableName="Subcon_subsidiary" msprop:Generator_RowEvArgName="Subcon_subsidiaryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="const_date" msprop:Generator_ColumnVarNameInTable="columnconst_date" msprop:Generator_ColumnPropNameInRow="const_date" msprop:Generator_ColumnPropNameInTable="const_dateColumn" msprop:Generator_UserColumnName="const_date" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="po_no" msprop:Generator_ColumnVarNameInTable="columnpo_no" msprop:Generator_ColumnPropNameInRow="po_no" msprop:Generator_ColumnPropNameInTable="po_noColumn" msprop:Generator_UserColumnName="po_no" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="department_code" msprop:Generator_ColumnVarNameInTable="columndepartment_code" msprop:Generator_ColumnPropNameInRow="department_code" msprop:Generator_ColumnPropNameInTable="department_codeColumn" msprop:Generator_UserColumnName="department_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="contract_amount" msprop:Generator_ColumnVarNameInTable="columncontract_amount" msprop:Generator_ColumnPropNameInRow="contract_amount" msprop:Generator_ColumnPropNameInTable="contract_amountColumn" msprop:Generator_UserColumnName="contract_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="ap_trans_no" msprop:Generator_ColumnVarNameInTable="columnap_trans_no" msprop:Generator_ColumnPropNameInRow="ap_trans_no" msprop:Generator_ColumnPropNameInTable="ap_trans_noColumn" msprop:Generator_UserColumnName="ap_trans_no" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="ap_trans_date" msprop:Generator_ColumnVarNameInTable="columnap_trans_date" msprop:Generator_ColumnPropNameInRow="ap_trans_date" msprop:Generator_ColumnPropNameInTable="ap_trans_dateColumn" msprop:Generator_UserColumnName="ap_trans_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="billed" msprop:Generator_ColumnVarNameInTable="columnbilled" msprop:Generator_ColumnPropNameInRow="billed" msprop:Generator_ColumnPropNameInTable="billedColumn" msprop:Generator_UserColumnName="billed" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="cv_trans_no" msprop:Generator_ColumnVarNameInTable="columncv_trans_no" msprop:Generator_ColumnPropNameInRow="cv_trans_no" msprop:Generator_ColumnPropNameInTable="cv_trans_noColumn" msprop:Generator_UserColumnName="cv_trans_no" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="cv_trans_date" msprop:Generator_ColumnVarNameInTable="columncv_trans_date" msprop:Generator_ColumnPropNameInRow="cv_trans_date" msprop:Generator_ColumnPropNameInTable="cv_trans_dateColumn" msprop:Generator_UserColumnName="cv_trans_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cv_collected_amount" msprop:Generator_ColumnVarNameInTable="columncv_collected_amount" msprop:Generator_ColumnPropNameInRow="cv_collected_amount" msprop:Generator_ColumnPropNameInTable="cv_collected_amountColumn" msprop:Generator_UserColumnName="cv_collected_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="general_id" msprop:Generator_ColumnVarNameInTable="columngeneral_id" msprop:Generator_ColumnPropNameInRow="general_id" msprop:Generator_ColumnPropNameInTable="general_idColumn" msprop:Generator_UserColumnName="general_id" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="general_code" msprop:Generator_ColumnVarNameInTable="columngeneral_code" msprop:Generator_ColumnPropNameInRow="general_code" msprop:Generator_ColumnPropNameInTable="general_codeColumn" msprop:Generator_UserColumnName="general_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="general_name" msprop:Generator_ColumnVarNameInTable="columngeneral_name" msprop:Generator_ColumnPropNameInRow="general_name" msprop:Generator_ColumnPropNameInTable="general_nameColumn" msprop:Generator_UserColumnName="general_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="project_id" msprop:Generator_ColumnVarNameInTable="columnproject_id" msprop:Generator_ColumnPropNameInRow="project_id" msprop:Generator_ColumnPropNameInTable="project_idColumn" msprop:Generator_UserColumnName="project_id" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="project_Code" msprop:Generator_ColumnVarNameInTable="columnproject_Code" msprop:Generator_ColumnPropNameInRow="project_Code" msprop:Generator_ColumnPropNameInTable="project_CodeColumn" msprop:Generator_UserColumnName="project_Code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="project_name" msprop:Generator_ColumnVarNameInTable="columnproject_name" msprop:Generator_ColumnPropNameInRow="project_name" msprop:Generator_ColumnPropNameInTable="project_nameColumn" msprop:Generator_UserColumnName="project_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="sc_year" msprop:Generator_ColumnVarNameInTable="columnsc_year" msprop:Generator_ColumnPropNameInRow="sc_year" msprop:Generator_ColumnPropNameInTable="sc_yearColumn" msprop:Generator_UserColumnName="sc_year" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="trans_date" msprop:Generator_ColumnVarNameInTable="columntrans_date" msprop:Generator_ColumnPropNameInRow="trans_date" msprop:Generator_ColumnPropNameInTable="trans_dateColumn" msprop:Generator_UserColumnName="trans_date" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

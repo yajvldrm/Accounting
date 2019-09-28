@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_currency_rate" targetNamespace="http://tempuri.org/ds_currency_rate.xsd" xmlns:mstns="http://tempuri.org/ds_currency_rate.xsd" xmlns="http://tempuri.org/ds_currency_rate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="erp_fsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="erp_fsConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.accounting.My.MySettings.GlobalReference.Default.erp_fsConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="get_lib_erp_currency_rateTableAdapter" GeneratorDataComponentClassName="get_lib_erp_currency_rateTableAdapter" Name="get_lib_erp_currency_rate" UserDataComponentName="get_lib_erp_currency_rateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="erp_fsConnectionString (MySettings)" DbObjectName="`get_lib_erp_currency_rate`" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>`get_lib_erp_currency_rate`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="currency_rate_id" DataSetColumn="currency_rate_id" />
+              <Mapping SourceColumn="currency_id" DataSetColumn="currency_id" />
+              <Mapping SourceColumn="effectivitydate" DataSetColumn="effectivitydate" />
+              <Mapping SourceColumn="exchange_rate" DataSetColumn="exchange_rate" />
+              <Mapping SourceColumn="based_rate" DataSetColumn="based_rate" />
+              <Mapping SourceColumn="currency_code" DataSetColumn="currency_code" />
+              <Mapping SourceColumn="currency_name" DataSetColumn="currency_name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="get_lib_erp_currencyTableAdapter" GeneratorDataComponentClassName="get_lib_erp_currencyTableAdapter" Name="get_lib_erp_currency" UserDataComponentName="get_lib_erp_currencyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="erp_fsConnectionString (MySettings)" DbObjectName="`get_lib_erp_currency`" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>`get_lib_erp_currency`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="currency_id" DataSetColumn="currency_id" />
+              <Mapping SourceColumn="currency_code" DataSetColumn="currency_code" />
+              <Mapping SourceColumn="currency_name" DataSetColumn="currency_name" />
+              <Mapping SourceColumn="symbol" DataSetColumn="symbol" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_currency_rate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_currency_rate" msprop:Generator_UserDSName="ds_currency_rate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="get_lib_erp_currency_rate" msprop:Generator_TableClassName="get_lib_erp_currency_rateDataTable" msprop:Generator_TableVarName="tableget_lib_erp_currency_rate" msprop:Generator_TablePropName="get_lib_erp_currency_rate" msprop:Generator_RowDeletingName="get_lib_erp_currency_rateRowDeleting" msprop:Generator_RowChangingName="get_lib_erp_currency_rateRowChanging" msprop:Generator_RowEvHandlerName="get_lib_erp_currency_rateRowChangeEventHandler" msprop:Generator_RowDeletedName="get_lib_erp_currency_rateRowDeleted" msprop:Generator_UserTableName="get_lib_erp_currency_rate" msprop:Generator_RowChangedName="get_lib_erp_currency_rateRowChanged" msprop:Generator_RowEvArgName="get_lib_erp_currency_rateRowChangeEvent" msprop:Generator_RowClassName="get_lib_erp_currency_rateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="currency_rate_id" msprop:Generator_ColumnVarNameInTable="columncurrency_rate_id" msprop:Generator_ColumnPropNameInRow="currency_rate_id" msprop:Generator_ColumnPropNameInTable="currency_rate_idColumn" msprop:Generator_UserColumnName="currency_rate_id" type="xs:string" minOccurs="0" />
+              <xs:element name="currency_id" msprop:Generator_ColumnVarNameInTable="columncurrency_id" msprop:Generator_ColumnPropNameInRow="currency_id" msprop:Generator_ColumnPropNameInTable="currency_idColumn" msprop:Generator_UserColumnName="currency_id" type="xs:string" minOccurs="0" />
+              <xs:element name="effectivitydate" msprop:Generator_ColumnVarNameInTable="columneffectivitydate" msprop:Generator_ColumnPropNameInRow="effectivitydate" msprop:Generator_ColumnPropNameInTable="effectivitydateColumn" msprop:Generator_UserColumnName="effectivitydate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="exchange_rate" msprop:Generator_ColumnVarNameInTable="columnexchange_rate" msprop:Generator_ColumnPropNameInRow="exchange_rate" msprop:Generator_ColumnPropNameInTable="exchange_rateColumn" msprop:Generator_UserColumnName="exchange_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="based_rate" msprop:Generator_ColumnVarNameInTable="columnbased_rate" msprop:Generator_ColumnPropNameInRow="based_rate" msprop:Generator_ColumnPropNameInTable="based_rateColumn" msprop:Generator_UserColumnName="based_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="currency_code" msprop:Generator_ColumnVarNameInTable="columncurrency_code" msprop:Generator_ColumnPropNameInRow="currency_code" msprop:Generator_ColumnPropNameInTable="currency_codeColumn" msprop:Generator_UserColumnName="currency_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="currency_name" msprop:Generator_ColumnVarNameInTable="columncurrency_name" msprop:Generator_ColumnPropNameInRow="currency_name" msprop:Generator_ColumnPropNameInTable="currency_nameColumn" msprop:Generator_UserColumnName="currency_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="get_lib_erp_currency" msprop:Generator_TableClassName="get_lib_erp_currencyDataTable" msprop:Generator_TableVarName="tableget_lib_erp_currency" msprop:Generator_TablePropName="get_lib_erp_currency" msprop:Generator_RowDeletingName="get_lib_erp_currencyRowDeleting" msprop:Generator_RowChangingName="get_lib_erp_currencyRowChanging" msprop:Generator_RowEvHandlerName="get_lib_erp_currencyRowChangeEventHandler" msprop:Generator_RowDeletedName="get_lib_erp_currencyRowDeleted" msprop:Generator_UserTableName="get_lib_erp_currency" msprop:Generator_RowChangedName="get_lib_erp_currencyRowChanged" msprop:Generator_RowEvArgName="get_lib_erp_currencyRowChangeEvent" msprop:Generator_RowClassName="get_lib_erp_currencyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="currency_id" msprop:Generator_ColumnVarNameInTable="columncurrency_id" msprop:Generator_ColumnPropNameInRow="currency_id" msprop:Generator_ColumnPropNameInTable="currency_idColumn" msprop:Generator_UserColumnName="currency_id" type="xs:string" minOccurs="0" />
+              <xs:element name="currency_code" msprop:Generator_ColumnVarNameInTable="columncurrency_code" msprop:Generator_ColumnPropNameInRow="currency_code" msprop:Generator_ColumnPropNameInTable="currency_codeColumn" msprop:Generator_UserColumnName="currency_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="currency_name" msprop:Generator_ColumnVarNameInTable="columncurrency_name" msprop:Generator_ColumnPropNameInRow="currency_name" msprop:Generator_ColumnPropNameInTable="currency_nameColumn" msprop:Generator_UserColumnName="currency_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="symbol" msprop:Generator_ColumnVarNameInTable="columnsymbol" msprop:Generator_ColumnPropNameInRow="symbol" msprop:Generator_ColumnPropNameInTable="symbolColumn" msprop:Generator_UserColumnName="symbol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:get_lib_erp_currency_rate" />
+      <xs:field xpath="mstns:currency_rate_id" />
+    </xs:unique>
+    <xs:unique name="get_lib_erp_currency_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:get_lib_erp_currency" />
+      <xs:field xpath="mstns:currency_id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,3487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34D88B52-57CE-46F8-B805-FAAC7C370677}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>accounting</RootNamespace>
+    <AssemblyName>accounting</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>accounting.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>accounting.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>accounting.main</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>accounting.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="connectionlib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AlasDrivers\connectionlib\bin\Debug\connectionlib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Win.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.ReportDesigner.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Service, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Web.Azure, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Reporting.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="jsonlib">
+      <HintPath>..\..\AlasDrivers\jsonlib\bin\Debug\jsonlib.dll</HintPath>
+    </Reference>
+    <Reference Include="libacctng">
+      <HintPath>..\libacctng\bin\Debug\libacctng.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="user_control">
+      <HintPath>..\user_control\bin\Debug\user_control.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dataset\accountanalysis_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>accountanalysis_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\agingset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>agingset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\AT\AT_IB.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AT_IB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\AT\AT_IB.vb">
+      <DependentUpon>AT_IB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\balancesheet_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>balancesheet_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\balancesheet_set.vb">
+      <DependentUpon>balancesheet_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\begbal.vb">
+      <DependentUpon>begbal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\begbal1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>begbal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\begbal_report_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>begbal_report_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\beg_bal_apar.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>beg_bal_apar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\beg_bal_apar.vb">
+      <DependentUpon>beg_bal_apar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\checks_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>checks_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\checks_set.vb">
+      <DependentUpon>checks_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\ewt_report_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ewt_report_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\FileSetupSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileSetupSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\FileSetupSet.vb">
+      <DependentUpon>FileSetupSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\finalewtset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>finalewtset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\fixedassetset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>fixedassetset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\fixedassetset.vb">
+      <DependentUpon>fixedassetset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\FSDesign_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FSDesign_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\general_library_report_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>general_library_report_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\general_library_report_set.vb">
+      <DependentUpon>general_library_report_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\incomestatement_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>incomestatement_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\incomestatement_set.vb">
+      <DependentUpon>incomestatement_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\inputoutputvatset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inputoutputvatset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\printbooks_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>printbooks_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\printbooks_set.vb">
+      <DependentUpon>printbooks_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\report_check_print_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_check_print_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\report_ib_dataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_ib_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\soa_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>soa_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\soa_set.vb">
+      <DependentUpon>soa_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\subsidiaryset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>subsidiaryset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\sysdefaultset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sysdefaultset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\trans_dataset1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>trans_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\trial_balance_set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>trial_balance_set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DETransaction\DEFileSetupSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DEFileSetupSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DETransaction\DEFSTableSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DEFSTableSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DETransaction\DESettings.Designer.vb">
+      <DependentUpon>DESettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DETransaction\DESettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\DETransaction\DETransactionCV.Designer.vb">
+      <DependentUpon>DETransactionCV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DETransaction\DETransactionCV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\DETransaction\DropDownSource.vb" />
+    <Compile Include="forms\DETransaction\TransactionSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactionSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\acctg_splash.Designer.vb">
+      <DependentUpon>acctg_splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\acctg_splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\approvalsetup.Designer.vb">
+      <DependentUpon>approvalsetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\approvalsetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_pre_detail.Designer.vb">
+      <DependentUpon>begbal_pre_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_pre_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\changepassword.Designer.vb">
+      <DependentUpon>changepassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\changepassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Accounts.Designer.vb">
+      <DependentUpon>Accounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Accounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Dashboard.Designer.vb">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Graph.Designer.vb">
+      <DependentUpon>Graph.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Graph.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\MDIContainerBackground.Designer.vb">
+      <DependentUpon>MDIContainerBackground.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\MDIContainerBackground.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Receivable.Designer.vb">
+      <DependentUpon>Receivable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Receivable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_accounts_print.Designer.vb">
+      <DependentUpon>report_accounts_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_accounts_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_day_print.Designer.vb">
+      <DependentUpon>report_day_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_day_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_month_print.Designer.vb">
+      <DependentUpon>report_month_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_month_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_receivable_print.Designer.vb">
+      <DependentUpon>report_receivable_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\report\report_receivable_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Sales.Designer.vb">
+      <DependentUpon>Sales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Sales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Sales_2.Designer.vb">
+      <DependentUpon>Sales_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Dashboard\Sales_2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\frmBook.Designer.vb">
+      <DependentUpon>frmBook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\frmBook.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\listofmodules.Designer.vb">
+      <DependentUpon>listofmodules.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\listofmodules.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\loading.Designer.vb">
+      <DependentUpon>loading.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\loading.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\logoff.Designer.vb">
+      <DependentUpon>logoff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\logoff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\logout.Designer.vb">
+      <DependentUpon>logout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\logout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\ModulesList.Designer.vb">
+      <DependentUpon>ModulesList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\ModulesList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\passwordrecovery.Designer.vb">
+      <DependentUpon>passwordrecovery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\passwordrecovery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\finaltax\finaltax_report_print.Designer.vb">
+      <DependentUpon>finaltax_report_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\finaltax\finaltax_report_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\ewt\ewt_report_print.Designer.vb">
+      <DependentUpon>ewt_report_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\ewt\ewt_report_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\generallibrary\general_library_report_print_2.Designer.vb">
+      <DependentUpon>general_library_report_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\generallibrary\general_library_report_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\gl_begbal\report_begbal_apar_print.Designer.vb">
+      <DependentUpon>report_begbal_apar_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\gl_begbal\report_begbal_apar_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\SplashScreen1.Designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\stagesetup.Designer.vb">
+      <DependentUpon>stagesetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\stagesetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\transactionList.Designer.vb">
+      <DependentUpon>transactionList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\transactionList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\userprofile.Designer.vb">
+      <DependentUpon>userprofile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\userprofile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\allocation.Designer.vb">
+      <DependentUpon>allocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\allocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\bank.Designer.vb">
+      <DependentUpon>bank.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\bank.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ap_detail.Designer.vb">
+      <DependentUpon>begbal_ap_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ap_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ar_detail.Designer.vb">
+      <DependentUpon>begbal_ar_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ar_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ewt_detail.Designer.vb">
+      <DependentUpon>begbal_ewt_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ewt_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_fa_detail.Designer.vb">
+      <DependentUpon>begbal_fa_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_fa_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ft_detail.Designer.vb">
+      <DependentUpon>begbal_ft_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ft_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_iv_detail.Designer.vb">
+      <DependentUpon>begbal_iv_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_iv_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ov_detail.Designer.vb">
+      <DependentUpon>begbal_ov_detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\begbal_ov_detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\details\begbal_det.Designer.vb">
+      <DependentUpon>begbal_det.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\begbal_forms\details\begbal_det.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\Book.Designer.vb">
+      <DependentUpon>Book.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\Book.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\category.Designer.vb">
+      <DependentUpon>category.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\category.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\chart.Designer.vb">
+      <DependentUpon>chart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\chart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\chartclass.Designer.vb">
+      <DependentUpon>chartclass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\chartclass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\chart_group.Designer.vb">
+      <DependentUpon>chart_group.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\chart_group.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\companyconfig.Designer.vb">
+      <DependentUpon>companyconfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\companyconfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\companyconfiguration.Designer.vb">
+      <DependentUpon>companyconfiguration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\companyconfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\connectionsettings.Designer.vb">
+      <DependentUpon>connectionsettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\connectionsettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\currency.Designer.vb">
+      <DependentUpon>currency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\currency.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\currency_rate.Designer.vb">
+      <DependentUpon>currency_rate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\currency_rate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\department.Designer.vb">
+      <DependentUpon>department.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\department.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\encrypt_decrypt.Designer.vb">
+      <DependentUpon>encrypt_decrypt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\encrypt_decrypt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\ewt.Designer.vb">
+      <DependentUpon>ewt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\ewt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\filtercodessetup.Designer.vb">
+      <DependentUpon>filtercodessetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\filtercodessetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\final_tax.Designer.vb">
+      <DependentUpon>final_tax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\final_tax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\frmlogin.Designer.vb">
+      <DependentUpon>frmlogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\frmlogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\GeneralLibrary.Designer.vb">
+      <DependentUpon>GeneralLibrary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\GeneralLibrary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\fsbeg.Designer.vb">
+      <DependentUpon>fsbeg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\fsbeg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\filter.Designer.vb">
+      <DependentUpon>filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\industry.Designer.vb">
+      <DependentUpon>industry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\industry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\input_vat.Designer.vb">
+      <DependentUpon>input_vat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\input_vat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\jbookssetup.Designer.vb">
+      <DependentUpon>jbookssetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\jbookssetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\login.Designer.vb">
+      <DependentUpon>login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\output_vat.Designer.vb">
+      <DependentUpon>output_vat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\output_vat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\project.Designer.vb">
+      <DependentUpon>project.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\project.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\chart\chart_report_filter.Designer.vb">
+      <DependentUpon>chart_report_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\chart\chart_report_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\chart\chart_report_print.Designer.vb">
+      <DependentUpon>chart_report_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\chart\chart_report_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\generallibrary\general_library_report_filter.Designer.vb">
+      <DependentUpon>general_library_report_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\generallibrary\general_library_report_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\generallibrary\general_library_report_print.Designer.vb">
+      <DependentUpon>general_library_report_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\generallibrary\general_library_report_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\gl_begbal\begbal_report.Designer.vb">
+      <DependentUpon>begbal_report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\gl_begbal\begbal_report.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\report\gl_begbal\gl_begbal_report_filter.Designer.vb">
+      <DependentUpon>gl_begbal_report_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\report\gl_begbal\gl_begbal_report_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\sample\sample101.Designer.vb">
+      <DependentUpon>sample101.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\sample\sample101.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\terms.Designer.vb">
+      <DependentUpon>terms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\terms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\usermanagement.Designer.vb">
+      <DependentUpon>usermanagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\usermanagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\userprofiledetail.Designer.vb">
+      <DependentUpon>userprofiledetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\userprofiledetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\filesetup\usersignatories.Designer.vb">
+      <DependentUpon>usersignatories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\filesetup\usersignatories.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\importaccount.Designer.vb">
+      <DependentUpon>importaccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\importaccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\multiplecodesetup.Designer.vb">
+      <DependentUpon>multiplecodesetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\multiplecodesetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\multiplegeneralsetup.Designer.vb">
+      <DependentUpon>multiplegeneralsetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\multiplegeneralsetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\report_account_analysis_print.Designer.vb">
+      <DependentUpon>report_account_analysis_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\report_account_analysis_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\report_account_analysis_print_1.Designer.vb">
+      <DependentUpon>report_account_analysis_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\accountanalysis\report_account_analysis_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\accountanlysis.Designer.vb">
+      <DependentUpon>accountanlysis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\accountanlysis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\aging\agingrange.Designer.vb">
+      <DependentUpon>agingrange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\aging\agingrange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\aging\report_aging_detailed_print.Designer.vb">
+      <DependentUpon>report_aging_detailed_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\aging\report_aging_detailed_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\aging\report_aging_summary_print.Designer.vb">
+      <DependentUpon>report_aging_summary_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\aging\report_aging_summary_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\allbook.Designer.vb">
+      <DependentUpon>allbook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\allbook.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apagingsummary.Designer.vb">
+      <DependentUpon>apagingsummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apagingsummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apdetailedaging.Designer.vb">
+      <DependentUpon>apdetailedaging.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apdetailedaging.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apsubsidiary.Designer.vb">
+      <DependentUpon>apsubsidiary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apsubsidiary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apsubsidiary\report_apsubsidiary_print.Designer.vb">
+      <DependentUpon>report_apsubsidiary_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apsubsidiary\report_apsubsidiary_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apsubsidiary\report_apsubsidiary_print_1.Designer.vb">
+      <DependentUpon>report_apsubsidiary_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apsubsidiary\report_apsubsidiary_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apsummary.Designer.vb">
+      <DependentUpon>apsummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apsummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apsummary\report_apsummary_print.Designer.vb">
+      <DependentUpon>report_apsummary_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apsummary\report_apsummary_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\apsummary\report_apsummary_print_1.Designer.vb">
+      <DependentUpon>report_apsummary_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\apsummary\report_apsummary_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\aragingsummary.Designer.vb">
+      <DependentUpon>aragingsummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\aragingsummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\ardetailedaging.Designer.vb">
+      <DependentUpon>ardetailedaging.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\ardetailedaging.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\arsubsidiary.Designer.vb">
+      <DependentUpon>arsubsidiary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\arsubsidiary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\arsubsidiary\report_arsubsidiary_print.Designer.vb">
+      <DependentUpon>report_arsubsidiary_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\arsubsidiary\report_arsubsidiary_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\arsubsidiary\report_arsubsidiary_print_1.Designer.vb">
+      <DependentUpon>report_arsubsidiary_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\arsubsidiary\report_arsubsidiary_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\arsummary.Designer.vb">
+      <DependentUpon>arsummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\arsummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\arsummary\report_arsummary_print.Designer.vb">
+      <DependentUpon>report_arsummary_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\arsummary\report_arsummary_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\arsummary\report_arsummary_print_1.Designer.vb">
+      <DependentUpon>report_arsummary_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\arsummary\report_arsummary_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet.Designer.vb">
+      <DependentUpon>balancesheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet\report_balancesheet_print.Designer.vb">
+      <DependentUpon>report_balancesheet_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet\report_balancesheet_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet\report_balancesheet_print_20171120.Designer.vb">
+      <DependentUpon>report_balancesheet_print_20171120.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet\report_balancesheet_print_20171120.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet\report_balancesheet_print_bak.Designer.vb">
+      <DependentUpon>report_balancesheet_print_bak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\balancesheet\report_balancesheet_print_bak.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\balancespreadsheet.Designer.vb">
+      <DependentUpon>balancespreadsheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\balancespreadsheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\bookprint.Designer.vb">
+      <DependentUpon>bookprint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\bookprint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\checks.Designer.vb">
+      <DependentUpon>checks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\checks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\checks\checks_report.Designer.vb">
+      <DependentUpon>checks_report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\checks\checks_report.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\ebirforms2307.Designer.vb">
+      <DependentUpon>ebirforms2307.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\ebirforms2307.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\erbirforms.Designer.vb">
+      <DependentUpon>erbirforms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\erbirforms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\ewtreport.Designer.vb">
+      <DependentUpon>ewtreport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\ewtreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print.Designer.vb">
+      <DependentUpon>report_final_ewt_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_1.Designer.vb">
+      <DependentUpon>report_final_ewt_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_2.Designer.vb">
+      <DependentUpon>report_final_ewt_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_3.Designer.vb">
+      <DependentUpon>report_final_ewt_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_4.Designer.vb">
+      <DependentUpon>report_final_ewt_print_4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_4.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_5.Designer.vb">
+      <DependentUpon>report_final_ewt_print_5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\finalewt\report_final_ewt_print_5.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign.Designer.vb">
+      <DependentUpon>fsdesign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign\fsdesign_filter.Designer.vb">
+      <DependentUpon>fsdesign_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign\fsdesign_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign\fsdesign_print.Designer.vb">
+      <DependentUpon>fsdesign_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign\fsdesign_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign\fsdesign_view.Designer.vb">
+      <DependentUpon>fsdesign_view.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fsdesign\fsdesign_view.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\incomespreadsheet.Designer.vb">
+      <DependentUpon>incomespreadsheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\incomespreadsheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement\report_incomestatement_print_bak.Designer.vb">
+      <DependentUpon>report_incomestatement_print_bak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement\report_incomestatement_print_bak.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement\report_income_statment_print_20171123.Designer.vb">
+      <DependentUpon>report_income_statment_print_20171123.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement\report_income_statment_print_20171123.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\journals.Designer.vb">
+      <DependentUpon>journals.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\journals.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\notes\fornotes.Designer.vb">
+      <DependentUpon>fornotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\notes\fornotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\general_journal_print.Designer.vb">
+      <DependentUpon>general_journal_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\general_journal_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\general_ledger_print.Designer.vb">
+      <DependentUpon>general_ledger_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\general_ledger_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\journalbooks.Designer.vb">
+      <DependentUpon>journalbooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\journalbooks.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\printbooks.Designer.vb">
+      <DependentUpon>printbooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\printbooks.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\purchase_journal_print.Designer.vb">
+      <DependentUpon>purchase_journal_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\purchase_journal_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\sales_journal_print.Designer.vb">
+      <DependentUpon>sales_journal_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\otherreports\sales_journal_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_1.Designer.vb">
+      <DependentUpon>report_prepaid_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_2.Designer.vb">
+      <DependentUpon>report_prepaid_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_3.Designer.vb">
+      <DependentUpon>report_prepaid_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_4.Designer.vb">
+      <DependentUpon>report_prepaid_print_4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\prepaid\report_prepaid_print_4.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\prepaidreport.Designer.vb">
+      <DependentUpon>prepaidreport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\prepaidreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fixedassetreport.Designer.vb">
+      <DependentUpon>fixedassetreport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fixedassetreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_1.Designer.vb">
+      <DependentUpon>report_fixedasset_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_2.Designer.vb">
+      <DependentUpon>report_fixedasset_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_3.Designer.vb">
+      <DependentUpon>report_fixedasset_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_4.Designer.vb">
+      <DependentUpon>report_fixedasset_print_4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\fixedasset\report_fixedasset_print_4.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement.Designer.vb">
+      <DependentUpon>incomestatement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement\report_incomestatement_print.Designer.vb">
+      <DependentUpon>report_incomestatement_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\incomestatement\report_incomestatement_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print.Designer.vb">
+      <DependentUpon>report_input_output_vat_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print_1.Designer.vb">
+      <DependentUpon>report_input_output_vat_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print_2.Designer.vb">
+      <DependentUpon>report_input_output_vat_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print_3.Designer.vb">
+      <DependentUpon>report_input_output_vat_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\inputoutputvat\report_input_output_vat_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\inputvat.Designer.vb">
+      <DependentUpon>inputvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\inputvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\outputvat.Designer.vb">
+      <DependentUpon>outputvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\outputvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\printingbooks.Designer.vb">
+      <DependentUpon>printingbooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\printingbooks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\purchasevat.Designer.vb">
+      <DependentUpon>purchasevat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\purchasevat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\reportddesigner.Designer.vb">
+      <DependentUpon>reportddesigner.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\reportddesigner.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\reportoption.Designer.vb">
+      <DependentUpon>reportoption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\reportoption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\reportviewer.Designer.vb">
+      <DependentUpon>reportviewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\reportviewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\salesvat.Designer.vb">
+      <DependentUpon>salesvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\salesvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\soa.Designer.vb">
+      <DependentUpon>soa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\soa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\soareport.Designer.vb">
+      <DependentUpon>soareport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\soareport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\statementaccounts\report_soa_print.Designer.vb">
+      <DependentUpon>report_soa_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\statementaccounts\report_soa_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\statementaccounts\sa_report.Designer.vb">
+      <DependentUpon>sa_report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\statementaccounts\sa_report.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance.Designer.vb">
+      <DependentUpon>trialbalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print.Designer.vb">
+      <DependentUpon>report_trialbalance_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print_1.Designer.vb">
+      <DependentUpon>report_trialbalance_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print_2.Designer.vb">
+      <DependentUpon>report_trialbalance_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print_3.Designer.vb">
+      <DependentUpon>report_trialbalance_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reports\trialbalance\report_trialbalance_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\AuditTrail\ATFilter.Designer.vb">
+      <DependentUpon>ATFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\AuditTrail\ATFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\AuditTrail\ClassTransaction\ClassFileSetupAT.vb" />
+    <Compile Include="forms\SystemConfiguration\AuditTrail\ClassTransaction\ClassFileSetupExcel.vb" />
+    <Compile Include="forms\SystemConfiguration\AuditTrail\ClassTransaction\ClassTransactionAT.vb" />
+    <Compile Include="forms\SystemConfiguration\AuditTrail\ClassTransaction\ClassTransactionExcel.vb" />
+    <Compile Include="forms\SystemConfiguration\Checks\CheckFunding.Designer.vb">
+      <DependentUpon>CheckFunding.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\Checks\CheckFunding.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\Checks\CheckReleased.Designer.vb">
+      <DependentUpon>CheckReleased.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\Checks\CheckReleased.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\Checks\Print\report_checkfunding_print.Designer.vb">
+      <DependentUpon>report_checkfunding_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\Checks\Print\report_checkfunding_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\ClosingNominalAccount.Designer.vb">
+      <DependentUpon>ClosingNominalAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\ClosingNominalAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\transactionlocking.Designer.vb">
+      <DependentUpon>transactionlocking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\transactionlocking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\transactionlockingbook.Designer.vb">
+      <DependentUpon>transactionlockingbook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemConfiguration\transactionlockingbook.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\test\Test.Designer.vb">
+      <DependentUpon>Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\test\Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ChooseCheck.Designer.vb">
+      <DependentUpon>ChooseCheck.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ChooseCheck.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\NewControls.vb" />
+    <Compile Include="forms\transactionlist\transactionap.Designer.vb">
+      <DependentUpon>transactionap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactioncr.Designer.vb">
+      <DependentUpon>transactioncr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactioncr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactioncv.Designer.vb">
+      <DependentUpon>transactioncv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactioncv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactiondc.Designer.vb">
+      <DependentUpon>transactiondc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactiondc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionib.Designer.vb">
+      <DependentUpon>transactionib.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionib.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionjb.Designer.vb">
+      <DependentUpon>transactionjb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionjb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\TransactionListing.Designer.vb">
+      <DependentUpon>TransactionListing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\TransactionListing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionpc.Designer.vb">
+      <DependentUpon>transactionpc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\transactionpc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\Transaction_List.Designer.vb">
+      <DependentUpon>Transaction_List.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\Transaction_List.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\trans_particular.Designer.vb">
+      <DependentUpon>trans_particular.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\trans_particular.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewDetails.Designer.vb">
+      <DependentUpon>ViewDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewEWT.Designer.vb">
+      <DependentUpon>ViewEWT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewEWT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewEWTOffset.Designer.vb">
+      <DependentUpon>ViewEWTOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewEWTOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFinalTax.Designer.vb">
+      <DependentUpon>ViewFinalTax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFinalTax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFinalTaxOffset.Designer.vb">
+      <DependentUpon>ViewFinalTaxOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFinalTaxOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFixedAsset.Designer.vb">
+      <DependentUpon>ViewFixedAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFixedAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFixedAssetOffset.Designer.vb">
+      <DependentUpon>ViewFixedAssetOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewFixedAssetOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewInputVat.Designer.vb">
+      <DependentUpon>ViewInputVat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewInputVat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewInputVatOffset.Designer.vb">
+      <DependentUpon>ViewInputVatOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewInputVatOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewOffset.Designer.vb">
+      <DependentUpon>ViewOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewOutputVat.Designer.vb">
+      <DependentUpon>ViewOutputVat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewOutputVat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewOutputVatOffset.Designer.vb">
+      <DependentUpon>ViewOutputVatOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewOutputVatOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewPrepaid.Designer.vb">
+      <DependentUpon>ViewPrepaid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewPrepaid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewPrepaidOffset.Designer.vb">
+      <DependentUpon>ViewPrepaidOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transactionlist\ViewSchedule\ViewPrepaidOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\browse.Designer.vb">
+      <DependentUpon>browse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\browse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\cashor.Designer.vb">
+      <DependentUpon>cashor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\cashor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\cashcv.Designer.vb">
+      <DependentUpon>cashcv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\cashcv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\duraville_voucher.Designer.vb">
+      <DependentUpon>duraville_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\duraville_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\durawood_voucher.Designer.vb">
+      <DependentUpon>durawood_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\durawood_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\hamilton_voucher.Designer.vb">
+      <DependentUpon>hamilton_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\hamilton_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\lancris_voucher.Designer.vb">
+      <DependentUpon>lancris_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\lancris_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\landcris_voucher.Designer.vb">
+      <DependentUpon>landcris_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\landcris_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\neuville_voucher.Designer.vb">
+      <DependentUpon>neuville_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\neuville_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\valiant_voucher.Designer.vb">
+      <DependentUpon>valiant_voucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\dura_report\valiant_voucher.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\EntryValidate.vb" />
+    <Compile Include="forms\transaction\frmapproval.Designer.vb">
+      <DependentUpon>frmapproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\frmapproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\messagebox.Designer.vb">
+      <DependentUpon>messagebox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\messagebox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetap.Designer.vb">
+      <DependentUpon>offsetap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetar.Designer.vb">
+      <DependentUpon>offsetar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetewt.Designer.vb">
+      <DependentUpon>offsetewt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetewt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetfinaltax.Designer.vb">
+      <DependentUpon>offsetfinaltax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetfinaltax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetfixedasset.Designer.vb">
+      <DependentUpon>offsetfixedasset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetfixedasset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetinputvat.Designer.vb">
+      <DependentUpon>offsetinputvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetinputvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetoutputvat.Designer.vb">
+      <DependentUpon>offsetoutputvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetoutputvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\offsetprepaid.Designer.vb">
+      <DependentUpon>offsetprepaid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\offsetprepaid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap.Designer.vb">
+      <DependentUpon>report_ap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_2.Designer.vb">
+      <DependentUpon>report_ap_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_filter.Designer.vb">
+      <DependentUpon>report_ap_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print.Designer.vb">
+      <DependentUpon>report_ap_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print_1.Designer.vb">
+      <DependentUpon>report_ap_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print_2.Designer.vb">
+      <DependentUpon>report_ap_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print_3.Designer.vb">
+      <DependentUpon>report_ap_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\AP\report_ap_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr.Designer.vb">
+      <DependentUpon>report_cr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_2.Designer.vb">
+      <DependentUpon>report_cr_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_filter.Designer.vb">
+      <DependentUpon>report_cr_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print.Designer.vb">
+      <DependentUpon>report_cr_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print_1.Designer.vb">
+      <DependentUpon>report_cr_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print_2.Designer.vb">
+      <DependentUpon>report_cr_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print_3.Designer.vb">
+      <DependentUpon>report_cr_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CR\report_cr_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\dura_cv.Designer.vb">
+      <DependentUpon>dura_cv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\dura_cv.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\dura_cv_nt.Designer.vb">
+      <DependentUpon>dura_cv_nt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\dura_cv_nt.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv.Designer.vb">
+      <DependentUpon>report_cv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_2.Designer.vb">
+      <DependentUpon>report_cv_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_filter.Designer.vb">
+      <DependentUpon>report_cv_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print.Designer.vb">
+      <DependentUpon>report_cv_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print_1.Designer.vb">
+      <DependentUpon>report_cv_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print_2.Designer.vb">
+      <DependentUpon>report_cv_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print_3.Designer.vb">
+      <DependentUpon>report_cv_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\CV\report_cv_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc.Designer.vb">
+      <DependentUpon>report_dc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_2.Designer.vb">
+      <DependentUpon>report_dc_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_filter.Designer.vb">
+      <DependentUpon>report_dc_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print.Designer.vb">
+      <DependentUpon>report_dc_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print_1.Designer.vb">
+      <DependentUpon>report_dc_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print_2.Designer.vb">
+      <DependentUpon>report_dc_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print_3.Designer.vb">
+      <DependentUpon>report_dc_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\DC\report_dc_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib.Designer.vb">
+      <DependentUpon>report_ib.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_2.Designer.vb">
+      <DependentUpon>report_ib_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_filter.Designer.vb">
+      <DependentUpon>report_ib_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print.Designer.vb">
+      <DependentUpon>report_ib_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print_1.Designer.vb">
+      <DependentUpon>report_ib_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print_2.Designer.vb">
+      <DependentUpon>report_ib_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print_3.Designer.vb">
+      <DependentUpon>report_ib_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\IB\report_ib_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb.Designer.vb">
+      <DependentUpon>report_jb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_2.Designer.vb">
+      <DependentUpon>report_jb_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_filter.Designer.vb">
+      <DependentUpon>report_jb_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print.Designer.vb">
+      <DependentUpon>report_jb_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print_1.Designer.vb">
+      <DependentUpon>report_jb_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print_2.Designer.vb">
+      <DependentUpon>report_jb_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print_3.Designer.vb">
+      <DependentUpon>report_jb_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\JB\report_jb_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc.Designer.vb">
+      <DependentUpon>report_pc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_2.Designer.vb">
+      <DependentUpon>report_pc_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_filter.Designer.vb">
+      <DependentUpon>report_pc_filter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_filter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print.Designer.vb">
+      <DependentUpon>report_pc_print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print_1.Designer.vb">
+      <DependentUpon>report_pc_print_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print_2.Designer.vb">
+      <DependentUpon>report_pc_print_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print_3.Designer.vb">
+      <DependentUpon>report_pc_print_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\report\PC\report_pc_print_3.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\setupewt.Designer.vb">
+      <DependentUpon>setupewt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\setupewt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\setupfinaltax.Designer.vb">
+      <DependentUpon>setupfinaltax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\setupfinaltax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\setupfixedasset.Designer.vb">
+      <DependentUpon>setupfixedasset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\setupfixedasset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\setupinputvat.Designer.vb">
+      <DependentUpon>setupinputvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\setupinputvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\setupoutputvat.Designer.vb">
+      <DependentUpon>setupoutputvat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\setupoutputvat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\setupprepaid.Designer.vb">
+      <DependentUpon>setupprepaid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\setupprepaid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\settings.Designer.vb">
+      <DependentUpon>settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transap.Designer.vb">
+      <DependentUpon>transap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transcr.Designer.vb">
+      <DependentUpon>transcr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transcr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transcv.Designer.vb">
+      <DependentUpon>transcv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transcv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transdc.Designer.vb">
+      <DependentUpon>transdc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transdc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transib.Designer.vb">
+      <DependentUpon>transib.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transib.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transjb.Designer.vb">
+      <DependentUpon>transjb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transjb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\transaction\transpc.Designer.vb">
+      <DependentUpon>transpc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\transaction\transpc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\utility\ExportResponse.Designer.vb">
+      <DependentUpon>ExportResponse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\utility\ExportResponse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\utility\ImportChartOfAccount.Designer.vb">
+      <DependentUpon>ImportChartOfAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\utility\ImportChartOfAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\utility\ImportChartOfAccountStatus.Designer.vb">
+      <DependentUpon>ImportChartOfAccountStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\utility\ImportChartOfAccountStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\utility\ImportGeneral.Designer.vb">
+      <DependentUpon>ImportGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\utility\ImportGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\utility\ImportGeneralStatus.Designer.vb">
+      <DependentUpon>ImportGeneralStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\utility\ImportGeneralStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.vb">
+      <DependentUpon>main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRibbonControllerResources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\borderedlabel.Designer.vb">
+      <DependentUpon>borderedlabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\borderedlabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="forms\DETransaction\DESettings.resx">
+      <DependentUpon>DESettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\DETransaction\DETransactionCV.resx">
+      <DependentUpon>DETransactionCV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\acctg_splash.resx">
+      <DependentUpon>acctg_splash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\approvalsetup.resx">
+      <DependentUpon>approvalsetup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_pre_detail.resx">
+      <DependentUpon>begbal_pre_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\changepassword.resx">
+      <DependentUpon>changepassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\Accounts.resx">
+      <DependentUpon>Accounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\Dashboard.resx">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\Graph.resx">
+      <DependentUpon>Graph.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\MDIContainerBackground.resx">
+      <DependentUpon>MDIContainerBackground.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\Receivable.resx">
+      <DependentUpon>Receivable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\report\report_accounts_print.resx">
+      <DependentUpon>report_accounts_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\report\report_day_print.resx">
+      <DependentUpon>report_day_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\report\report_month_print.resx">
+      <DependentUpon>report_month_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\report\report_receivable_print.resx">
+      <DependentUpon>report_receivable_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\Sales.resx">
+      <DependentUpon>Sales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Dashboard\Sales_2.resx">
+      <DependentUpon>Sales_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\frmBook.resx">
+      <DependentUpon>frmBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\listofmodules.resx">
+      <DependentUpon>listofmodules.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\loading.resx">
+      <DependentUpon>loading.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\logoff.resx">
+      <DependentUpon>logoff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\logout.resx">
+      <DependentUpon>logout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\ModulesList.resx">
+      <DependentUpon>ModulesList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\passwordrecovery.resx">
+      <DependentUpon>passwordrecovery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\finaltax\finaltax_report_print.resx">
+      <DependentUpon>finaltax_report_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\ewt\ewt_report_print.resx">
+      <DependentUpon>ewt_report_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\generallibrary\general_library_report_print_2.resx">
+      <DependentUpon>general_library_report_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\gl_begbal\report_begbal_apar_print.resx">
+      <DependentUpon>report_begbal_apar_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\stagesetup.resx">
+      <DependentUpon>stagesetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\transactionList.resx">
+      <DependentUpon>transactionList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\userprofile.resx">
+      <DependentUpon>userprofile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\allocation.resx">
+      <DependentUpon>allocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\bank.resx">
+      <DependentUpon>bank.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_ap_detail.resx">
+      <DependentUpon>begbal_ap_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_ar_detail.resx">
+      <DependentUpon>begbal_ar_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_ewt_detail.resx">
+      <DependentUpon>begbal_ewt_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_fa_detail.resx">
+      <DependentUpon>begbal_fa_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_ft_detail.resx">
+      <DependentUpon>begbal_ft_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_iv_detail.resx">
+      <DependentUpon>begbal_iv_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\begbal_ov_detail.resx">
+      <DependentUpon>begbal_ov_detail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\begbal_forms\details\begbal_det.resx">
+      <DependentUpon>begbal_det.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\Book.resx">
+      <DependentUpon>Book.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\category.resx">
+      <DependentUpon>category.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\chart.resx">
+      <DependentUpon>chart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\chartclass.resx">
+      <DependentUpon>chartclass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\chart_group.resx">
+      <DependentUpon>chart_group.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\companyconfig.resx">
+      <DependentUpon>companyconfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\companyconfiguration.resx">
+      <DependentUpon>companyconfiguration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\connectionsettings.resx">
+      <DependentUpon>connectionsettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\currency.resx">
+      <DependentUpon>currency.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\currency_rate.resx">
+      <DependentUpon>currency_rate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\department.resx">
+      <DependentUpon>department.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\encrypt_decrypt.resx">
+      <DependentUpon>encrypt_decrypt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\ewt.resx">
+      <DependentUpon>ewt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\filtercodessetup.resx">
+      <DependentUpon>filtercodessetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\final_tax.resx">
+      <DependentUpon>final_tax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\frmlogin.resx">
+      <DependentUpon>frmlogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\GeneralLibrary.resx">
+      <DependentUpon>GeneralLibrary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\fsbeg.resx">
+      <DependentUpon>fsbeg.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\filter.resx">
+      <DependentUpon>filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\industry.resx">
+      <DependentUpon>industry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\input_vat.resx">
+      <DependentUpon>input_vat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\jbookssetup.resx">
+      <DependentUpon>jbookssetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\login.resx">
+      <DependentUpon>login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\output_vat.resx">
+      <DependentUpon>output_vat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\project.resx">
+      <DependentUpon>project.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\chart\chart_report_filter.resx">
+      <DependentUpon>chart_report_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\chart\chart_report_print.resx">
+      <DependentUpon>chart_report_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\generallibrary\general_library_report_filter.resx">
+      <DependentUpon>general_library_report_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\generallibrary\general_library_report_print.resx">
+      <DependentUpon>general_library_report_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\gl_begbal\begbal_report.resx">
+      <DependentUpon>begbal_report.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\report\gl_begbal\gl_begbal_report_filter.resx">
+      <DependentUpon>gl_begbal_report_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\sample\sample101.resx">
+      <DependentUpon>sample101.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\terms.resx">
+      <DependentUpon>terms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\usermanagement.resx">
+      <DependentUpon>usermanagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\userprofiledetail.resx">
+      <DependentUpon>userprofiledetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\filesetup\usersignatories.resx">
+      <DependentUpon>usersignatories.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\accountanalysis\importaccount.resx">
+      <DependentUpon>importaccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\accountanalysis\multiplecodesetup.resx">
+      <DependentUpon>multiplecodesetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\accountanalysis\multiplegeneralsetup.resx">
+      <DependentUpon>multiplegeneralsetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\accountanalysis\report_account_analysis_print.resx">
+      <DependentUpon>report_account_analysis_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\accountanalysis\report_account_analysis_print_1.resx">
+      <DependentUpon>report_account_analysis_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\accountanlysis.resx">
+      <DependentUpon>accountanlysis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\aging\agingrange.resx">
+      <DependentUpon>agingrange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\aging\report_aging_detailed_print.resx">
+      <DependentUpon>report_aging_detailed_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\aging\report_aging_summary_print.resx">
+      <DependentUpon>report_aging_summary_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\allbook.resx">
+      <DependentUpon>allbook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apagingsummary.resx">
+      <DependentUpon>apagingsummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apdetailedaging.resx">
+      <DependentUpon>apdetailedaging.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apsubsidiary.resx">
+      <DependentUpon>apsubsidiary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apsubsidiary\report_apsubsidiary_print.resx">
+      <DependentUpon>report_apsubsidiary_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apsubsidiary\report_apsubsidiary_print_1.resx">
+      <DependentUpon>report_apsubsidiary_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apsummary.resx">
+      <DependentUpon>apsummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apsummary\report_apsummary_print.resx">
+      <DependentUpon>report_apsummary_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\apsummary\report_apsummary_print_1.resx">
+      <DependentUpon>report_apsummary_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\aragingsummary.resx">
+      <DependentUpon>aragingsummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\ardetailedaging.resx">
+      <DependentUpon>ardetailedaging.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\arsubsidiary.resx">
+      <DependentUpon>arsubsidiary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\arsubsidiary\report_arsubsidiary_print.resx">
+      <DependentUpon>report_arsubsidiary_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\arsubsidiary\report_arsubsidiary_print_1.resx">
+      <DependentUpon>report_arsubsidiary_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\arsummary.resx">
+      <DependentUpon>arsummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\arsummary\report_arsummary_print.resx">
+      <DependentUpon>report_arsummary_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\arsummary\report_arsummary_print_1.resx">
+      <DependentUpon>report_arsummary_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\balancesheet.resx">
+      <DependentUpon>balancesheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\balancesheet\report_balancesheet_print.resx">
+      <DependentUpon>report_balancesheet_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\balancesheet\report_balancesheet_print_20171120.resx">
+      <DependentUpon>report_balancesheet_print_20171120.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\balancesheet\report_balancesheet_print_bak.resx">
+      <DependentUpon>report_balancesheet_print_bak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\balancespreadsheet.resx">
+      <DependentUpon>balancespreadsheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\bookprint.resx">
+      <DependentUpon>bookprint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\checks.resx">
+      <DependentUpon>checks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\checks\checks_report.resx">
+      <DependentUpon>checks_report.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\ebirforms2307.resx">
+      <DependentUpon>ebirforms2307.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\erbirforms.resx">
+      <DependentUpon>erbirforms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\ewtreport.resx">
+      <DependentUpon>ewtreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\finalewt\report_final_ewt_print.resx">
+      <DependentUpon>report_final_ewt_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\finalewt\report_final_ewt_print_1.resx">
+      <DependentUpon>report_final_ewt_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\finalewt\report_final_ewt_print_2.resx">
+      <DependentUpon>report_final_ewt_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\finalewt\report_final_ewt_print_3.resx">
+      <DependentUpon>report_final_ewt_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\finalewt\report_final_ewt_print_4.resx">
+      <DependentUpon>report_final_ewt_print_4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\finalewt\report_final_ewt_print_5.resx">
+      <DependentUpon>report_final_ewt_print_5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fsdesign.resx">
+      <DependentUpon>fsdesign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fsdesign\fsdesign_filter.resx">
+      <DependentUpon>fsdesign_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fsdesign\fsdesign_print.resx">
+      <DependentUpon>fsdesign_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fsdesign\fsdesign_view.resx">
+      <DependentUpon>fsdesign_view.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\incomespreadsheet.resx">
+      <DependentUpon>incomespreadsheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\incomestatement\report_incomestatement_print_bak.resx">
+      <DependentUpon>report_incomestatement_print_bak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\incomestatement\report_income_statment_print_20171123.resx">
+      <DependentUpon>report_income_statment_print_20171123.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\journals.resx">
+      <DependentUpon>journals.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\notes\fornotes.resx">
+      <DependentUpon>fornotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\otherreports\general_journal_print.resx">
+      <DependentUpon>general_journal_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\otherreports\general_ledger_print.resx">
+      <DependentUpon>general_ledger_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\otherreports\journalbooks.resx">
+      <DependentUpon>journalbooks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\otherreports\printbooks.resx">
+      <DependentUpon>printbooks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\otherreports\purchase_journal_print.resx">
+      <DependentUpon>purchase_journal_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\otherreports\sales_journal_print.resx">
+      <DependentUpon>sales_journal_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\prepaid\report_prepaid_print_1.resx">
+      <DependentUpon>report_prepaid_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\prepaid\report_prepaid_print_2.resx">
+      <DependentUpon>report_prepaid_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\prepaid\report_prepaid_print_3.resx">
+      <DependentUpon>report_prepaid_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\prepaid\report_prepaid_print_4.resx">
+      <DependentUpon>report_prepaid_print_4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\prepaidreport.resx">
+      <DependentUpon>prepaidreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fixedassetreport.resx">
+      <DependentUpon>fixedassetreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fixedasset\report_fixedasset_print_1.resx">
+      <DependentUpon>report_fixedasset_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fixedasset\report_fixedasset_print_2.resx">
+      <DependentUpon>report_fixedasset_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fixedasset\report_fixedasset_print_3.resx">
+      <DependentUpon>report_fixedasset_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\fixedasset\report_fixedasset_print_4.resx">
+      <DependentUpon>report_fixedasset_print_4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\incomestatement.resx">
+      <DependentUpon>incomestatement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\incomestatement\report_incomestatement_print.resx">
+      <DependentUpon>report_incomestatement_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\inputoutputvat\report_input_output_vat_print.resx">
+      <DependentUpon>report_input_output_vat_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\inputoutputvat\report_input_output_vat_print_1.resx">
+      <DependentUpon>report_input_output_vat_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\inputoutputvat\report_input_output_vat_print_2.resx">
+      <DependentUpon>report_input_output_vat_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\inputoutputvat\report_input_output_vat_print_3.resx">
+      <DependentUpon>report_input_output_vat_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\inputvat.resx">
+      <DependentUpon>inputvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\outputvat.resx">
+      <DependentUpon>outputvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\printingbooks.resx">
+      <DependentUpon>printingbooks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\purchasevat.resx">
+      <DependentUpon>purchasevat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\reportddesigner.resx">
+      <DependentUpon>reportddesigner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\reportoption.resx">
+      <DependentUpon>reportoption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\reportviewer.resx">
+      <DependentUpon>reportviewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\salesvat.resx">
+      <DependentUpon>salesvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\soa.resx">
+      <DependentUpon>soa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\soareport.resx">
+      <DependentUpon>soareport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\statementaccounts\report_soa_print.resx">
+      <DependentUpon>report_soa_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\statementaccounts\sa_report.resx">
+      <DependentUpon>sa_report.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\trialbalance.resx">
+      <DependentUpon>trialbalance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\trialbalance\report_trialbalance_print.resx">
+      <DependentUpon>report_trialbalance_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\trialbalance\report_trialbalance_print_1.resx">
+      <DependentUpon>report_trialbalance_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\trialbalance\report_trialbalance_print_2.resx">
+      <DependentUpon>report_trialbalance_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\reports\trialbalance\report_trialbalance_print_3.resx">
+      <DependentUpon>report_trialbalance_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\AuditTrail\ATFilter.resx">
+      <DependentUpon>ATFilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\Checks\CheckFunding.resx">
+      <DependentUpon>CheckFunding.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\Checks\CheckReleased.resx">
+      <DependentUpon>CheckReleased.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\Checks\Print\report_checkfunding_print.resx">
+      <DependentUpon>report_checkfunding_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\ClosingNominalAccount.resx">
+      <DependentUpon>ClosingNominalAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\transactionlocking.resx">
+      <DependentUpon>transactionlocking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemConfiguration\transactionlockingbook.resx">
+      <DependentUpon>transactionlockingbook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\test\Test.resx">
+      <DependentUpon>Test.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ChooseCheck.resx">
+      <DependentUpon>ChooseCheck.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactionap.resx">
+      <DependentUpon>transactionap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactioncr.resx">
+      <DependentUpon>transactioncr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactioncv.resx">
+      <DependentUpon>transactioncv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactiondc.resx">
+      <DependentUpon>transactiondc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactionib.resx">
+      <DependentUpon>transactionib.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactionjb.resx">
+      <DependentUpon>transactionjb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\TransactionListing.resx">
+      <DependentUpon>TransactionListing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\transactionpc.resx">
+      <DependentUpon>transactionpc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\Transaction_List.resx">
+      <DependentUpon>Transaction_List.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\trans_particular.resx">
+      <DependentUpon>trans_particular.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewDetails.resx">
+      <DependentUpon>ViewDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewEWT.resx">
+      <DependentUpon>ViewEWT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewEWTOffset.resx">
+      <DependentUpon>ViewEWTOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewFinalTax.resx">
+      <DependentUpon>ViewFinalTax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewFinalTaxOffset.resx">
+      <DependentUpon>ViewFinalTaxOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewFixedAsset.resx">
+      <DependentUpon>ViewFixedAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewFixedAssetOffset.resx">
+      <DependentUpon>ViewFixedAssetOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewInputVat.resx">
+      <DependentUpon>ViewInputVat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewInputVatOffset.resx">
+      <DependentUpon>ViewInputVatOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewOffset.resx">
+      <DependentUpon>ViewOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewOutputVat.resx">
+      <DependentUpon>ViewOutputVat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewOutputVatOffset.resx">
+      <DependentUpon>ViewOutputVatOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewPrepaid.resx">
+      <DependentUpon>ViewPrepaid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionlist\ViewSchedule\ViewPrepaidOffset.resx">
+      <DependentUpon>ViewPrepaidOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\browse.resx">
+      <DependentUpon>browse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\cashor.resx">
+      <DependentUpon>cashor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\cashcv.resx">
+      <DependentUpon>cashcv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\duraville_voucher.resx">
+      <DependentUpon>duraville_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\durawood_voucher.resx">
+      <DependentUpon>durawood_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\hamilton_voucher.resx">
+      <DependentUpon>hamilton_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\lancris_voucher.resx">
+      <DependentUpon>lancris_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\landcris_voucher.resx">
+      <DependentUpon>landcris_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\neuville_voucher.resx">
+      <DependentUpon>neuville_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\dura_report\valiant_voucher.resx">
+      <DependentUpon>valiant_voucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\frmapproval.resx">
+      <DependentUpon>frmapproval.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\messagebox.resx">
+      <DependentUpon>messagebox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetap.resx">
+      <DependentUpon>offsetap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetar.resx">
+      <DependentUpon>offsetar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetewt.resx">
+      <DependentUpon>offsetewt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetfinaltax.resx">
+      <DependentUpon>offsetfinaltax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetfixedasset.resx">
+      <DependentUpon>offsetfixedasset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetinputvat.resx">
+      <DependentUpon>offsetinputvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetoutputvat.resx">
+      <DependentUpon>offsetoutputvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\offsetprepaid.resx">
+      <DependentUpon>offsetprepaid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap.resx">
+      <DependentUpon>report_ap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap_2.resx">
+      <DependentUpon>report_ap_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap_filter.resx">
+      <DependentUpon>report_ap_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap_print.resx">
+      <DependentUpon>report_ap_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap_print_1.resx">
+      <DependentUpon>report_ap_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap_print_2.resx">
+      <DependentUpon>report_ap_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\AP\report_ap_print_3.resx">
+      <DependentUpon>report_ap_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr.resx">
+      <DependentUpon>report_cr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr_2.resx">
+      <DependentUpon>report_cr_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr_filter.resx">
+      <DependentUpon>report_cr_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr_print.resx">
+      <DependentUpon>report_cr_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr_print_1.resx">
+      <DependentUpon>report_cr_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr_print_2.resx">
+      <DependentUpon>report_cr_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CR\report_cr_print_3.resx">
+      <DependentUpon>report_cr_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\dura_cv.resx">
+      <DependentUpon>dura_cv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\dura_cv_nt.resx">
+      <DependentUpon>dura_cv_nt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv.resx">
+      <DependentUpon>report_cv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv_2.resx">
+      <DependentUpon>report_cv_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv_filter.resx">
+      <DependentUpon>report_cv_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv_print.resx">
+      <DependentUpon>report_cv_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv_print_1.resx">
+      <DependentUpon>report_cv_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv_print_2.resx">
+      <DependentUpon>report_cv_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\CV\report_cv_print_3.resx">
+      <DependentUpon>report_cv_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc.resx">
+      <DependentUpon>report_dc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc_2.resx">
+      <DependentUpon>report_dc_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc_filter.resx">
+      <DependentUpon>report_dc_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc_print.resx">
+      <DependentUpon>report_dc_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc_print_1.resx">
+      <DependentUpon>report_dc_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc_print_2.resx">
+      <DependentUpon>report_dc_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\DC\report_dc_print_3.resx">
+      <DependentUpon>report_dc_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib.resx">
+      <DependentUpon>report_ib.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib_2.resx">
+      <DependentUpon>report_ib_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib_filter.resx">
+      <DependentUpon>report_ib_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib_print.resx">
+      <DependentUpon>report_ib_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib_print_1.resx">
+      <DependentUpon>report_ib_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib_print_2.resx">
+      <DependentUpon>report_ib_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\IB\report_ib_print_3.resx">
+      <DependentUpon>report_ib_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb.resx">
+      <DependentUpon>report_jb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb_2.resx">
+      <DependentUpon>report_jb_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb_filter.resx">
+      <DependentUpon>report_jb_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb_print.resx">
+      <DependentUpon>report_jb_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb_print_1.resx">
+      <DependentUpon>report_jb_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb_print_2.resx">
+      <DependentUpon>report_jb_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\JB\report_jb_print_3.resx">
+      <DependentUpon>report_jb_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc.resx">
+      <DependentUpon>report_pc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc_2.resx">
+      <DependentUpon>report_pc_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc_filter.resx">
+      <DependentUpon>report_pc_filter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc_print.resx">
+      <DependentUpon>report_pc_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc_print_1.resx">
+      <DependentUpon>report_pc_print_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc_print_2.resx">
+      <DependentUpon>report_pc_print_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\report\PC\report_pc_print_3.resx">
+      <DependentUpon>report_pc_print_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\setupewt.resx">
+      <DependentUpon>setupewt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\setupfinaltax.resx">
+      <DependentUpon>setupfinaltax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\setupfixedasset.resx">
+      <DependentUpon>setupfixedasset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\setupinputvat.resx">
+      <DependentUpon>setupinputvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\setupoutputvat.resx">
+      <DependentUpon>setupoutputvat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\setupprepaid.resx">
+      <DependentUpon>setupprepaid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\settings.resx">
+      <DependentUpon>settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transap.resx">
+      <DependentUpon>transap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transcr.resx">
+      <DependentUpon>transcr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transcv.resx">
+      <DependentUpon>transcv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transdc.resx">
+      <DependentUpon>transdc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transib.resx">
+      <DependentUpon>transib.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transjb.resx">
+      <DependentUpon>transjb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transaction\transpc.resx">
+      <DependentUpon>transpc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\utility\ExportResponse.resx">
+      <DependentUpon>ExportResponse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\utility\ImportChartOfAccount.resx">
+      <DependentUpon>ImportChartOfAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\utility\ImportChartOfAccountStatus.resx">
+      <DependentUpon>ImportChartOfAccountStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\utility\ImportGeneral.resx">
+      <DependentUpon>ImportGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\utility\ImportGeneralStatus.resx">
+      <DependentUpon>ImportGeneralStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="dataset\accountanalysis_set.xsc">
+      <DependentUpon>accountanalysis_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\accountanalysis_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>accountanalysis_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\accountanalysis_set.xss">
+      <DependentUpon>accountanalysis_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\agingset.xsc">
+      <DependentUpon>agingset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\agingset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>agingset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\agingset.xss">
+      <DependentUpon>agingset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\AT\AT_IB.xsc">
+      <DependentUpon>AT_IB.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\AT\AT_IB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AT_IB.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\AT\AT_IB.xss">
+      <DependentUpon>AT_IB.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\balancesheet_set.xsc">
+      <DependentUpon>balancesheet_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\balancesheet_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>balancesheet_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\balancesheet_set.xss">
+      <DependentUpon>balancesheet_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\begbal.xsc">
+      <DependentUpon>begbal.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\begbal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>begbal1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\begbal.xss">
+      <DependentUpon>begbal.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\begbal_report_set.xsc">
+      <DependentUpon>begbal_report_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\begbal_report_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>begbal_report_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\begbal_report_set.xss">
+      <DependentUpon>begbal_report_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\beg_bal_apar.xsc">
+      <DependentUpon>beg_bal_apar.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\beg_bal_apar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>beg_bal_apar.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\beg_bal_apar.xss">
+      <DependentUpon>beg_bal_apar.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\checks_set.xsc">
+      <DependentUpon>checks_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\checks_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>checks_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\checks_set.xss">
+      <DependentUpon>checks_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\ewt_report_set.xsc">
+      <DependentUpon>ewt_report_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\ewt_report_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ewt_report_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\ewt_report_set.xss">
+      <DependentUpon>ewt_report_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\FileSetupSet.xsc">
+      <DependentUpon>FileSetupSet.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\FileSetupSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FileSetupSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\FileSetupSet.xss">
+      <DependentUpon>FileSetupSet.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\finalewtset.xsc">
+      <DependentUpon>finalewtset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\finalewtset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>finalewtset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\finalewtset.xss">
+      <DependentUpon>finalewtset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\fixedassetset.xsc">
+      <DependentUpon>fixedassetset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\fixedassetset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>fixedassetset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\fixedassetset.xss">
+      <DependentUpon>fixedassetset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\FSDesign_set.xsc">
+      <DependentUpon>FSDesign_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\FSDesign_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FSDesign_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\FSDesign_set.xss">
+      <DependentUpon>FSDesign_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\general_library_report_set.xsc">
+      <DependentUpon>general_library_report_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\general_library_report_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>general_library_report_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\general_library_report_set.xss">
+      <DependentUpon>general_library_report_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\incomestatement_set.xsc">
+      <DependentUpon>incomestatement_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\incomestatement_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>incomestatement_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\incomestatement_set.xss">
+      <DependentUpon>incomestatement_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\inputoutputvatset.xsc">
+      <DependentUpon>inputoutputvatset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\inputoutputvatset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inputoutputvatset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\inputoutputvatset.xss">
+      <DependentUpon>inputoutputvatset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\printbooks_set.xsc">
+      <DependentUpon>printbooks_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\printbooks_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>printbooks_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\printbooks_set.xss">
+      <DependentUpon>printbooks_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\report_check_print_set.xsc">
+      <DependentUpon>report_check_print_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\report_check_print_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>report_check_print_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\report_check_print_set.xss">
+      <DependentUpon>report_check_print_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\report_ib_dataset.xsc">
+      <DependentUpon>report_ib_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\report_ib_dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>report_ib_dataset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\report_ib_dataset.xss">
+      <DependentUpon>report_ib_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\soa_set.xsc">
+      <DependentUpon>soa_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\soa_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>soa_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\soa_set.xss">
+      <DependentUpon>soa_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\subsidiaryset.xsc">
+      <DependentUpon>subsidiaryset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\subsidiaryset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>subsidiaryset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\subsidiaryset.xss">
+      <DependentUpon>subsidiaryset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\sysdefaultset.xsc">
+      <DependentUpon>sysdefaultset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\sysdefaultset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sysdefaultset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\sysdefaultset.xss">
+      <DependentUpon>sysdefaultset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\trans_dataset.xsc">
+      <DependentUpon>trans_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\trans_dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>trans_dataset1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\trans_dataset.xss">
+      <DependentUpon>trans_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\trial_balance_set.xsc">
+      <DependentUpon>trial_balance_set.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\trial_balance_set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>trial_balance_set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dataset\trial_balance_set.xss">
+      <DependentUpon>trial_balance_set.xsd</DependentUpon>
+    </None>
+    <None Include="forms\DETransaction\DEFileSetupSet.xsc">
+      <DependentUpon>DEFileSetupSet.xsd</DependentUpon>
+    </None>
+    <None Include="forms\DETransaction\DEFileSetupSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DEFileSetupSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="forms\DETransaction\DEFileSetupSet.xss">
+      <DependentUpon>DEFileSetupSet.xsd</DependentUpon>
+    </None>
+    <None Include="forms\DETransaction\DEFSTableSet.xsc">
+      <DependentUpon>DEFSTableSet.xsd</DependentUpon>
+    </None>
+    <None Include="forms\DETransaction\DEFSTableSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DEFSTableSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="forms\DETransaction\DEFSTableSet.xss">
+      <DependentUpon>DEFSTableSet.xsd</DependentUpon>
+    </None>
+    <None Include="forms\DETransaction\TransactionSet.xsc">
+      <DependentUpon>TransactionSet.xsd</DependentUpon>
+    </None>
+    <None Include="forms\DETransaction\TransactionSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TransactionSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="forms\DETransaction\TransactionSet.xss">
+      <DependentUpon>TransactionSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="accounting.ico" />
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\Positive.bmp" />
+    <None Include="bin\Debug\img\gear.png" />
+    <Content Include="Resources\loading.gif" />
+    <Content Include="entreprenuer.ico" />
+    <Content Include="GLOBAL.ICO" />
+    <None Include="Resources\Background.jpg" />
+    <None Include="Resources\Critical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="forms\reports\allbook\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

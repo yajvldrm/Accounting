@@ -1,0 +1,7 @@
+﻿Imports System.Windows.Forms
+Imports connectionlib.connectionlib
+Imports libacctng.myFunctions
+
+Public Class begbal_pre_detail
+    
+End Class

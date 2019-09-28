@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SubCon_management_analysis" targetNamespace="http://tempuri.org/SubCon_management_analysis.xsd" xmlns:mstns="http://tempuri.org/SubCon_management_analysis.xsd" xmlns="http://tempuri.org/SubCon_management_analysis.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SubCon_management_analysis" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SubCon_management_analysis" msprop:Generator_UserDSName="SubCon_management_analysis">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sc_management_analysis" msprop:Generator_TableClassName="sc_management_analysisDataTable" msprop:Generator_TableVarName="tablesc_management_analysis" msprop:Generator_TablePropName="sc_management_analysis" msprop:Generator_RowDeletingName="sc_management_analysisRowDeleting" msprop:Generator_RowChangingName="sc_management_analysisRowChanging" msprop:Generator_RowEvHandlerName="sc_management_analysisRowChangeEventHandler" msprop:Generator_RowDeletedName="sc_management_analysisRowDeleted" msprop:Generator_UserTableName="sc_management_analysis" msprop:Generator_RowChangedName="sc_management_analysisRowChanged" msprop:Generator_RowEvArgName="sc_management_analysisRowChangeEvent" msprop:Generator_RowClassName="sc_management_analysisRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sc_year" msprop:Generator_ColumnVarNameInTable="columnsc_year" msprop:Generator_ColumnPropNameInRow="sc_year" msprop:Generator_ColumnPropNameInTable="sc_yearColumn" msprop:Generator_UserColumnName="sc_year" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="trans_date" msprop:Generator_ColumnVarNameInTable="columntrans_date" msprop:Generator_ColumnPropNameInRow="trans_date" msprop:Generator_ColumnPropNameInTable="trans_dateColumn" msprop:Generator_UserColumnName="trans_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="project_name" msprop:Generator_ColumnVarNameInTable="columnproject_name" msprop:Generator_ColumnPropNameInRow="project_name" msprop:Generator_ColumnPropNameInTable="project_nameColumn" msprop:Generator_UserColumnName="project_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="subconname" msprop:Generator_ColumnVarNameInTable="columnsubconname" msprop:Generator_ColumnPropNameInRow="subconname" msprop:Generator_ColumnPropNameInTable="subconnameColumn" msprop:Generator_UserColumnName="subconname" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="const_period" msprop:Generator_ColumnVarNameInTable="columnconst_period" msprop:Generator_ColumnPropNameInRow="const_period" msprop:Generator_ColumnPropNameInTable="const_periodColumn" msprop:Generator_UserColumnName="const_period" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="po_no" msprop:Generator_ColumnVarNameInTable="columnpo_no" msprop:Generator_ColumnPropNameInRow="po_no" msprop:Generator_ColumnPropNameInTable="po_noColumn" msprop:Generator_UserColumnName="po_no" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="department_code" msprop:Generator_ColumnVarNameInTable="columndepartment_code" msprop:Generator_ColumnPropNameInRow="department_code" msprop:Generator_ColumnPropNameInTable="department_codeColumn" msprop:Generator_UserColumnName="department_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="general_name" msprop:Generator_ColumnVarNameInTable="columngeneral_name" msprop:Generator_ColumnPropNameInRow="general_name" msprop:Generator_ColumnPropNameInTable="general_nameColumn" msprop:Generator_UserColumnName="general_name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="billed_amount" msprop:Generator_ColumnVarNameInTable="columnbilled_amount" msprop:Generator_ColumnPropNameInRow="billed_amount" msprop:Generator_ColumnPropNameInTable="billed_amountColumn" msprop:Generator_UserColumnName="billed_amount" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="unbilled" msprop:Generator_ColumnVarNameInTable="columnunbilled" msprop:Generator_ColumnPropNameInRow="unbilled" msprop:Generator_ColumnPropNameInTable="unbilledColumn" msprop:Generator_UserColumnName="unbilled" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="amount_collected" msprop:Generator_ColumnVarNameInTable="columnamount_collected" msprop:Generator_ColumnPropNameInRow="amount_collected" msprop:Generator_ColumnPropNameInTable="amount_collectedColumn" msprop:Generator_UserColumnName="amount_collected" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="unpaid" msprop:Generator_ColumnVarNameInTable="columnunpaid" msprop:Generator_ColumnPropNameInRow="unpaid" msprop:Generator_ColumnPropNameInTable="unpaidColumn" msprop:Generator_UserColumnName="unpaid" type="xs:decimal" default="0.00" minOccurs="0" />
+              <xs:element name="project_code" msprop:Generator_ColumnVarNameInTable="columnproject_code" msprop:Generator_ColumnPropNameInRow="project_code" msprop:Generator_ColumnPropNameInTable="project_codeColumn" msprop:Generator_UserColumnName="project_code" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="subConid" msprop:Generator_ColumnVarNameInTable="columnsubConid" msprop:Generator_ColumnPropNameInRow="subConid" msprop:Generator_ColumnPropNameInTable="subConidColumn" msprop:Generator_UserColumnName="subConid" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="currency_id" msprop:Generator_ColumnVarNameInTable="columncurrency_id" msprop:Generator_ColumnPropNameInRow="currency_id" msprop:Generator_ColumnPropNameInTable="currency_idColumn" msprop:Generator_UserColumnName="currency_id" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="currency" msdata:Caption="Currency" msprop:Generator_ColumnVarNameInTable="columncurrency" msprop:Generator_ColumnPropNameInRow="currency" msprop:Generator_ColumnPropNameInTable="currencyColumn" msprop:Generator_UserColumnName="currency" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

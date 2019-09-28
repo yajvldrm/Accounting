@@ -1,0 +1,1050 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class begbal_pre_detail
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.txt_amount = New user_control.textbox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.btnInsert = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txt_total_based = New user_control.textbox()
+        Me.dgMain = New System.Windows.Forms.DataGridView()
+        Me.sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.prepaid_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ref_no = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.description = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.useful_life = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txt_ref_no = New user_control.textbox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txt_department = New user_control.textbox()
+        Me.txt_account_name = New user_control.textbox()
+        Me.txt_project = New user_control.textbox()
+        Me.txt_account = New user_control.textbox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.border1 = New accounting.borderedlabel()
+        Me.txt_total_amount = New user_control.textbox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txt_description = New user_control.textbox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txt_debit_based = New user_control.textbox()
+        Me.txt_amount_based = New user_control.textbox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txt_based_rate = New user_control.textbox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txt_exchange_rate = New user_control.textbox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txt_currency_id = New user_control.textbox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txt_date_start = New System.Windows.Forms.DateTimePicker()
+        Me.txt_date_acquired = New System.Windows.Forms.DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txt_prepaid_id = New user_control.textbox()
+        Me.txt_useful_life = New user_control.textbox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.panel_hdr = New System.Windows.Forms.Panel()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.btnNotSave = New System.Windows.Forms.Button()
+        Me.Myformheader1 = New user_control.myformheader()
+        CType(Me.dgMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.panel_hdr.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'txt_amount
+        '
+        Me.txt_amount._Text = ""
+        Me.txt_amount.AlwaysDisable = False
+        Me.txt_amount.AlwaysEnable = False
+        Me.txt_amount.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_amount.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_amount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_amount.DataSource = ""
+        Me.txt_amount.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_amount.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_amount.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_amount.Enabled = False
+        Me.txt_amount.Location = New System.Drawing.Point(106, 99)
+        Me.txt_amount.MultiLine = False
+        Me.txt_amount.Name = "txt_amount"
+        Me.txt_amount.NoClear = False
+        Me.txt_amount.NumberFormat = "##,##0.00"
+        Me.txt_amount.Required = False
+        Me.txt_amount.RowData = Nothing
+        Me.txt_amount.SelectionLength = 0
+        Me.txt_amount.SelectionStart = 0
+        Me.txt_amount.Size = New System.Drawing.Size(140, 20)
+        Me.txt_amount.TabIndex = 8
+        Me.txt_amount.TableData = Nothing
+        Me.txt_amount.Tag = ""
+        Me.txt_amount.TextSource = ""
+        Me.txt_amount.UseSystemPasswordChar = False
+        Me.txt_amount.Value = ""
+        Me.txt_amount.ValueSource = ""
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(413, 293)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(31, 13)
+        Me.Label9.TabIndex = 232
+        Me.Label9.Text = "Total"
+        '
+        'btnInsert
+        '
+        Me.btnInsert.BackColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.btnInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(144, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(162, Byte), Integer))
+        Me.btnInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(144, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(162, Byte), Integer))
+        Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInsert.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInsert.ForeColor = System.Drawing.Color.White
+        Me.btnInsert.Location = New System.Drawing.Point(20, 323)
+        Me.btnInsert.Name = "btnInsert"
+        Me.btnInsert.Size = New System.Drawing.Size(114, 23)
+        Me.btnInsert.TabIndex = 226
+        Me.btnInsert.Tag = "btnInsert"
+        Me.btnInsert.Text = "Insert an Entry"
+        Me.btnInsert.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(25, 11)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(75, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Account Code"
+        '
+        'txt_total_based
+        '
+        Me.txt_total_based._Text = ""
+        Me.txt_total_based.AlwaysDisable = True
+        Me.txt_total_based.AlwaysEnable = False
+        Me.txt_total_based.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_total_based.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_total_based.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_total_based.DataSource = ""
+        Me.txt_total_based.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_total_based.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_total_based.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_total_based.Enabled = False
+        Me.txt_total_based.Location = New System.Drawing.Point(232, 293)
+        Me.txt_total_based.MultiLine = False
+        Me.txt_total_based.Name = "txt_total_based"
+        Me.txt_total_based.NoClear = False
+        Me.txt_total_based.NumberFormat = "##,##0.00"
+        Me.txt_total_based.Required = False
+        Me.txt_total_based.RowData = Nothing
+        Me.txt_total_based.SelectionLength = 0
+        Me.txt_total_based.SelectionStart = 0
+        Me.txt_total_based.Size = New System.Drawing.Size(100, 23)
+        Me.txt_total_based.TabIndex = 235
+        Me.txt_total_based.TableData = Nothing
+        Me.txt_total_based.TextSource = ""
+        Me.txt_total_based.UseSystemPasswordChar = False
+        Me.txt_total_based.Value = "0.00"
+        Me.txt_total_based.ValueSource = ""
+        Me.txt_total_based.Visible = False
+        '
+        'dgMain
+        '
+        Me.dgMain.AllowUserToAddRows = False
+        Me.dgMain.AllowUserToDeleteRows = False
+        Me.dgMain.AllowUserToResizeColumns = False
+        Me.dgMain.AllowUserToResizeRows = False
+        Me.dgMain.BackgroundColor = System.Drawing.Color.White
+        Me.dgMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sel, Me.prepaid_id, Me.ref_no, Me.description, Me.amount, Me.useful_life})
+        Me.dgMain.Location = New System.Drawing.Point(20, 137)
+        Me.dgMain.MultiSelect = False
+        Me.dgMain.Name = "dgMain"
+        Me.dgMain.ReadOnly = True
+        Me.dgMain.RowHeadersVisible = False
+        Me.dgMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgMain.Size = New System.Drawing.Size(530, 150)
+        Me.dgMain.TabIndex = 225
+        Me.dgMain.Tag = "maingrid"
+        '
+        'sel
+        '
+        Me.sel.DataPropertyName = "sel"
+        Me.sel.HeaderText = "Sel"
+        Me.sel.Name = "sel"
+        Me.sel.ReadOnly = True
+        Me.sel.Width = 30
+        '
+        'prepaid_id
+        '
+        Me.prepaid_id.DataPropertyName = "prepaid_id"
+        Me.prepaid_id.HeaderText = "ID"
+        Me.prepaid_id.Name = "prepaid_id"
+        Me.prepaid_id.ReadOnly = True
+        Me.prepaid_id.Visible = False
+        '
+        'ref_no
+        '
+        Me.ref_no.DataPropertyName = "ref_no"
+        Me.ref_no.HeaderText = "Reference No."
+        Me.ref_no.Name = "ref_no"
+        Me.ref_no.ReadOnly = True
+        '
+        'description
+        '
+        Me.description.DataPropertyName = "description"
+        Me.description.HeaderText = "Item Description"
+        Me.description.Name = "description"
+        Me.description.ReadOnly = True
+        Me.description.Width = 150
+        '
+        'amount
+        '
+        Me.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.amount.DataPropertyName = "amount"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "##,##0"
+        DataGridViewCellStyle1.NullValue = "0.00"
+        Me.amount.DefaultCellStyle = DataGridViewCellStyle1
+        Me.amount.HeaderText = "Acquisition Cost"
+        Me.amount.Name = "amount"
+        Me.amount.ReadOnly = True
+        '
+        'useful_life
+        '
+        Me.useful_life.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.useful_life.DataPropertyName = "useful_life"
+        Me.useful_life.HeaderText = "Estimated Useful Life"
+        Me.useful_life.Name = "useful_life"
+        Me.useful_life.ReadOnly = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(18, 103)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(82, 13)
+        Me.Label13.TabIndex = 24
+        Me.Label13.Text = "Acquisition Cost"
+        '
+        'txt_ref_no
+        '
+        Me.txt_ref_no._Text = ""
+        Me.txt_ref_no.AlwaysDisable = False
+        Me.txt_ref_no.AlwaysEnable = False
+        Me.txt_ref_no.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_ref_no.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_ref_no.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_ref_no.DataSource = ""
+        Me.txt_ref_no.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_ref_no.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_ref_no.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_ref_no.Enabled = False
+        Me.txt_ref_no.Location = New System.Drawing.Point(106, 21)
+        Me.txt_ref_no.MultiLine = False
+        Me.txt_ref_no.Name = "txt_ref_no"
+        Me.txt_ref_no.NoClear = False
+        Me.txt_ref_no.NumberFormat = "@"
+        Me.txt_ref_no.Required = False
+        Me.txt_ref_no.RowData = Nothing
+        Me.txt_ref_no.SelectionLength = 0
+        Me.txt_ref_no.SelectionStart = 0
+        Me.txt_ref_no.Size = New System.Drawing.Size(140, 20)
+        Me.txt_ref_no.TabIndex = 1
+        Me.txt_ref_no.TableData = Nothing
+        Me.txt_ref_no.Tag = "focus"
+        Me.txt_ref_no.TextSource = ""
+        Me.txt_ref_no.UseSystemPasswordChar = False
+        Me.txt_ref_no.Value = ""
+        Me.txt_ref_no.ValueSource = ""
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(23, 24)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(77, 13)
+        Me.Label12.TabIndex = 10
+        Me.Label12.Text = "Reference No."
+        '
+        'txt_department
+        '
+        Me.txt_department._Text = ""
+        Me.txt_department.AlwaysDisable = True
+        Me.txt_department.AlwaysEnable = False
+        Me.txt_department.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_department.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_department.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_department.DataSource = ""
+        Me.txt_department.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_department.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_department.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_department.Enabled = False
+        Me.txt_department.Location = New System.Drawing.Point(369, 34)
+        Me.txt_department.MultiLine = False
+        Me.txt_department.Name = "txt_department"
+        Me.txt_department.NoClear = False
+        Me.txt_department.NumberFormat = "@"
+        Me.txt_department.Required = False
+        Me.txt_department.RowData = Nothing
+        Me.txt_department.SelectionLength = 0
+        Me.txt_department.SelectionStart = 0
+        Me.txt_department.Size = New System.Drawing.Size(140, 20)
+        Me.txt_department.TabIndex = 11
+        Me.txt_department.TableData = Nothing
+        Me.txt_department.Tag = ""
+        Me.txt_department.TextSource = ""
+        Me.txt_department.UseSystemPasswordChar = False
+        Me.txt_department.Value = ""
+        Me.txt_department.ValueSource = ""
+        '
+        'txt_account_name
+        '
+        Me.txt_account_name._Text = ""
+        Me.txt_account_name.AlwaysDisable = True
+        Me.txt_account_name.AlwaysEnable = False
+        Me.txt_account_name.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_account_name.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_account_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_account_name.DataSource = ""
+        Me.txt_account_name.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_account_name.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_account_name.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_account_name.Enabled = False
+        Me.txt_account_name.Location = New System.Drawing.Point(271, 8)
+        Me.txt_account_name.MultiLine = False
+        Me.txt_account_name.Name = "txt_account_name"
+        Me.txt_account_name.NoClear = False
+        Me.txt_account_name.NumberFormat = "@"
+        Me.txt_account_name.Required = False
+        Me.txt_account_name.RowData = Nothing
+        Me.txt_account_name.SelectionLength = 0
+        Me.txt_account_name.SelectionStart = 0
+        Me.txt_account_name.Size = New System.Drawing.Size(238, 20)
+        Me.txt_account_name.TabIndex = 10
+        Me.txt_account_name.TableData = Nothing
+        Me.txt_account_name.Tag = ""
+        Me.txt_account_name.TextSource = ""
+        Me.txt_account_name.UseSystemPasswordChar = False
+        Me.txt_account_name.Value = ""
+        Me.txt_account_name.ValueSource = ""
+        '
+        'txt_project
+        '
+        Me.txt_project._Text = ""
+        Me.txt_project.AlwaysDisable = True
+        Me.txt_project.AlwaysEnable = False
+        Me.txt_project.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_project.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_project.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_project.DataSource = ""
+        Me.txt_project.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_project.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_project.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_project.Enabled = False
+        Me.txt_project.Location = New System.Drawing.Point(106, 34)
+        Me.txt_project.MultiLine = False
+        Me.txt_project.Name = "txt_project"
+        Me.txt_project.NoClear = False
+        Me.txt_project.NumberFormat = "@"
+        Me.txt_project.Required = False
+        Me.txt_project.RowData = Nothing
+        Me.txt_project.SelectionLength = 0
+        Me.txt_project.SelectionStart = 0
+        Me.txt_project.Size = New System.Drawing.Size(140, 20)
+        Me.txt_project.TabIndex = 8
+        Me.txt_project.TableData = Nothing
+        Me.txt_project.Tag = ""
+        Me.txt_project.TextSource = ""
+        Me.txt_project.UseSystemPasswordChar = False
+        Me.txt_project.Value = ""
+        Me.txt_project.ValueSource = ""
+        '
+        'txt_account
+        '
+        Me.txt_account._Text = ""
+        Me.txt_account.AlwaysDisable = True
+        Me.txt_account.AlwaysEnable = False
+        Me.txt_account.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_account.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_account.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_account.DataSource = ""
+        Me.txt_account.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_account.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_account.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_account.Enabled = False
+        Me.txt_account.Location = New System.Drawing.Point(106, 8)
+        Me.txt_account.MultiLine = False
+        Me.txt_account.Name = "txt_account"
+        Me.txt_account.NoClear = False
+        Me.txt_account.NumberFormat = "@"
+        Me.txt_account.Required = False
+        Me.txt_account.RowData = Nothing
+        Me.txt_account.SelectionLength = 0
+        Me.txt_account.SelectionStart = 0
+        Me.txt_account.Size = New System.Drawing.Size(140, 20)
+        Me.txt_account.TabIndex = 7
+        Me.txt_account.TableData = Nothing
+        Me.txt_account.Tag = ""
+        Me.txt_account.TextSource = ""
+        Me.txt_account.UseSystemPasswordChar = False
+        Me.txt_account.Value = ""
+        Me.txt_account.ValueSource = ""
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(252, 11)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(13, 13)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = ">"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(301, 37)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(62, 13)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Department"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(60, 37)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Project"
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(144, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(162, Byte), Integer))
+        Me.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(144, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(162, Byte), Integer))
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.White
+        Me.btnUpdate.Location = New System.Drawing.Point(126, 323)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(114, 23)
+        Me.btnUpdate.TabIndex = 227
+        Me.btnUpdate.Tag = "btnUpdate"
+        Me.btnUpdate.Text = "Edit an Entry"
+        Me.btnUpdate.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(20, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(430, 25)
+        Me.Label1.TabIndex = 223
+        Me.Label1.Text = "Prepayment Beginning Balance - Details"
+        '
+        'border1
+        '
+        Me.border1.BorderColor = System.Drawing.Color.DarkGray
+        Me.border1.Location = New System.Drawing.Point(20, 63)
+        Me.border1.Name = "border1"
+        Me.border1.Size = New System.Drawing.Size(530, 2)
+        Me.border1.TabIndex = 224
+        Me.border1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txt_total_amount
+        '
+        Me.txt_total_amount._Text = ""
+        Me.txt_total_amount.AlwaysDisable = True
+        Me.txt_total_amount.AlwaysEnable = False
+        Me.txt_total_amount.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_total_amount.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_total_amount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_total_amount.DataSource = ""
+        Me.txt_total_amount.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_total_amount.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_total_amount.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_total_amount.Enabled = False
+        Me.txt_total_amount.Location = New System.Drawing.Point(450, 293)
+        Me.txt_total_amount.MultiLine = False
+        Me.txt_total_amount.Name = "txt_total_amount"
+        Me.txt_total_amount.NoClear = False
+        Me.txt_total_amount.NumberFormat = "##,##0.00"
+        Me.txt_total_amount.Required = False
+        Me.txt_total_amount.RowData = Nothing
+        Me.txt_total_amount.SelectionLength = 0
+        Me.txt_total_amount.SelectionStart = 0
+        Me.txt_total_amount.Size = New System.Drawing.Size(100, 23)
+        Me.txt_total_amount.TabIndex = 231
+        Me.txt_total_amount.TableData = Nothing
+        Me.txt_total_amount.TextSource = ""
+        Me.txt_total_amount.UseSystemPasswordChar = False
+        Me.txt_total_amount.Value = "0.00"
+        Me.txt_total_amount.ValueSource = ""
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.txt_description)
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.txt_debit_based)
+        Me.Panel2.Controls.Add(Me.txt_amount_based)
+        Me.Panel2.Controls.Add(Me.Label19)
+        Me.Panel2.Controls.Add(Me.Label20)
+        Me.Panel2.Controls.Add(Me.txt_based_rate)
+        Me.Panel2.Controls.Add(Me.Label18)
+        Me.Panel2.Controls.Add(Me.txt_exchange_rate)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.txt_currency_id)
+        Me.Panel2.Controls.Add(Me.Label15)
+        Me.Panel2.Controls.Add(Me.txt_date_start)
+        Me.Panel2.Controls.Add(Me.txt_date_acquired)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.txt_prepaid_id)
+        Me.Panel2.Controls.Add(Me.txt_useful_life)
+        Me.Panel2.Controls.Add(Me.Label17)
+        Me.Panel2.Controls.Add(Me.txt_amount)
+        Me.Panel2.Controls.Add(Me.Label13)
+        Me.Panel2.Controls.Add(Me.Label14)
+        Me.Panel2.Controls.Add(Me.txt_ref_no)
+        Me.Panel2.Controls.Add(Me.Label12)
+        Me.Panel2.Location = New System.Drawing.Point(20, 352)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(530, 190)
+        Me.Panel2.TabIndex = 234
+        Me.Panel2.Tag = "container"
+        '
+        'txt_description
+        '
+        Me.txt_description._Text = ""
+        Me.txt_description.AlwaysDisable = False
+        Me.txt_description.AlwaysEnable = False
+        Me.txt_description.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_description.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_description.DataSource = ""
+        Me.txt_description.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_description.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_description.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_description.Enabled = False
+        Me.txt_description.Location = New System.Drawing.Point(106, 151)
+        Me.txt_description.MultiLine = False
+        Me.txt_description.Name = "txt_description"
+        Me.txt_description.NoClear = False
+        Me.txt_description.NumberFormat = "@"
+        Me.txt_description.Required = False
+        Me.txt_description.RowData = Nothing
+        Me.txt_description.SelectionLength = 0
+        Me.txt_description.SelectionStart = 0
+        Me.txt_description.Size = New System.Drawing.Size(408, 20)
+        Me.txt_description.TabIndex = 12
+        Me.txt_description.TableData = Nothing
+        Me.txt_description.Tag = ""
+        Me.txt_description.TextSource = ""
+        Me.txt_description.UseSystemPasswordChar = False
+        Me.txt_description.Value = "0.00"
+        Me.txt_description.ValueSource = ""
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(17, 154)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(83, 13)
+        Me.Label10.TabIndex = 197
+        Me.Label10.Text = "Item Description"
+        '
+        'txt_debit_based
+        '
+        Me.txt_debit_based._Text = ""
+        Me.txt_debit_based.AlwaysDisable = False
+        Me.txt_debit_based.AlwaysEnable = False
+        Me.txt_debit_based.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_debit_based.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_debit_based.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_debit_based.DataSource = ""
+        Me.txt_debit_based.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_debit_based.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_debit_based.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_debit_based.Enabled = False
+        Me.txt_debit_based.Location = New System.Drawing.Point(374, 125)
+        Me.txt_debit_based.MultiLine = False
+        Me.txt_debit_based.Name = "txt_debit_based"
+        Me.txt_debit_based.NoClear = False
+        Me.txt_debit_based.NumberFormat = "##,##0.00"
+        Me.txt_debit_based.Required = False
+        Me.txt_debit_based.RowData = Nothing
+        Me.txt_debit_based.SelectionLength = 0
+        Me.txt_debit_based.SelectionStart = 0
+        Me.txt_debit_based.Size = New System.Drawing.Size(140, 20)
+        Me.txt_debit_based.TabIndex = 11
+        Me.txt_debit_based.TableData = Nothing
+        Me.txt_debit_based.Tag = ""
+        Me.txt_debit_based.TextSource = ""
+        Me.txt_debit_based.UseSystemPasswordChar = False
+        Me.txt_debit_based.Value = "0.00"
+        Me.txt_debit_based.ValueSource = ""
+        '
+        'txt_amount_based
+        '
+        Me.txt_amount_based._Text = ""
+        Me.txt_amount_based.AlwaysDisable = False
+        Me.txt_amount_based.AlwaysEnable = False
+        Me.txt_amount_based.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_amount_based.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_amount_based.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_amount_based.DataSource = ""
+        Me.txt_amount_based.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_amount_based.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_amount_based.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_amount_based.Enabled = False
+        Me.txt_amount_based.Location = New System.Drawing.Point(106, 125)
+        Me.txt_amount_based.MultiLine = False
+        Me.txt_amount_based.Name = "txt_amount_based"
+        Me.txt_amount_based.NoClear = False
+        Me.txt_amount_based.NumberFormat = "##,##0.00"
+        Me.txt_amount_based.Required = False
+        Me.txt_amount_based.RowData = Nothing
+        Me.txt_amount_based.SelectionLength = 0
+        Me.txt_amount_based.SelectionStart = 0
+        Me.txt_amount_based.Size = New System.Drawing.Size(140, 20)
+        Me.txt_amount_based.TabIndex = 10
+        Me.txt_amount_based.TableData = Nothing
+        Me.txt_amount_based.Tag = ""
+        Me.txt_amount_based.TextSource = ""
+        Me.txt_amount_based.UseSystemPasswordChar = False
+        Me.txt_amount_based.Value = "0.00"
+        Me.txt_amount_based.ValueSource = ""
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(301, 128)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(65, 13)
+        Me.Label19.TabIndex = 195
+        Me.Label19.Text = "Debit Based"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(24, 128)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(76, 13)
+        Me.Label20.TabIndex = 194
+        Me.Label20.Text = "Amount Based"
+        '
+        'txt_based_rate
+        '
+        Me.txt_based_rate._Text = ""
+        Me.txt_based_rate.AlwaysDisable = False
+        Me.txt_based_rate.AlwaysEnable = False
+        Me.txt_based_rate.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_based_rate.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_based_rate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_based_rate.DataSource = ""
+        Me.txt_based_rate.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_based_rate.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_based_rate.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_based_rate.Enabled = False
+        Me.txt_based_rate.Location = New System.Drawing.Point(434, 47)
+        Me.txt_based_rate.MultiLine = False
+        Me.txt_based_rate.Name = "txt_based_rate"
+        Me.txt_based_rate.NoClear = True
+        Me.txt_based_rate.NumberFormat = "##,##0.00"
+        Me.txt_based_rate.Required = False
+        Me.txt_based_rate.RowData = Nothing
+        Me.txt_based_rate.SelectionLength = 0
+        Me.txt_based_rate.SelectionStart = 0
+        Me.txt_based_rate.Size = New System.Drawing.Size(80, 20)
+        Me.txt_based_rate.TabIndex = 5
+        Me.txt_based_rate.TableData = Nothing
+        Me.txt_based_rate.Tag = ""
+        Me.txt_based_rate.TextSource = ""
+        Me.txt_based_rate.UseSystemPasswordChar = False
+        Me.txt_based_rate.Value = "0.00"
+        Me.txt_based_rate.ValueSource = ""
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(365, 50)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(63, 13)
+        Me.Label18.TabIndex = 191
+        Me.Label18.Text = "Based Rate"
+        '
+        'txt_exchange_rate
+        '
+        Me.txt_exchange_rate._Text = ""
+        Me.txt_exchange_rate.AlwaysDisable = False
+        Me.txt_exchange_rate.AlwaysEnable = False
+        Me.txt_exchange_rate.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_exchange_rate.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_exchange_rate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_exchange_rate.DataSource = ""
+        Me.txt_exchange_rate.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_exchange_rate.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_exchange_rate.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_exchange_rate.Enabled = False
+        Me.txt_exchange_rate.Location = New System.Drawing.Point(279, 47)
+        Me.txt_exchange_rate.MultiLine = False
+        Me.txt_exchange_rate.Name = "txt_exchange_rate"
+        Me.txt_exchange_rate.NoClear = True
+        Me.txt_exchange_rate.NumberFormat = "##,##0.00"
+        Me.txt_exchange_rate.Required = False
+        Me.txt_exchange_rate.RowData = Nothing
+        Me.txt_exchange_rate.SelectionLength = 0
+        Me.txt_exchange_rate.SelectionStart = 0
+        Me.txt_exchange_rate.Size = New System.Drawing.Size(80, 20)
+        Me.txt_exchange_rate.TabIndex = 4
+        Me.txt_exchange_rate.TableData = Nothing
+        Me.txt_exchange_rate.Tag = ""
+        Me.txt_exchange_rate.TextSource = ""
+        Me.txt_exchange_rate.UseSystemPasswordChar = False
+        Me.txt_exchange_rate.Value = "0.00"
+        Me.txt_exchange_rate.ValueSource = ""
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(192, 52)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(81, 13)
+        Me.Label7.TabIndex = 189
+        Me.Label7.Text = "Exchange Rate"
+        '
+        'txt_currency_id
+        '
+        Me.txt_currency_id._Text = ""
+        Me.txt_currency_id.AlwaysDisable = True
+        Me.txt_currency_id.AlwaysEnable = False
+        Me.txt_currency_id.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_currency_id.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_currency_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_currency_id.DataSource = ""
+        Me.txt_currency_id.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_currency_id.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_currency_id.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_currency_id.Enabled = False
+        Me.txt_currency_id.Location = New System.Drawing.Point(106, 47)
+        Me.txt_currency_id.MultiLine = False
+        Me.txt_currency_id.Name = "txt_currency_id"
+        Me.txt_currency_id.NoClear = True
+        Me.txt_currency_id.NumberFormat = "@"
+        Me.txt_currency_id.Required = False
+        Me.txt_currency_id.RowData = Nothing
+        Me.txt_currency_id.SelectionLength = 0
+        Me.txt_currency_id.SelectionStart = 0
+        Me.txt_currency_id.Size = New System.Drawing.Size(80, 20)
+        Me.txt_currency_id.TabIndex = 3
+        Me.txt_currency_id.TableData = Nothing
+        Me.txt_currency_id.Tag = ""
+        Me.txt_currency_id.TextSource = "currency_name"
+        Me.txt_currency_id.UseSystemPasswordChar = False
+        Me.txt_currency_id.Value = ""
+        Me.txt_currency_id.ValueSource = "currency_id"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(51, 51)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(49, 13)
+        Me.Label15.TabIndex = 188
+        Me.Label15.Text = "Currency"
+        '
+        'txt_date_start
+        '
+        Me.txt_date_start.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txt_date_start.Location = New System.Drawing.Point(374, 73)
+        Me.txt_date_start.Name = "txt_date_start"
+        Me.txt_date_start.Size = New System.Drawing.Size(140, 20)
+        Me.txt_date_start.TabIndex = 7
+        '
+        'txt_date_acquired
+        '
+        Me.txt_date_acquired.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txt_date_acquired.Location = New System.Drawing.Point(106, 73)
+        Me.txt_date_acquired.Name = "txt_date_acquired"
+        Me.txt_date_acquired.Size = New System.Drawing.Size(140, 20)
+        Me.txt_date_acquired.TabIndex = 6
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(25, 77)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(75, 13)
+        Me.Label4.TabIndex = 182
+        Me.Label4.Text = "Date Acquired"
+        '
+        'txt_prepaid_id
+        '
+        Me.txt_prepaid_id._Text = ""
+        Me.txt_prepaid_id.AlwaysDisable = True
+        Me.txt_prepaid_id.AlwaysEnable = False
+        Me.txt_prepaid_id.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_prepaid_id.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_prepaid_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_prepaid_id.DataSource = ""
+        Me.txt_prepaid_id.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_prepaid_id.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_prepaid_id.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_prepaid_id.Enabled = False
+        Me.txt_prepaid_id.Location = New System.Drawing.Point(374, 21)
+        Me.txt_prepaid_id.MultiLine = False
+        Me.txt_prepaid_id.Name = "txt_prepaid_id"
+        Me.txt_prepaid_id.NoClear = False
+        Me.txt_prepaid_id.NumberFormat = "@"
+        Me.txt_prepaid_id.Required = False
+        Me.txt_prepaid_id.RowData = Nothing
+        Me.txt_prepaid_id.SelectionLength = 0
+        Me.txt_prepaid_id.SelectionStart = 0
+        Me.txt_prepaid_id.Size = New System.Drawing.Size(140, 20)
+        Me.txt_prepaid_id.TabIndex = 2
+        Me.txt_prepaid_id.TableData = Nothing
+        Me.txt_prepaid_id.Tag = ""
+        Me.txt_prepaid_id.TextSource = ""
+        Me.txt_prepaid_id.UseSystemPasswordChar = False
+        Me.txt_prepaid_id.Value = ""
+        Me.txt_prepaid_id.ValueSource = ""
+        Me.txt_prepaid_id.Visible = False
+        '
+        'txt_useful_life
+        '
+        Me.txt_useful_life._Text = ""
+        Me.txt_useful_life.AlwaysDisable = False
+        Me.txt_useful_life.AlwaysEnable = False
+        Me.txt_useful_life.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_useful_life.BorderColor = System.Drawing.Color.DarkGray
+        Me.txt_useful_life.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_useful_life.DataSource = ""
+        Me.txt_useful_life.DecimalValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txt_useful_life.DisabledBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txt_useful_life.DisabledForeColor = System.Drawing.Color.DarkBlue
+        Me.txt_useful_life.Enabled = False
+        Me.txt_useful_life.Location = New System.Drawing.Point(374, 99)
+        Me.txt_useful_life.MultiLine = False
+        Me.txt_useful_life.Name = "txt_useful_life"
+        Me.txt_useful_life.NoClear = False
+        Me.txt_useful_life.NumberFormat = "##,##0.00"
+        Me.txt_useful_life.Required = False
+        Me.txt_useful_life.RowData = Nothing
+        Me.txt_useful_life.SelectionLength = 0
+        Me.txt_useful_life.SelectionStart = 0
+        Me.txt_useful_life.Size = New System.Drawing.Size(140, 20)
+        Me.txt_useful_life.TabIndex = 9
+        Me.txt_useful_life.TableData = Nothing
+        Me.txt_useful_life.Tag = ""
+        Me.txt_useful_life.TextSource = ""
+        Me.txt_useful_life.UseSystemPasswordChar = False
+        Me.txt_useful_life.Value = ""
+        Me.txt_useful_life.ValueSource = ""
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(262, 103)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(106, 13)
+        Me.Label17.TabIndex = 26
+        Me.Label17.Text = "Estimated Useful Life"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(287, 77)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(81, 13)
+        Me.Label14.TabIndex = 16
+        Me.Label14.Text = "Start of Lapsing"
+        '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.Color.Green
+        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.ForeColor = System.Drawing.Color.White
+        Me.btnSave.Location = New System.Drawing.Point(20, 323)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(100, 23)
+        Me.btnSave.TabIndex = 222
+        Me.btnSave.Tag = "btnSave"
+        Me.btnSave.Text = "Done"
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'panel_hdr
+        '
+        Me.panel_hdr.Controls.Add(Me.txt_department)
+        Me.panel_hdr.Controls.Add(Me.txt_account_name)
+        Me.panel_hdr.Controls.Add(Me.txt_project)
+        Me.panel_hdr.Controls.Add(Me.txt_account)
+        Me.panel_hdr.Controls.Add(Me.Label8)
+        Me.panel_hdr.Controls.Add(Me.Label5)
+        Me.panel_hdr.Controls.Add(Me.Label3)
+        Me.panel_hdr.Controls.Add(Me.Label2)
+        Me.panel_hdr.Location = New System.Drawing.Point(20, 69)
+        Me.panel_hdr.Name = "panel_hdr"
+        Me.panel_hdr.Size = New System.Drawing.Size(530, 62)
+        Me.panel_hdr.TabIndex = 230
+        '
+        'btnRemove
+        '
+        Me.btnRemove.BackColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemove.ForeColor = System.Drawing.Color.White
+        Me.btnRemove.Location = New System.Drawing.Point(232, 323)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(114, 23)
+        Me.btnRemove.TabIndex = 228
+        Me.btnRemove.Tag = "btnRemove"
+        Me.btnRemove.Text = "Remove an Entry"
+        Me.btnRemove.UseVisualStyleBackColor = False
+        '
+        'btnNotSave
+        '
+        Me.btnNotSave.BackColor = System.Drawing.Color.Maroon
+        Me.btnNotSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btnNotSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray
+        Me.btnNotSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNotSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNotSave.ForeColor = System.Drawing.Color.White
+        Me.btnNotSave.Location = New System.Drawing.Point(126, 323)
+        Me.btnNotSave.Name = "btnNotSave"
+        Me.btnNotSave.Size = New System.Drawing.Size(100, 23)
+        Me.btnNotSave.TabIndex = 233
+        Me.btnNotSave.Tag = "btnNotSave"
+        Me.btnNotSave.Text = "Cancel"
+        Me.btnNotSave.UseVisualStyleBackColor = False
+        '
+        'Myformheader1
+        '
+        Me.Myformheader1.BackColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.Myformheader1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Myformheader1.Location = New System.Drawing.Point(0, 0)
+        Me.Myformheader1.Name = "Myformheader1"
+        Me.Myformheader1.Size = New System.Drawing.Size(570, 28)
+        Me.Myformheader1.TabIndex = 236
+        '
+        'begbal_pre_detail
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(570, 549)
+        Me.Controls.Add(Me.Myformheader1)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txt_total_based)
+        Me.Controls.Add(Me.dgMain)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.border1)
+        Me.Controls.Add(Me.txt_total_amount)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.panel_hdr)
+        Me.Controls.Add(Me.btnRemove)
+        Me.Controls.Add(Me.btnInsert)
+        Me.Controls.Add(Me.btnUpdate)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnNotSave)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "begbal_pre_detail"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Prepayment Beginning balance - Details"
+        CType(Me.dgMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.panel_hdr.ResumeLayout(False)
+        Me.panel_hdr.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents txt_amount As user_control.textbox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents btnInsert As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txt_total_based As user_control.textbox
+    Friend WithEvents dgMain As System.Windows.Forms.DataGridView
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents txt_ref_no As user_control.textbox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txt_department As user_control.textbox
+    Friend WithEvents txt_account_name As user_control.textbox
+    Friend WithEvents txt_project As user_control.textbox
+    Friend WithEvents txt_account As user_control.textbox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents btnUpdate As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents border1 As accounting.borderedlabel
+    Friend WithEvents txt_total_amount As user_control.textbox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents txt_prepaid_id As user_control.textbox
+    Friend WithEvents txt_useful_life As user_control.textbox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents panel_hdr As System.Windows.Forms.Panel
+    Friend WithEvents btnRemove As System.Windows.Forms.Button
+    Friend WithEvents btnNotSave As System.Windows.Forms.Button
+    Friend WithEvents txt_date_acquired As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txt_based_rate As user_control.textbox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents txt_exchange_rate As user_control.textbox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents txt_currency_id As user_control.textbox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents txt_date_start As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents txt_description As user_control.textbox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txt_debit_based As user_control.textbox
+    Friend WithEvents txt_amount_based As user_control.textbox
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents sel As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents prepaid_id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ref_no As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents description As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents amount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents useful_life As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Myformheader1 As user_control.myformheader
+End Class

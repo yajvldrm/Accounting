@@ -1,0 +1,2 @@
+﻿Public Class general_library_report_print
+End Class

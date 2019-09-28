@@ -1,0 +1,41 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/accounting/v15/Server/sqlite3
+accounting/obj/Debug/accounting.CaptureAPForm.resources
+accounting/obj/Debug/accounting.SetupAccountBankForm.resources
+accounting/obj/Debug/accounting.accountanalysisReport1.resources
+accounting/obj/Debug/accounting.exe.licenses
+accounting/obj/Debug/accounting.frmBookUnit.resources
+accounting/obj/Debug/accounting.transactionjb.resources
+accounting/obj/Debug/accounting.vbproj.FileListAbsolute.txt
+accounting/obj/Debug/accounting.xml
+libacctng/bin/Debug/libacctng.xml
+libacctng/obj/Debug/libacctng.vbproj.FileListAbsolute.txt
+accounting/bin/Debug/accounting.exe.config
+accounting/bin/Debug/accounting.xml
+accounting/bin/Debug/log/log/log_2018-10-22.txt
+accounting/bin/Debug/log/log_2018-10-22.txt
+accounting/bin/Debug/repx/report_ap.repx
+accounting/bin/Debug/templates/ImportInputVAT.xltx
+accounting/forms/test/frm.Designer.vb
+accounting/forms/test/frm.resx
+accounting/forms/test/frm.vb
+libacctng/obj/Debug/libacctng.xml
+accounting/My Project/AssemblyInfo.vb
+*.licx
+accounting/accounting.vbproj
+accounting/accounting1.vbproj
+accounting/app.config
+accounting/bin/Debug/libacctng.xml
+user_control/obj/Debug/user_control.vbproj.FileListAbsolute.txt
+/.vs/accounting/v15
+/accounting/bin
+/accounting/My Project
+/accounting/obj
+/AccountingInstaller
+/app.config
+/accounting.v12.suo
+/accounting.sln
+/accounting.rar

@@ -1,0 +1,1218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Myformheader1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="Myformheader1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-3, 3</value>
+  </data>
+  <data name="Myformheader1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>630, 28</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Myformheader1.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="&gt;&gt;Myformheader1.Name" xml:space="preserve">
+    <value>Myformheader1</value>
+  </data>
+  <data name="&gt;&gt;Myformheader1.Type" xml:space="preserve">
+    <value>user_control.myformheader, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;Myformheader1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Myformheader1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lbl_fund.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbl_fund.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_fund.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 131</value>
+  </data>
+  <data name="lbl_fund.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="lbl_fund.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="lbl_fund.Text" xml:space="preserve">
+    <value>Fund Cluster</value>
+  </data>
+  <data name="&gt;&gt;lbl_fund.Name" xml:space="preserve">
+    <value>lbl_fund</value>
+  </data>
+  <data name="&gt;&gt;lbl_fund.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_fund.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_fund.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txt_ors_burs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 98</value>
+  </data>
+  <data name="txt_ors_burs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 20</value>
+  </data>
+  <data name="txt_ors_burs.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="&gt;&gt;txt_ors_burs.Name" xml:space="preserve">
+    <value>txt_ors_burs</value>
+  </data>
+  <data name="&gt;&gt;txt_ors_burs.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_ors_burs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txt_ors_burs.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 102</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 13</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>ORS / BURS No.</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="ds.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 13</value>
+  </metadata>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 15.75pt, style=Bold</value>
+  </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 45</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 25</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Check Voucher Report</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="rdo_mds_check.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdo_mds_check.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdo_mds_check.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 31</value>
+  </data>
+  <data name="rdo_mds_check.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 17</value>
+  </data>
+  <data name="rdo_mds_check.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="rdo_mds_check.Text" xml:space="preserve">
+    <value>MDS Check</value>
+  </data>
+  <data name="&gt;&gt;rdo_mds_check.Name" xml:space="preserve">
+    <value>rdo_mds_check</value>
+  </data>
+  <data name="&gt;&gt;rdo_mds_check.Type" xml:space="preserve">
+    <value>user_control.MyRadioButton, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rdo_mds_check.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rdo_mds_check.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_commercial_check.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdo_commercial_check.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdo_commercial_check.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 31</value>
+  </data>
+  <data name="rdo_commercial_check.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 17</value>
+  </data>
+  <data name="rdo_commercial_check.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="rdo_commercial_check.Text" xml:space="preserve">
+    <value>Commercial Check</value>
+  </data>
+  <data name="&gt;&gt;rdo_commercial_check.Name" xml:space="preserve">
+    <value>rdo_commercial_check</value>
+  </data>
+  <data name="&gt;&gt;rdo_commercial_check.Type" xml:space="preserve">
+    <value>user_control.MyRadioButton, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rdo_commercial_check.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rdo_commercial_check.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="rdo_ada.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdo_ada.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdo_ada.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 31</value>
+  </data>
+  <data name="rdo_ada.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 17</value>
+  </data>
+  <data name="rdo_ada.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="rdo_ada.Text" xml:space="preserve">
+    <value>ADA</value>
+  </data>
+  <data name="&gt;&gt;rdo_ada.Name" xml:space="preserve">
+    <value>rdo_ada</value>
+  </data>
+  <data name="&gt;&gt;rdo_ada.Type" xml:space="preserve">
+    <value>user_control.MyRadioButton, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rdo_ada.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rdo_ada.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="rdo_others.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdo_others.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdo_others.Location" type="System.Drawing.Point, System.Drawing">
+    <value>476, 31</value>
+  </data>
+  <data name="rdo_others.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 17</value>
+  </data>
+  <data name="rdo_others.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="rdo_others.Text" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="&gt;&gt;rdo_others.Name" xml:space="preserve">
+    <value>rdo_others</value>
+  </data>
+  <data name="&gt;&gt;rdo_others.Type" xml:space="preserve">
+    <value>user_control.MyRadioButton, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rdo_others.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rdo_others.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txt_mode_of_payment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>383, 54</value>
+  </data>
+  <data name="txt_mode_of_payment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 20</value>
+  </data>
+  <data name="txt_mode_of_payment.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="&gt;&gt;txt_mode_of_payment.Name" xml:space="preserve">
+    <value>txt_mode_of_payment</value>
+  </data>
+  <data name="&gt;&gt;txt_mode_of_payment.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_mode_of_payment.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;txt_mode_of_payment.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 381</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 75</value>
+  </data>
+  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Mode of Payment</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txt_fund_code.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 129</value>
+  </data>
+  <data name="txt_fund_code.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 20</value>
+  </data>
+  <data name="txt_fund_code.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_code.Name" xml:space="preserve">
+    <value>txt_fund_code</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_code.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_code.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_code.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <metadata name="mfo_pap_namesssss.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="mfo_pap_namesssss.HeaderText" xml:space="preserve">
+    <value>mfo_pap_name</value>
+  </data>
+  <metadata name="mfo_pap_codessss.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="mfo_pap_codessss.HeaderText" xml:space="preserve">
+    <value>mfo_pap_codes</value>
+  </data>
+  <metadata name="mfo_responsibility_centersss.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="mfo_responsibility_centersss.HeaderText" xml:space="preserve">
+    <value>mfo_responsibility_center</value>
+  </data>
+  <metadata name="bs_trans_mfo_pap.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>81, 17</value>
+  </metadata>
+  <data name="txt_trans_additional_id.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txt_trans_additional_id.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 7</value>
+  </data>
+  <data name="txt_trans_additional_id.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 10</value>
+  </data>
+  <data name="txt_trans_additional_id.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_additional_id.Name" xml:space="preserve">
+    <value>txt_trans_additional_id</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_additional_id.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_additional_id.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_additional_id.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txt_trans_id.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txt_trans_id.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 7</value>
+  </data>
+  <data name="txt_trans_id.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 10</value>
+  </data>
+  <data name="txt_trans_id.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_id.Name" xml:space="preserve">
+    <value>txt_trans_id</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_id.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_id.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_trans_id.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txt_mfo_pap_code.Location" type="System.Drawing.Point, System.Drawing">
+    <value>454, 14</value>
+  </data>
+  <data name="txt_mfo_pap_code.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 20</value>
+  </data>
+  <data name="txt_mfo_pap_code.TabIndex" type="System.Int32, mscorlib">
+    <value>107</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_code.Name" xml:space="preserve">
+    <value>txt_mfo_pap_code</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_code.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_code.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_code.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txt_mfo_pap_name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 14</value>
+  </data>
+  <data name="txt_mfo_pap_name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 20</value>
+  </data>
+  <data name="txt_mfo_pap_name.TabIndex" type="System.Int32, mscorlib">
+    <value>106</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_name.Name" xml:space="preserve">
+    <value>txt_mfo_pap_name</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_name.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_name.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_name.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txt_mfo_pap_id.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txt_mfo_pap_id.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 7</value>
+  </data>
+  <data name="txt_mfo_pap_id.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 10</value>
+  </data>
+  <data name="txt_mfo_pap_id.TabIndex" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_id.Name" xml:space="preserve">
+    <value>txt_mfo_pap_id</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_id.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_id.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_pap_id.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnUpdate.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnUpdate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 70</value>
+  </data>
+  <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>EDIT</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Name" xml:space="preserve">
+    <value>btnUpdate</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnRemove.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRemove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>319, 70</value>
+  </data>
+  <data name="btnRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnRemove.TabIndex" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
+  <data name="btnRemove.Text" xml:space="preserve">
+    <value>REMOVE</value>
+  </data>
+  <data name="&gt;&gt;btnRemove.Name" xml:space="preserve">
+    <value>btnRemove</value>
+  </data>
+  <data name="&gt;&gt;btnRemove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRemove.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;btnRemove.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnInsert.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnInsert.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnInsert.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 70</value>
+  </data>
+  <data name="btnInsert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnInsert.TabIndex" type="System.Int32, mscorlib">
+    <value>102</value>
+  </data>
+  <data name="btnInsert.Text" xml:space="preserve">
+    <value>ADD</value>
+  </data>
+  <data name="&gt;&gt;btnInsert.Name" xml:space="preserve">
+    <value>btnInsert</value>
+  </data>
+  <data name="&gt;&gt;btnInsert.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnInsert.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;btnInsert.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txt_mfo_responsibility_center.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 44</value>
+  </data>
+  <data name="txt_mfo_responsibility_center.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 20</value>
+  </data>
+  <data name="txt_mfo_responsibility_center.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_responsibility_center.Name" xml:space="preserve">
+    <value>txt_mfo_responsibility_center</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_responsibility_center.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_responsibility_center.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_mfo_responsibility_center.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 47</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>96</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Responsibility Center</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 20</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>MFO / PAP</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>431, 21</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 13</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value> &gt; </value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 70</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>108</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnNotSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNotSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 70</value>
+  </data>
+  <data name="btnNotSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnNotSave.TabIndex" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="btnNotSave.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;btnNotSave.Name" xml:space="preserve">
+    <value>btnNotSave</value>
+  </data>
+  <data name="&gt;&gt;btnNotSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnNotSave.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;btnNotSave.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 274</value>
+  </data>
+  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 101</value>
+  </data>
+  <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="sel.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="sel.Width" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <metadata name="trans_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="trans_id.HeaderText" xml:space="preserve">
+    <value>TRANS ID</value>
+  </data>
+  <data name="mfo_pap_name.HeaderText" xml:space="preserve">
+    <value>MFO NAME</value>
+  </data>
+  <data name="mfo_pap_name.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="mfo_pap_code.HeaderText" xml:space="preserve">
+    <value>MFO CODE</value>
+  </data>
+  <data name="mfo_responsibility_center.HeaderText" xml:space="preserve">
+    <value>RESPONSIBILITY CENTER</value>
+  </data>
+  <data name="mfo_responsibility_center.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="mfo_pap_id.HeaderText" xml:space="preserve">
+    <value>mfo_pap_id</value>
+  </data>
+  <data name="mfo_pap_id.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="deleted.HeaderText" xml:space="preserve">
+    <value>deleted</value>
+  </data>
+  <data name="deleted.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dgMFO.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 155</value>
+  </data>
+  <data name="dgMFO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 113</value>
+  </data>
+  <data name="dgMFO.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="&gt;&gt;dgMFO.Name" xml:space="preserve">
+    <value>dgMFO</value>
+  </data>
+  <data name="&gt;&gt;dgMFO.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgMFO.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgMFO.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txt_fund_name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 129</value>
+  </data>
+  <data name="txt_fund_name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 20</value>
+  </data>
+  <data name="txt_fund_name.TabIndex" type="System.Int32, mscorlib">
+    <value>108</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_name.Name" xml:space="preserve">
+    <value>txt_fund_name</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_name.Type" xml:space="preserve">
+    <value>user_control.textbox, user_control, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_name.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txt_fund_name.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="border1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="border1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 80</value>
+  </data>
+  <data name="border1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 2</value>
+  </data>
+  <data name="border1.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="border1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;border1.Name" xml:space="preserve">
+    <value>border1</value>
+  </data>
+  <data name="&gt;&gt;border1.Type" xml:space="preserve">
+    <value>accounting.borderedlabel, accounting, Version=1.0.0.76, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;border1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;border1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>630, 475</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Priting Option</value>
+  </data>
+  <data name="&gt;&gt;ds.Name" xml:space="preserve">
+    <value>ds</value>
+  </data>
+  <data name="&gt;&gt;ds.Type" xml:space="preserve">
+    <value>System.Data.DataSet, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trans_additional.Name" xml:space="preserve">
+    <value>trans_additional</value>
+  </data>
+  <data name="&gt;&gt;trans_additional.Type" xml:space="preserve">
+    <value>System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn1.Name" xml:space="preserve">
+    <value>DataColumn1</value>
+  </data>
+  <data name="&gt;&gt;DataColumn1.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn21.Name" xml:space="preserve">
+    <value>DataColumn21</value>
+  </data>
+  <data name="&gt;&gt;DataColumn21.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trans_mfo_pap.Name" xml:space="preserve">
+    <value>trans_mfo_pap</value>
+  </data>
+  <data name="&gt;&gt;trans_mfo_pap.Type" xml:space="preserve">
+    <value>System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn4.Name" xml:space="preserve">
+    <value>DataColumn4</value>
+  </data>
+  <data name="&gt;&gt;DataColumn4.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn5.Name" xml:space="preserve">
+    <value>DataColumn5</value>
+  </data>
+  <data name="&gt;&gt;DataColumn5.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn6.Name" xml:space="preserve">
+    <value>DataColumn6</value>
+  </data>
+  <data name="&gt;&gt;DataColumn6.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn7.Name" xml:space="preserve">
+    <value>DataColumn7</value>
+  </data>
+  <data name="&gt;&gt;DataColumn7.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn14.Name" xml:space="preserve">
+    <value>DataColumn14</value>
+  </data>
+  <data name="&gt;&gt;DataColumn14.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn16.Name" xml:space="preserve">
+    <value>DataColumn16</value>
+  </data>
+  <data name="&gt;&gt;DataColumn16.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn17.Name" xml:space="preserve">
+    <value>DataColumn17</value>
+  </data>
+  <data name="&gt;&gt;DataColumn17.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lib_erp_fund_cluster.Name" xml:space="preserve">
+    <value>lib_erp_fund_cluster</value>
+  </data>
+  <data name="&gt;&gt;lib_erp_fund_cluster.Type" xml:space="preserve">
+    <value>System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn8.Name" xml:space="preserve">
+    <value>DataColumn8</value>
+  </data>
+  <data name="&gt;&gt;DataColumn8.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn9.Name" xml:space="preserve">
+    <value>DataColumn9</value>
+  </data>
+  <data name="&gt;&gt;DataColumn9.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn10.Name" xml:space="preserve">
+    <value>DataColumn10</value>
+  </data>
+  <data name="&gt;&gt;DataColumn10.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lib_erp_mfo.Name" xml:space="preserve">
+    <value>lib_erp_mfo</value>
+  </data>
+  <data name="&gt;&gt;lib_erp_mfo.Type" xml:space="preserve">
+    <value>System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn11.Name" xml:space="preserve">
+    <value>DataColumn11</value>
+  </data>
+  <data name="&gt;&gt;DataColumn11.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn12.Name" xml:space="preserve">
+    <value>DataColumn12</value>
+  </data>
+  <data name="&gt;&gt;DataColumn12.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn13.Name" xml:space="preserve">
+    <value>DataColumn13</value>
+  </data>
+  <data name="&gt;&gt;DataColumn13.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;additional.Name" xml:space="preserve">
+    <value>additional</value>
+  </data>
+  <data name="&gt;&gt;additional.Type" xml:space="preserve">
+    <value>System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn2.Name" xml:space="preserve">
+    <value>DataColumn2</value>
+  </data>
+  <data name="&gt;&gt;DataColumn2.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn3.Name" xml:space="preserve">
+    <value>DataColumn3</value>
+  </data>
+  <data name="&gt;&gt;DataColumn3.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn15.Name" xml:space="preserve">
+    <value>DataColumn15</value>
+  </data>
+  <data name="&gt;&gt;DataColumn15.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn18.Name" xml:space="preserve">
+    <value>DataColumn18</value>
+  </data>
+  <data name="&gt;&gt;DataColumn18.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn19.Name" xml:space="preserve">
+    <value>DataColumn19</value>
+  </data>
+  <data name="&gt;&gt;DataColumn19.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataColumn20.Name" xml:space="preserve">
+    <value>DataColumn20</value>
+  </data>
+  <data name="&gt;&gt;DataColumn20.Type" xml:space="preserve">
+    <value>System.Data.DataColumn, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_namesssss.Name" xml:space="preserve">
+    <value>mfo_pap_namesssss</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_namesssss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_codessss.Name" xml:space="preserve">
+    <value>mfo_pap_codessss</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_codessss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_responsibility_centersss.Name" xml:space="preserve">
+    <value>mfo_responsibility_centersss</value>
+  </data>
+  <data name="&gt;&gt;mfo_responsibility_centersss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bs_trans_mfo_pap.Name" xml:space="preserve">
+    <value>bs_trans_mfo_pap</value>
+  </data>
+  <data name="&gt;&gt;bs_trans_mfo_pap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sel.Name" xml:space="preserve">
+    <value>sel</value>
+  </data>
+  <data name="&gt;&gt;sel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trans_id.Name" xml:space="preserve">
+    <value>trans_id</value>
+  </data>
+  <data name="&gt;&gt;trans_id.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_name.Name" xml:space="preserve">
+    <value>mfo_pap_name</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_code.Name" xml:space="preserve">
+    <value>mfo_pap_code</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_code.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_responsibility_center.Name" xml:space="preserve">
+    <value>mfo_responsibility_center</value>
+  </data>
+  <data name="&gt;&gt;mfo_responsibility_center.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_id.Name" xml:space="preserve">
+    <value>mfo_pap_id</value>
+  </data>
+  <data name="&gt;&gt;mfo_pap_id.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleted.Name" xml:space="preserve">
+    <value>deleted</value>
+  </data>
+  <data name="&gt;&gt;deleted.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>report_cv_erc_filter</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
