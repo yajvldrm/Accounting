@@ -1,0 +1,205 @@
+Log for Debugging - 09/04/2019
+[08:46:27] - ----- Accounting Start -----
+[08:46:27] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_nhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:46:27] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:46:32] - Login Button Click
+[08:46:32] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[08:46:32] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-04 08:46:32',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[08:46:32] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-04 08:46:32' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[08:46:32] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[08:46:32] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[08:46:32] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[08:46:33] - select * from lib_erp_journal
+[08:46:33] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[08:46:33] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[08:46:34] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[08:46:34] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[08:46:34] - End of Initialization
+[08:46:40] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[08:46:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:41] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:41] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '31'
+[08:46:41] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '31'
+[08:46:41] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:46:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '31'
+[08:46:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '31'
+[08:46:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[08:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '361'
+[08:57:06] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '361'
+[08:57:06] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '338'
+[09:31:25] - ----- Accounting Start -----
+[09:31:25] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_PMCI;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:31:25] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:31:31] - Login Button Click
+[09:31:31] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:31:31] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-04 09:31:31',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[09:31:32] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-04 09:31:31' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[09:31:32] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:31:33] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:31:33] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[09:31:33] - select * from lib_erp_journal
+[09:31:34] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:31:34] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[09:31:35] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '17'
+[09:31:35] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:31:35] - End of Initialization
+[09:31:47] - SELECT template_id,template_code,template_name FROM sys_fs_template WHERE fs_type = '1'
+[09:31:54] - SELECT project_id,project_code,project_name FROM lib_erp_project 
+[09:31:57] - SELECT project_id,project_code,project_name FROM lib_erp_project 
+[09:31:59] - SELECT project_id,project_code,project_name FROM lib_erp_project 
+[09:32:05] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[09:32:05] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[09:32:06] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[09:32:07] - SELECT book_id,book_code,book_name 
+FROM lib_erp_book a 
+WHERE a.company_id = '17' 
+[09:32:16] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no WHERE book_id IN (74)
+[09:33:19] - SELECT * FROM (SELECT a.account_id,a.account_code,a.account_name
+            ,a.chart_class_id,b.chart_class_code,b.chart_class_name
+            ,b.chart_type,c.currency_id,c.project_id,c.department_id,e.currency_name
+            ,unit.book_unit_no_code AS unit_code,unit.book_unit_no_name AS unit_name
+            ,project.project_code,project.project_name
+            ,department.department_code,department.department_name
+            
+,IF(SUM(c.debit) > SUM(c.credit), 
+  (SUM(c.debit) - SUM(c.credit)),0 
+) AS debit, 
+IF(SUM(c.credit) > SUM(c.debit), 
+  (SUM(c.credit) - SUM(c.debit)),0 
+) AS credit, 
+IF(SUM(c.debit_based) > SUM(c.credit_based), 
+  (SUM(c.debit_based) - SUM(c.credit_based)),0 
+) AS debit_based, 
+IF(SUM(c.credit_based) > SUM(c.debit_based), 
+  (SUM(c.credit_based) - SUM(c.debit_based)),0 
+) AS credit_based 
+,_book.book_id,_book.book_code,'TRIAL BALANCE' AS book_name 
+,chart_group.group_id,account_group.chart_group_code,CONCAT(account_group.chart_group_code,' - ',account_group.chart_group_name) AS chart_group_name 
+FROM lib_erp_chart a 
+LEFT JOIN lib_erp_book _book ON 1 = 1 
+LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id 
+LEFT JOIN (
+                SELECT a.chart_group_id,a.account_id,a.group_id
+			    FROM lib_erp_chart_group a
+			    GROUP BY a.account_id
+            ) chart_group ON chart_group.account_id = a.account_id 
+LEFT JOIN lib_acc_chart_group account_group ON account_group.chart_group_id = chart_group.group_id 
+LEFT JOIN erp_accounting_PMCI.trans_jbooks c ON c.account_id = a.account_id 
+LEFT JOIN erp_accounting_PMCI.trans_header d ON d.trans_id = c.trans_id AND d.book_id = _book.book_id
+            LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no unit ON unit.book_unit_no_id = c.book_unit_no_id 
+LEFT JOIN erp_fs_alhi.lib_erp_project project ON project.project_id = c.project_id 
+LEFT JOIN erp_fs_alhi.lib_erp_department department ON department.department_id = c.department_id 
+LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = c.currency_id WHERE d.trans_date BETWEEN '2018-12-31' AND '2018-12-31'   AND _book.book_id IN (74) GROUP BY a.account_id  ORDER BY a.account_code,FIELD(b.chart_type,'A','L','C','I','E') ) a WHERE (a.debit-a.credit <> 0 OR a.debit_based - a.credit_based <> 0)
+[09:33:20] - SELECT b.company_name,b.address1 AS address,b.tin FROM sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id
+[09:34:25] - ----- Accounting Start -----
+[09:34:25] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_algc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:34:25] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:34:30] - Login Button Click
+[09:34:30] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:34:30] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-04 09:34:30',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[09:34:31] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-04 09:34:30' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[09:34:31] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:34:31] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:34:31] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[09:34:31] - select * from lib_erp_journal
+[09:34:31] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:34:32] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[09:34:32] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '12'
+[09:34:32] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:34:32] - End of Initialization
+[09:34:38] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[09:34:38] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[09:34:39] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[09:34:40] - SELECT book_id,book_code,book_name 
+FROM lib_erp_book a 
+WHERE a.company_id = '12' 
+[09:34:42] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no WHERE book_id IN (11)
+[09:34:58] - SELECT * FROM (SELECT a.account_id,a.account_code,a.account_name
+            ,a.chart_class_id,b.chart_class_code,b.chart_class_name
+            ,b.chart_type,c.currency_id,c.project_id,c.department_id,e.currency_name
+            ,unit.book_unit_no_code AS unit_code,unit.book_unit_no_name AS unit_name
+            ,project.project_code,project.project_name
+            ,department.department_code,department.department_name
+            
+,IF(SUM(c.debit) > SUM(c.credit), 
+  (SUM(c.debit) - SUM(c.credit)),0 
+) AS debit, 
+IF(SUM(c.credit) > SUM(c.debit), 
+  (SUM(c.credit) - SUM(c.debit)),0 
+) AS credit, 
+IF(SUM(c.debit_based) > SUM(c.credit_based), 
+  (SUM(c.debit_based) - SUM(c.credit_based)),0 
+) AS debit_based, 
+IF(SUM(c.credit_based) > SUM(c.debit_based), 
+  (SUM(c.credit_based) - SUM(c.debit_based)),0 
+) AS credit_based 
+,_book.book_id,_book.book_code,'TRIAL BALANCE' AS book_name 
+,chart_group.group_id,account_group.chart_group_code,CONCAT(account_group.chart_group_code,' - ',account_group.chart_group_name) AS chart_group_name 
+FROM lib_erp_chart a 
+LEFT JOIN lib_erp_book _book ON 1 = 1 
+LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id 
+LEFT JOIN (
+                SELECT a.chart_group_id,a.account_id,a.group_id
+			    FROM lib_erp_chart_group a
+			    GROUP BY a.account_id
+            ) chart_group ON chart_group.account_id = a.account_id 
+LEFT JOIN lib_acc_chart_group account_group ON account_group.chart_group_id = chart_group.group_id 
+LEFT JOIN erp_accounting_algc.trans_jbooks c ON c.account_id = a.account_id 
+LEFT JOIN erp_accounting_algc.trans_header d ON d.trans_id = c.trans_id AND d.book_id = _book.book_id
+            LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no unit ON unit.book_unit_no_id = c.book_unit_no_id 
+LEFT JOIN erp_fs_alhi.lib_erp_project project ON project.project_id = c.project_id 
+LEFT JOIN erp_fs_alhi.lib_erp_department department ON department.department_id = c.department_id 
+LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = c.currency_id WHERE d.trans_date BETWEEN '2018-12-31' AND '2018-12-31'   AND _book.book_id IN (11) GROUP BY a.account_id  ORDER BY a.account_code,FIELD(b.chart_type,'A','L','C','I','E') ) a WHERE (a.debit-a.credit <> 0 OR a.debit_based - a.credit_based <> 0)
+[09:34:58] - SELECT b.company_name,b.address1 AS address,b.tin FROM sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id
+[10:19:36] - ----- Accounting Close -----
+[10:22:06] - ----- Accounting Start -----
+[10:22:06] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_algc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:22:06] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:22:08] - Unable to connect to any of the specified MySQL hosts.
+[10:22:23] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Access denied for user 'root'@'localhost' (using password: YES)
+[10:22:28] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'erp_accounting_algc'
+[10:24:07] - ----- Accounting Close -----
+[10:24:09] - ----- Accounting Close -----
+[11:29:58] - ----- Accounting Start -----
+[11:29:58] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_algc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:29:58] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:29:59] - Unable to connect to any of the specified MySQL hosts.
+[11:30:17] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'erp_accounting_algc'
+[11:30:28] - ----- Accounting Start -----
+[11:30:28] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:30:28] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:30:39] - Login Button Click
+[11:30:39] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:30:40] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-04 11:30:40',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:30:40] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-04 11:30:40' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:30:40] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:30:40] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:30:40] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[11:30:41] - select * from lib_erp_journal
+[11:30:42] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:30:42] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[11:30:43] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[11:30:44] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:30:44] - End of Initialization
+[11:52:39] - ExecuteWithParameter : acc_get_pending_ap
+[11:52:39] - parameters : 'erp_fs_alhi','1'
+[11:52:39] - Execution Time: 2019-09-04 11:52:39
+[11:52:48] - Done Time: 2019-09-04 11:52:48
+[17:35:35] - ----- Accounting Start -----
+[17:35:36] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[17:35:36] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[17:35:45] - ----- Accounting Close -----

@@ -1,0 +1,685 @@
+Log for Debugging - 08/29/2019
+[10:44:14] - ----- Accounting Start -----
+[10:44:14] - Main Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_accounting_soler;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:44:14] - FS Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:44:20] - Login Button Click
+[10:44:20] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:44:20] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-08-29 10:44:20',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[10:44:20] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-08-29 10:44:20' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[10:44:20] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:44:20] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:44:20] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[10:44:21] - select * from lib_erp_journal
+[10:44:21] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:44:21] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[10:44:22] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '7'
+[10:44:22] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:44:22] - End of Initialization
+[10:44:27] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[10:44:27] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:44:27] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:44:27] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:44:27] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:44:28] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:44:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:44:28] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:44:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:44:28] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:44:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:45:03] - select * from lib_erp_category
+[10:45:08] - select * from lib_erp_terms
+[10:45:08] - CALL SaveTransaction('Insert','lib_erp_general','general_id,general_code,general_name,general_type,address1,address2,address3,address4,attention,contact_person,position,tel_no,fax_no,cell_no,category_id,tin,email_add,website,terms_id,credit_amt,nodays,remarks,vat,status,billto,billadd1,billadd2,billadd3,billadd4,drawing,specs,business_type,checker,approver,port_area,date,industry_id,general_name_bir','|Other|Other||-||||||||||11|   -   -   -||||0.0000|0|||0||||||||||||2018-12-31T10:44:48||Other|','general_id','','DESKTOP-PL80BO2','Raymond T. Villegas','10');
+[10:45:09] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[10:45:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:45:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:45:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:45:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:45:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:45:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:45:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:45:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:45:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '12308'
+[10:45:11] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 12308
+[10:46:20] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '12308'
+[10:46:20] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 12308
+[10:46:20] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '117'
+[10:46:20] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 117
+[10:46:23] - SELECT general_id FROM trans_header WHERE general_id = '117'
+[10:47:14] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '117'
+[10:47:14] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 117
+[10:47:17] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '275'
+[10:47:17] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 275
+[10:47:18] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '275'
+[10:47:19] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 275
+[10:47:19] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:47:19] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:47:28] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:47:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:47:28] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:47:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:47:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:47:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:47:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '39'
+[10:47:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 39
+[10:47:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '39'
+[10:47:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 39
+[10:47:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:32] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:32] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:32] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:32] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '374'
+[10:47:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 374
+[10:47:38] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '12308'
+[10:47:38] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 12308
+[10:47:39] - SELECT general_id FROM trans_header WHERE general_id = '12308'
+[10:47:40] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '12308'
+[10:47:40] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 12308
+[10:47:40] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '12308'
+[10:47:40] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 12308
+[10:47:51] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '12308'
+[10:47:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 12308
+[10:47:51] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '247'
+[10:47:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 247
+[10:47:51] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '466'
+[10:47:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 466
+[10:47:52] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '247'
+[10:47:52] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 247
+[10:47:53] - SELECT general_id FROM trans_header WHERE general_id = '247'
+[10:47:55] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '247'
+[10:47:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 247
+[10:47:55] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '247'
+[10:47:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 247
+[10:48:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '247'
+[10:48:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 247
+[10:48:14] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '376'
+[10:48:14] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 376
+[10:48:15] - SELECT general_id FROM trans_header WHERE general_id = '376'
+[10:48:34] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '376'
+[10:48:34] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 376
+[10:48:34] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '376'
+[10:48:34] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 376
+[10:48:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '376'
+[10:48:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 376
+[10:48:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4'
+[10:48:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4
+[10:48:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4'
+[10:48:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4
+[10:48:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4'
+[10:48:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4
+[10:48:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4'
+[10:48:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4
+[10:48:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '771'
+[10:48:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 771
+[10:48:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '771'
+[10:48:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 771
+[10:48:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3553'
+[10:48:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3553
+[10:48:39] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3553'
+[10:48:39] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3553
+[10:48:43] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '255'
+[10:48:43] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 255
+[10:48:59] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '255'
+[10:48:59] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 255
+[10:49:01] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2054'
+[10:49:01] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2054
+[10:49:24] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2054'
+[10:49:25] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2054
+[10:49:33] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:49:33] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:49:42] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:49:42] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:49:58] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '275'
+[10:49:58] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 275
+[10:50:00] - SELECT general_id FROM trans_header WHERE general_id = '275'
+[10:50:54] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '275'
+[10:50:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 275
+[10:50:55] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '275'
+[10:50:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 275
+[10:50:56] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '275'
+[10:50:56] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 275
+[10:50:56] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '358'
+[10:50:56] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 358
+[10:51:08] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '358'
+[10:51:08] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 358
+[10:51:08] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '15'
+[10:51:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 15
+[10:51:11] - SELECT general_id FROM trans_header WHERE general_id = '15'
+[10:51:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '15'
+[10:51:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 15
+[10:51:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '15'
+[10:51:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 15
+[10:51:23] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '15'
+[10:51:24] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 15
+[10:51:26] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '159'
+[10:51:26] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 159
+[10:51:26] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '159'
+[10:51:26] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 159
+[10:51:26] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '159'
+[10:51:27] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 159
+[10:51:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '159'
+[10:51:41] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 159
+[10:51:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:51:41] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:51:43] - SELECT general_id FROM trans_header WHERE general_id = '81'
+[10:51:45] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:51:45] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:51:45] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:51:45] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:51:49] - SELECT general_id FROM trans_header WHERE general_id = '81'
+[10:51:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:51:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:51:51] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:51:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:51:52] - SELECT general_id FROM trans_header WHERE general_id = '81'
+[10:54:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:54:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:54:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:54:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:58:04] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '81'
+[10:58:04] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 81
+[10:58:04] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '117'
+[10:58:05] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 117
+[11:41:12] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '1' AND b.company_id = '7' ORDER BY b.book_code 
+[11:41:15] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00101'
+[11:41:16] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_alhi.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_alhi.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_alhi.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-02' ORDER BY a.trans_no ASC 
+[11:41:21] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_alhi.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_alhi.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_alhi.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '2' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-02' ORDER BY a.trans_no ASC 
+[11:41:21] - SELECT b.trans_project_management_id,a.trans_id,a.trans_no,a.trans_date
+        ,b.project_management_det_id,d.pm_year
+        ,d.project_id,e.project_code,e.project_name
+        ,d.general_id,f.general_code,f.general_name
+        ,c.department_code,c.project_name AS project_name_det
+        ,c.contract_amount,c.contract_amount_based
+        ,b.billed_amount,b.billed_amount_based
+        ,IFNULL(c.contract_amount,0) - IFNULL(b.billed_amount,0) AS balance_amount
+        ,IFNULL(c.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS balance_amount_based
+        FROM trans_header a
+        LEFT JOIN trans_header_project_management b ON b.trans_id = a.trans_id
+        LEFT JOIN (
+	        SELECT a.project_management_det_id,a.project_management_id
+	        ,a.department_code,a.project_name
+	        ,a.contract_amount,a.contract_amount_based
+	        ,IFNULL(a.contract_amount,0) - IFNULL(b.billed_amount,0) AS billed_amount
+	        ,IFNULL(a.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS billed_amount_based
+	        FROM trans_project_management_det a
+	        LEFT JOIN (
+		        SELECT a.project_management_det_id
+		        ,SUM(a.billed_amount) AS billed_amount
+		        ,SUM(a.billed_amount_based) AS billed_amount_based
+		        FROM trans_header_project_management a
+		        GROUP BY a.project_management_det_id
+	        ) b ON b.project_management_det_id = b.project_management_det_id
+            GROUP BY a.project_management_det_id
+        ) c ON c.project_management_det_id = b.project_management_det_id
+        LEFT JOIN trans_project_management d ON d.project_management_id = c.project_management_id
+        LEFT JOIN erp_fs_alhi.lib_erp_project e ON e.project_id = d.project_id
+        LEFT JOIN erp_fs_alhi.lib_erp_general f ON f.general_id = d.general_id
+        WHERE a.trans_id = '646' AND IFNULL(b.project_management_det_id,'') <> '' and d.deleted=0
+
+[11:41:23] - Unknown column 'd.deleted' in 'where clause'
+[11:41:38] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '3' AND b.company_id = '7' ORDER BY b.book_code 
+[11:41:41] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00301'
+[11:41:41] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ap_id,'') AS trans_ap_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.rr_no,'') AS rr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ap b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_alhi.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_alhi.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_alhi.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '3' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-02' ORDER BY a.trans_no ASC 
+[11:41:41] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_fs_alhi.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_fs_alhi.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_fs_alhi.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='684'
+[11:41:43] - Table 'erp_accounting_soler.trans_header_sub_contract' doesn't exist
+[11:44:10] - SELECT False AS sel,journal_id,journal_code,journal_name FROM lib_erp_journal WHERE journal_id <> 8
+[11:44:10] - SELECT False AS sel2,b.book_id,c.book_code,c.book_name,d.book_unit_no_name,d.book_unit_no_id 
+FROM erp_fs_alhi.lib_erp_journal a 
+LEFT JOIN erp_fs_alhi.sys_acc_journal_book b ON b.journal_id = a.journal_id 
+LEFT JOIN erp_fs_alhi.lib_erp_book c ON c.book_id = b.book_id 
+LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no d ON d.book_id = c.book_id 
+WHERE IFNULL(d.book_unit_no_id,'') <> '' 
+ AND c.company_id = '7' GROUP BY d.book_unit_no_id  ORDER BY d.book_unit_no_code DESC 
+[11:44:19] - SELECT False AS sel,b.book_id,c.book_code,c.book_name,d.book_unit_no_name 
+FROM erp_fs_alhi.lib_erp_journal a 
+LEFT JOIN erp_fs_alhi.sys_acc_journal_book b ON b.journal_id = a.journal_id 
+LEFT JOIN erp_fs_alhi.lib_erp_book c ON c.book_id = b.book_id 
+LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no d ON d.book_id = c.book_id 
+WHERE a.journal_id IN (1,2,3,4,5,6,7) AND c.book_code IS NOT NULL AND c.company_id = '7' GROUP BY c.book_id 
+[11:44:21] - SELECT False AS sel2,b.book_id,c.book_code,c.book_name,d.book_unit_no_name,d.book_unit_no_id 
+FROM erp_fs_alhi.lib_erp_journal a 
+LEFT JOIN erp_fs_alhi.sys_acc_journal_book b ON b.journal_id = a.journal_id 
+LEFT JOIN erp_fs_alhi.lib_erp_book c ON c.book_id = b.book_id 
+LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no d ON d.book_id = c.book_id 
+WHERE IFNULL(d.book_unit_no_id,'') <> '' 
+ AND c.book_id IN(1,2) GROUP BY d.book_unit_no_id 
+            ORDER BY d.book_unit_no_code DESC 
+[11:44:25] - ExecuteWithParameter : get_account_analysis_new
+[11:44:25] - parameters : 'erp_accounting_soler','erp_fs_alhi','','1','2019-01-01','2019-06-30','','','','1,2,3,4,5,6,7,8','1,2','','','1','1'
+[11:44:25] - Execution Time: 2019-08-29 11:44:25
+[11:44:38] - Done Time: 2019-08-29 11:44:38
+[11:44:38] - SELECT b.company_name,b.address1 AS address,b.tin,c.currency_name FROM erp_accounting_soler.sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id
+[11:45:08] - ----- Accounting Start -----
+[11:45:08] - Main Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_accounting_soler;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:45:08] - FS Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:45:11] - Login Button Click
+[11:45:11] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:45:11] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-08-29 11:45:11',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:45:11] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-08-29 11:45:11' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:45:11] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:45:12] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:45:12] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[11:45:12] - select * from lib_erp_journal
+[11:45:12] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:45:12] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[11:45:13] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '7'
+[11:45:13] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:45:13] - End of Initialization
+[11:45:18] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[11:45:18] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[11:45:18] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[11:45:18] - SELECT book_id,book_code,book_name 
+FROM lib_erp_book a 
+WHERE a.company_id = '7' 
+[11:45:27] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no WHERE book_id IN (1)
+[11:45:27] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no WHERE book_id IN (1,2)
+[11:45:31] - SELECT * FROM (SELECT a.account_id,a.account_code,a.account_name
+            ,a.chart_class_id,b.chart_class_code,b.chart_class_name
+            ,b.chart_type,c.currency_id,c.project_id,c.department_id,e.currency_name
+            ,unit.book_unit_no_code AS unit_code,unit.book_unit_no_name AS unit_name
+            ,project.project_code,project.project_name
+            ,department.department_code,department.department_name
+            
+,IF(SUM(c.debit) > SUM(c.credit), 
+  (SUM(c.debit) - SUM(c.credit)),0 
+) AS debit, 
+IF(SUM(c.credit) > SUM(c.debit), 
+  (SUM(c.credit) - SUM(c.debit)),0 
+) AS credit, 
+IF(SUM(c.debit_based) > SUM(c.credit_based), 
+  (SUM(c.debit_based) - SUM(c.credit_based)),0 
+) AS debit_based, 
+IF(SUM(c.credit_based) > SUM(c.debit_based), 
+  (SUM(c.credit_based) - SUM(c.debit_based)),0 
+) AS credit_based 
+,_book.book_id,_book.book_code,'TRIAL BALANCE' AS book_name 
+,chart_group.group_id,account_group.chart_group_code,CONCAT(account_group.chart_group_code,' - ',account_group.chart_group_name) AS chart_group_name 
+FROM lib_erp_chart a 
+LEFT JOIN lib_erp_book _book ON 1 = 1 
+LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id 
+LEFT JOIN (
+                SELECT a.chart_group_id,a.account_id,a.group_id
+			    FROM lib_erp_chart_group a
+			    GROUP BY a.account_id
+            ) chart_group ON chart_group.account_id = a.account_id 
+LEFT JOIN lib_acc_chart_group account_group ON account_group.chart_group_id = chart_group.group_id 
+LEFT JOIN erp_accounting_soler.trans_jbooks c ON c.account_id = a.account_id 
+LEFT JOIN erp_accounting_soler.trans_header d ON d.trans_id = c.trans_id AND d.book_id = _book.book_id
+            LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no unit ON unit.book_unit_no_id = c.book_unit_no_id 
+LEFT JOIN erp_fs_alhi.lib_erp_project project ON project.project_id = c.project_id 
+LEFT JOIN erp_fs_alhi.lib_erp_department department ON department.department_id = c.department_id 
+LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = c.currency_id WHERE d.trans_date BETWEEN '2019-01-01' AND '2019-06-30'   AND _book.book_id IN (1,2) GROUP BY a.account_id  ORDER BY a.account_code,FIELD(b.chart_type,'A','L','C','I','E') ) a WHERE (a.debit-a.credit <> 0 OR a.debit_based - a.credit_based <> 0)
+[11:45:31] - SELECT b.company_name,b.address1 AS address,b.tin FROM sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id
+[11:49:11] - SELECT * FROM (SELECT a.account_id,a.account_code,a.account_name
+            ,a.chart_class_id,b.chart_class_code,b.chart_class_name
+            ,b.chart_type,c.currency_id,c.project_id,c.department_id,e.currency_name
+            ,unit.book_unit_no_code AS unit_code,unit.book_unit_no_name AS unit_name
+            ,project.project_code,project.project_name
+            ,department.department_code,department.department_name
+            
+,IF(SUM(c.debit) > SUM(c.credit), 
+  (SUM(c.debit) - SUM(c.credit)),0 
+) AS debit, 
+IF(SUM(c.credit) > SUM(c.debit), 
+  (SUM(c.credit) - SUM(c.debit)),0 
+) AS credit, 
+IF(SUM(c.debit_based) > SUM(c.credit_based), 
+  (SUM(c.debit_based) - SUM(c.credit_based)),0 
+) AS debit_based, 
+IF(SUM(c.credit_based) > SUM(c.debit_based), 
+  (SUM(c.credit_based) - SUM(c.debit_based)),0 
+) AS credit_based 
+,_book.book_id,_book.book_code,'TRIAL BALANCE' AS book_name 
+,chart_group.group_id,account_group.chart_group_code,CONCAT(account_group.chart_group_code,' - ',account_group.chart_group_name) AS chart_group_name 
+FROM lib_erp_chart a 
+LEFT JOIN lib_erp_book _book ON 1 = 1 
+LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id 
+LEFT JOIN (
+                SELECT a.chart_group_id,a.account_id,a.group_id
+			    FROM lib_erp_chart_group a
+			    GROUP BY a.account_id
+            ) chart_group ON chart_group.account_id = a.account_id 
+LEFT JOIN lib_acc_chart_group account_group ON account_group.chart_group_id = chart_group.group_id 
+LEFT JOIN erp_accounting_soler.trans_jbooks c ON c.account_id = a.account_id 
+LEFT JOIN erp_accounting_soler.trans_header d ON d.trans_id = c.trans_id AND d.book_id = _book.book_id
+            LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no unit ON unit.book_unit_no_id = c.book_unit_no_id 
+LEFT JOIN erp_fs_alhi.lib_erp_project project ON project.project_id = c.project_id 
+LEFT JOIN erp_fs_alhi.lib_erp_department department ON department.department_id = c.department_id 
+LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = c.currency_id WHERE d.trans_date <= '2019-06-30'   AND _book.book_id IN (1,2) GROUP BY a.account_id  ORDER BY a.account_code,FIELD(b.chart_type,'A','L','C','I','E') ) a WHERE (a.debit-a.credit <> 0 OR a.debit_based - a.credit_based <> 0)
+[11:49:11] - SELECT b.company_name,b.address1 AS address,b.tin FROM sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id
+[11:54:11] - SELECT * FROM (SELECT a.account_id,a.account_code,a.account_name
+            ,a.chart_class_id,b.chart_class_code,b.chart_class_name
+            ,b.chart_type,c.currency_id,c.project_id,c.department_id,e.currency_name
+            ,unit.book_unit_no_code AS unit_code,unit.book_unit_no_name AS unit_name
+            ,project.project_code,project.project_name
+            ,department.department_code,department.department_name
+            
+,IF(SUM(c.debit) > SUM(c.credit), 
+  (SUM(c.debit) - SUM(c.credit)),0 
+) AS debit, 
+IF(SUM(c.credit) > SUM(c.debit), 
+  (SUM(c.credit) - SUM(c.debit)),0 
+) AS credit, 
+IF(SUM(c.debit_based) > SUM(c.credit_based), 
+  (SUM(c.debit_based) - SUM(c.credit_based)),0 
+) AS debit_based, 
+IF(SUM(c.credit_based) > SUM(c.debit_based), 
+  (SUM(c.credit_based) - SUM(c.debit_based)),0 
+) AS credit_based 
+,_book.book_id,_book.book_code,'TRIAL BALANCE' AS book_name 
+,chart_group.group_id,account_group.chart_group_code,CONCAT(account_group.chart_group_code,' - ',account_group.chart_group_name) AS chart_group_name 
+FROM lib_erp_chart a 
+LEFT JOIN lib_erp_book _book ON 1 = 1 
+LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id 
+LEFT JOIN (
+                SELECT a.chart_group_id,a.account_id,a.group_id
+			    FROM lib_erp_chart_group a
+			    GROUP BY a.account_id
+            ) chart_group ON chart_group.account_id = a.account_id 
+LEFT JOIN lib_acc_chart_group account_group ON account_group.chart_group_id = chart_group.group_id 
+LEFT JOIN erp_accounting_soler.trans_jbooks c ON c.account_id = a.account_id 
+LEFT JOIN erp_accounting_soler.trans_header d ON d.trans_id = c.trans_id AND d.book_id = _book.book_id
+            LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no unit ON unit.book_unit_no_id = c.book_unit_no_id 
+LEFT JOIN erp_fs_alhi.lib_erp_project project ON project.project_id = c.project_id 
+LEFT JOIN erp_fs_alhi.lib_erp_department department ON department.department_id = c.department_id 
+LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = c.currency_id WHERE d.trans_date <= '2018-12-31'   AND _book.book_id IN (1,2) GROUP BY a.account_id  ORDER BY a.account_code,FIELD(b.chart_type,'A','L','C','I','E') ) a WHERE (a.debit-a.credit <> 0 OR a.debit_based - a.credit_based <> 0)
+[11:54:11] - SELECT b.company_name,b.address1 AS address,b.tin FROM sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id
+[14:41:30] - ----- Accounting Start -----
+[14:41:30] - Main Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:41:30] - FS Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:41:34] - Login Button Click
+[14:41:34] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:41:34] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-08-29 14:41:34',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:41:34] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-08-29 14:41:34' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:41:34] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:41:34] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:41:34] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[14:41:34] - select * from lib_erp_journal
+[14:41:35] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:41:35] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[14:41:35] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[14:41:35] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:41:35] - End of Initialization
+[14:41:38] - SELECT book_id,book_code,book_name,company_id FROM lib_erp_book WHERE company_id = '6'
+[15:03:49] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[15:03:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[15:03:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[15:03:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[15:03:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[15:03:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[15:03:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[15:03:52] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[15:03:52] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[15:03:52] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[15:03:52] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[15:03:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[15:03:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[15:03:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4'
+[15:03:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4
+[15:03:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4'
+[15:03:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4
+[15:03:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '94'
+[15:03:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 94
+[15:03:54] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '94'
+[15:03:54] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 94
+[15:03:54] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '7211'
+[15:03:54] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 7211
+[15:03:59] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1311'
+[15:03:59] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1311
+[15:04:01] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1333'
+[15:04:01] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1333
+[15:04:02] - SELECT general_id FROM trans_header WHERE general_id = '1333'
+[15:04:04] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1333'
+[15:04:04] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1333
+[15:04:04] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1333'
+[15:04:04] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1333
+[15:04:48] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1333'
+[15:04:48] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1333
+[15:04:48] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3'
+[15:04:48] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3
+[15:04:49] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '88'
+[15:04:49] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 88
+[15:04:49] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '88'
+[15:04:49] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 88
+[15:04:49] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3'
+[15:04:49] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3
+[15:04:49] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '683'
+[15:04:49] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 683
+[15:04:49] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '683'
+[15:04:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 683
+[15:04:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '69'
+[15:04:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 69
+[15:04:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1322'
+[15:04:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1322
+[15:04:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1322'
+[15:04:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1322
+[15:04:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1100'
+[15:04:50] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1100
+[15:04:50] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1322'
+[15:04:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1322
+[15:04:52] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1342'
+[15:04:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1342
+[15:04:54] - SELECT general_id FROM trans_header WHERE general_id = '1342'
+[15:04:55] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1342'
+[15:04:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1342
+[15:04:55] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1342'
+[15:04:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1342
+[16:39:23] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1342'
+[16:39:23] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1342
+[16:39:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6420'
+[16:39:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6420
+[16:39:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6420'
+[16:39:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6420
+[16:39:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6420'
+[16:39:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6420
+[16:39:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6420'
+[16:39:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6420
+[16:39:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6420'
+[16:39:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6420
+[16:39:33] - SELECT general_id FROM trans_header WHERE general_id = '6420'
+[16:40:25] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6420'
+[16:40:25] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6420
+[16:40:27] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6253'
+[16:40:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6253
+[16:40:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6253'
+[16:40:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6253
+[16:40:34] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[16:40:34] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[16:40:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[16:40:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[16:40:37] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6253'
+[16:40:37] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6253
+[16:46:55] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6253'
+[16:46:55] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6253
+[16:46:56] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6085'
+[16:46:56] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6085
+[16:46:59] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6085'
+[16:46:59] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6085
+[16:47:00] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6085'
+[16:47:00] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6085
+[16:50:23] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6085'
+[16:50:23] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6085
+[16:50:27] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '450'
+[16:50:28] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 450
+[16:50:29] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '450'
+[16:50:29] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 450
+[16:50:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4645'
+[16:50:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4645
+[16:51:02] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4645'
+[16:51:02] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4645
+[16:51:20] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '7181'
+[16:51:20] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 7181
+[16:51:54] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '7181'
+[16:51:54] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 7181
+[16:51:58] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2883'
+[16:51:58] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2883
+[16:59:30] - ----- Accounting Close -----
+[16:59:32] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2883'
+[16:59:32] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2883
+[16:59:36] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2883'
+[16:59:36] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2883
+[17:00:02] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2883'
+[17:00:02] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2883
+[17:00:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1581'
+[17:00:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1581
+[17:00:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1581'
+[17:00:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1581
+[17:00:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4466'
+[17:00:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4466
+[17:02:33] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '4466'
+[17:02:33] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 4466
+[17:02:42] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3899'
+[17:02:42] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3899
+[17:03:11] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3899'
+[17:03:11] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3899
+[17:04:39] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '7206'
+[17:04:39] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 7206
+[17:04:40] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '7206'
+[17:04:40] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 7206
+[17:04:45] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2618'
+[17:04:45] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2618
+[17:05:13] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2618'
+[17:05:13] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2618
+[17:05:32] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3479'
+[17:05:32] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3479
+[17:06:22] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3479'
+[17:06:22] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3479
+[17:06:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6148'
+[17:06:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6148
+[17:06:58] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6148'
+[17:06:58] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6148
+[17:07:02] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6390'
+[17:07:03] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6390
+[17:07:06] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6390'
+[17:07:06] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6390
+[17:07:06] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6390'
+[17:07:06] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6390
+[17:07:31] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6390'
+[17:07:31] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6390
+[17:07:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3465'
+[17:07:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3465
+[17:08:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3465'
+[17:08:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3465
+[17:08:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3936'
+[17:08:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3936
+[17:15:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3936'
+[17:15:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3936
+[17:15:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '651'
+[17:15:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 651
+[17:16:17] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '651'
+[17:16:17] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 651
+[17:16:18] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6799'
+[17:16:18] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6799
+[17:16:18] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6799'
+[17:16:18] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6799
+[17:16:18] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6799'
+[17:16:19] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6799
+[17:16:22] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6799'
+[17:16:22] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6799
+[17:16:22] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6799'
+[17:16:22] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6799
+[17:16:22] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1599'
+[17:16:22] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1599
+[17:16:23] - SELECT general_id FROM trans_header WHERE general_id = '1599'
+[17:16:43] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1599'
+[17:16:43] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1599
+[17:16:43] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '672'
+[17:16:43] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 672
+[17:17:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '672'
+[17:17:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 672
+[17:17:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '681'
+[17:17:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 681
+[17:17:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '681'
+[17:17:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 681
+[17:17:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '681'
+[17:17:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 681
+[17:17:15] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '681'
+[17:17:15] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 681
+[17:17:16] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '681'
+[17:17:16] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 681
+[17:17:16] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1339'
+[17:17:16] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1339
+[17:17:16] - SELECT general_id FROM trans_header WHERE general_id = '1339'
+[17:27:44] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1339'
+[17:27:44] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1339
+[17:28:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1571'
+[17:28:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1571
+[17:37:13] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1571'
+[17:37:14] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1571
+[17:37:14] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '264'
+[17:37:14] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 264
+[17:37:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '264'
+[17:37:42] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 264
+[17:37:43] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '703'
+[17:37:44] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 703
+[17:37:46] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '703'
+[17:37:46] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 703
+[17:37:46] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '703'
+[17:37:46] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 703
+[17:38:23] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '703'
+[17:38:23] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 703
+[17:38:25] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1433'
+[17:38:25] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1433
+[17:39:05] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1433'
+[17:39:05] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1433
+[17:39:06] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6096'
+[17:39:06] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6096
+[17:39:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6096'
+[17:39:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6096
+[17:39:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1385'
+[17:39:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1385
+[17:39:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1385'
+[17:39:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1385
+[17:39:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1385'
+[17:39:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1385
+[17:40:04] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1385'
+[17:40:04] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1385
+[17:40:08] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '791'
+[17:40:08] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 791
+[17:40:13] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '791'
+[17:40:13] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 791
+[17:40:35] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1573'
+[17:40:35] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1573
+[17:41:21] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '1573'
+[17:41:21] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 1573
+[17:41:21] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '508'
+[17:41:21] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 508
+[17:41:43] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '508'
+[17:41:44] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 508
+[17:41:46] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6069'
+[17:41:46] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6069
+[18:52:28] - ----- Accounting Close -----

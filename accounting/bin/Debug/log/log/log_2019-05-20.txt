@@ -1,0 +1,5 @@
+Log for Debugging - 05/20/2019
+[17:26:20] - Close System Update.
+[17:26:36] - Close System Update.
+[17:26:48] - Close System Update.
+[20:38:05] - Close System Update.

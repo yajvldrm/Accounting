@@ -1,0 +1,1721 @@
+Log for Debugging - 06/25/2019
+[10:41:47] - ----- Accounting Start -----
+[10:41:47] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:41:47] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:41:50] - Login Button Click
+[10:41:50] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:41:50] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-25 10:41:50',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[10:41:51] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-25 10:41:50' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[10:41:51] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:41:51] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:41:51] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:41:51] - select * from lib_erp_journal
+[10:41:51] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:41:52] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:41:53] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:41:53] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:41:53] - End of Initialization
+[10:42:12] - ----- Accounting Start -----
+[10:42:12] - Main Connection String = Server=192.168.1.46;User Id=root;Password=root;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:42:12] - FS Connection String = Server=192.168.1.46;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:42:15] - Login Button Click
+[10:42:15] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = '136b5a86d20267e7171841fb1b94b4b4014b64b49b590fb66e1d44cc8155f811' 
+[10:42:17] - Login Button Click
+[10:42:17] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:42:18] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-25 10:42:18',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[10:42:18] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-25 10:42:18' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[10:42:18] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:42:18] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:42:18] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[10:42:18] - select * from lib_erp_journal
+[10:42:19] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:42:19] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[10:42:19] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[10:42:19] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:42:19] - End of Initialization
+[10:42:21] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[10:42:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:42:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:42:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:42:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:42:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:42:27] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:42:27] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '499'
+[11:07:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '499'
+[11:07:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '292'
+[11:12:57] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '292'
+[11:12:57] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '435'
+[11:16:48] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '435'
+[11:16:48] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '433'
+[11:26:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '433'
+[11:26:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '434'
+[11:47:34] - ----- Accounting Close -----
+[11:48:48] - ----- Accounting Start -----
+[11:48:48] - Main Connection String = Server=192.168.1.46;User Id=root;Password=root;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:48:48] - FS Connection String = Server=192.168.1.46;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:48:51] - Login Button Click
+[11:48:51] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:48:51] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-25 11:48:51',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:48:51] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-25 11:48:51' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:48:51] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:48:51] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:48:52] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[11:48:52] - select * from lib_erp_journal
+[11:48:52] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:48:52] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[11:48:53] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[11:48:53] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:48:54] - End of Initialization
+[11:49:16] - ----- Accounting Start -----
+[11:49:16] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:49:16] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:49:20] - Login Button Click
+[11:49:20] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:49:20] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-25 11:49:20',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:49:21] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-25 11:49:20' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:49:21] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:49:21] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:49:21] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[11:49:21] - select * from lib_erp_journal
+[11:49:21] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:49:21] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[11:49:21] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[11:49:22] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:49:22] - End of Initialization
+[11:49:24] - ----- Accounting Close -----
+[11:49:25] - ----- Accounting Start -----
+[11:49:25] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:49:25] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:49:28] - Login Button Click
+[11:49:28] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:49:29] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-25 11:49:29',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:49:29] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-25 11:49:29' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:49:29] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:49:29] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:49:29] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[11:49:29] - select * from lib_erp_journal
+[11:49:29] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:49:29] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[11:49:31] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[11:49:31] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:49:31] - End of Initialization
+[11:49:45] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '3' AND b.company_id = '1' ORDER BY b.book_code 
+[11:49:48] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00301'
+[11:49:49] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ap_id,'') AS trans_ap_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.rr_no,'') AS rr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ap b ON a.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '3' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-06' ORDER BY a.trans_no ASC 
+[11:49:49] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='12553'
+[11:49:49] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '12553'
+[11:49:50] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 12553
+[11:49:50] - SELECT * FROM select_ewt WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM select_final_tax WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM select_input_vat WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM select_output_vat WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM select_prepaid WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM select_fixed_asset WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM select_checks WHERE trans_id = 12553
+[11:49:51] - SELECT * FROM trans_header_particular WHERE trans_id = 12553
+[11:49:53] - select a.currency_id,a.currency_code,a.currency_name ,b.exchange_rate,b.based_rate from lib_erp_currency a inner join (select a.currency_id,a.exchange_rate,a.based_rate from lib_erp_currency_rate a inner join (SELECT currency_id,max(effectivitydate) as effectivitydate FROM lib_erp_currency_rate where DATE_FORMAT(effectivitydate,'%Y-%m') = '2019-06' group by currency_id) b on a.currency_id = b.currency_id and a.effectivitydate = b.effectivitydate) b on a.currency_id = b.currency_id
+[11:49:53] - SELECT auto_number FROM lib_erp_journal WHERE journal_id = 3
+[11:50:12] - SELECT a.general_id,a.general_code,a.general_name,a.terms_id ,b.terms_code,b.terms_name,IFNULL(a.nodays,b.nodays) AS nodays,b.fixed_day FROM lib_erp_general a LEFT JOIN lib_erp_terms b ON b.terms_id = a.terms_id ORDER BY FIELD(a.category_id,2,1),a.general_code ASC 
+[11:50:13] - select a.currency_id,a.currency_code,a.currency_name ,b.exchange_rate,b.based_rate from lib_erp_currency a inner join (select a.currency_id,a.exchange_rate,a.based_rate from lib_erp_currency_rate a inner join (SELECT currency_id,max(effectivitydate) as effectivitydate FROM lib_erp_currency_rate where left(effectivitydate,7) <= '2019-06' group by currency_id) b on a.currency_id = b.currency_id and a.effectivitydate = b.effectivitydate) b on a.currency_id = b.currency_id
+[11:50:27] - SELECT * FROM lib_erp_chart
+[11:50:35] - SELECT * FROM lib_erp_project
+[11:50:41] - SELECT IF(IFNULL(i.ref_no,'') = '',d.trans_no,i.ref_no) AS trans_no,a.tax_rate,a.general_id,a.fs_ewt_id,a.currency_id,a.exchange_rate,a.based_rate,b.account_id,a.jbooks_id,a.ewt_id AS ref_ewt_id,f.ewt_code AS fs_ewt_code ,d.trans_date,IFNULL(d.trans_no,'') AS ref_no,e.general_code,e.general_name,(a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) AS tmp_amount,0 AS tax_amount,d.description,b.line_remarks ,b.line_remarks AS particulars FROM trans_ewt a LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_jbooks_ref c ON c.jbooks_id = b.jbooks_id LEFT JOIN trans_header d ON d.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general e ON e.general_id = a.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt f ON f.ewt_id = a.fs_ewt_id LEFT JOIN (SELECT ref_ewt_id AS ewt_id,SUM(tax_amount) AS tax_amount FROM trans_ewt GROUP BY ref_ewt_id) g ON g.ewt_id = a.ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal h ON h.journal_id = d.journal_id LEFT JOIN trans_ewt_ref i ON i.ewt_id = a.ewt_id  WHERE b.account_id = 38 AND d.trans_date <= '2019-6-25' AND a.currency_id = '1' AND b.project_id  = 7 AND b.department_id  IS NULL  AND a.general_id <> 0 AND IFNULL(a.offset_type,0) = 0 AND a.general_id is not null AND (a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) <> 0 
+[11:51:00] - SELECT a.default_id,a.used_in_report,a.sys_beg,a.company_id,a.w_proj,a.w_alloc,a.w_dept,a.line_remarks,a.line_currency,a.filter_id,a.monthly_currency,a.decimal_places,a.general_auto_number,a.retained_account_id,a.forex_account_id ,b.company_code,b.company_name,b.address1,b.address2,b.address3,b.address4,a.currency_id,b.tel_no,b.fax_no,b.email_add,b.tin,b.rdo_code ,c.filter_code,c.filter_name ,d.currency_code,d.currency_name ,e.account_code,e.account_name ,f.account_code AS forex_account_code,f.account_name AS forex_account_name ,a.isFiscal,a.fiscal_month,a.fiscal_year FROM sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.sys_acc_filter c ON c.filter_id = a.filter_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON d.currency_id = a.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart e ON e.account_id = a.retained_account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart f ON f.account_id = a.forex_account_id WHERE a.default_id = 1 
+[11:51:00] - SELECT a.*,b.* FROM lib_erp_allocation a LEFT JOIN lib_erp_allocation_account b ON b.allocation_id = a.allocation_id  WHERE account_id = '38' GROUP BY a.allocation_id
+[11:51:17] - SELECT a.*,b.* FROM lib_erp_allocation a LEFT JOIN lib_erp_allocation_account b ON b.allocation_id = a.allocation_id  WHERE account_id = '38' GROUP BY a.allocation_id
+[11:51:20] - SELECT IF(IFNULL(i.ref_no,'') = '',d.trans_no,i.ref_no) AS trans_no,a.tax_rate,a.general_id,a.fs_ewt_id,a.currency_id,a.exchange_rate,a.based_rate,b.account_id,a.jbooks_id,a.ewt_id AS ref_ewt_id,f.ewt_code AS fs_ewt_code ,d.trans_date,IFNULL(d.trans_no,'') AS ref_no,e.general_code,e.general_name,(a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) AS tmp_amount,0 AS tax_amount,d.description,b.line_remarks ,b.line_remarks AS particulars FROM trans_ewt a LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_jbooks_ref c ON c.jbooks_id = b.jbooks_id LEFT JOIN trans_header d ON d.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general e ON e.general_id = a.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt f ON f.ewt_id = a.fs_ewt_id LEFT JOIN (SELECT ref_ewt_id AS ewt_id,SUM(tax_amount) AS tax_amount FROM trans_ewt GROUP BY ref_ewt_id) g ON g.ewt_id = a.ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal h ON h.journal_id = d.journal_id LEFT JOIN trans_ewt_ref i ON i.ewt_id = a.ewt_id  WHERE b.account_id = 38 AND d.trans_date <= '2019-6-25' AND a.currency_id = '1' AND b.project_id  = 7 AND b.department_id  IS NULL  AND a.general_id <> 0 AND IFNULL(a.offset_type,0) = 0 AND a.general_id is not null AND (a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) <> 0 
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '6' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '7' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '8' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '9' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '11' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '13' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '14' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '16' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '17' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '18' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '20' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '22' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '24' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '25' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '26' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '27' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '28' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '29' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '30' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '31' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '32' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '33' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '34' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '35' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '36' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '45' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '49' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '50' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '51' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '52' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '54' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '55' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '56' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '57' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '58' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '60' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '61' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '62' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '63' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '66' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '67' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '68' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '70' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '71' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '72' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '73' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '74' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '75' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '76' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '77' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '78' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '79' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '80' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '81' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '82' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '83' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '84' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '85' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '86' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '87' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '88' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '89' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '90' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '91' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '93' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '99' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '101' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '108' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '121' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '122' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '123' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '125' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '138' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '139' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '141' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '142' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '143' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '144' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '145' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '146' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '147' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '148' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '149' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '150' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '156' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '158' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '159' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '160' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '163' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '173' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '174' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '175' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '176' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '178' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '179' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '181' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '182' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '183' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '185' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '186' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '190' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '192' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '207' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '208' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '211' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '212' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '213' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '217' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '219' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '220' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '222' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '232' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '267' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '294' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '295' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '296' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '297' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '298' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '299' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '300' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '304' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '306' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '307' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '308' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '323' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '324' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '325' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '358' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '370' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '371' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '372' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '375' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '378' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '384' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '388' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '458' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '468' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '481' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '482' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '521' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '530' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '531' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '567' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '568' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '619' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '620' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '625' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '635' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '724' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '746' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '761' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '765' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '916' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '918' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '919' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '929' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '973' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1011' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1054' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1055' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1092' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1155' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1178' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1182' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1183' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1216' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1235' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1281' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1326' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1327' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1330' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1366' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1367' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1370' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1384' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1441' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1491' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1541' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1542' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1560' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1568' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1574' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1590' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1655' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1755' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1765' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1766' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1772' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1778' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1812' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1829' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1857' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1875' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1921' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2047' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2109' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2141' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2142' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2143' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2178' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2203' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2238' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2239' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2247' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2252' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2257' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2258' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2260' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2261' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2306' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2307' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2308' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2309' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3792' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3801' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3807' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3808' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3815' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3818' , FOUND: 0
+[11:51:24] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3819' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3820' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3821' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3822' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3823' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3824' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3825' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3826' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3828' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3829' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3839' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3840' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3841' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3842' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3843' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3844' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3845' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3846' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3848' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3850' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3851' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3852' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3853' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3854' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3855' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3856' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3857' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3858' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3859' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3860' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3862' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3863' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3864' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3865' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3866' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3868' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3870' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3871' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3872' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3873' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3874' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3875' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3876' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3877' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3878' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3879' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3880' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3881' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3882' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3883' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3884' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3887' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3888' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3889' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3890' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3891' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3893' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3894' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3895' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3896' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3897' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3898' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3899' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3900' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3901' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3902' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3904' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3905' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3907' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3908' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3909' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3911' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3912' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3913' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3914' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3915' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3916' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3917' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3918' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3919' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3921' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3922' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3924' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3925' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3926' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3929' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3930' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3931' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3932' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3933' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3934' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3935' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3937' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3940' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3942' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3943' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3944' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3946' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3949' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3950' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3952' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3954' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3956' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3957' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3958' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3959' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3960' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3961' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3962' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3965' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3966' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3967' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3968' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3969' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3970' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3971' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3972' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3973' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3974' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3976' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3979' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3980' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3981' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3982' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3983' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3984' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3985' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3987' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3988' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3989' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3990' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3991' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3992' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3994' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3995' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3996' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3997' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3998' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3999' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4002' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4004' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4005' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4006' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4007' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4009' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4010' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4011' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4012' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4014' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4015' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4016' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4017' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4018' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4019' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4020' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4021' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4023' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4024' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4025' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4026' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4027' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4028' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4029' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4032' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4033' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4035' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4037' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4038' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4040' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4041' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4042' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4045' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4046' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4049' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4050' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4051' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4052' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4053' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4054' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4055' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4056' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4057' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4058' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4060' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4063' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4066' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4067' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4068' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4069' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4070' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4074' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4075' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4077' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4079' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4080' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4081' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4082' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4083' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4084' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4085' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4086' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4087' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4088' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4089' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4090' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4092' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4093' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4094' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4097' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4098' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4099' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4100' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4102' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4103' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4104' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4105' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4106' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4107' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4108' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4109' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4110' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4111' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4112' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4113' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4114' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4115' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4116' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4117' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4118' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4119' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4120' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4122' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4123' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4124' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4125' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4126' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4127' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4128' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4129' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4130' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4131' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4132' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4133' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4134' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4135' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4136' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4137' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4138' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4139' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4140' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4141' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4142' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4143' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4144' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4145' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4146' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4147' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4148' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4149' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4150' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4151' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4152' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4153' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4154' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4155' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4156' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4157' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4158' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4159' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4160' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4161' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4162' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4163' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4164' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4165' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4166' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4167' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4168' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4169' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4170' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4171' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4172' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4173' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4174' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4175' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4176' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4177' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4178' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4179' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4180' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4181' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4182' , FOUND: 0
+[11:51:25] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4183' , FOUND: 0
+[11:51:25] - SELECT IF(IFNULL(i.ref_no,'') = '',d.trans_no,i.ref_no) AS trans_no,a.tax_rate,a.general_id,a.fs_ewt_id,a.currency_id,a.exchange_rate,a.based_rate,b.account_id,a.jbooks_id,a.ewt_id AS ref_ewt_id,f.ewt_code AS fs_ewt_code ,d.trans_date,IFNULL(d.trans_no,'') AS ref_no,e.general_code,e.general_name,(a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) AS tmp_amount,0 AS tax_amount,d.description,b.line_remarks ,b.line_remarks AS particulars FROM trans_ewt a LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_jbooks_ref c ON c.jbooks_id = b.jbooks_id LEFT JOIN trans_header d ON d.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general e ON e.general_id = a.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt f ON f.ewt_id = a.fs_ewt_id LEFT JOIN (SELECT ref_ewt_id AS ewt_id,SUM(tax_amount) AS tax_amount FROM trans_ewt GROUP BY ref_ewt_id) g ON g.ewt_id = a.ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal h ON h.journal_id = d.journal_id LEFT JOIN trans_ewt_ref i ON i.ewt_id = a.ewt_id  WHERE b.account_id = 38 AND d.trans_date <= '2019-6-25' AND a.currency_id = '1' AND b.project_id  = 7 AND b.department_id  IS NULL  AND a.general_id <> 0 AND IFNULL(a.offset_type,0) = 0 AND a.general_id is not null AND (a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) <> 0 
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '6' , FOUND: 1
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '7' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '8' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '9' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '11' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '13' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '14' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '16' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '17' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '18' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '20' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '22' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '24' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '25' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '26' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '27' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '28' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '29' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '30' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '31' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '32' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '33' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '34' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '35' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '36' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '45' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '49' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '50' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '51' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '52' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '54' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '55' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '56' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '57' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '58' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '60' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '61' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '62' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '63' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '66' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '67' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '68' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '70' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '71' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '72' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '73' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '74' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '75' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '76' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '77' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '78' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '79' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '80' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '81' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '82' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '83' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '84' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '85' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '86' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '87' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '88' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '89' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '90' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '91' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '93' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '99' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '101' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '108' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '121' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '122' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '123' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '125' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '138' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '139' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '141' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '142' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '143' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '144' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '145' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '146' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '147' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '148' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '149' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '150' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '156' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '158' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '159' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '160' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '163' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '173' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '174' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '175' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '176' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '178' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '179' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '181' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '182' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '183' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '185' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '186' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '190' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '192' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '207' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '208' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '211' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '212' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '213' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '217' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '219' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '220' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '222' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '232' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '267' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '294' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '295' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '296' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '297' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '298' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '299' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '300' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '304' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '306' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '307' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '308' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '323' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '324' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '325' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '358' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '370' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '371' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '372' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '375' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '378' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '384' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '388' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '458' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '468' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '481' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '482' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '521' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '530' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '531' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '567' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '568' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '619' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '620' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '625' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '635' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '724' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '746' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '761' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '765' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '916' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '918' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '919' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '929' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '973' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1011' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1054' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1055' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1092' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1155' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1178' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1182' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1183' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1216' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1235' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1281' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1326' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1327' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1330' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1366' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1367' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1370' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1384' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1441' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1491' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1541' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1542' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1560' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1568' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1574' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1590' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1655' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1755' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1765' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1766' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1772' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1778' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1812' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1829' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1857' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1875' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1921' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2047' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2109' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2141' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2142' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2143' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2178' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2203' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2238' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2239' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2247' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2252' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2257' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2258' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2260' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2261' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2306' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2307' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2308' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2309' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3792' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3801' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3807' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3808' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3815' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3818' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3819' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3820' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3821' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3822' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3823' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3824' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3825' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3826' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3828' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3829' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3839' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3840' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3841' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3842' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3843' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3844' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3845' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3846' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3848' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3850' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3851' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3852' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3853' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3854' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3855' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3856' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3857' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3858' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3859' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3860' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3862' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3863' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3864' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3865' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3866' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3868' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3870' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3871' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3872' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3873' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3874' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3875' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3876' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3877' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3878' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3879' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3880' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3881' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3882' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3883' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3884' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3887' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3888' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3889' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3890' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3891' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3893' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3894' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3895' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3896' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3897' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3898' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3899' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3900' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3901' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3902' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3904' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3905' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3907' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3908' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3909' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3911' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3912' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3913' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3914' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3915' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3916' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3917' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3918' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3919' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3921' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3922' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3924' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3925' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3926' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3929' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3930' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3931' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3932' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3933' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3934' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3935' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3937' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3940' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3942' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3943' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3944' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3946' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3949' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3950' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3952' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3954' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3956' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3957' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3958' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3959' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3960' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3961' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3962' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3965' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3966' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3967' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3968' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3969' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3970' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3971' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3972' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3973' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3974' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3976' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3979' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3980' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3981' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3982' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3983' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3984' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3985' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3987' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3988' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3989' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3990' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3991' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3992' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3994' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3995' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3996' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3997' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3998' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3999' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4002' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4004' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4005' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4006' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4007' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4009' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4010' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4011' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4012' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4014' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4015' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4016' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4017' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4018' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4019' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4020' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4021' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4023' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4024' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4025' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4026' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4027' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4028' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4029' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4032' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4033' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4035' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4037' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4038' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4040' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4041' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4042' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4045' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4046' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4049' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4050' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4051' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4052' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4053' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4054' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4055' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4056' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4057' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4058' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4060' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4063' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4066' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4067' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4068' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4069' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4070' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4074' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4075' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4077' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4079' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4080' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4081' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4082' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4083' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4084' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4085' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4086' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4087' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4088' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4089' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4090' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4092' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4093' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4094' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4097' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4098' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4099' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4100' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4102' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4103' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4104' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4105' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4106' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4107' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4108' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4109' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4110' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4111' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4112' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4113' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4114' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4115' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4116' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4117' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4118' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4119' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4120' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4122' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4123' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4124' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4125' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4126' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4127' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4128' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4129' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4130' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4131' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4132' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4133' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4134' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4135' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4136' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4137' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4138' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4139' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4140' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4141' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4142' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4143' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4144' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4145' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4146' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4147' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4148' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4149' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4150' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4151' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4152' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4153' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4154' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4155' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4156' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4157' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4158' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4159' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4160' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4161' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4162' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4163' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4164' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4165' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4166' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4167' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4168' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4169' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4170' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4171' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4172' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4173' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4174' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4175' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4176' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4177' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4178' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4179' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4180' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4181' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4182' , FOUND: 0
+[11:51:28] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4183' , FOUND: 0
+[11:51:37] - SELECT * FROM lib_erp_chart
+[11:51:38] - SELECT IF(IFNULL(i.ref_no,'') = '',d.trans_no,i.ref_no) AS trans_no,a.tax_rate,a.general_id,a.fs_ewt_id,a.currency_id,a.exchange_rate,a.based_rate,b.account_id,a.jbooks_id,a.ewt_id AS ref_ewt_id,f.ewt_code AS fs_ewt_code ,d.trans_date,IFNULL(d.trans_no,'') AS ref_no,e.general_code,e.general_name,(a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) AS tmp_amount,0 AS tax_amount,d.description,b.line_remarks ,b.line_remarks AS particulars FROM trans_ewt a LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_jbooks_ref c ON c.jbooks_id = b.jbooks_id LEFT JOIN trans_header d ON d.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general e ON e.general_id = a.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt f ON f.ewt_id = a.fs_ewt_id LEFT JOIN (SELECT ref_ewt_id AS ewt_id,SUM(tax_amount) AS tax_amount FROM trans_ewt GROUP BY ref_ewt_id) g ON g.ewt_id = a.ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal h ON h.journal_id = d.journal_id LEFT JOIN trans_ewt_ref i ON i.ewt_id = a.ewt_id  WHERE b.account_id = 38 AND d.trans_date <= '2019-6-25' AND a.currency_id = '1' AND b.project_id  = 7 AND b.department_id  IS NULL  AND a.general_id <> 0 AND IFNULL(a.offset_type,0) = 0 AND a.general_id is not null AND (a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) <> 0 
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '6' , FOUND: 1
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '7' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '8' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '9' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '11' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '13' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '14' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '16' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '17' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '18' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '20' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '22' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '24' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '25' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '26' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '27' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '28' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '29' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '30' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '31' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '32' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '33' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '34' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '35' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '36' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '45' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '49' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '50' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '51' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '52' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '54' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '55' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '56' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '57' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '58' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '60' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '61' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '62' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '63' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '66' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '67' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '68' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '70' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '71' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '72' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '73' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '74' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '75' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '76' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '77' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '78' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '79' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '80' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '81' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '82' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '83' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '84' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '85' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '86' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '87' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '88' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '89' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '90' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '91' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '93' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '99' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '101' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '108' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '121' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '122' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '123' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '125' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '138' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '139' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '141' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '142' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '143' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '144' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '145' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '146' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '147' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '148' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '149' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '150' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '156' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '158' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '159' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '160' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '163' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '173' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '174' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '175' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '176' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '178' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '179' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '181' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '182' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '183' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '185' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '186' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '190' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '192' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '207' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '208' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '211' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '212' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '213' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '217' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '219' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '220' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '222' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '232' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '267' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '294' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '295' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '296' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '297' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '298' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '299' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '300' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '304' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '306' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '307' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '308' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '323' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '324' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '325' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '358' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '370' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '371' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '372' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '375' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '378' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '384' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '388' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '458' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '468' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '481' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '482' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '521' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '530' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '531' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '567' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '568' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '619' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '620' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '625' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '635' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '724' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '746' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '761' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '765' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '916' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '918' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '919' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '929' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '973' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1011' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1054' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1055' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1092' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1155' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1178' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1182' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1183' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1216' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1235' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1281' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1326' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1327' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1330' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1366' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1367' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1370' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1384' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1441' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1491' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1541' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1542' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1560' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1568' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1574' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1590' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1655' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1755' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1765' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1766' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1772' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1778' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1812' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1829' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1857' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1875' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '1921' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2047' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2109' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2141' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2142' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2143' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2178' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2203' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2238' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2239' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2247' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2252' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2257' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2258' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2260' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2261' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2306' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2307' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2308' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '2309' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3792' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3801' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3807' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3808' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3815' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3818' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3819' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3820' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3821' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3822' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3823' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3824' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3825' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3826' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3828' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3829' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3839' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3840' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3841' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3842' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3843' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3844' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3845' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3846' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3848' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3850' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3851' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3852' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3853' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3854' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3855' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3856' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3857' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3858' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3859' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3860' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3862' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3863' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3864' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3865' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3866' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3868' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3870' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3871' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3872' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3873' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3874' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3875' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3876' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3877' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3878' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3879' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3880' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3881' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3882' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3883' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3884' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3887' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3888' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3889' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3890' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3891' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3893' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3894' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3895' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3896' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3897' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3898' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3899' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3900' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3901' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3902' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3904' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3905' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3907' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3908' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3909' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3911' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3912' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3913' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3914' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3915' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3916' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3917' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3918' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3919' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3921' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3922' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3924' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3925' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3926' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3929' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3930' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3931' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3932' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3933' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3934' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3935' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3937' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3940' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3942' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3943' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3944' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3946' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3949' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3950' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3952' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3954' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3956' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3957' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3958' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3959' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3960' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3961' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3962' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3965' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3966' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3967' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3968' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3969' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3970' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3971' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3972' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3973' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3974' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3976' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3979' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3980' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3981' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3982' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3983' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3984' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3985' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3987' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3988' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3989' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3990' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3991' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3992' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3994' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3995' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3996' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3997' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3998' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '3999' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4002' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4004' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4005' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4006' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4007' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4009' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4010' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4011' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4012' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4014' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4015' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4016' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4017' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4018' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4019' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4020' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4021' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4023' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4024' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4025' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4026' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4027' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4028' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4029' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4032' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4033' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4035' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4037' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4038' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4040' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4041' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4042' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4045' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4046' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4049' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4050' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4051' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4052' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4053' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4054' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4055' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4056' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4057' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4058' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4060' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4063' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4066' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4067' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4068' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4069' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4070' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4074' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4075' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4077' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4079' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4080' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4081' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4082' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4083' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4084' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4085' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4086' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4087' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4088' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4089' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4090' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4092' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4093' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4094' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4097' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4098' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4099' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4100' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4102' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4103' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4104' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4105' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4106' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4107' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4108' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4109' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4110' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4111' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4112' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4113' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4114' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4115' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4116' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4117' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4118' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4119' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4120' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4122' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4123' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4124' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4125' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4126' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4127' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4128' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4129' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4130' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4131' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4132' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4133' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4134' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4135' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4136' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4137' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4138' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4139' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4140' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4141' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4142' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4143' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4144' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4145' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4146' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4147' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4148' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4149' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4150' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4151' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4152' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4153' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4154' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4155' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4156' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4157' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4158' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4159' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4160' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4161' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4162' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4163' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4164' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4165' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4166' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4167' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4168' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4169' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4170' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4171' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4172' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4173' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4174' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4175' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4176' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4177' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4178' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4179' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4180' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4181' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4182' , FOUND: 0
+[11:51:43] - SEL: jbooks_id = 'tmp_20190625115016' AND ref_ewt_id = '4183' , FOUND: 0
+[11:51:43] - SELECT IF(IFNULL(i.ref_no,'') = '',d.trans_no,i.ref_no) AS trans_no,a.tax_rate,a.general_id,a.fs_ewt_id,a.currency_id,a.exchange_rate,a.based_rate,b.account_id,a.jbooks_id,a.ewt_id AS ref_ewt_id,f.ewt_code AS fs_ewt_code ,d.trans_date,IFNULL(d.trans_no,'') AS ref_no,e.general_code,e.general_name,(a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) AS tmp_amount,0 AS tax_amount,d.description,b.line_remarks ,b.line_remarks AS particulars FROM trans_ewt a LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_jbooks_ref c ON c.jbooks_id = b.jbooks_id LEFT JOIN trans_header d ON d.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general e ON e.general_id = a.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt f ON f.ewt_id = a.fs_ewt_id LEFT JOIN (SELECT ref_ewt_id AS ewt_id,SUM(tax_amount) AS tax_amount FROM trans_ewt GROUP BY ref_ewt_id) g ON g.ewt_id = a.ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal h ON h.journal_id = d.journal_id LEFT JOIN trans_ewt_ref i ON i.ewt_id = a.ewt_id  WHERE b.account_id = 38 AND d.trans_date <= '2019-6-25' AND a.currency_id = '1' AND b.project_id  = 7 AND b.department_id  IS NULL  AND a.general_id <> 0 AND IFNULL(a.offset_type,0) = 0 AND a.general_id is not null AND (a.tax_amount - IF(g.tax_amount IS NULL,0,g.tax_amount)) <> 0 
+[11:51:49] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ap_id,'') AS trans_ap_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.rr_no,'') AS rr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ap b ON a.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '3' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-06' ORDER BY a.trans_no ASC 
+[11:51:49] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='12553'
+[11:51:49] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '12553'
+[11:51:49] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 12553
+[11:51:50] - SELECT * FROM select_ewt WHERE trans_id = 12553
+[11:51:50] - SELECT * FROM select_final_tax WHERE trans_id = 12553
+[11:51:50] - SELECT * FROM select_input_vat WHERE trans_id = 12553
+[11:51:50] - SELECT * FROM select_output_vat WHERE trans_id = 12553
+[11:51:50] - SELECT * FROM select_prepaid WHERE trans_id = 12553
+[11:51:50] - SELECT * FROM select_fixed_asset WHERE trans_id = 12553
+[11:51:51] - SELECT * FROM select_checks WHERE trans_id = 12553
+[11:51:51] - SELECT * FROM trans_header_particular WHERE trans_id = 12553
+[18:50:08] - ----- Accounting Close -----

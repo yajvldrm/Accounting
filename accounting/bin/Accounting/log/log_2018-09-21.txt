@@ -1,0 +1,55 @@
+Log for Debugging - 09/21/2018
+[09:38:16] - ----- Accounting Start -----
+[09:38:16] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True
+[09:38:16] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True
+[09:38:20] - Login Button Click
+[09:38:20] - SELECT user_id FROM erp_fs_ngg.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:38:20] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2018-09-21 09:38:20',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','SERVER2016','austria_na');
+[09:38:20] - SELECT log_id AS id FROM sys_log WHERE log_date = '2018-09-21 09:38:20' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'SERVER2016' AND machine_user = 'austria_na';
+[09:38:20] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:38:20] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_ngg.sys_erp_modules a LEFT JOIN erp_fs_ngg.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_ngg.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[09:38:20] - SELECT module_code FROM erp_fs_ngg.sys_erp_modules WHERE system_id = 2 
+[09:38:20] - select * from lib_erp_journal
+[09:38:20] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_ngg.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_ngg.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:38:20] - select a.*,b.module_code from sys_default_det a inner join erp_fs_ngg.sys_erp_modules b on a.module_id = b.module_id
+[09:38:22] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:38:22] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:38:22] - End of Initialization
+[09:38:25] - SELECT a.default_id,a.used_in_report,a.sys_beg,a.company_id,a.w_proj,a.w_alloc,a.w_dept,a.line_remarks,a.line_currency,a.filter_id,a.monthly_currency,a.decimal_places,a.general_auto_number,a.retained_account_id ,b.company_code,b.company_name,b.address1,b.address2,b.address3,b.address4,a.currency_id,b.tel_no,b.fax_no,b.email_add,b.tin,b.rdo_code ,c.filter_code,c.filter_name ,d.currency_code,d.currency_name ,e.account_code,e.account_name ,a.isFiscal,a.fiscal_month,a.fiscal_year FROM sys_default a LEFT JOIN erp_fs_ngg.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_ngg.sys_acc_filter c ON c.filter_id = a.filter_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON d.currency_id = a.currency_id LEFT JOIN erp_fs_ngg.lib_erp_chart e ON e.account_id = a.retained_account_id WHERE a.default_id = 1 
+[09:38:33] - select * from lib_erp_chart WHERE validation = 10
+[09:38:40] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[09:38:40] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[09:38:40] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[09:38:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[09:38:41] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[09:38:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[09:38:41] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[09:38:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[09:38:41] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[09:38:41] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[09:38:41] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[09:38:47] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[09:38:47] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[09:38:47] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[09:38:47] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[09:38:58] - ----- Accounting Start -----
+[09:38:58] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True
+[09:38:58] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True
+[09:39:03] - Login Button Click
+[09:39:03] - SELECT user_id FROM erp_fs_ngg.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:39:03] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2018-09-21 09:39:03',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','SERVER2016','austria_na');
+[09:39:03] - SELECT log_id AS id FROM sys_log WHERE log_date = '2018-09-21 09:39:03' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'SERVER2016' AND machine_user = 'austria_na';
+[09:39:03] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:39:03] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_ngg.sys_erp_modules a LEFT JOIN erp_fs_ngg.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_ngg.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[09:39:03] - SELECT module_code FROM erp_fs_ngg.sys_erp_modules WHERE system_id = 2 
+[09:39:03] - select * from lib_erp_journal
+[09:39:03] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_ngg.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_ngg.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:39:03] - select a.*,b.module_code from sys_default_det a inner join erp_fs_ngg.sys_erp_modules b on a.module_id = b.module_id
+[09:39:03] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:39:03] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:39:03] - End of Initialization
+[09:39:07] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[09:39:07] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[09:39:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[09:39:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[09:39:13] - ----- Accounting Close -----

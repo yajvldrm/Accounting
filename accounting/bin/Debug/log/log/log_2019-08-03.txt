@@ -1,0 +1,7 @@
+Log for Debugging - 08/03/2019
+[11:53:28] - Close System Update.
+[11:56:50] - Close System Update.
+[12:42:18] - Close System Update.
+[12:49:26] - Close System Update.
+[13:19:28] - Close System Update.
+[13:20:02] - Close System Update.

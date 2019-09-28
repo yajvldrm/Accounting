@@ -1,0 +1,35 @@
+Log for Debugging - 04/09/2019
+[13:25:40] - ----- Accounting Start -----
+[13:25:40] - Main Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:25:40] - FS Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_file_setup_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:25:43] - Login Button Click
+[13:25:43] - SELECT user_id FROM erp_file_setup_accounting_okabeh.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[13:25:43] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-09 13:25:43',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[13:25:43] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-09 13:25:43' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[13:25:44] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[13:25:44] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[13:25:44] - SELECT module_code FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2 
+[13:25:44] - select * from lib_erp_journal
+[13:25:45] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_currency c ON c.currency_id = a.currency_id 
+[13:25:45] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_okabeh.sys_erp_modules b on a.module_id = b.module_id
+[13:25:46] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[13:25:47] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[13:25:47] - End of Initialization
+[13:26:35] - ----- Accounting Close -----
+[14:32:34] - ----- Accounting Start -----
+[14:32:34] - Main Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:32:34] - FS Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_file_setup_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:32:43] - Login Button Click
+[14:32:43] - SELECT user_id FROM erp_file_setup_accounting_okabeh.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:32:43] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-09 14:32:43',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:32:43] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-09 14:32:43' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:32:43] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:32:43] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[14:32:43] - SELECT module_code FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2 
+[14:32:44] - select * from lib_erp_journal
+[14:32:44] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:32:44] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_okabeh.sys_erp_modules b on a.module_id = b.module_id
+[14:32:49] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:32:49] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:32:49] - End of Initialization
+[17:15:35] - ----- Accounting Close -----

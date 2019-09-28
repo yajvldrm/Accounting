@@ -1,0 +1,375 @@
+/// <XRTypeInfo>
+///   <AssemblyFullName>DevExpress.XtraReports.v15.2, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</AssemblyFullName>
+///   <AssemblyLocation>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v15.2\v4.0_15.2.4.0__b88d1754d700e49a\DevExpress.XtraReports.v15.2.dll</AssemblyLocation>
+///   <TypeName>DevExpress.XtraReports.UI.XtraReport</TypeName>
+///   <Localization>en-US</Localization>
+///   <Version>15.2</Version>
+///   <Resources>
+///     <Resource Name="XtraReportSerialization.CheckPrint">
+/// zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA</Resource>
+///   </Resources>
+/// </XRTypeInfo>
+namespace XtraReportSerialization {
+    
+    public class CheckPrint : DevExpress.XtraReports.UI.XtraReport {
+        private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
+        private DevExpress.XtraReports.UI.DetailBand Detail;
+        private DevExpress.XtraReports.UI.XRLabel label4;
+        private DevExpress.XtraReports.Parameters.Parameter check_amount;
+        private DevExpress.XtraReports.UI.XRLabel label3;
+        private DevExpress.XtraReports.Parameters.Parameter word_amount;
+        private DevExpress.XtraReports.UI.XRLabel label2;
+        private DevExpress.XtraReports.Parameters.Parameter general_name;
+        private DevExpress.XtraReports.UI.XRLabel label1;
+        private DevExpress.XtraReports.Parameters.Parameter check_date;
+        private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
+        private DevExpress.XtraReports.Parameters.Parameter bank_id;
+        private DevExpress.XtraReports.Parameters.Parameter bank_code;
+        private DevExpress.XtraReports.Parameters.Parameter bank_name;
+        private DevExpress.XtraReports.Parameters.Parameter cancel_date;
+        private DevExpress.XtraReports.Parameters.Parameter cancelled;
+        private DevExpress.XtraReports.Parameters.Parameter check_amount_based;
+        private DevExpress.XtraReports.Parameters.Parameter cleared;
+        private DevExpress.XtraReports.Parameters.Parameter cleared_date;
+        private DevExpress.XtraReports.Parameters.Parameter crossed;
+        private DevExpress.XtraReports.Parameters.Parameter currency_code;
+        private DevExpress.XtraReports.Parameters.Parameter currency_id;
+        private DevExpress.XtraReports.Parameters.Parameter currency_name;
+        private DevExpress.XtraReports.Parameters.Parameter general_code;
+        private DevExpress.XtraReports.Parameters.Parameter general_id;
+        private DevExpress.XtraReports.Parameters.Parameter released;
+        private DevExpress.XtraReports.Parameters.Parameter replaced;
+        private DevExpress.XtraReports.Parameters.Parameter replacement_check_no;
+        private DevExpress.XtraReports.Parameters.Parameter symbol;
+        private DevExpress.XtraReports.Parameters.Parameter trans_id;
+        private DevExpress.XtraReports.Parameters.Parameter trans_no;
+        private DevExpress.XtraReports.Parameters.Parameter word_amount_based;
+        private DevExpress.XtraReports.Parameters.Parameter rundate;
+        private DevExpress.XtraReports.Parameters.Parameter runtime;
+        private System.Resources.ResourceManager _resources;
+        private string _resourceString;
+        public CheckPrint() {
+            this._resourceString = DevExpress.XtraReports.Serialization.XRResourceManager.GetResourceFor("XtraReportSerialization.CheckPrint");
+            this.InitializeComponent();
+        }
+        private System.Resources.ResourceManager resources {
+            get {
+                if (_resources == null) {
+                    this._resources = new DevExpress.XtraReports.Serialization.XRResourceManager(this._resourceString);
+                }
+                return this._resources;
+            }
+        }
+        private void InitializeComponent() {
+            this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.label4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.bank_id = new DevExpress.XtraReports.Parameters.Parameter();
+            this.bank_code = new DevExpress.XtraReports.Parameters.Parameter();
+            this.bank_name = new DevExpress.XtraReports.Parameters.Parameter();
+            this.cancel_date = new DevExpress.XtraReports.Parameters.Parameter();
+            this.cancelled = new DevExpress.XtraReports.Parameters.Parameter();
+            this.check_amount = new DevExpress.XtraReports.Parameters.Parameter();
+            this.check_amount_based = new DevExpress.XtraReports.Parameters.Parameter();
+            this.check_date = new DevExpress.XtraReports.Parameters.Parameter();
+            this.cleared = new DevExpress.XtraReports.Parameters.Parameter();
+            this.cleared_date = new DevExpress.XtraReports.Parameters.Parameter();
+            this.crossed = new DevExpress.XtraReports.Parameters.Parameter();
+            this.currency_code = new DevExpress.XtraReports.Parameters.Parameter();
+            this.currency_id = new DevExpress.XtraReports.Parameters.Parameter();
+            this.currency_name = new DevExpress.XtraReports.Parameters.Parameter();
+            this.general_code = new DevExpress.XtraReports.Parameters.Parameter();
+            this.general_id = new DevExpress.XtraReports.Parameters.Parameter();
+            this.general_name = new DevExpress.XtraReports.Parameters.Parameter();
+            this.released = new DevExpress.XtraReports.Parameters.Parameter();
+            this.replaced = new DevExpress.XtraReports.Parameters.Parameter();
+            this.replacement_check_no = new DevExpress.XtraReports.Parameters.Parameter();
+            this.symbol = new DevExpress.XtraReports.Parameters.Parameter();
+            this.trans_id = new DevExpress.XtraReports.Parameters.Parameter();
+            this.trans_no = new DevExpress.XtraReports.Parameters.Parameter();
+            this.word_amount = new DevExpress.XtraReports.Parameters.Parameter();
+            this.word_amount_based = new DevExpress.XtraReports.Parameters.Parameter();
+            this.rundate = new DevExpress.XtraReports.Parameters.Parameter();
+            this.runtime = new DevExpress.XtraReports.Parameters.Parameter();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // TopMargin
+            // 
+            this.TopMargin.Dpi = 96F;
+            this.TopMargin.HeightF = 23F;
+            this.TopMargin.Name = "TopMargin";
+            // 
+            // Detail
+            // 
+            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label4,
+                        this.label3,
+                        this.label2,
+                        this.label1});
+            this.Detail.Dpi = 96F;
+            this.Detail.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Detail.HeightF = 210F;
+            this.Detail.Name = "Detail";
+            this.Detail.StylePriority.UseFont = false;
+            // 
+            // BottomMargin
+            // 
+            this.BottomMargin.Dpi = 96F;
+            this.BottomMargin.HeightF = 23F;
+            this.BottomMargin.Name = "BottomMargin";
+            // 
+            // label4
+            // 
+            this.label4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding(this.check_amount, "Text", "{0:##,##0.00}")});
+            this.label4.Dpi = 96F;
+            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(497F, 32F);
+            this.label4.Name = "label4";
+            this.label4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.label4.SizeF = new System.Drawing.SizeF(150F, 30F);
+            this.label4.Text = "label1";
+            // 
+            // label3
+            // 
+            this.label3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding(this.word_amount, "Text", "")});
+            this.label3.Dpi = 96F;
+            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(42F, 62F);
+            this.label3.Name = "label3";
+            this.label3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.label3.SizeF = new System.Drawing.SizeF(605F, 25F);
+            this.label3.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding(this.general_name, "Text", "")});
+            this.label2.Dpi = 96F;
+            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(72F, 32F);
+            this.label2.Name = "label2";
+            this.label2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.label2.SizeF = new System.Drawing.SizeF(390F, 30F);
+            this.label2.Text = "label1";
+            // 
+            // label1
+            // 
+            this.label1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding(this.check_date, "Text", "{0:MM/dd/yyyy}")});
+            this.label1.Dpi = 96F;
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(497F, 7F);
+            this.label1.Name = "label1";
+            this.label1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.label1.SizeF = new System.Drawing.SizeF(150F, 25F);
+            this.label1.Text = "label1";
+            // 
+            // bank_id
+            // 
+            this.bank_id.Name = "bank_id";
+            this.bank_id.Visible = false;
+            // 
+            // bank_code
+            // 
+            this.bank_code.Name = "bank_code";
+            this.bank_code.Visible = false;
+            // 
+            // bank_name
+            // 
+            this.bank_name.Name = "bank_name";
+            this.bank_name.Visible = false;
+            // 
+            // cancel_date
+            // 
+            this.cancel_date.Name = "cancel_date";
+            this.cancel_date.Type = typeof(System.DateTime);
+            this.cancel_date.Visible = false;
+            // 
+            // cancelled
+            // 
+            this.cancelled.Name = "cancelled";
+            this.cancelled.Type = typeof(bool);
+            this.cancelled.ValueInfo = "False";
+            this.cancelled.Visible = false;
+            // 
+            // check_amount
+            // 
+            this.check_amount.Name = "check_amount";
+            this.check_amount.Type = typeof(decimal);
+            this.check_amount.ValueInfo = "0";
+            this.check_amount.Visible = false;
+            // 
+            // check_amount_based
+            // 
+            this.check_amount_based.Name = "check_amount_based";
+            this.check_amount_based.Type = typeof(decimal);
+            this.check_amount_based.ValueInfo = "0";
+            this.check_amount_based.Visible = false;
+            // 
+            // check_date
+            // 
+            this.check_date.Name = "check_date";
+            this.check_date.Type = typeof(System.DateTime);
+            this.check_date.Visible = false;
+            // 
+            // cleared
+            // 
+            this.cleared.Name = "cleared";
+            this.cleared.Type = typeof(bool);
+            this.cleared.ValueInfo = "False";
+            this.cleared.Visible = false;
+            // 
+            // cleared_date
+            // 
+            this.cleared_date.Name = "cleared_date";
+            this.cleared_date.Type = typeof(System.DateTime);
+            this.cleared_date.Visible = false;
+            // 
+            // crossed
+            // 
+            this.crossed.Name = "crossed";
+            this.crossed.Type = typeof(bool);
+            this.crossed.ValueInfo = "False";
+            this.crossed.Visible = false;
+            // 
+            // currency_code
+            // 
+            this.currency_code.Name = "currency_code";
+            this.currency_code.Visible = false;
+            // 
+            // currency_id
+            // 
+            this.currency_id.Name = "currency_id";
+            this.currency_id.Visible = false;
+            // 
+            // currency_name
+            // 
+            this.currency_name.Name = "currency_name";
+            this.currency_name.Visible = false;
+            // 
+            // general_code
+            // 
+            this.general_code.Name = "general_code";
+            this.general_code.Visible = false;
+            // 
+            // general_id
+            // 
+            this.general_id.Name = "general_id";
+            this.general_id.Visible = false;
+            // 
+            // general_name
+            // 
+            this.general_name.Name = "general_name";
+            this.general_name.ValueInfo = "General Name";
+            this.general_name.Visible = false;
+            // 
+            // released
+            // 
+            this.released.Name = "released";
+            this.released.Type = typeof(bool);
+            this.released.ValueInfo = "False";
+            this.released.Visible = false;
+            // 
+            // replaced
+            // 
+            this.replaced.Name = "replaced";
+            this.replaced.Type = typeof(bool);
+            this.replaced.ValueInfo = "False";
+            this.replaced.Visible = false;
+            // 
+            // replacement_check_no
+            // 
+            this.replacement_check_no.Name = "replacement_check_no";
+            this.replacement_check_no.Visible = false;
+            // 
+            // symbol
+            // 
+            this.symbol.Name = "symbol";
+            this.symbol.Visible = false;
+            // 
+            // trans_id
+            // 
+            this.trans_id.Name = "trans_id";
+            this.trans_id.Visible = false;
+            // 
+            // trans_no
+            // 
+            this.trans_no.Name = "trans_no";
+            this.trans_no.ValueInfo = "00000";
+            this.trans_no.Visible = false;
+            // 
+            // word_amount
+            // 
+            this.word_amount.Name = "word_amount";
+            this.word_amount.Visible = false;
+            // 
+            // word_amount_based
+            // 
+            this.word_amount_based.Name = "word_amount_based";
+            this.word_amount_based.ValueInfo = "Zero";
+            this.word_amount_based.Visible = false;
+            // 
+            // rundate
+            // 
+            this.rundate.Name = "rundate";
+            this.rundate.Type = typeof(System.DateTime);
+            this.rundate.Visible = false;
+            // 
+            // runtime
+            // 
+            this.runtime.Name = "runtime";
+            this.runtime.Visible = false;
+            // 
+            // CheckPrint
+            // 
+            this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+                        this.TopMargin,
+                        this.Detail,
+                        this.BottomMargin});
+            this.DisplayName = "Philippine Business Bank";
+            this.Dpi = 96F;
+            this.Font = new System.Drawing.Font("Courier New", 8.25F);
+            this.Margins = new System.Drawing.Printing.Margins(23, 23, 23, 23);
+            this.Name = "CheckPrint";
+            this.PageHeight = 256;
+            this.PageWidth = 693;
+            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+                        this.bank_id,
+                        this.bank_code,
+                        this.bank_name,
+                        this.cancel_date,
+                        this.cancelled,
+                        this.check_amount,
+                        this.check_amount_based,
+                        this.check_date,
+                        this.cleared,
+                        this.cleared_date,
+                        this.crossed,
+                        this.currency_code,
+                        this.currency_id,
+                        this.currency_name,
+                        this.general_code,
+                        this.general_id,
+                        this.general_name,
+                        this.released,
+                        this.replaced,
+                        this.replacement_check_no,
+                        this.symbol,
+                        this.trans_id,
+                        this.trans_no,
+                        this.word_amount,
+                        this.word_amount_based,
+                        this.rundate,
+                        this.runtime});
+            this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.Pixels;
+            this.SnapGridSize = 12F;
+            this.StyleSheetPath = null;
+            this.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.Version = "15.2";
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+        }
+    }
+}

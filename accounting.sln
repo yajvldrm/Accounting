@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "accounting", "accounting\accounting.vbproj", "{34D88B52-57CE-46F8-B805-FAAC7C370677}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "libacctng", "libacctng\libacctng.vbproj", "{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "user_control", "user_control\user_control.vbproj", "{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "connectionlib", "..\AlasDrivers\connectionlib\connectionlib.vbproj", "{9D57FBC9-F345-4973-8E4A-E59BF943A898}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{34D88B52-57CE-46F8-B805-FAAC7C370677}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B7805A-1B7D-4C8A-BA8E-84212D3B4405}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{9D57FBC9-F345-4973-8E4A-E59BF943A898}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EBC5E4F-74F8-44FB-B181-B00E73C34004}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,502 @@
+Log for Debugging - 07/19/2019
+[09:08:56] - ----- Accounting Start -----
+[09:08:56] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:08:56] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:09:00] - Login Button Click
+[09:09:00] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:09:00] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 09:09:00',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[09:09:00] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 09:09:00' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[09:09:00] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:09:00] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:09:01] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[09:09:01] - select * from lib_erp_journal
+[09:09:01] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:09:01] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[09:09:02] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:09:02] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:09:02] - End of Initialization
+[09:09:05] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '3' AND b.company_id = '1' ORDER BY b.book_code 
+[09:09:06] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00301'
+[09:09:06] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ap_id,'') AS trans_ap_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.rr_no,'') AS rr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ap b ON a.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '3' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-07' ORDER BY a.trans_no ASC 
+[09:09:08] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='15651'
+[09:09:08] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '15651'
+[09:09:08] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_ewt WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_final_tax WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_input_vat WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_output_vat WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_prepaid WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_fixed_asset WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM select_checks WHERE trans_id = 15651
+[09:09:11] - SELECT * FROM trans_header_particular WHERE trans_id = 15651
+[10:45:47] - ----- Accounting Start -----
+[10:45:47] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:45:47] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:45:52] - Login Button Click
+[10:45:52] - SELECT user_id FROM erp_file_setup_accounting_morning.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:45:52] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 10:45:52',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[10:45:52] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 10:45:52' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[10:45:52] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:45:52] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_morning.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_morning.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_morning.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_morning.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:45:52] - SELECT module_code FROM erp_file_setup_accounting_morning.sys_erp_modules WHERE system_id = 2 
+[10:45:52] - select * from lib_erp_journal
+[10:45:52] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:45:52] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_morning.sys_erp_modules b on a.module_id = b.module_id
+[10:45:52] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:45:52] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:45:52] - End of Initialization
+[10:45:57] - SELECT * FROM lib_erp_journal a WHERE journal_id <> '8' ORDER BY a.journal_code,a.journal_name ASC 
+[10:45:57] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 3 AND b.company_id = '1'
+[10:45:57] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 3 AND b.company_id = '1'
+[10:45:57] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 3 AND b.company_id = '1'
+[10:46:01] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 2 AND b.company_id = '1'
+[10:46:47] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '2' AND b.company_id = '1' ORDER BY b.book_code 
+[10:46:48] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00201'
+[10:46:48] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_cr_id,'') AS trans_cr_id,IFNULL(b.si_no,'') AS si_no ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_cr b ON a.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '2' AND a.book_id = '3' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-07' ORDER BY a.trans_no ASC 
+[10:47:01] - CALL SaveTransaction('Update','lib_erp_journal','journal_id,journal_code,journal_name,trans_label,person_label,shooting,auto_number,bir_control_no','2|CR|Official Receipt|OR No|Client||0||','journal_id','2','DESKTOP-PL80BO2','Raymond T. Villegas','308');
+[10:47:01] - CALL SaveTransaction('Update','sys_acc_journal_book','journal_book_det_id,journal_id,book_id,start_trans_no,format','10|2|3|00001|CR-[YYYY]-[MM]-[TRANS_NO]B1|','journal_book_det_id','10','DESKTOP-PL80BO2','Raymond T. Villegas','308');
+[10:47:02] - SELECT * FROM lib_erp_journal a WHERE journal_id <> '8' ORDER BY a.journal_code,a.journal_name ASC 
+[10:47:02] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 2 AND b.company_id = '1'
+[10:47:02] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 3 AND b.company_id = '1'
+[10:47:02] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 2 AND b.company_id = '1'
+[10:47:12] - SELECT False AS sel,journal_id,journal_code,journal_name FROM lib_erp_journal WHERE journal_id <> 8
+[10:47:14] - SELECT False AS sel,b.book_id,c.book_code,c.book_name 
+FROM erp_file_setup_accounting_morning.lib_erp_journal a 
+LEFT JOIN erp_file_setup_accounting_morning.sys_acc_journal_book b ON b.journal_id = a.journal_id 
+LEFT JOIN erp_file_setup_accounting_morning.lib_erp_book c ON c.book_id = b.book_id WHERE a.journal_id IN (2) AND c.book_code IS NOT NULL AND c.company_id = '1'  GROUP BY c.book_id 
+[10:47:25] - SELECT a.book_id,a.trans_id,a.trans_date,a.trans_no
+        ,e.general_code,e.general_name,a.description
+        ,k.account_code,k.account_name
+        ,SUM(IFNULL(b.debit,0)) AS debit,SUM(IFNULL(b.credit,0)) AS credit,SUM(IFNULL(b.debit_based,0)) AS debit_based,SUM(IFNULL(b.credit_based,0)) AS credit_based
+        ,l.general_code AS ref_general_code,l.general_name AS ref_general_name
+        ,CONCAT(h.project_code, ' ', i.department_code) AS proj_dept
+        ,j.allocation_code
+        ,IF(IFNULL(o.ref_no,'') = '',p.trans_no,o.ref_no) AS ref_trans_no
+        ,m.book_code,m.book_name
+        ,a.journal_id,g.journal_name
+        ,g.trans_label,g.person_label
+        ,check_ref.check_no
+        ,b.line_remarks
+        FROM trans_header a
+        LEFT JOIN (
+	        SELECT a.trans_id,a.trans_no,a.trans_date,GROUP_CONCAT(c.check_no) AS check_no
+	        FROM trans_header a
+	        LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+	        LEFT JOIN trans_checks c ON c.jbooks_id = b.jbooks_id
+	        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart d ON d.account_id = b.account_id
+	        WHERE d.validation = 1 AND IFNULL(c.check_no,'') <> '' AND UPPER(IFNULL(a.status,'')) <> 'C'
+	        GROUP BY a.trans_id
+        ) check_ref ON check_ref.trans_id = a.trans_id
+        LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+        LEFT JOIN trans_jbooks n ON n.jbooks_id = b.ref_jbooks_id
+        LEFT JOIN trans_jbooks_ref o ON o.jbooks_id = n.jbooks_id
+        LEFT JOIN trans_header p ON p.trans_id = n.trans_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general e ON e.general_id = a.general_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_currency f ON f.currency_id = a.currency_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_journal g ON g.journal_id = a.journal_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_project h ON h.project_id = b.project_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_department i ON i.department_id = b.department_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_allocation j ON j.allocation_id = b.allocation_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart k ON k.account_id = b.account_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general l ON l.general_id = b.general_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_book m ON m.book_id = a.book_id WHERE a.trans_date BETWEEN '2019-06-01' AND '2019-06-30' AND a.journal_id IN (2) AND a.book_id IN (3) GROUP BY b.jbooks_id  ORDER BY a.trans_no ASC,b.debit DESC
+[10:48:56] - SELECT a.book_id,a.trans_id,a.trans_date,a.trans_no
+        ,e.general_code,e.general_name,a.description
+        ,k.account_code,k.account_name
+        ,SUM(IFNULL(b.debit,0)) AS debit,SUM(IFNULL(b.credit,0)) AS credit,SUM(IFNULL(b.debit_based,0)) AS debit_based,SUM(IFNULL(b.credit_based,0)) AS credit_based
+        ,l.general_code AS ref_general_code,l.general_name AS ref_general_name
+        ,CONCAT(h.project_code, ' ', i.department_code) AS proj_dept
+        ,j.allocation_code
+        ,IF(IFNULL(o.ref_no,'') = '',p.trans_no,o.ref_no) AS ref_trans_no
+        ,m.book_code,m.book_name
+        ,a.journal_id,g.journal_name
+        ,g.trans_label,g.person_label
+        ,check_ref.check_no
+        ,b.line_remarks
+        FROM trans_header a
+        LEFT JOIN (
+	        SELECT a.trans_id,a.trans_no,a.trans_date,GROUP_CONCAT(c.check_no) AS check_no
+	        FROM trans_header a
+	        LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+	        LEFT JOIN trans_checks c ON c.jbooks_id = b.jbooks_id
+	        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart d ON d.account_id = b.account_id
+	        WHERE d.validation = 1 AND IFNULL(c.check_no,'') <> '' AND UPPER(IFNULL(a.status,'')) <> 'C'
+	        GROUP BY a.trans_id
+        ) check_ref ON check_ref.trans_id = a.trans_id
+        LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+        LEFT JOIN trans_jbooks n ON n.jbooks_id = b.ref_jbooks_id
+        LEFT JOIN trans_jbooks_ref o ON o.jbooks_id = n.jbooks_id
+        LEFT JOIN trans_header p ON p.trans_id = n.trans_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general e ON e.general_id = a.general_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_currency f ON f.currency_id = a.currency_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_journal g ON g.journal_id = a.journal_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_project h ON h.project_id = b.project_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_department i ON i.department_id = b.department_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_allocation j ON j.allocation_id = b.allocation_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart k ON k.account_id = b.account_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general l ON l.general_id = b.general_id
+        LEFT JOIN erp_file_setup_accounting_morning.lib_erp_book m ON m.book_id = a.book_id WHERE a.trans_date BETWEEN '2019-06-01' AND '2019-06-30' AND a.journal_id IN (2) AND a.book_id IN (3) GROUP BY b.jbooks_id  ORDER BY a.trans_no ASC,b.debit DESC
+[10:50:03] - select a.trans_id, a.trans_no, a.trans_date, a.description, b.account_id, b.debit_based AS debit, b.credit_based AS credit, b.debit_based, b.credit_based, c.account_code, c.account_name ,c.validation from trans_header a left join trans_jbooks b on b.trans_id = a.trans_id left join erp_file_setup_accounting_morning.lib_erp_chart c on c.account_id = b.account_id where a.trans_date between '2019-01-01' and '2019-07-19' AND UPPER(IFNULL(a.status,'')) <> 'C' order by a.trans_date,a.trans_no asc, c.account_code asc
+[10:50:03] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount ,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.credit,0) - IFNULL(c.debit,0)) AS vat ,(IFNULL(c.credit_based,0) - IFNULL(c.debit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '11' GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '7' GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '1'  and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:50:03] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.debit,0) - IFNULL(c.credit,0)) AS vat,(IFNULL(c.debit_based,0) - IFNULL(c.credit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '12'  GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '6'  GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '3' and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:50:03] - SELECT a.* FROM lib_erp_company a WHERE company_id = '1'
+[10:50:49] - SELECT False AS sel,journal_id,journal_code,journal_name FROM lib_erp_journal WHERE journal_id <> 8
+[10:52:08] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 3 AND b.company_id = '1'
+[10:52:10] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 2 AND b.company_id = '1'
+[10:52:10] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 3 AND b.company_id = '1'
+[10:52:11] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 2 AND b.company_id = '1'
+[10:52:13] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 4 AND b.company_id = '1'
+[10:52:16] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 7 AND b.company_id = '1'
+[10:52:19] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 1 AND b.company_id = '1'
+[10:52:20] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 5 AND b.company_id = '1'
+[10:52:20] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 6 AND b.company_id = '1'
+[10:52:21] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 5 AND b.company_id = '1'
+[10:52:21] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 1 AND b.company_id = '1'
+[10:52:22] - SELECT a.journal_book_det_id,a.journal_id,a.book_id,b.book_code,b.book_name,a.start_trans_no,a.format FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE a.journal_id = 7 AND b.company_id = '1'
+[10:52:59] - select a.trans_id, a.trans_no, a.trans_date, a.description, b.account_id, b.debit_based AS debit, b.credit_based AS credit, b.debit_based, b.credit_based, c.account_code, c.account_name ,c.validation from trans_header a left join trans_jbooks b on b.trans_id = a.trans_id left join erp_file_setup_accounting_morning.lib_erp_chart c on c.account_id = b.account_id where a.trans_date between '2019-01-01' and '2019-07-19' AND UPPER(IFNULL(a.status,'')) <> 'C'
+[10:52:59] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount ,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.credit,0) - IFNULL(c.debit,0)) AS vat ,(IFNULL(c.credit_based,0) - IFNULL(c.debit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '11' GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '7' GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '1'  and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:52:59] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.debit,0) - IFNULL(c.credit,0)) AS vat,(IFNULL(c.debit_based,0) - IFNULL(c.credit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '12'  GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '6'  GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '3' and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:52:59] - SELECT a.* FROM lib_erp_company a WHERE company_id = '1'
+[10:53:07] - select a.trans_id, a.trans_no, a.trans_date, a.description, b.account_id, b.debit_based AS debit, b.credit_based AS credit, b.debit_based, b.credit_based, c.account_code, c.account_name ,c.validation from trans_header a left join trans_jbooks b on b.trans_id = a.trans_id left join erp_file_setup_accounting_morning.lib_erp_chart c on c.account_id = b.account_id where a.trans_date between '2019-01-01' and '2019-07-19' AND UPPER(IFNULL(a.status,'')) <> 'C'
+[10:53:07] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount ,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.credit,0) - IFNULL(c.debit,0)) AS vat ,(IFNULL(c.credit_based,0) - IFNULL(c.debit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '11' GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '7' GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '1'  and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:53:07] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.debit,0) - IFNULL(c.credit,0)) AS vat,(IFNULL(c.debit_based,0) - IFNULL(c.credit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '12'  GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '6'  GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '3' and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:53:07] - SELECT a.* FROM lib_erp_company a WHERE company_id = '1'
+[10:53:15] - select a.trans_id, a.trans_no, a.trans_date, a.description, b.account_id, b.debit_based AS debit, b.credit_based AS credit, b.debit_based, b.credit_based, c.account_code, c.account_name ,c.validation from trans_header a left join trans_jbooks b on b.trans_id = a.trans_id left join erp_file_setup_accounting_morning.lib_erp_chart c on c.account_id = b.account_id where a.trans_date between '2019-01-01' and '2019-07-19' AND UPPER(IFNULL(a.status,'')) <> 'C' order by a.trans_date,a.trans_no asc, b.debit desc
+[10:53:15] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount ,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.credit,0) - IFNULL(c.debit,0)) AS vat ,(IFNULL(c.credit_based,0) - IFNULL(c.debit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '11' GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '7' GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '1'  and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:53:15] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.debit,0) - IFNULL(c.credit,0)) AS vat,(IFNULL(c.debit_based,0) - IFNULL(c.credit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '12'  GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '6'  GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '3' and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:53:15] - SELECT a.* FROM lib_erp_company a WHERE company_id = '1'
+[10:53:25] - select a.trans_id, a.trans_no, a.trans_date, a.description, b.account_id, b.debit_based AS debit, b.credit_based AS credit, b.debit_based, b.credit_based, c.account_code, c.account_name ,c.validation from trans_header a left join trans_jbooks b on b.trans_id = a.trans_id left join erp_file_setup_accounting_morning.lib_erp_chart c on c.account_id = b.account_id where a.trans_date between '2019-01-01' and '2019-07-19' AND UPPER(IFNULL(a.status,'')) <> 'C' order by a.trans_date,a.trans_no asc, c.account_code asc
+[10:53:25] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount ,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.credit,0) - IFNULL(c.debit,0)) AS vat ,(IFNULL(c.credit_based,0) - IFNULL(c.debit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '11' GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN ( SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit ,SUM(IFNULL(a.credit,0)) AS credit ,SUM(IFNULL(a.debit_based,0)) AS debit_based ,SUM(IFNULL(a.credit_based,0)) AS credit_based FROM trans_jbooks a LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id WHERE b.validation = '7' GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '1'  and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:53:25] - SELECT a.trans_id,a.trans_no,a.trans_date,a.amount,a.amount_based,a.description ,(IFNULL(b.debit,0) - IFNULL(b.credit,0)) AS discount,(IFNULL(b.debit_based,0) - IFNULL(b.credit_based,0)) AS discount_based ,(IFNULL(c.debit,0) - IFNULL(c.credit,0)) AS vat,(IFNULL(c.debit_based,0) - IFNULL(c.credit_based,0)) AS vat_based ,d.general_code,d.general_name,d.address1,d.tin FROM trans_header a LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '12'  GROUP BY a.trans_id ) b ON b.trans_id = a.trans_id LEFT JOIN (  SELECT a.trans_id,SUM(IFNULL(a.debit,0)) AS debit,SUM(IFNULL(a.credit,0)) AS credit  ,SUM(IFNULL(a.debit_based,0)) AS debit_based,SUM(IFNULL(a.credit_based,0)) AS credit_based  FROM trans_jbooks a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_chart b ON b.account_id = a.account_id  WHERE b.validation = '6'  GROUP BY a.trans_id ) c ON c.trans_id = a.trans_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_general d ON d.general_id = a.general_id WHERE a.journal_id = '3' and a.trans_date between '2019-01-01' and '2019-07-19'
+[10:53:25] - SELECT a.* FROM lib_erp_company a WHERE company_id = '1'
+[11:19:11] - ----- Accounting Close -----
+[11:25:33] - ----- Accounting Start -----
+[11:25:33] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:25:33] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:25:38] - Login Button Click
+[11:25:38] - SELECT user_id FROM erp_file_setup_accounting_morning.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:25:38] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 11:25:38',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:25:38] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 11:25:38' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:25:38] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:25:38] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_morning.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_morning.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_morning.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_morning.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:25:38] - SELECT module_code FROM erp_file_setup_accounting_morning.sys_erp_modules WHERE system_id = 2 
+[11:25:38] - select * from lib_erp_journal
+[11:25:38] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:25:38] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_morning.sys_erp_modules b on a.module_id = b.module_id
+[11:25:39] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[11:25:39] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:25:40] - End of Initialization
+[11:25:44] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[11:26:13] - ----- Accounting Start -----
+[11:26:13] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:26:13] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[11:26:17] - Login Button Click
+[11:26:17] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[11:26:17] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 11:26:17',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[11:26:17] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 11:26:17' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[11:26:17] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[11:26:17] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[11:26:18] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[11:26:18] - select * from lib_erp_journal
+[11:26:18] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[11:26:18] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[11:26:18] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[11:26:18] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[11:26:18] - End of Initialization
+[11:26:25] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[11:26:29] - SELECT a.trans_id,a.trans_no,a.trans_date  ,d.tin,d.general_name,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate  FROM trans_header a  LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id  LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id  LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id  WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL  AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019' order by d.general_name
+[14:07:20] - ----- Accounting Close -----
+[14:09:44] - ----- Accounting Start -----
+[14:09:44] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:09:44] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:09:52] - Login Button Click
+[14:09:52] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:09:52] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:09:52',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:09:53] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:09:52' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:09:53] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:09:53] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:09:53] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:09:53] - select * from lib_erp_journal
+[14:09:54] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:09:54] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:09:58] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:09:59] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:09:59] - End of Initialization
+[14:10:45] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:11:41] - SELECT a.trans_id,a.trans_no,a.trans_date
+            ,b.project_id,f.project_code,f.project_name
+            ,d.tin,d.general_name,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate
+            FROM trans_header a
+            LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+            LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project f ON f.project_id = b.project_id
+            WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019'
+            ORDER BY d.general_name
+[14:12:27] - ----- Accounting Start -----
+[14:12:27] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:12:27] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:12:34] - Login Button Click
+[14:12:34] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:12:34] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:12:34',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:12:34] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:12:34' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:12:34] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:12:35] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:12:35] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:12:35] - select * from lib_erp_journal
+[14:12:35] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:12:35] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:12:40] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:12:40] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:12:41] - End of Initialization
+[14:12:45] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:12:55] - SELECT a.trans_id,a.trans_no,a.trans_date
+            ,b.project_id,f.project_code,f.project_name
+            ,d.tin,d.general_namec.fs_ewt_id,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate
+            FROM trans_header a
+            LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+            LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project f ON f.project_id = b.project_id
+            WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019'
+            ORDER BY d.general_name
+[14:12:58] - Unknown column 'd.general_namec.fs_ewt_id' in 'field list'
+[14:13:24] - ----- Accounting Start -----
+[14:13:24] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:13:24] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:13:29] - Login Button Click
+[14:13:29] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:13:29] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:13:29',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:13:29] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:13:29' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:13:29] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:13:30] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:13:30] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:13:30] - select * from lib_erp_journal
+[14:13:30] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:13:30] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:13:35] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:13:35] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:13:36] - End of Initialization
+[14:13:40] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:13:45] - SELECT a.trans_id,a.trans_no,a.trans_date
+            ,b.project_id,f.project_code,f.project_name
+            ,d.tin,d.general_name,c.fs_ewt_id,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate
+            FROM trans_header a
+            LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+            LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project f ON f.project_id = b.project_id
+            WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019'
+            ORDER BY d.general_name
+[14:14:41] - ----- Accounting Start -----
+[14:14:41] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:14:41] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:14:45] - Login Button Click
+[14:14:45] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:14:45] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:14:45',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:14:45] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:14:45' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:14:45] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:14:46] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:14:46] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:14:46] - select * from lib_erp_journal
+[14:14:46] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:14:46] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:14:51] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:14:51] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:14:52] - End of Initialization
+[14:14:57] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:15:02] - SELECT a.trans_id,a.trans_no,a.trans_date
+            ,b.project_id,f.project_code,f.project_name
+            ,d.tin,d.general_name,c.fs_ewt_id,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate
+            FROM trans_header a
+            LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+            LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project f ON f.project_id = b.project_id
+            WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019'
+            ORDER BY d.general_name
+[14:15:42] - ----- Accounting Start -----
+[14:15:42] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:15:42] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:15:46] - Login Button Click
+[14:15:46] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:15:46] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:15:46',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:15:47] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:15:46' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:15:47] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:15:47] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:15:48] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:15:49] - select * from lib_erp_journal
+[14:15:49] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:15:49] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:15:54] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:15:55] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:15:55] - End of Initialization
+[14:16:01] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:16:06] - SELECT a.trans_id,a.trans_no,a.trans_date
+            ,b.project_id,f.project_code,f.project_name
+            ,d.tin,d.general_name,c.fs_ewt_id,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate
+            FROM trans_header a
+            LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+            LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project f ON f.project_id = b.project_id
+            WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019'
+            ORDER BY d.general_name
+[14:24:13] - ----- Accounting Start -----
+[14:24:13] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:24:13] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:24:17] - Login Button Click
+[14:24:17] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:24:18] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:24:18',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:24:18] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:24:18' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:24:18] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:24:19] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:24:19] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:24:19] - select * from lib_erp_journal
+[14:24:20] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:24:20] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:24:24] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:24:25] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:24:25] - End of Initialization
+[14:24:30] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:24:35] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[14:24:43] - SELECT a.trans_id,a.trans_no,a.trans_date
+            ,b.project_id,f.project_code,f.project_name
+            ,d.tin,d.general_name,c.fs_ewt_id,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate
+            FROM trans_header a
+            LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id
+            LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project f ON f.project_id = b.project_id
+            WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019'
+            ORDER BY d.general_name
+[14:58:37] - ----- Accounting Start -----
+[14:58:37] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:58:37] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[14:58:42] - Login Button Click
+[14:58:42] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[14:58:42] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 14:58:42',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[14:58:42] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 14:58:42' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[14:58:42] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[14:58:42] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[14:58:42] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[14:58:43] - select * from lib_erp_journal
+[14:58:43] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[14:58:43] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[14:58:44] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[14:58:44] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[14:58:44] - End of Initialization
+[15:00:02] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[15:00:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:00:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:00:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:00:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:00:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:00:09] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[15:00:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:00:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:00:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:00:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:00:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:00:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:03:43] - SELECT a.* FROM lib_erp_category a
+[15:05:20] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '2' 
+[15:05:20] - SELECT a.template_det_id,a.template_id ,a.command_code,a.row_type,a.account_id,a.chart_group_id,a.display_text ,a.column_num,a.group_var,a.add_sub,a.repeat_num,a.show_zero,a.indent_num,a.order_by ,IF(row_type = '0',b.account_code,IF(IFNULL(row_type,1) = '1',c.chart_group_code,d.allocation_code)) AS chart_code ,IF(row_type = '0',b.account_name,IF(IFNULL(row_type,1) = '1',c.chart_group_name,d.allocation_name)) AS chart_name ,IF(a.row_type = '0','Chart of Account',IF(IFNULL(a.row_type,1) = '1','Chart Group','Allocation')) AS row_type_name ,a.computation FROM sys_fs_template_det a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart b ON b.account_id = a.account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_chart_group c ON c.chart_group_id = a.chart_group_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_allocation d ON d.allocation_id = a.allocation_id WHERE a.template_id = '7' ORDER BY a.order_by ASC 
+[15:05:22] - Error Encounter : Unknown column 'a.allocation_id' in 'on clause'
+[15:05:53] - ----- Accounting Start -----
+[15:05:53] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:05:53] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:05:57] - Login Button Click
+[15:05:57] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[15:05:57] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-19 15:05:57',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[15:05:57] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-19 15:05:57' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[15:05:57] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[15:05:57] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[15:05:57] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[15:05:57] - select * from lib_erp_journal
+[15:05:57] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[15:05:58] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[15:05:58] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[15:05:58] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[15:05:58] - End of Initialization
+[15:06:03] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '2' 
+[15:06:03] - SELECT a.template_det_id,a.template_id ,a.command_code,a.row_type,a.account_id,a.chart_group_id,a.display_text ,a.column_num,a.group_var,a.add_sub,a.repeat_num,a.show_zero,a.indent_num,a.order_by ,IF(row_type = '0',b.account_code,IF(IFNULL(row_type,1) = '1',c.chart_group_code,d.allocation_code)) AS chart_code ,IF(row_type = '0',b.account_name,IF(IFNULL(row_type,1) = '1',c.chart_group_name,d.allocation_name)) AS chart_name ,IF(a.row_type = '0','Chart of Account',IF(IFNULL(a.row_type,1) = '1','Chart Group','Allocation')) AS row_type_name ,a.computation FROM sys_fs_template_det a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart b ON b.account_id = a.account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_chart_group c ON c.chart_group_id = a.chart_group_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_allocation d ON d.allocation_id = a.allocation_id WHERE a.template_id = '7' ORDER BY a.order_by ASC 
+[15:06:08] - Error Encounter : Unknown column 'a.allocation_id' in 'on clause'
+[15:07:21] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '2' 
+[15:07:21] - SELECT a.template_det_id,a.template_id ,a.command_code,a.row_type,a.account_id,a.chart_group_id,a.display_text ,a.column_num,a.group_var,a.add_sub,a.repeat_num,a.show_zero,a.indent_num,a.order_by ,IF(row_type = '0',b.account_code,IF(IFNULL(row_type,1) = '1',c.chart_group_code,d.allocation_code)) AS chart_code ,IF(row_type = '0',b.account_name,IF(IFNULL(row_type,1) = '1',c.chart_group_name,d.allocation_name)) AS chart_name ,IF(a.row_type = '0','Chart of Account',IF(IFNULL(a.row_type,1) = '1','Chart Group','Allocation')) AS row_type_name ,a.computation FROM sys_fs_template_det a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart b ON b.account_id = a.account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_chart_group c ON c.chart_group_id = a.chart_group_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_allocation d ON d.allocation_id = a.allocation_id WHERE a.template_id = '7' ORDER BY a.order_by ASC 
+[15:07:25] - ExecuteWithParameter : acc_get_pending_ap
+[15:07:25] - parameters : 'erp_file_setup_accounting_afsc',''
+[15:07:25] - Execution Time: 2019-07-19 15:07:25
+[15:07:44] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[15:07:44] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:07:44] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:07:44] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[15:07:49] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '133'
+[15:07:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '134'
+[15:07:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '135'
+[15:07:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '136'
+[15:07:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '137'
+[15:07:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '138'
+[15:07:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '139'
+[15:08:32] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '2' 
+[15:08:32] - SELECT a.template_det_id,a.template_id ,a.command_code,a.row_type,a.account_id,a.chart_group_id,a.display_text ,a.column_num,a.group_var,a.add_sub,a.repeat_num,a.show_zero,a.indent_num,a.order_by ,IF(row_type = '0',b.account_code,IF(IFNULL(row_type,1) = '1',c.chart_group_code,d.allocation_code)) AS chart_code ,IF(row_type = '0',b.account_name,IF(IFNULL(row_type,1) = '1',c.chart_group_name,d.allocation_name)) AS chart_name ,IF(a.row_type = '0','Chart of Account',IF(IFNULL(a.row_type,1) = '1','Chart Group','Allocation')) AS row_type_name ,a.computation FROM sys_fs_template_det a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart b ON b.account_id = a.account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_chart_group c ON c.chart_group_id = a.chart_group_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_allocation d ON d.allocation_id = a.allocation_id WHERE a.template_id = '7' ORDER BY a.order_by ASC 
+[15:09:49] - SELECT a.chart_class_id,a.chart_class_code,a.chart_class_name,a.chart_type ,b.chart_type_name FROM lib_acc_chart_class a LEFT JOIN (   SELECT 'A' AS chart_type,'Assets' AS chart_type_name    UNION SELECT 'L','Liabilities'   UNION SELECT 'C','Capital'   UNION SELECT 'I','Income'   UNION SELECT 'E','Expense') b ON b.chart_type = a.chart_type 
+[15:10:21] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '1' 
+[15:10:21] - SELECT a.template_det_id,a.template_id ,a.command_code,a.row_type,a.account_id,a.chart_group_id,a.display_text ,a.column_num,a.group_var,a.add_sub,a.repeat_num,a.show_zero,a.indent_num,a.order_by ,IF(row_type = '0',b.account_code,IF(IFNULL(row_type,1) = '1',c.chart_group_code,d.allocation_code)) AS chart_code ,IF(row_type = '0',b.account_name,IF(IFNULL(row_type,1) = '1',c.chart_group_name,d.allocation_name)) AS chart_name ,IF(a.row_type = '0','Chart of Account',IF(IFNULL(a.row_type,1) = '1','Chart Group','Allocation')) AS row_type_name ,a.computation FROM sys_fs_template_det a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart b ON b.account_id = a.account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_chart_group c ON c.chart_group_id = a.chart_group_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_allocation d ON d.allocation_id = a.allocation_id WHERE a.template_id = '5' ORDER BY a.order_by ASC 
+[15:12:00] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[15:12:01] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:12:01] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:12:01] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:12:01] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:12:01] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:12:01] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:12:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:12:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:12:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '3604'
+[15:12:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 3604
+[15:12:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '289'
+[15:12:08] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 289
+[15:12:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '290'
+[15:12:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 290
+[15:12:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '291'
+[15:12:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 291
+[15:12:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '292'
+[15:12:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 292
+[15:12:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '293'
+[15:12:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 293
+[15:12:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '294'
+[15:12:09] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 294
+[15:12:09] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '295'
+[15:12:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 295
+[15:12:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '296'
+[15:12:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 296
+[15:12:10] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '297'
+[15:12:10] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 297
+[15:50:03] - ----- Accounting Close -----

@@ -1,0 +1,28 @@
+Log for Debugging - 04/01/2019
+[19:55:02] - ----- Accounting Start -----
+[19:55:02] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_nhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:55:02] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:55:06] - Login Button Click
+[19:55:06] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:55:07] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-01 19:55:07',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:55:08] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-01 19:55:07' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:55:08] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:55:08] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:55:08] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[19:55:09] - select * from lib_erp_journal
+[19:55:10] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:55:10] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[19:55:13] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[19:55:13] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:55:14] - End of Initialization
+[19:55:34] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '3' AND b.company_id = '6' ORDER BY b.book_code 
+[19:55:40] - ExecuteWithParameter : acc_get_pending_ar
+[19:55:40] - parameters : 'erp_fs_alhi','1'
+[19:55:40] - Execution Time: 2019-04-01 19:55:40
+[19:55:42] - Done Time: 2019-04-01 19:55:42
+[19:55:45] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '1' AND b.company_id = '6' ORDER BY b.book_code 
+[19:55:47] - ExecuteWithParameter : acc_get_pending_ap
+[19:55:47] - parameters : 'erp_fs_alhi','1'
+[19:55:47] - Execution Time: 2019-04-01 19:55:47
+[19:55:49] - Done Time: 2019-04-01 19:55:49
+[19:55:53] - ----- Accounting Close -----

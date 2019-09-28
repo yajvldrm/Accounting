@@ -1,0 +1,161 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+libacctng
+</name>
+</assembly>
+<members>
+<member name="T:libacctng.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:libacctng.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:libacctng.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:libacctng.myFunctions.isExistInTransaction(System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ Check if the id is already exist in other table.
+ </summary>
+ <param name="db">Database name where the table will be check.</param>
+ <param name="table">Table where the id will be check.</param>
+ <param name="pk">Primary key of the given table. This will be count if the record is exist.</param>
+ <param name="fk">Foreign key of given table or the column of the given id on the table given.</param>
+ <param name="fkVal">The value of the foreign key.</param>
+ <returns>Boolean existing true otherwise False.</returns>
+ <remarks>~/raymond; 2016-06-24</remarks>
+</member>
+<member name="M:libacctng.myFunctions.getColumnValue(System.Windows.Forms.DataGridView,System.String,System.String,System.String)">
+ <summary>
+ Find the value of column from datagrid.
+ </summary>
+ <param name="dg">Grid where the column name will be check if exist.</param>
+ <param name="pk">Column name of the given value.</param>
+ <param name="val">ID to check what is the value of the column.</param>
+ <param name="colName">The return value.</param>
+ <returns>Value of the given column name.</returns>
+ <remarks>~/raymond; 2016-06-24</remarks>
+</member>
+<member name="M:libacctng.myFunctions.getCheckedGridRem(System.String,System.String,System.Windows.Forms.DataGridView,System.String,System.Boolean,System.String,System.Boolean)">
+ <summary>
+ Use to get the records inside the DataGridView
+ </summary>
+ <param name="pk_name">PrimaryKey Name</param>
+ <param name="sel">CheckBox inside the grid which will be check if checked.</param>
+ <param name="dg">DataGridView where the cursor will check.</param>
+ <param name="msg">The message that you want to show.</param>
+ <param name="withMessage">If the message will be show.</param>
+ <param name="noRecordMessage">If there is no record selected.</param>
+ <param name="listRecords">Will the message list the records?</param>
+ <returns>Array of string. This are the Ids that will be process. Example to be delete.</returns>
+ <remarks>~/raymond; 2016-06-24</remarks>
+</member>
+<member name="M:libacctng.myFunctions.getCheckedGrid(System.String,System.String,System.String,System.Windows.Forms.DataGridView,System.String,System.Boolean,System.String,System.Boolean)">
+ <summary>
+ Use to get the records inside the DataGridView
+ </summary>
+ <param name="pk_name">PrimaryKey Name</param>
+ <param name="name">Name of field to be list.</param>
+ <param name="sel">CheckBox inside the grid which will be check if checked.</param>
+ <param name="dg">DataGridView where the cursor will check.</param>
+ <param name="msg">The message that you want to show.</param>
+ <param name="withMessage">If the message will be show.</param>
+ <param name="noRecordMessage">If there is no record selected.</param>
+ <param name="listRecords">Will the message list the records?</param>
+ <returns>Array of string. This are the Ids that will be process. Example to be delete.</returns>
+ <remarks>~/raymond; 2016-06-24</remarks>
+</member>
+<member name="M:libacctng.myFunctions.getCheckedGridUnit(System.String,System.String,System.String,System.Windows.Forms.DataGridView,System.String,System.Boolean,System.String,System.Boolean)">
+ <summary>
+ Use to get the records inside the DataGridView
+ </summary>
+ <param name="pk_name">PrimaryKey Name</param>
+ <param name="name">Name of field to be list.</param>
+ <param name="sel">CheckBox inside the grid which will be check if checked.</param>
+ <param name="dg">DataGridView where the cursor will check.</param>
+ <param name="msg">The message that you want to show.</param>
+ <param name="withMessage">If the message will be show.</param>
+ <param name="noRecordMessage">If there is no record selected.</param>
+ <param name="listRecords">Will the message list the records?</param>
+ <returns>Array of string. This are the Ids that will be process. Example to be delete.</returns>
+ <remarks>~/raymond; 2016-06-24</remarks>
+</member>
+<member name="M:libacctng.myFunctions.getCheckedGridV1(System.String,System.String,System.String,System.Windows.Forms.DataGridView,System.Collections.Generic.List{System.String}@,System.String,System.Boolean,System.String,System.Boolean)">
+ <summary>
+ Use to get the records inside the DataGridView
+ </summary>
+ <param name="pk_name">PrimaryKey Name</param>
+ <param name="name">Name of field to be list.</param>
+ <param name="sel">CheckBox inside the grid which will be check if checked.</param>
+ <param name="dg">DataGridView where the cursor will check.</param>
+ <param name="list_name">Return list of name.</param>
+ <param name="msg">The message that you want to show.</param>
+ <param name="withMessage">If the message will be show.</param>
+ <param name="noRecordMessage">If there is no record selected.</param>
+ <param name="listRecords">Will the message list the records?</param>
+ <returns>Array of string. This are the Ids that will be process. Example to be delete.</returns>
+ <remarks>~/raymond; 2017-10-17</remarks>
+</member>
+<member name="M:libacctng.myFunctions.DataExist(System.Object,System.String[],System.String[],System.String[],System.Boolean,System.Boolean)">
+ <summary>
+ Check if the data is exist inside the datagrid
+ </summary>
+ <param name="Grid">Datagrid where the data will be check.</param>
+ <param name="PrimaryKey">(1) The column name (2) The key or value of primary key</param>
+ <param name="Column">The column to be check</param>
+ <param name="Value">The value of columns. NOTE: The length must be equal to the length of the column</param>
+ <param name="IsInsert">To test if the module is in Insert or update mode</param>
+ <param name="Sensitive">If true the function will check if all columns are required</param>
+ <returns>Boolean : True if exist else False</returns>
+ <remarks>raymond - 2016-05-31</remarks>
+</member>
+<member name="M:libacctng.myFunctions.toggleDelete(System.Windows.Forms.DataGridView,System.String,System.String,System.String,System.Data.DataSet,System.String)">
+ <summary>
+ Change the color to red if deleted and white if not.
+ </summary>
+ <param name="dg">Target DataGridView</param>
+ <param name="pk">Primary Key name</param>
+ <param name="name">To show on the list on prompt</param>
+ <param name="sel">Checkbox</param>
+ <param name="ds">Dataset to compare</param>
+ <remarks>~/raymond; - 2016-06-29</remarks>
+</member>
+<member name="M:libacctng.myFunctions.deleteHeader(System.Windows.Forms.DataGridView,System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ Delete the header transaction
+ </summary>
+ <param name="grid">The main DataGridView</param>
+ <param name="db">Database ["FileSetup","Main"]</param>
+ <param name="tbl">Table</param>
+ <param name="pk">PrimaryKey in table</param>
+ <param name="checkboxname">Optional : Name of CheckBox</param>
+ <remarks>raymond - 2017-04-19</remarks>
+</member>
+<member name="M:libacctng.myFunctions.gridRowFocus(System.Windows.Forms.DataGridView,System.String[])">
+ <summary>
+ Focus the row of DataGridView with the same key.
+ </summary>
+ <param name="dg">DataGridView the row will be focus.</param>
+ <param name="pk">An array of string : First parameter is the PrimaryKey and the second is the value.</param>
+ <remarks>~/raymond; - 2016-06-23</remarks>
+</member>
+<member name="M:libacctng.myFunctions.copyDataTable(System.Data.DataTable@,System.Data.DataTable@,System.String)">
+ <summary>
+ Copy DataTable From one to another based on PrimaryKey
+ </summary>
+ <param name="dtTo">New Datatable : Target DataTable</param>
+ <param name="dtFrom">Old Datatable : Source DataTable</param>
+ <param name="pkName">PrimaryKey Name</param>
+ <remarks> - emon - 2017-07-17</remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,388 @@
+Log for Debugging - 09/27/2019
+[08:43:38] - ----- Accounting Start -----
+[08:43:38] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:43:38] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:43:46] - Login Button Click
+[08:43:46] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[08:43:46] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 08:43:46',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[08:43:46] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 08:43:46' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[08:43:46] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[08:43:46] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[08:43:46] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[08:43:47] - select * from lib_erp_journal
+[08:43:47] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[08:43:47] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[08:43:48] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[08:43:48] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[08:43:48] - End of Initialization
+[08:47:43] - ----- Accounting Close -----
+[09:21:10] - ----- Accounting Start -----
+[09:21:10] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:21:10] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:21:29] - ----- Accounting Close -----
+[09:22:18] - ----- Accounting Start -----
+[09:22:18] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:22:18] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:22:23] - Login Button Click
+[09:22:24] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:22:24] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 09:22:24',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[09:22:24] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 09:22:24' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[09:22:24] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:22:24] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:22:24] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[09:22:24] - select * from lib_erp_journal
+[09:22:25] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:22:25] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[09:22:31] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:22:31] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:22:31] - End of Initialization
+[09:22:37] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:22:37] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[09:22:37] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:22:37] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:22:41] - ----- Accounting Close -----
+[09:22:43] - ----- Accounting Start -----
+[09:22:43] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:22:43] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:22:49] - ----- Accounting Close -----
+[09:59:47] - ----- Accounting Start -----
+[09:59:47] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:59:47] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:59:54] - Login Button Click
+[09:59:54] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:59:54] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 09:59:54',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[09:59:54] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 09:59:54' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[09:59:54] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:59:55] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:59:55] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[09:59:55] - select * from lib_erp_journal
+[09:59:55] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:59:55] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[09:59:56] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:59:56] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:59:57] - End of Initialization
+[10:00:02] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:00:03] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:00:07] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            
+[10:00:15] - SELECT book_id, book_code, book_name from lib_erp_book
+[10:00:17] - SELECT currency_rate_id, b.currency_code, b.currency_name from lib_erp_currency_rate a
+                            left join lib_erp_currency b ON a.currency_id = b.currency_id
+                            where effectivitydate LIKE '2019-01%'
+[10:00:17] - SELECT * FROM lib_erp_currency_rate WHERE currency_rate_id = 13
+[10:00:18] - SELECT account_id, account_code, account_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:01:01] - ----- Accounting Close -----
+[10:01:25] - ----- Accounting Start -----
+[10:01:25] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:01:25] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:01:37] - Login Button Click
+[10:01:37] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:01:37] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 10:01:37',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[10:01:37] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 10:01:37' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[10:01:37] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:01:37] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:01:37] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:01:37] - select * from lib_erp_journal
+[10:01:38] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:01:38] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:01:39] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:01:39] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:01:39] - End of Initialization
+[10:01:40] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:01:41] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:01:43] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            
+[10:01:47] - SELECT book_id, book_code, book_name from lib_erp_book
+[10:01:47] - SELECT currency_rate_id, b.currency_code, b.currency_name from lib_erp_currency_rate a
+                            left join lib_erp_currency b ON a.currency_id = b.currency_id
+                            where effectivitydate LIKE '2019-01%'
+[10:01:47] - SELECT * FROM lib_erp_currency_rate WHERE currency_rate_id = 13
+[10:01:48] - SELECT currency_rate_id, b.currency_code, b.currency_name from lib_erp_currency_rate a
+                            left join lib_erp_currency b ON a.currency_id = b.currency_id
+                            where effectivitydate LIKE '2019-01%'
+[10:01:48] - SELECT * FROM lib_erp_currency_rate WHERE currency_rate_id = 13
+[10:02:06] - SELECT account_id, account_code, account_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:02:21] - ----- Accounting Close -----
+[10:03:42] - ----- Accounting Start -----
+[10:03:42] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:03:42] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:03:49] - Login Button Click
+[10:03:49] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:03:49] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 10:03:49',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[10:03:49] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 10:03:49' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[10:03:49] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:03:50] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:03:50] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:03:50] - select * from lib_erp_journal
+[10:03:50] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:03:50] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:03:51] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:03:51] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:03:51] - End of Initialization
+[10:03:53] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:03:54] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:03:57] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            
+[10:04:00] - SELECT book_id, book_code, book_name from lib_erp_book
+[10:04:01] - SELECT currency_rate_id, b.currency_code, b.currency_name from lib_erp_currency_rate a
+                            left join lib_erp_currency b ON a.currency_id = b.currency_id
+                            where effectivitydate LIKE '2019-01%'
+[10:04:01] - SELECT * FROM lib_erp_currency_rate WHERE currency_rate_id = 13
+[10:04:02] - SELECT account_id, account_code, account_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:04:15] - ----- Accounting Close -----
+[10:05:58] - ----- Accounting Start -----
+[10:05:58] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:05:58] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:06:03] - Login Button Click
+[10:06:03] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:06:04] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 10:06:04',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[10:06:04] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 10:06:04' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[10:06:04] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:06:04] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:06:04] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:06:04] - select * from lib_erp_journal
+[10:06:04] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:06:04] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:06:05] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:06:05] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:06:05] - End of Initialization
+[10:06:08] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:06:08] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:06:10] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            
+[10:06:18] - SELECT book_id, book_code, book_name from lib_erp_book
+[10:06:20] - SELECT currency_rate_id, b.currency_code, b.currency_name from lib_erp_currency_rate a
+                            left join lib_erp_currency b ON a.currency_id = b.currency_id
+                            where effectivitydate LIKE '2009-03%'
+[10:06:21] - SELECT account_id, account_code, account_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:07:15] - ----- Accounting Close -----
+[10:12:32] - ----- Accounting Start -----
+[10:12:32] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:12:32] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:12:39] - Login Button Click
+[10:12:39] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:12:39] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 10:12:39',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[10:12:39] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 10:12:39' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[10:12:39] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:12:39] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:12:39] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:12:40] - select * from lib_erp_journal
+[10:12:40] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:12:40] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:12:41] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:12:41] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:12:41] - End of Initialization
+[10:12:43] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:12:43] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:12:45] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            
+[10:12:49] - SELECT book_id, book_code, book_name from lib_erp_book
+[10:12:51] - SELECT currency_rate_id, b.currency_code, b.currency_name from lib_erp_currency_rate a
+                            left join lib_erp_currency b ON a.currency_id = b.currency_id
+                            where effectivitydate LIKE '2019-01%'
+[10:12:51] - SELECT * FROM lib_erp_currency_rate WHERE currency_rate_id = 13
+[10:12:52] - SELECT account_id, account_code, account_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:13:50] - SELECT account_id, account_code, account_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:14:32] - ----- Accounting Close -----
+[10:26:34] - ----- Accounting Start -----
+[10:26:34] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:26:34] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:26:40] - Login Button Click
+[10:26:40] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:26:40] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 10:26:40',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[10:26:40] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 10:26:40' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[10:26:40] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:26:40] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:26:40] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:26:40] - select * from lib_erp_journal
+[10:26:40] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:26:40] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:26:41] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:26:41] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:26:41] - End of Initialization
+[10:26:44] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:26:44] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:27:22] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            
+[10:27:41] - ----- Accounting Close -----
+[10:31:50] - ----- Accounting Start -----
+[10:31:50] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:31:50] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_afsc;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:32:02] - Login Button Click
+[10:32:02] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:32:02] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-09-27 10:32:02',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-RJJ3OHM','Accounting');
+[10:32:02] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-09-27 10:32:02' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-RJJ3OHM' AND machine_user = 'Accounting';
+[10:32:03] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:32:03] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:32:03] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:32:03] - select * from lib_erp_journal
+[10:32:03] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:32:03] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:32:07] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:32:07] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:32:07] - End of Initialization
+[10:32:10] - SELECT 
+                         a.budget_id,a.effectivitydate, b.book_id,b.book_code,b.book_id, c.account_id, c.account_code, c.account_name, d.project_id, d.project_code, d.project_name 
+                         , e.department_id, e.department_code, e.department_name, f.currency_rate_id, f.currency_id, f.based_rate, f.exchange_rate, f.currency_code, f.currency_name 
+                         , a.debit, a.debit_based, a.credit,a.credit_based, a.exchange_rate, a.based_rate
+                         FROM lib_erp_budget a 
+                         LEFT JOIN lib_erp_book b ON a.book_id = b.book_id 
+                         LEFT JOIN lib_erp_chart c on a.account_id = c.account_id 
+                         LEFT JOIN lib_erp_project d on a.project_id = d.project_id 
+                         LEFT JOIN lib_erp_department e ON a.department_id = e.department_id 
+                         LEFT JOIN 
+                         (SELECT a.currency_rate_id, a.based_rate, a.effectivitydate, a.exchange_rate, b.currency_code, b.currency_id, b.currency_name FROM lib_erp_currency_rate a 
+                         LEFT JOIN lib_erp_currency b on a.currency_id = b.currency_id) f on a.currency_rate_id = f.currency_rate_id
+[10:32:10] - SELECT account_id, account_code, account_name, chart_type  FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b on a.chart_class_id = b.chart_class_id WHERE chart_type in ('I', 'E')
+[10:32:44] - SELECT 
+                            1 as month_id, '01' as month_code, 'January' as month_name
+                            union select 2 as month_id, '02' as month_code, 'Feburary' as month_name 
+                            union select 3 as month_id, '03' as month_code, 'March' as month_name 
+                            union select 4 as month_id, '04' as month_code, 'April' as month_name 
+                            union select 5 as month_id, '05' as month_code, 'May' as month_name 
+                            union select 6 as month_id, '06' as month_code, 'June' as month_name 
+                            union select 7 as month_id, '07' as month_code, 'July' as month_name 
+                            union select 8 as month_id, '08' as month_code, 'August' as month_name 
+                            union select 9 as month_id, '09' as month_code, 'September' as month_name 
+                             union select 10 as month_id, '10' as month_code, 'October' as month_name 
+                            union select 11 as month_id, '11' as month_code, 'Novermber' as month_name 
+                            union select 12 as month_id, '12' as month_code, 'December' as month_name 
+                            

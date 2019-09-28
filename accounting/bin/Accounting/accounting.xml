@@ -1,0 +1,2847 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+accounting
+</name>
+</assembly>
+<members>
+<member name="T:accounting.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Background">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Critical">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.diskette">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.down">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Error_Icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.gear">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Help">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Info">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.insert">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.loading">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.loading1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.lock">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.login">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.negative_10x10">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.negative_15x15">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Omniray">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.positive_10x10">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.positive_15x15">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.print">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.remove">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.splash_bg">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Table_Icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.tile">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.tile1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.transparent">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.up">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.My.Resources.Resources.Warning">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set.AccountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set.AccountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.accountanalysis_set.AccountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.agingset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.agingset.AccountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.agingset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.agingset.AgingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.agingset.lib_erp_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.agingset.UserSignatoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.agingset.AccountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.agingset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.agingset.AgingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.agingset.lib_erp_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.agingset.UserSignatoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.agingset.AccountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.agingset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.agingset.AgingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.agingset.lib_erp_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.agingset.UserSignatoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.AT_IB">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.AT_IB.VoucherDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.AT_IB.JBooksDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.AT_IB.VoucherRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.AT_IB.JBooksRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.AT_IB.VoucherRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.AT_IB.JBooksRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.BalanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.lib_erp_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.BalanceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.lib_erp_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.BalanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.balancesheet_set.lib_erp_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_headerDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_jbooksDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_checkDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_ewtDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_fixed_assetDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_header_apDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_header_cvDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_input_vatDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_output_vatDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_final_taxDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.begbal_detailDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_prepaidDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_headerRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_jbooksRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_checkRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_ewtRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_fixed_assetRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_header_apRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_header_cvRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_input_vatRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_output_vatRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_final_taxRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.begbal_detailRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_prepaidRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_headerRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_jbooksRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_checkRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_ewtRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_fixed_assetRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_header_apRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_header_cvRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_input_vatRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_output_vatRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_final_taxRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.begbal_detailRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal.trans_prepaidRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.begbal_report_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.begbal_report_set.begbal_reportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.begbal_report_set.begbal_reportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.begbal_report_set.begbal_reportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.beg_bal_apar">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.beg_bal_apar.dt_aparDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.beg_bal_apar.dt_aparRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.beg_bal_apar.dt_aparRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.checks_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.checks_set.ChecksTabDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.checks_set.ChecksTabRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.checks_set.ChecksTabRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_get_sys_defaultDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_get_trans_headerDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_transaction_voucherDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_get_sys_defaultRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_get_trans_headerRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_transaction_voucherRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_get_sys_defaultRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_get_trans_headerRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucher.report_transaction_voucherRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucherTableAdapters.report_get_sys_defaultTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucherTableAdapters.report_get_trans_headerTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucherTableAdapters.report_transaction_voucherTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucherTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:accounting.dsReportVoucherTableAdapters.TableAdapterManager.UpdateUpdatedRows(accounting.dsReportVoucher,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.dsReportVoucherTableAdapters.TableAdapterManager.UpdateInsertedRows(accounting.dsReportVoucher,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.dsReportVoucherTableAdapters.TableAdapterManager.UpdateDeletedRows(accounting.dsReportVoucher,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:accounting.dsReportVoucherTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:accounting.dsReportVoucherTableAdapters.TableAdapterManager.UpdateAll(accounting.dsReportVoucher)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucherTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:accounting.dsReportVoucherTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet.get_voucher_moduleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet.get_lib_acc_voucher_templateDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet.get_voucher_moduleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet.get_lib_acc_voucher_templateRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet.get_voucher_moduleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSet.get_lib_acc_voucher_templateRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSetTableAdapters.get_voucher_moduleTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSetTableAdapters.get_lib_acc_voucher_templateTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(accounting.dsVoucherTemplateSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.UpdateInsertedRows(accounting.dsVoucherTemplateSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.UpdateDeletedRows(accounting.dsVoucherTemplateSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.UpdateAll(accounting.dsVoucherTemplateSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:accounting.dsVoucherTemplateSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set.EWTDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set.Final_TaxDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set.EWTRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set.Final_TaxRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set.EWTRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.ewt_report_set.Final_TaxRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_generalDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_final_taxDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_ewtDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_groupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_chartDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_termsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_currencyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_currency_rateDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_projectDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_departmentDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_allocationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_input_vatDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_output_vatDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_industryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_categoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_allocation_accountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_classDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_bankDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_journalDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_journal_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_filterDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_filter_detDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_multipleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_general_multipleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_aging_rangeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_userDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_profileDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_stageDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_group_multipleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_generalRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_final_taxRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_ewtRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_groupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_chartRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_termsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_currencyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_currency_rateRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_projectRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_departmentRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_allocationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_input_vatRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_output_vatRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_industryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_categoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_allocation_accountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_classRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_bankRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_journalRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_journal_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_filterRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_filter_detRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_multipleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_general_multipleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_aging_rangeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_userRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_profileRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_stageRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_group_multipleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_generalRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_final_taxRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_ewtRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_groupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_chartRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_termsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_currencyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_currency_rateRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_projectRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_departmentRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_allocationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_input_vatRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_output_vatRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_industryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_categoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_allocation_accountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_classRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_bankRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_erp_journalRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_journal_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_filterRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_acc_filter_detRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_multipleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_general_multipleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_aging_rangeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_userRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_profileRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.sys_erp_stageRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FileSetupSet.lib_acc_chart_group_multipleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.finalewtset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.finalewtset.AccountsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.finalewtset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.finalewtset.AccountsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.finalewtset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.finalewtset.AccountsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.finalewtset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.fixedassetset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.fixedassetset.AccountsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.fixedassetset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.fixedassetset.AccountsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.fixedassetset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.fixedassetset.AccountsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.fixedassetset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set.BalanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set.BalanceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.FSDesign_set.BalanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.general_library_report_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.general_library_report_set.general_library_reportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.general_library_report_set.general_library_reportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.general_library_report_set.general_library_reportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.BalanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.lib_erp_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.BalanceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.lib_erp_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.BalanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.incomestatement_set.lib_erp_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset.AccountsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset.AccountsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset.AccountsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.inputoutputvatset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.printbooks_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.printbooks_set.printbooks_reportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.printbooks_set.printbooks_reportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.printbooks_set.printbooks_reportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set.BalanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set.BalanceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.report_check_print_set.BalanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.HeaderDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.JBooksDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.HeaderRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.JBooksRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.HeaderRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.report_ib_dataset.JBooksRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.soa_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.soa_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.GeneralDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.AccountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.UserSignatoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.GeneralRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.AccountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.UserSignatoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.soa_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.soa_set.GeneralRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.soa_set.AccountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.soa_set.UserSignatoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.AccountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.lib_erp_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.AccountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.lib_erp_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.AccountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.subsidiaryset.lib_erp_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.sysdefaultset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.sysdefaultset.sys_defaultDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.sysdefaultset.sys_defaultRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.sysdefaultset.sys_defaultRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trans_dataset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.HeaderDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.JBooksDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.ParticularsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.SignatoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.HeaderRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.JBooksRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.ParticularsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.SignatoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.HeaderRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.JBooksRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.ParticularsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trans_dataset.SignatoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.accountsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.CompanyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.lib_erp_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.accountsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.CompanyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.lib_erp_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.accountsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.CompanyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.trial_balance_set.lib_erp_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet.get_currency_rateDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet.get_journal_bookDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet.get_currency_rateRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet.get_journal_bookRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet.get_currency_rateRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSet.get_journal_bookRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSetTableAdapters.get_currency_rateTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSetTableAdapters.get_journal_bookTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(accounting.DEFileSetupSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.UpdateInsertedRows(accounting.DEFileSetupSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.UpdateDeletedRows(accounting.DEFileSetupSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.UpdateAll(accounting.DEFileSetupSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:accounting.DEFileSetupSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_chartDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_generalDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_projectDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_departmentDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_allocationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_termsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_chartRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_generalRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_projectRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_departmentRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_allocationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_termsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_chartRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_generalRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_projectRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_departmentRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_allocationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSet.lib_erp_termsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.lib_erp_chartTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.lib_erp_generalTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.lib_erp_projectTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.lib_erp_departmentTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.lib_erp_allocationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.lib_erp_termsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:accounting.DEFSTableSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(accounting.DEFSTableSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.DEFSTableSetTableAdapters.TableAdapterManager.UpdateInsertedRows(accounting.DEFSTableSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.DEFSTableSetTableAdapters.TableAdapterManager.UpdateDeletedRows(accounting.DEFSTableSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:accounting.DEFSTableSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:accounting.DEFSTableSetTableAdapters.TableAdapterManager.UpdateAll(accounting.DEFSTableSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:accounting.DEFSTableSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:accounting.TransactionSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.TransactionSet.get_trans_headerDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.TransactionSet.get_trans_jbooksDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.TransactionSet.get_trans_headerRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.TransactionSet.get_trans_jbooksRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.TransactionSet.get_trans_headerRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.TransactionSet.get_trans_jbooksRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.TransactionSetTableAdapters.get_trans_headerTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.TransactionSetTableAdapters.get_trans_jbooksTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.TransactionSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:accounting.TransactionSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(accounting.TransactionSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.TransactionSetTableAdapters.TableAdapterManager.UpdateInsertedRows(accounting.TransactionSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.TransactionSetTableAdapters.TableAdapterManager.UpdateDeletedRows(accounting.TransactionSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:accounting.TransactionSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:accounting.TransactionSetTableAdapters.TableAdapterManager.UpdateAll(accounting.TransactionSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:accounting.TransactionSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:accounting.TransactionSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate.get_lib_erp_currency_rateDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate.get_lib_erp_currencyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate.get_lib_erp_currency_rateRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate.get_lib_erp_currencyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate.get_lib_erp_currency_rateRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rate.get_lib_erp_currencyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rateTableAdapters.get_lib_erp_currency_rateTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rateTableAdapters.get_lib_erp_currencyTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rateTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:accounting.ds_currency_rateTableAdapters.TableAdapterManager.UpdateUpdatedRows(accounting.ds_currency_rate,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.ds_currency_rateTableAdapters.TableAdapterManager.UpdateInsertedRows(accounting.ds_currency_rate,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:accounting.ds_currency_rateTableAdapters.TableAdapterManager.UpdateDeletedRows(accounting.ds_currency_rate,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:accounting.ds_currency_rateTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:accounting.ds_currency_rateTableAdapters.TableAdapterManager.UpdateAll(accounting.ds_currency_rate)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rateTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:accounting.ds_currency_rateTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:accounting.PrintRibbonControllerResources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ClosePreview">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ClosePreviewLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Customize">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_CustomizeLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Document">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_DocumentMap">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_DocumentMapLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_EditPageHF">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_EditPageHFLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportCsv">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportCsvLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportFile">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportFileLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportGraphic">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportGraphicLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportHtm">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportHtmLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportMht">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportMhtLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportPdf">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportPdfLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportRtf">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportRtfLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportTxt">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportTxtLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportXls">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportXlsLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportXlsx">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ExportXlsxLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_FillBackground">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_FillBackgroundLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Find">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_FindLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_HandTool">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Magnifier">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_MultiplePages">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_MultiplePagesLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Open">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_OpenLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageMargins">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageMarginsLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageMarginsModerate">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageMarginsNarrow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageMarginsNormal">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageMarginsWide">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageOrientation">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageOrientationLandscape">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageOrientationLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageOrientationPortrait">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PageSetupDialog">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_A3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_A4">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_A5">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_A6">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_Executive">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_Legal">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_Letter">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperKind_Tabloid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperSize">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PaperSizeLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Parameters">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ParametersLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Pointer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Print">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PrintDirect">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PrintDirectLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PrintLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PrintSetup">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_PrintSetupLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Save">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SaveLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Scale">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ScaleLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendCsv">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendCsvLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendFile">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendFileLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendGraphic">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendGraphicLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendMht">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendMhtLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendPdf">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendPdfLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendRtf">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendRtfLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendTxt">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendTxtLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendXls">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendXlsLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendXlsx">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_SendXlsxLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowFirstPage">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowFirstPageLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowLastPage">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowLastPageLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowNextPage">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowNextPageLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowPrevPage">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ShowPrevPageLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Thumbnails">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ThumbnailsLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Watermark">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_WatermarkLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_Zoom">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ZoomIn">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ZoomInLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ZoomLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ZoomOut">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:accounting.PrintRibbonControllerResources.RibbonPrintPreview_ZoomOutLarge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>

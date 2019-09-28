@@ -1,0 +1,41 @@
+Log for Debugging - 05/06/2019
+[13:26:40] - ----- Accounting Start -----
+[13:26:40] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:26:40] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:26:45] - Login Button Click
+[13:26:45] - SELECT user_id FROM erp_file_setup_accounting_morning.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[13:26:45] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-05-06 13:26:45',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[13:26:45] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-05-06 13:26:45' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[13:26:45] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[13:26:45] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_morning.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_morning.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_morning.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_morning.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[13:26:45] - SELECT module_code FROM erp_file_setup_accounting_morning.sys_erp_modules WHERE system_id = 2 
+[13:26:45] - select * from lib_erp_journal
+[13:26:45] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_morning.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_morning.lib_erp_currency c ON c.currency_id = a.currency_id 
+[13:26:45] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_morning.sys_erp_modules b on a.module_id = b.module_id
+[13:26:47] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[13:26:47] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[13:26:47] - End of Initialization
+[13:27:25] - ----- Accounting Start -----
+[13:27:25] - Main Connection String = Server=localhost;User Id=root;Password=;Database=erp_accounting_;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:27:25] - FS Connection String = Server=localhost;User Id=root;Password=;Database=erp_file_setup_accounting_;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:27:26] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Access denied for user 'root'@'localhost' (using password: NO)
+[13:27:47] - ----- Accounting Start -----
+[13:27:47] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_omp;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:27:47] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_omp;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[13:27:50] - Login Button Click
+[13:27:50] - SELECT user_id FROM erp_file_setup_accounting_omp.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[13:27:50] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-05-06 13:27:50',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[13:27:50] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-05-06 13:27:50' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[13:27:50] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[13:27:50] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_omp.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_omp.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_omp.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_omp.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[13:27:50] - SELECT module_code FROM erp_file_setup_accounting_omp.sys_erp_modules WHERE system_id = 2 
+[13:27:50] - select * from lib_erp_journal
+[13:27:50] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_omp.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_omp.lib_erp_currency c ON c.currency_id = a.currency_id 
+[13:27:51] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_omp.sys_erp_modules b on a.module_id = b.module_id
+[13:27:52] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[13:27:52] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[13:27:52] - End of Initialization
+[13:28:05] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '2' 
+[13:28:06] - SELECT a.template_det_id,a.template_id ,a.command_code,a.row_type,a.account_id,a.chart_group_id,a.display_text ,a.column_num,a.group_var,a.add_sub,a.repeat_num,a.show_zero,a.indent_num,a.order_by ,IF(row_type = '0',b.account_code,c.chart_group_code) AS chart_code ,IF(row_type = '0',b.account_name,c.chart_group_name) AS chart_name ,IF(a.row_type = '0','Chart of Account','Chart Group') AS row_type_name ,a.computation FROM sys_fs_template_det a LEFT JOIN erp_file_setup_accounting_omp.lib_erp_chart b ON b.account_id = a.account_id LEFT JOIN erp_file_setup_accounting_omp.lib_acc_chart_group c ON c.chart_group_id = a.chart_group_id WHERE a.template_id = '4' ORDER BY a.order_by ASC 
+[13:28:18] - SELECT a.template_id,a.template_code,a.template_name ,a.title1,a.title2,a.title3 FROM sys_fs_template a WHERE a.fs_type = '2' 
+[13:57:06] - ----- Accounting Close -----

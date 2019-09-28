@@ -1,0 +1,55 @@
+Log for Debugging - 03/05/2019
+[15:38:56] - ----- Accounting Start -----
+[15:38:56] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:38:56] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:39:01] - Login Button Click
+[15:39:01] - SELECT user_id FROM erp_fs_ngg.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[15:39:01] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-03-05 15:39:01',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','SERVICELAPTOP','Administrator');
+[15:39:01] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-03-05 15:39:01' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'SERVICELAPTOP' AND machine_user = 'Administrator';
+[15:39:01] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[15:39:01] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_ngg.sys_erp_modules a LEFT JOIN erp_fs_ngg.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_ngg.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[15:39:01] - SELECT module_code FROM erp_fs_ngg.sys_erp_modules WHERE system_id = 2 
+[15:39:02] - select * from lib_erp_journal
+[15:39:02] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_ngg.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_ngg.lib_erp_currency c ON c.currency_id = a.currency_id 
+[15:39:02] - select a.*,b.module_code from sys_default_det a inner join erp_fs_ngg.sys_erp_modules b on a.module_id = b.module_id
+[15:39:03] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[15:39:03] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[15:39:03] - End of Initialization
+[15:39:15] - ----- Accounting Start -----
+[15:39:15] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_hpm;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:39:15] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_hpm;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:39:20] - Login Button Click
+[15:39:20] - SELECT user_id FROM erp_fs_hpm.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[15:39:20] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-03-05 15:39:20',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','SERVICELAPTOP','Administrator');
+[15:39:20] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-03-05 15:39:20' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'SERVICELAPTOP' AND machine_user = 'Administrator';
+[15:39:20] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[15:39:20] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_hpm.sys_erp_modules a LEFT JOIN erp_fs_hpm.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_hpm.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[15:39:20] - SELECT module_code FROM erp_fs_hpm.sys_erp_modules WHERE system_id = 2 
+[15:39:21] - select * from lib_erp_journal
+[15:39:21] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_hpm.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_hpm.lib_erp_currency c ON c.currency_id = a.currency_id 
+[15:39:21] - select a.*,b.module_code from sys_default_det a inner join erp_fs_hpm.sys_erp_modules b on a.module_id = b.module_id
+[15:39:21] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[15:39:21] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[15:39:21] - End of Initialization
+[15:39:26] - SELECT False AS sel,journal_id,journal_code,journal_name FROM lib_erp_journal WHERE journal_id <> 8
+[15:39:26] - SELECT False AS sel2,a.project_id AS book_id,a.project_unit_no_codes AS book_unit_no_name,a.project_unit_no_id AS book_unit_no_id
+        FROM erp_fs_hpm.lib_erp_project_unit_no a  ORDER BY a.project_unit_no_codes DESC 
+[15:39:30] - SELECT False AS sel,b.book_id,c.book_code,c.book_name,d.book_unit_no_name 
+FROM erp_fs_hpm.lib_erp_journal a 
+LEFT JOIN erp_fs_hpm.sys_acc_journal_book b ON b.journal_id = a.journal_id 
+LEFT JOIN erp_fs_hpm.lib_erp_book c ON c.book_id = b.book_id 
+LEFT JOIN erp_fs_hpm.lib_erp_book_unit_no d ON d.book_id = c.book_id 
+WHERE a.journal_id IN (1,2,3,4,5,6,7) AND c.book_code IS NOT NULL AND c.company_id = '1' GROUP BY c.book_id 
+[15:39:38] - ExecuteWithParameter : get_account_analysis_new
+[15:39:38] - parameters : 'erp_accounting_hpm','erp_fs_hpm','','2','2019-01-01','2017-12-31','','','','1,2,3,4,5,6,7,8','1','','','2'
+[15:39:38] - Execution Time: 2019-03-05 15:39:38
+[15:39:44] - SELECT b.company_name,b.address1 AS address,b.tin,c.currency_name FROM erp_accounting_hpm.sys_default a LEFT JOIN erp_fs_hpm.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_hpm.lib_erp_currency c ON c.currency_id = a.currency_id
+[15:42:59] - ExecuteWithParameter : get_account_analysis_new
+[15:42:59] - parameters : 'erp_accounting_hpm','erp_fs_hpm','','2','2019-01-01','2017-12-31','','','','1,2,3,4,5,6,7,8','1','','','2'
+[15:42:59] - Execution Time: 2019-03-05 15:42:59
+[15:44:56] - SELECT b.company_name,b.address1 AS address,b.tin,c.currency_name FROM erp_accounting_hpm.sys_default a LEFT JOIN erp_fs_hpm.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_hpm.lib_erp_currency c ON c.currency_id = a.currency_id
+[15:45:00] - ExecuteWithParameter : get_account_analysis_new
+[15:45:00] - parameters : 'erp_accounting_hpm','erp_fs_hpm','','2','2019-01-01','2017-12-31','','','','1,2,3,4,5,6,7,8','1','','','2'
+[15:45:00] - Execution Time: 2019-03-05 15:45:00
+[15:45:03] - SELECT b.company_name,b.address1 AS address,b.tin,c.currency_name FROM erp_accounting_hpm.sys_default a LEFT JOIN erp_fs_hpm.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_hpm.lib_erp_currency c ON c.currency_id = a.currency_id
+[15:46:41] - ----- Accounting Close -----

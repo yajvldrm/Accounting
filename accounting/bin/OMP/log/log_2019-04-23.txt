@@ -1,0 +1,400 @@
+Log for Debugging - 04/23/2019
+[19:25:44] - ----- Accounting Start -----
+[19:25:44] - Main Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:25:44] - FS Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_file_setup_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:26:25] - Login Button Click
+[19:26:25] - SELECT user_id FROM erp_file_setup_accounting_okabeh.sys_erp_user WHERE username = 'alas' AND password = '2fcf8cbf1ca5ab3075df52594f977295e8aa53e55a212a8c08d205af761bbb4f' 
+[19:26:31] - Login Button Click
+[19:26:31] - SELECT user_id FROM erp_file_setup_accounting_okabeh.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:26:31] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-23 19:26:31',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:26:31] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-23 19:26:31' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:26:32] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:26:32] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:26:32] - SELECT module_code FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2 
+[19:26:32] - select * from lib_erp_journal
+[19:26:33] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:26:33] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_okabeh.sys_erp_modules b on a.module_id = b.module_id
+[19:26:37] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[19:26:37] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:26:37] - End of Initialization
+[19:26:44] - SELECT * FROM sys_erp_profile order by profile_code,profile_name ASC 
+[19:26:45] - SELECT module_id,module_code,module_name,module_type FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2
+[19:26:45] - SELECT a.profile_id,b.profile_det_id,c.module_id,c.module_code,c.module_name,c.module_type ,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_profile a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.profile_id = a.profile_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_modules c ON c.module_id = b.module_id WHERE a.profile_id = 1 AND c.system_id = 2 
+[19:26:45] - SELECT module_id,module_code,module_name,module_type FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2
+[19:26:45] - SELECT a.profile_id,b.profile_det_id,c.module_id,c.module_code,c.module_name,c.module_type ,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_profile a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.profile_id = a.profile_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_modules c ON c.module_id = b.module_id WHERE a.profile_id = 1 AND c.system_id = 2 
+[19:26:45] - SELECT module_id,module_code,module_name,module_type FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2
+[19:26:45] - SELECT a.profile_id,b.profile_det_id,c.module_id,c.module_code,c.module_name,c.module_type ,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_profile a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.profile_id = a.profile_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_modules c ON c.module_id = b.module_id WHERE a.profile_id = 1 AND c.system_id = 2 
+[19:26:45] - SELECT module_id,module_code,module_name,module_type FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2
+[19:26:46] - SELECT a.profile_id,b.profile_det_id,c.module_id,c.module_code,c.module_name,c.module_type ,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_profile a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.profile_id = a.profile_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_modules c ON c.module_id = b.module_id WHERE a.profile_id = 1 AND c.system_id = 2 
+[19:26:46] - SELECT module_id,module_code,module_name,module_type FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2
+[19:26:46] - SELECT a.profile_id,b.profile_det_id,c.module_id,c.module_code,c.module_name,c.module_type ,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_profile a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.profile_id = a.profile_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_modules c ON c.module_id = b.module_id WHERE a.profile_id = 1 AND c.system_id = 2 
+[19:26:49] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_file_setup_accounting_okabeh.sys_erp_user a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:26:49] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '4'
+[19:26:55] - Error Encounter : Table 'erp_file_setup_accounting_okabeh.sys_erp_user_profile' doesn't exist
+[19:27:03] - ----- Accounting Start -----
+[19:27:03] - Main Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:27:03] - FS Connection String = Server=192.168.10.89;User Id=root;Password=s0luti0ns;Database=erp_file_setup_accounting_okabeh;Port=6033;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:27:07] - Login Button Click
+[19:27:07] - SELECT user_id FROM erp_file_setup_accounting_okabeh.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:27:07] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-23 19:27:07',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:27:07] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-23 19:27:07' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:27:07] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:27:07] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_okabeh.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_okabeh.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:27:08] - SELECT module_code FROM erp_file_setup_accounting_okabeh.sys_erp_modules WHERE system_id = 2 
+[19:27:08] - select * from lib_erp_journal
+[19:27:08] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_okabeh.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:27:08] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_okabeh.sys_erp_modules b on a.module_id = b.module_id
+[19:27:13] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[19:27:13] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:27:13] - End of Initialization
+[19:27:34] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Access denied for user 'root'@'localhost' (using password: YES)
+[19:27:39] - ----- Accounting Start -----
+[19:27:39] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:27:39] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:27:42] - Login Button Click
+[19:27:42] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:27:43] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-23 19:27:43',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:27:43] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-23 19:27:43' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:27:43] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:27:43] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:27:43] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[19:27:43] - select * from lib_erp_journal
+[19:27:44] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:27:44] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[19:27:44] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[19:27:44] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:27:44] - End of Initialization
+[19:27:48] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:27:49] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:27:52] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[19:27:53] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = ''
+[19:27:54] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[19:27:55] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '9'
+[19:27:56] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '78'
+[19:27:57] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '25'
+[19:27:58] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '34'
+[19:27:58] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '56'
+[19:28:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '48'
+[19:28:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '35'
+[19:28:01] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '48'
+[19:28:22] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '35'
+[19:29:18] - ----- Accounting Start -----
+[19:29:18] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:29:18] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:29:21] - Login Button Click
+[19:29:21] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:29:22] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-23 19:29:22',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:29:22] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-23 19:29:22' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:29:22] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:29:22] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:29:22] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[19:29:23] - select * from lib_erp_journal
+[19:29:23] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:29:23] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[19:29:28] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[19:29:28] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:29:28] - End of Initialization
+[19:29:32] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:29:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:29:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:29:40] - select * from sys_erp_profile
+[19:29:41] - CALL SaveTransaction('Update','sys_erp_user','user_id,username,user_fullname,user_position,email,department_id,checker,approver','1|alas|Alas Admin|Administrator|sample@yahoo.com|18|1|0|','user_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','569');
+[19:29:43] - CALL SaveTransaction('Update','sys_erp_user_profile','user_profile_id,user_id,profile_id,system_id','|1|1|2|','user_profile_id','','DESKTOP-PL80BO2','Raymond T. Villegas','569');
+[19:30:41] - CALL SaveTransaction('Insert','sys_erp_user_profile','user_profile_id,user_id,profile_id,system_id','|1|1|2|','user_profile_id','','DESKTOP-PL80BO2','Raymond T. Villegas','569');
+[19:40:14] - ----- Accounting Start -----
+[19:40:14] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:40:14] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:40:19] - Login Button Click
+[19:40:19] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = '0999d882308931ed10851e011d8386b3c733220808d9d283f5e7ab678d4d91c9' 
+[19:40:23] - Login Button Click
+[19:40:23] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:40:23] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-23 19:40:23',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:40:23] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-23 19:40:23' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:40:23] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:40:24] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:40:24] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[19:40:24] - select * from lib_erp_journal
+[19:40:24] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:40:24] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[19:40:28] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[19:40:28] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:40:29] - End of Initialization
+[19:40:45] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:40:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:40:48] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:40:51] - select * from sys_erp_profile
+[19:40:53] - CALL SaveTransaction('Update','sys_erp_user','user_id,username,user_fullname,user_position,email,department_id,checker,approver','1|alas|Alas Admin|Administrator|sample@yahoo.com|18|1|0|','user_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','570');
+[19:40:54] - CALL SaveTransaction('Update','sys_erp_user_profile','user_profile_id,user_id,profile_id,system_id','1|1|2|2|','user_profile_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','570');
+[19:40:55] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:40:55] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:40:55] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:40:56] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '16'
+[19:40:57] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:41:24] - ----- Accounting Close -----
+[19:43:03] - ----- Accounting Start -----
+[19:43:03] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:43:03] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[19:43:59] - Login Button Click
+[19:43:59] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[19:43:59] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-04-23 19:43:59',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[19:44:00] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-04-23 19:43:59' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[19:44:00] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[19:44:00] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user c ON c.profile_id = b.profile_id WHERE a.system_id = 2 AND c.username = 'alas' 
+[19:44:00] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[19:44:00] - select * from lib_erp_journal
+[19:44:01] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[19:44:01] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[19:44:05] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[19:44:05] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[19:44:05] - End of Initialization
+[19:44:10] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:45:09] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:45:11] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '9'
+[19:45:12] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '85'
+[19:45:14] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '53'
+[19:45:14] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '95'
+[19:45:15] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '59'
+[19:45:15] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:45:15] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '16'
+[19:45:16] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:45:31] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:45:32] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:45:34] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:45:48] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:46:09] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:47:24] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:47:24] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:47:46] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '78'
+[19:47:46] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '78'
+[19:47:49] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:47:49] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:47:53] - select * from sys_erp_profile
+[19:47:55] - CALL SaveTransaction('Update','sys_erp_user','user_id,username,user_fullname,user_position,email,department_id,checker,approver','1|alas|Alas Admin|Administrator|sample@yahoo.com|18|1|0|','user_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','571');
+[19:47:57] - CALL SaveTransaction('Update','sys_erp_user_profile','user_profile_id,user_id,profile_id,system_id','1|1|1|2|','user_profile_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','571');
+[19:47:57] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_alhi.sys_erp_user a LEFT JOIN erp_fs_alhi.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_alhi.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[19:48:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:48:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:48:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[19:48:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:48:00] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:48:03] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '16'
+[19:48:04] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '16'
+[19:48:04] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:48:04] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:48:05] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '59'
+[19:48:05] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '59'
+[19:48:06] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[19:48:06] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[20:14:48] - ----- Accounting Close -----

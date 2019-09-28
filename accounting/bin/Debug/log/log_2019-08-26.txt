@@ -1,0 +1,8 @@
+Log for Debugging - 08/26/2019
+[09:21:03] - ----- Accounting Start -----
+[09:21:03] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_soler;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:21:03] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:21:06] - Unable to connect to any of the specified MySQL hosts.
+[09:21:43] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'erp_accounting_soler'
+[09:21:57] - Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'erp_accounting_soler'
+[09:22:04] - ----- Accounting Close -----

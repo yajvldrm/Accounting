@@ -1,0 +1,4 @@
+Log for Debugging - 10/18/2018
+[14:42:49] - Close System Update.
+[14:49:40] - Close System Update.
+[14:50:58] - Close System Update.

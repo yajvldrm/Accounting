@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.2.5.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="report_ap_2" Margins="50, 50, 50, 50" PageWidth="850" PageHeight="1100" ScriptLanguage="VisualBasic" Version="17.2" DataMember="Header" Font="Calibri, 8pt">
+  <CalculatedFields>
+    <Item1 Ref="1" Name="company_address" Expression="[address]" DataMember="Company" />
+    <Item2 Ref="2" Name="company_tin" Expression="[tin]" DataMember="Company" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="3" ControlType="DetailBand" Name="Detail" HeightF="0" TextAlignment="TopLeft" Padding="0,0,0,0,100" />
+    <Item2 Ref="4" ControlType="TopMarginBand" Name="TopMargin" HeightF="50" TextAlignment="TopLeft" Padding="0,0,0,0,100" />
+    <Item3 Ref="5" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="50" TextAlignment="TopLeft" Padding="0,0,0,0,100" />
+    <Item4 Ref="6" ControlType="GroupFooterBand" Name="GroupFooter1" PrintAtBottom="true" HeightF="39.5">
+      <Controls>
+        <Item1 Ref="7" ControlType="XRPanel" Name="panel_signatory" SizeF="2,2" LocationFloat="387.5, 37.5" />
+        <Item2 Ref="8" ControlType="XRLabel" Name="XrLabel2" TextAlignment="MiddleCenter" SizeF="750,5" LocationFloat="0, 22" Font="Courier New, 8pt, style=Bold" Padding="2,2,0,0,100" Borders="Top" BorderWidth="3" BorderDashStyle="Double">
+          <StylePriority Ref="9" UseFont="false" UseBorders="false" UseBorderWidth="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="10" ControlType="XRTable" Name="XrTable4" TextAlignment="MiddleCenter" SizeF="749.999756,22" LocationFloat="0.0002593994, 0" Font="Calibri, 8pt, style=Bold" Borders="Top" BorderWidth="2">
+          <Rows>
+            <Item1 Ref="11" ControlType="XRTableRow" Name="XrTableRow5" Weight="1">
+              <Cells>
+                <Item1 Ref="12" ControlType="XRTableCell" Name="XrTableCell26" Weight="0.61776062031929224" Text="TOTAL " TextAlignment="MiddleLeft" Padding="50,0,0,0,100">
+                  <StylePriority Ref="13" UsePadding="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="14" ControlType="XRTableCell" Name="XrTableCell27" Weight="2.0489058721365296" TextAlignment="MiddleLeft" Padding="5,0,0,0,100">
+                  <StylePriority Ref="15" UsePadding="false" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="16" ControlType="XRTableCell" Name="XrTableCell28" Weight="0.53333367444623825" TextFormatString="{0:#,##0.00}" TextAlignment="MiddleRight">
+                  <Summary Ref="17" Running="Group" />
+                  <ExpressionBindings>
+                    <Item1 Ref="18" Expression="sumSum([Header_JBooks.debit])" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="19" UseTextAlignment="false" />
+                </Item3>
+                <Item4 Ref="20" ControlType="XRTableCell" Name="XrTableCell29" Weight="0.506563542220321" TextFormatString="{0:#,##0.00}" TextAlignment="MiddleRight">
+                  <Summary Ref="21" Running="Group" />
+                  <ExpressionBindings>
+                    <Item1 Ref="22" Expression="sumSum([Header_JBooks.credit])" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="23" UseTextAlignment="false" />
+                </Item4>
+                <Item5 Ref="24" ControlType="XRTableCell" Name="XrTableCell31" Weight="1.0934374248312175" />
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="25" UseFont="false" UseBorders="false" UseBorderWidth="false" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item4>
+    <Item5 Ref="26" ControlType="GroupHeaderBand" Name="GroupHeader1" RepeatEveryPage="true" PageBreak="BeforeBand" HeightF="259">
+      <GroupFields>
+        <Item1 Ref="27" FieldName="trans_id" />
+      </GroupFields>
+      <Controls>
+        <Item1 Ref="28" ControlType="XRLabel" Name="XrLabel16" Text="XrLabel16" TextAlignment="MiddleLeft" SizeF="599.9994,30" LocationFloat="150, 145.000015" Font="Calibri, 10pt, style=Bold, charSet=0" Padding="5,0,0,0,100" Borders="Left, Top, Right">
+          <ExpressionBindings>
+            <Item1 Ref="29" Expression="[general_name]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="30" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="31" ControlType="XRLabel" Name="XrLabel15" Text="PAYABLE TO" TextAlignment="MiddleLeft" SizeF="150,30" LocationFloat="0, 145.000015" Font="Calibri, 10pt" BackColor="0,0,0,0" Padding="5,0,0,0,100" Borders="Left, Top">
+          <StylePriority Ref="32" UseFont="false" UseBackColor="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="33" ControlType="XRTable" Name="XrTable1" SizeF="749.9989,44" LocationFloat="0.0006039937, 175" Font="Calibri, 8pt" Padding="10,0,0,0,100">
+          <Rows>
+            <Item1 Ref="34" ControlType="XRTableRow" Name="XrTableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="35" ControlType="XRTableCell" Name="XrTableCell1" Weight="1.6087516547001584" Text="PO No." Font="Calibri, 8pt" BackColor="0,0,0,0" Padding="10,0,2,0,100" Borders="Left, Top">
+                  <StylePriority Ref="36" UseFont="false" UseBackColor="false" UsePadding="false" UseBorders="false" />
+                </Item1>
+                <Item2 Ref="37" ControlType="XRTableCell" Name="XrTableCell2" Weight="1.6087514651434351" Text="RR No." Font="Calibri, 8pt" BackColor="0,0,0,0" Padding="10,0,2,0,100" Borders="Left, Top">
+                  <StylePriority Ref="38" UseFont="false" UseBackColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" />
+                </Item2>
+                <Item3 Ref="39" ControlType="XRTableCell" Name="XrTableCell3" Weight="1.6087517064112324" Text="SI / DR No." Font="Calibri, 8pt" BackColor="0,0,0,0" Padding="10,0,2,0,100" Borders="Left, Top, Right">
+                  <StylePriority Ref="40" UseFont="false" UseBackColor="false" UsePadding="false" UseBorders="false" />
+                </Item3>
+              </Cells>
+            </Item1>
+            <Item2 Ref="41" ControlType="XRTableRow" Name="XrTableRow2" Weight="1" TextAlignment="MiddleCenter">
+              <Cells>
+                <Item1 Ref="42" ControlType="XRTableCell" Name="XrTableCell6" Weight="1.608751648027771" Font="Calibri, 8pt, style=Bold" BorderColor="Black" Borders="Left, Top">
+                  <ExpressionBindings>
+                    <Item1 Ref="43" Expression="[po_no]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="44" UseFont="false" UseBorderColor="false" UseBorders="false" />
+                </Item1>
+                <Item2 Ref="45" ControlType="XRTableCell" Name="XrTableCell7" Weight="1.6087515989325682" Font="Calibri, 8pt, style=Bold" BorderColor="Black" Borders="Left, Top">
+                  <ExpressionBindings>
+                    <Item1 Ref="46" Expression="[rr_no]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="47" UseFont="false" UseBorderColor="false" UseBorders="false" />
+                </Item2>
+                <Item3 Ref="48" ControlType="XRTableCell" Name="XrTableCell8" Weight="1.6087515792944869" Font="Calibri, 8pt, style=Bold" BorderColor="Black" Borders="Left, Top, Right">
+                  <ExpressionBindings>
+                    <Item1 Ref="49" Expression="[si_no]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="50" UseFont="false" UseBorderColor="false" UseBorders="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="51" UseTextAlignment="false" />
+            </Item2>
+          </Rows>
+          <StylePriority Ref="52" UseFont="false" UsePadding="false" />
+        </Item3>
+        <Item4 Ref="53" ControlType="XRLabel" Name="XrLabel1" Text="Runtime :" TextAlignment="MiddleLeft" SizeF="61.2499962,15" LocationFloat="0, 0" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="54" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="55" ControlType="XRLabel" Name="XrLabel13" TextFormatString="{0:#,##0.00}" TextAlignment="MiddleCenter" SizeF="110,20" LocationFloat="640, 115.000023" Font="Calibri, 8pt" Padding="0,0,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="56" Expression="[exchange_rate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="57" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="58" ControlType="XRLabel" Name="XrLabel7" Text="VOUCHER NO. :" TextAlignment="MiddleRight" SizeF="90.00037,20" LocationFloat="549.9995, 54.9998932" Font="Calibri, 8pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="59" UseFont="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="60" ControlType="XRLabel" Name="XrLabel8" Text="00000" TextAlignment="MiddleCenter" SizeF="109.9996,20" LocationFloat="640, 54.9998932" Font="Calibri, 10pt, style=Bold" BackColor="0,0,0,0" Padding="0,0,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="61" Expression="[trans_no]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="62" UseFont="false" UseBackColor="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="63" ControlType="XRLabel" Name="XrLabel10" TextFormatString="{0:MM/dd/yyyy}" Text="MMMM DD, YYYY" TextAlignment="MiddleCenter" SizeF="109.9996,20" LocationFloat="639.9998, 74.99987" Font="Calibri, 8pt" Padding="0,0,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="64" Expression="[trans_date]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="65" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="66" ControlType="XRLabel" Name="XrLabel9" Text="DATE : " TextAlignment="MiddleRight" SizeF="90.00037,20" LocationFloat="549.9994, 74.99987" Font="Calibri, 8pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="67" UseFont="false" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="68" ControlType="XRLabel" Name="XrLabel12" Text="00000" TextAlignment="MiddleCenter" SizeF="109.9996,20" LocationFloat="639.9998, 94.9998856" Font="Calibri, 8pt" Padding="0,0,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="69" Expression="[currency_name]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="70" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+        </Item10>
+        <Item11 Ref="71" ControlType="XRLabel" Name="XrLabel11" Text="CURRENCY : " TextAlignment="MiddleRight" SizeF="90.00037,20" LocationFloat="549.9994, 94.9998856" Font="Calibri, 8pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="72" UseFont="false" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="73" ControlType="XRLabel" Name="XrLabel14" Text="EXCHANGE RATE : " TextAlignment="MiddleRight" SizeF="90,20" LocationFloat="550, 115.000023" Font="Calibri, 8pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="74" UseFont="false" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="75" ControlType="XRLabel" Name="runtime" Text="XrLabel1" TextAlignment="MiddleLeft" SizeF="289.791656,15" LocationFloat="61.24999, 0" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="76" UseFont="false" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="77" ControlType="XRPageInfo" Name="XrPageInfo1" TextFormatString="Page No : {0} of {1}" TextAlignment="MiddleRight" SizeF="150.3866,15" LocationFloat="599.6134, 0" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="78" UseFont="false" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="79" ControlType="XRPictureBox" Name="company_logo" Sizing="ZoomImage" ImageAlignment="MiddleCenter" SizeF="170,70" LocationFloat="5.193583, 20.0000134" Visible="false" />
+        <Item16 Ref="80" ControlType="XRLabel" Name="XrLabel3" Text="SOHBI KOHGEI (PHILS.), INC." TextAlignment="MiddleCenter" SizeF="399.612854,29.9999962" LocationFloat="175.1936, 24.9999046" Font="Calibri, 15pt, style=Bold" Padding="0,0,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="81" Expression="[Company.company_name]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="82" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="83" ControlType="XRLabel" Name="XrLabel4" Text="SEZ LIMA TECHNOLOGY CENTER LIPA CITY BATANGAS PHILIPPINES," TextAlignment="MiddleCenter" SizeF="200,15" LocationFloat="0, 105.000023" Font="Calibri, 8pt" Padding="0,0,0,0,100" Visible="false">
+          <ExpressionBindings>
+            <Item1 Ref="84" Expression="[Company.address]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="85" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+        </Item17>
+        <Item18 Ref="86" ControlType="XRLabel" Name="XrLabel5" TextFormatString="TIN : {0}" Text="TIN 005-739-706-000" TextAlignment="MiddleCenter" SizeF="200,15" LocationFloat="0, 120.000015" Font="Calibri, 8pt" Padding="0,0,0,0,100" Visible="false">
+          <ExpressionBindings>
+            <Item1 Ref="87" Expression="[Company.tin]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="88" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="89" ControlType="XRLabel" Name="XrLabel6" Text="PAYABLE VOUCHER" TextAlignment="MiddleCenter" SizeF="300,30" LocationFloat="225, 54.9998932" Font="Calibri, 15pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="90" UseFont="false" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="91" ControlType="XRTable" Name="XrTable2" TextAlignment="MiddleLeft" SizeF="750,40" LocationFloat="0, 218.999985" BorderColor="Black" Borders="All" BorderDashStyle="Solid">
+          <Rows>
+            <Item1 Ref="92" ControlType="XRTableRow" Name="XrTableRow4" Weight="1">
+              <Cells>
+                <Item1 Ref="93" ControlType="XRTableCell" Name="XrTableCell4" Weight="0.08302916881741651" CanShrink="true" Text="AMOUNT IN WORDS" TextAlignment="MiddleLeft" Font="Calibri, 8pt" BackColor="0,0,0,0" Padding="5,0,0,0,100" BorderColor="Black" Borders="Left, Top" BorderDashStyle="Solid">
+                  <StylePriority Ref="94" UseFont="false" UseBackColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="95" ControlType="XRTableCell" Name="XrTableCell5" Weight="0.25176588207922246" Multiline="true" Text="XrTableCell20" TextAlignment="MiddleLeft" Font="Calibri, 8pt, style=Bold" BorderColor="Black" Borders="Left, Top" BorderDashStyle="Solid">
+                  <ExpressionBindings>
+                    <Item1 Ref="96" Expression="[amount_word]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="97" UseFont="false" UseBorderColor="false" UseBorders="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="98" ControlType="XRTableCell" Name="amount" Weight="0.080350805205232481" CanShrink="true" TextFormatString="{0:#,##0.00}" Text="XrTableCell21" TextAlignment="MiddleCenter" Font="Calibri, 10pt, style=Bold" Padding="0,10,0,0,100" BorderColor="Black" Borders="Left, Top, Right" BorderDashStyle="Solid">
+                  <ExpressionBindings>
+                    <Item1 Ref="99" Expression="[amount]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="100" UseFont="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+                </Item3>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="101" UseBorderColor="false" UseBorders="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+        </Item20>
+      </Controls>
+    </Item5>
+    <Item6 Ref="102" ControlType="DetailReportBand" Name="DetailReport" Level="1" DataMember="Header.Header_Particulars">
+      <Bands>
+        <Item1 Ref="103" ControlType="DetailBand" Name="Detail1" HeightF="20">
+          <Controls>
+            <Item1 Ref="104" ControlType="XRTable" Name="tblParticular" TextAlignment="MiddleLeft" SizeF="749.9994,20" LocationFloat="0.000305175781, 0" BorderColor="Gray" Borders="None" BorderDashStyle="Dot">
+              <Rows>
+                <Item1 Ref="105" ControlType="XRTableRow" Name="XrTableRow3" Weight="1">
+                  <Cells>
+                    <Item1 Ref="106" ControlType="XRTableCell" Name="XrTableCell19" Weight="0.064280646719007059" CanShrink="true" Text="XrTableCell19" TextAlignment="MiddleLeft" Padding="20,0,0,0,100" BorderColor="Black">
+                      <ExpressionBindings>
+                        <Item1 Ref="107" Expression="[trans_particular_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="108" UsePadding="false" UseBorderColor="false" UseTextAlignment="false" />
+                    </Item1>
+                    <Item2 Ref="109" ControlType="XRTableCell" Name="XrTableCell20" Weight="0.26542305231107832" CanShrink="true" Text="XrTableCell20" TextAlignment="MiddleLeft" BorderColor="Black">
+                      <ExpressionBindings>
+                        <Item1 Ref="110" Expression="[trans_particular_name]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="111" UseBorderColor="false" UseTextAlignment="false" />
+                    </Item2>
+                    <Item3 Ref="112" ControlType="XRTableCell" Name="XrTableCell21" Weight="0.079626931633053122" CanShrink="true" TextFormatString="{0:##,##0.00}" Text="XrTableCell21" TextAlignment="MiddleRight" Padding="0,20,0,0,100" BorderColor="Black">
+                      <ExpressionBindings>
+                        <Item1 Ref="113" Expression="[trans_particular_amount]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="114" UsePadding="false" UseBorderColor="false" UseTextAlignment="false" />
+                    </Item3>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="115" UseBorderColor="false" UseBorders="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+      </Bands>
+    </Item6>
+    <Item7 Ref="116" ControlType="DetailReportBand" Name="DetailReport1" Level="3" DataMember="Header.Header_JBooks">
+      <Bands>
+        <Item1 Ref="117" ControlType="DetailBand" Name="Detail2" HeightF="50">
+          <Controls>
+            <Item1 Ref="118" ControlType="XRTable" Name="table3" TextAlignment="MiddleCenter" SizeF="750,25" LocationFloat="0, 25" Borders="None">
+              <Rows>
+                <Item1 Ref="119" ControlType="XRTableRow" Name="tableRow3" Weight="1">
+                  <Cells>
+                    <Item1 Ref="120" ControlType="XRTableCell" Name="tableCell19" Weight="1" WordWrap="false" Padding="2,2,0,0,100" />
+                    <Item2 Ref="121" ControlType="XRTableCell" Name="tableCell20" Weight="1" WordWrap="false" Padding="2,2,0,0,100" />
+                    <Item3 Ref="122" ControlType="XRTableCell" Name="tableCell21" Weight="1" WordWrap="false" Padding="2,2,0,0,100" />
+                    <Item4 Ref="123" ControlType="XRTableCell" Name="tableCell22" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <StylePriority Ref="124" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="125" ControlType="XRTableCell" Name="tableCell23" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <StylePriority Ref="126" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="127" ControlType="XRTableCell" Name="tableCell24" Weight="1" TextFormatString="{0:#,##0.00}" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="128" Expression="[debit_based]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="129" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="130" ControlType="XRTableCell" Name="tableCell25" Weight="1" TextFormatString="{0:#,##0.00}" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="131" Expression="[credit_based]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="132" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="133" ControlType="XRTableCell" Name="tableCell26" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <StylePriority Ref="134" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="135" ControlType="XRTableCell" Name="tableCell27" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <StylePriority Ref="136" UsePadding="false" />
+                    </Item9>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="137" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+            <Item2 Ref="138" ControlType="XRTable" Name="table2" TextAlignment="MiddleCenter" SizeF="750,25" LocationFloat="0, 0" Borders="None">
+              <Rows>
+                <Item1 Ref="139" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="140" ControlType="XRTableCell" Name="tableCell10" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="141" Expression="[account_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item1>
+                    <Item2 Ref="142" ControlType="XRTableCell" Name="tableCell11" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="143" Expression="[project_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item2>
+                    <Item3 Ref="144" ControlType="XRTableCell" Name="tableCell12" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="145" Expression="[department_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item3>
+                    <Item4 Ref="146" ControlType="XRTableCell" Name="tableCell13" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="147" Expression="[allocation_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="148" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="149" ControlType="XRTableCell" Name="tableCell14" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="150" Expression="[account_name]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="151" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="152" ControlType="XRTableCell" Name="tableCell15" Weight="1" TextFormatString="{0:#,##0.00}" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="153" Expression="[debit]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="154" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="155" ControlType="XRTableCell" Name="tableCell16" Weight="1" TextFormatString="{0:#,##0.00}" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="156" Expression="[credit]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="157" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="158" ControlType="XRTableCell" Name="tableCell17" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="159" Expression="[general_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="160" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="161" ControlType="XRTableCell" Name="tableCell18" Weight="1" WordWrap="false" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="162" Expression="[ref_ref_no]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="163" UsePadding="false" />
+                    </Item9>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="164" UseBorders="false" UseTextAlignment="false" />
+            </Item2>
+          </Controls>
+        </Item1>
+        <Item2 Ref="165" ControlType="GroupHeaderBand" Name="GroupHeader2" HeightF="35">
+          <Controls>
+            <Item1 Ref="166" ControlType="XRTable" Name="table1" TextAlignment="MiddleCenter" SizeF="750,25" LocationFloat="0, 10" Borders="Top, Bottom" BorderWidth="2">
+              <Rows>
+                <Item1 Ref="167" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="168" ControlType="XRTableCell" Name="tableCell1" Weight="1" Text="CODE" Padding="2,2,0,0,100" />
+                    <Item2 Ref="169" ControlType="XRTableCell" Name="tableCell2" Weight="1" Text="PROJECT" Padding="2,2,0,0,100" />
+                    <Item3 Ref="170" ControlType="XRTableCell" Name="tableCell3" Weight="1" Text="DEPARTMENT" Padding="2,2,0,0,100" />
+                    <Item4 Ref="171" ControlType="XRTableCell" Name="tableCell4" Weight="1" Text="ALLOCATION" Padding="2,2,0,0,100">
+                      <StylePriority Ref="172" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="173" ControlType="XRTableCell" Name="tableCell5" Weight="1" Text="ACCOUNT TITLE" Padding="2,2,0,0,100">
+                      <StylePriority Ref="174" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="175" ControlType="XRTableCell" Name="tableCell6" Weight="1" Text="DEBIT" Padding="2,2,0,0,100">
+                      <StylePriority Ref="176" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="177" ControlType="XRTableCell" Name="tableCell7" Weight="1" Text="CREDIT" Padding="2,2,0,0,100">
+                      <StylePriority Ref="178" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="179" ControlType="XRTableCell" Name="tableCell8" Weight="1" Text="GEN. REF" Padding="2,2,0,0,100">
+                      <StylePriority Ref="180" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="181" ControlType="XRTableCell" Name="tableCell9" Weight="1" Text="DN REF" Padding="2,2,0,0,100">
+                      <StylePriority Ref="182" UsePadding="false" />
+                    </Item9>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="183" UseBorders="false" UseBorderWidth="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+      </Bands>
+    </Item7>
+    <Item8 Ref="184" ControlType="DetailReportBand" Name="DetailReport2" Level="2">
+      <Bands>
+        <Item1 Ref="185" ControlType="DetailBand" Name="Detail3" HeightF="0" />
+      </Bands>
+    </Item8>
+    <Item9 Ref="186" ControlType="DetailReportBand" Name="DetailReport3" Level="0">
+      <Bands>
+        <Item1 Ref="187" ControlType="DetailBand" Name="Detail4" HeightF="122">
+          <Controls>
+            <Item1 Ref="188" ControlType="XRLabel" Name="XrLabel20" Multiline="true" TextAlignment="TopLeft" SizeF="749.9992,100" LocationFloat="0.000398000062, 21.9999981" Font="Consolas, 8pt" Padding="10,10,0,0,100" BorderColor="Black" Borders="Top">
+              <ExpressionBindings>
+                <Item1 Ref="189" Expression="[Header.description]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="190" UseFont="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+            <Item2 Ref="191" ControlType="XRLabel" Name="XrLabel19" Text="PARTICULARS" TextAlignment="MiddleCenter" SizeF="749.998657,22" LocationFloat="0.000366210938, 3.81469727E-06" Font="Calibri, 8pt, style=Bold" BackColor="0,0,0,0" Padding="0,0,0,0,100" Borders="Left, Top, Right">
+              <StylePriority Ref="192" UseFont="false" UseBackColor="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+            </Item2>
+          </Controls>
+        </Item1>
+      </Bands>
+    </Item9>
+  </Bands>
+</XtraReportsLayoutSerializer>

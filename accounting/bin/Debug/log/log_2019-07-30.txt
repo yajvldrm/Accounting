@@ -1,0 +1,857 @@
+Log for Debugging - 07/30/2019
+[08:52:05] - ----- Accounting Start -----
+[08:52:05] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:52:05] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:52:14] - Login Button Click
+[08:52:14] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[08:52:14] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-30 08:52:14',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[08:52:14] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-30 08:52:14' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[08:52:14] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[08:52:14] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[08:52:14] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[08:52:15] - select * from lib_erp_journal
+[08:52:15] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[08:52:15] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[08:52:16] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[08:52:16] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[08:52:16] - End of Initialization
+[08:52:19] - SELECT * FROM sys_aging_range
+[08:54:58] - Select a.trans_no,a.trans_date ,c.tax_rate ,c.amount_based,c.tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '01-0' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' 
+[08:54:59] - Select a.trans_no,a.trans_date ,c.tax_rate ,c.amount_based,c.tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '01-1900' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' 
+[08:54:59] - Select a.trans_no,a.trans_date ,c.tax_rate ,c.amount_based,c.tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '07-1900' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' 
+[08:54:59] - Select a.trans_no,a.trans_date ,c.tax_rate ,c.amount_based,c.tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '07-2019' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' 
+[08:55:00] - CALL get_lib_acc_signatory_2307
+[08:55:43] - SELECT '1' AS id,'Detailed List of Withholding for the Month' AS name UNION SELECT '2','Detailed List of Remitted for the Month' UNION SELECT '3','Alphalist of Payees Subject to Expanded Withholding Tax (Year End)' UNION SELECT '4','Alphalist of Payees Subject to Expanded Withholding Tax (Month End)' UNION SELECT '5','Alphalist Quarterly' UNION SELECT '6','Alphalist Annually' UNION SELECT '7','Alphabetical List of Payees from whome Taxes were Withheld' 
+[08:55:47] - SELECT a.trans_id,a.trans_no,a.trans_date  ,d.tin,d.general_name,e.ewt_code,e.ewt_name,c.amount,c.amount_based,c.tax_amount,c.tax_amount_based,c.tax_rate  FROM trans_header a  LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id  LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = a.general_id  LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = c.fs_ewt_id  WHERE c.ewt_id IS NOT NULL AND c.ref_ewt_id IS NULL  AND DATE_FORMAT(a.trans_date,'%c-%Y') = '6-2019' order by d.general_name ASC
+[08:56:20] - SELECT b.company_name,b.address1 AS address,b.tin,b.tel_no,rdo_code AS rdo_code ,email_add AS email_address FROM erp_accounting_afsc.sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id
+[08:56:20] - Select a.trans_no,a.trans_date ,c.tax_rate ,SUM(c.amount_based) As amount_based,SUM(c.tax_amount_based) As tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '07-2019' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' GROUP BY c.fs_ewt_id 
+[08:56:35] - Select a.trans_no,a.trans_date ,c.tax_rate ,c.amount_based,c.tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '06-2019' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' 
+[08:56:36] - SELECT b.company_name,b.address1 AS address,b.tin,b.tel_no,rdo_code AS rdo_code ,email_add AS email_address FROM erp_accounting_afsc.sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id
+[08:56:36] - Select a.trans_no,a.trans_date ,c.tax_rate ,SUM(c.amount_based) As amount_based,SUM(c.tax_amount_based) As tax_amount_based ,d.general_name,d.tin,d.address1 As address,d.Date,'' AS rdo_code ,g.ewt_code,g.ewt_name ,e.project_name ,f.department_name,c.ewt_id FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_ewt c ON c.jbooks_id = b.jbooks_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general d ON d.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department f ON f.department_id = b.department_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt g ON g.ewt_id = c.fs_ewt_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart h ON h.account_id = b.account_id WHERE h.validation = 4 AND DATE_FORMAT(a.trans_date,'%m-%Y') = '06-2019' AND IFNULL(c.ref_ewt_id,'') = '' AND IFNULL(c.ewt_id,'') <> '' GROUP BY c.fs_ewt_id 
+[08:58:01] - SELECT a.trans_id,a.trans_no,a.general_id,b.general_name
+            FROM trans_header a
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general b ON b.general_id = a.general_id
+            WHERE a.trans_date BETWEEN '2019-04-01' AND '2019-06-30'
+[08:58:09] - SELECT b.company_name,b.address1 AS address,b.tin,b.tel_no,rdo_code AS rdo_code ,email_add AS email_address FROM erp_accounting_afsc.sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id
+[08:58:09] - SELECT a.trans_id,a.general_id,IF(IFNULL(b.general_name_bir,'') = '',b.general_name,b.general_name_bir) AS general_name,b.address1 AS address,b.tin
+                        FROM trans_header a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general b ON b.general_id = a.general_id WHERE a.trans_id IN (12698) 
+[08:58:09] - SELECT a.trans_id,a.general_id,a.fs_ewt_id,a.ewt_code,a.ewt_name,a.general_id ,IFNULL(SUM(a.first_month),0) AS first_month,IFNULL(SUM(a.second_month),0) AS second_month,IFNULL(SUM(a.third_month),0) AS third_month ,IFNULL(SUM(a.amount_based),0) AS total,IFNULL(SUM(a.tax_amount_based),0) AS total_ewt FROM (   SELECT a.trans_id,a.trans_no,a.trans_date,DATE_FORMAT(a.trans_date,'%m') AS month   ,IF(DATE_FORMAT(a.trans_date,'%m') IN ('01','04','07','10'),SUM(d.amount_based),NULL) AS first_month   ,IF(DATE_FORMAT(a.trans_date,'%m') IN ('02','05','08','11'),SUM(d.amount_based),NULL) AS second_month   ,IF(DATE_FORMAT(a.trans_date,'%m') IN ('03','06','09','12'),SUM(d.amount_based),NULL) AS third_month   ,d.fs_ewt_id,e.ewt_code,e.ewt_name   ,d.general_id,IF(IFNULL(f.general_name_bir,'') = '',f.general_name,f.general_name_bir) AS general_name,f.address1 AS address,f.tin   ,SUM(d.amount_based) AS amount_based,SUM(d.tax_amount_based) AS tax_amount_based   FROM erp_accounting_afsc.trans_header a   LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id   LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart c ON c.account_id = b.account_id   LEFT JOIN erp_accounting_afsc.trans_ewt d ON d.jbooks_id = b.jbooks_id   LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = d.fs_ewt_id   LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general f ON f.general_id = d.general_id   WHERE c.validation = 4 AND a.trans_id IN (12698)   GROUP BY a.trans_id,d.fs_ewt_id,DATE_FORMAT(a.trans_date,'%m-%Y')   ORDER BY e.ewt_code) a GROUP BY a.trans_id,a.fs_ewt_id 
+[08:58:16] - CALL SaveTransaction('Update','lib_acc_signatory_2307','signatory_2307_id,signatory_2307_name,signatory_2307_position,signatory_2307_tin','1|LIEZL C. DOMINGO|ACCOUNTING ASSISTANT||','signatory_2307_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','909');
+[08:58:19] - SELECT a.trans_id,a.trans_no,a.general_id,b.general_name
+            FROM trans_header a
+            LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general b ON b.general_id = a.general_id
+            WHERE a.trans_date BETWEEN '2019-04-01' AND '2019-06-30'
+[08:58:30] - SELECT b.company_name,b.address1 AS address,b.tin,b.tel_no,rdo_code AS rdo_code ,email_add AS email_address FROM erp_accounting_afsc.sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id
+[08:58:31] - SELECT a.trans_id,a.general_id,IF(IFNULL(b.general_name_bir,'') = '',b.general_name,b.general_name_bir) AS general_name,b.address1 AS address,b.tin
+                        FROM trans_header a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general b ON b.general_id = a.general_id WHERE a.trans_id IN (11198) 
+[08:58:31] - SELECT a.trans_id,a.general_id,a.fs_ewt_id,a.ewt_code,a.ewt_name,a.general_id ,IFNULL(SUM(a.first_month),0) AS first_month,IFNULL(SUM(a.second_month),0) AS second_month,IFNULL(SUM(a.third_month),0) AS third_month ,IFNULL(SUM(a.amount_based),0) AS total,IFNULL(SUM(a.tax_amount_based),0) AS total_ewt FROM (   SELECT a.trans_id,a.trans_no,a.trans_date,DATE_FORMAT(a.trans_date,'%m') AS month   ,IF(DATE_FORMAT(a.trans_date,'%m') IN ('01','04','07','10'),SUM(d.amount_based),NULL) AS first_month   ,IF(DATE_FORMAT(a.trans_date,'%m') IN ('02','05','08','11'),SUM(d.amount_based),NULL) AS second_month   ,IF(DATE_FORMAT(a.trans_date,'%m') IN ('03','06','09','12'),SUM(d.amount_based),NULL) AS third_month   ,d.fs_ewt_id,e.ewt_code,e.ewt_name   ,d.general_id,IF(IFNULL(f.general_name_bir,'') = '',f.general_name,f.general_name_bir) AS general_name,f.address1 AS address,f.tin   ,SUM(d.amount_based) AS amount_based,SUM(d.tax_amount_based) AS tax_amount_based   FROM erp_accounting_afsc.trans_header a   LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id   LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart c ON c.account_id = b.account_id   LEFT JOIN erp_accounting_afsc.trans_ewt d ON d.jbooks_id = b.jbooks_id   LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_ewt e ON e.ewt_id = d.fs_ewt_id   LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general f ON f.general_id = d.general_id   WHERE c.validation = 4 AND a.trans_id IN (11198)   GROUP BY a.trans_id,d.fs_ewt_id,DATE_FORMAT(a.trans_date,'%m-%Y')   ORDER BY e.ewt_code) a GROUP BY a.trans_id,a.fs_ewt_id 
+[08:58:37] - CALL SaveTransaction('Update','lib_acc_signatory_2307','signatory_2307_id,signatory_2307_name,signatory_2307_position,signatory_2307_tin','1|LIEZL C. DOMINGO|ACCOUNTING ASSISTANT||','signatory_2307_id','1','DESKTOP-PL80BO2','Raymond T. Villegas','909');
+[09:00:33] - SELECT a.trans_id,a.trans_no,a.trans_date ,b.jbooks_id ,c.input_vat_id AS vat_id,c.gross_amount,c.vat_amount,c.net_amount,c.gross_amount_based,c.vat_amount_based,c.net_amount_based ,d.vat_amount AS ref_vat_amount,d.vat_amount_based AS ref_vat_amount_based ,c.offset_type,d.offset_type AS ref_offset_type ,c.general_id,f.general_code,f.general_name,f.address1 AS address,f.tin ,c.currency_id,h.currency_code,h.currency_name ,b.project_id,i.project_code,i.project_name ,b.department_id,j.department_code,j.department_name FROM erp_accounting_afsc.trans_header a LEFT JOIN erp_accounting_afsc.trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN erp_accounting_afsc.trans_input_vat c ON c.jbooks_id = b.jbooks_id LEFT JOIN (  SELECT a.offset_type,a.ref_input_vat_id AS input_vat_id,SUM(a.vat_amount) AS vat_amount,SUM(a.vat_amount_based) AS vat_amount_based  FROM erp_accounting_afsc.trans_input_vat a  GROUP BY a.ref_input_vat_id,a.offset_type  ) d ON d.input_vat_id = c.input_vat_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart e ON e.account_id = b.account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general f ON f.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_acc_general_multiple g ON g.general_id = f.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency h ON h.currency_id = c.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project i ON i.project_id = b.project_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_department j ON j.department_id = b.department_id  WHERE a.trans_date <= '2019-07-30'  AND e.validation = 6 AND c.offset_type = 0  GROUP BY c.input_vat_id 
+[09:00:34] - SELECT b.company_name,b.address1 AS address,b.tin,c.currency_name FROM erp_accounting_afsc.sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id
+[09:01:48] - SELECT book_id,book_code,book_name 
+FROM lib_erp_book a 
+WHERE a.company_id = '1' 
+[09:01:56] - SELECT account_id FROM lib_acc_chart_multiple a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE a.user_id = '1' AND b.module_code = 'ACC01021' 
+[09:01:56] - SELECT aging_range_id,days_from,days_to FROM erp_accounting_afsc.sys_aging_range 
+[09:01:56] - CALL report_soa_print('erp_file_setup_accounting_afsc','erp_accounting_afsc','','','1,2','1','1','1','2019-07-30','2019-07-30','','','','','','1','0','0');
+[09:01:58] - SELECT note_id, note_date, note_remarks FROM sys_note ORDER BY note_date DESC LIMIT 1
+[09:01:58] - SELECT * FROM selectUserSignatory WHERE module_code = 'ACC01021' AND user_id = '1' 
+[09:02:53] - SELECT False AS sel,journal_id,journal_code,journal_name FROM lib_erp_journal WHERE journal_id <> 8
+[09:02:56] - ,signatory_2307_name = 'LIEZL C. DOMINGO',signatory_2307_position = 'ACCOUNTING ASSISTANT',signatory_2307_tin = default
+[09:02:56] - UPDATE lib_acc_signatory_2307 SET signatory_2307_name = 'LIEZL C. DOMINGO',signatory_2307_position = 'ACCOUNTING ASSISTANT',signatory_2307_tin = default WHERE signatory_2307_id = '1'
+[09:04:24] - SELECT a.* FROM lib_erp_currency a
+[09:04:35] - SELECT based_rate 
+                FROM lib_erp_currency_rate WHERE currency_id = '1' 
+                ORDER BY currency_rate_id
+                LIMIT 1
+[09:05:07] - SELECT a.default_id,a.used_in_report,a.sys_beg,a.company_id,a.w_proj,a.w_alloc,a.w_dept,a.line_remarks,a.line_currency,a.filter_id,a.monthly_currency,a.decimal_places,a.general_auto_number,a.retained_account_id,a.forex_account_id ,b.company_code,b.company_name,b.address1,b.address2,b.address3,b.address4,a.currency_id,b.tel_no,b.fax_no,b.email_add,b.tin,b.rdo_code ,c.filter_code,c.filter_name ,d.currency_code,d.currency_name ,e.account_code,e.account_name ,f.account_code AS forex_account_code,f.account_name AS forex_account_name ,a.isFiscal,a.fiscal_month,a.fiscal_year FROM sys_default a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.sys_acc_filter c ON c.filter_id = a.filter_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON d.currency_id = a.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart e ON e.account_id = a.retained_account_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_chart f ON f.account_id = a.forex_account_id WHERE a.default_id = 1 
+[09:05:42] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '2' AND b.company_id = '1' ORDER BY b.book_code 
+[09:05:43] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00201'
+[09:05:43] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_cr_id,'') AS trans_cr_id,IFNULL(b.si_no,'') AS si_no ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_cr b ON a.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '2' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-07' ORDER BY a.trans_no ASC 
+[09:06:59] - SELECT a.transaction_locking_id,a.journal_id,a.date_from,a.date_to,a.isLock,a.book_id ,b.journal_code,b.journal_name ,c.book_code,c.book_name FROM transaction_locking_book a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal b ON b.journal_id = a.journal_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_book c ON c.book_id = a.book_id 
+[09:07:06] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '1' AND b.company_id = '1' ORDER BY b.book_code 
+[09:07:09] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00101'
+[09:07:09] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '1' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-01' ORDER BY a.trans_no ASC 
+[09:07:10] - SELECT b.trans_project_management_id,a.trans_id,a.trans_no,a.trans_date
+        ,b.project_management_det_id,d.pm_year
+        ,d.project_id,e.project_code,e.project_name
+        ,d.general_id,f.general_code,f.general_name
+        ,c.department_code,c.project_name AS project_name_det
+        ,c.contract_amount,c.contract_amount_based
+        ,b.billed_amount,b.billed_amount_based
+        ,IFNULL(c.contract_amount,0) - IFNULL(b.billed_amount,0) AS balance_amount
+        ,IFNULL(c.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS balance_amount_based
+        FROM trans_header a
+        LEFT JOIN trans_header_project_management b ON b.trans_id = a.trans_id
+        LEFT JOIN (
+	        SELECT a.project_management_det_id,a.project_management_id
+	        ,a.department_code,a.project_name
+	        ,a.contract_amount,a.contract_amount_based
+	        ,IFNULL(a.contract_amount,0) - IFNULL(b.billed_amount,0) AS billed_amount
+	        ,IFNULL(a.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS billed_amount_based
+	        FROM trans_project_management_det a
+	        LEFT JOIN (
+		        SELECT a.project_management_det_id
+		        ,SUM(a.billed_amount) AS billed_amount
+		        ,SUM(a.billed_amount_based) AS billed_amount_based
+		        FROM trans_header_project_management a
+		        GROUP BY a.project_management_det_id
+	        ) b ON b.project_management_det_id = b.project_management_det_id
+            GROUP BY a.project_management_det_id
+        ) c ON c.project_management_det_id = b.project_management_det_id
+        LEFT JOIN trans_project_management d ON d.project_management_id = c.project_management_id
+        LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_project e ON e.project_id = d.project_id
+        LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_general f ON f.general_id = d.general_id
+        WHERE a.trans_id = '14742' AND IFNULL(b.project_management_det_id,'') <> '' and d.deleted=0
+
+[09:07:10] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_ewt WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_final_tax WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_input_vat WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_output_vat WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_prepaid WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_fixed_asset WHERE trans_id = 14742
+[09:07:12] - SELECT * FROM select_checks WHERE trans_id = 14742
+[09:07:13] - SELECT * FROM trans_header_particular WHERE trans_id = 14742
+[09:07:21] - SELECT a.journal_id,a.journal_code,a.journal_name FROM lib_erp_journal a WHERE journal_id <> 8 
+[09:07:22] - SELECT a.transaction_locking_id,a.journal_id,a.date_from,a.date_to,a.isLock,a.book_id ,b.journal_code,b.journal_name ,c.book_code,c.book_name FROM transaction_locking_book a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_journal b ON b.journal_id = a.journal_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_book c ON c.book_id = a.book_id  WHERE a.journal_id = '1'
+[09:07:23] - SELECT a.journal_id,a.journal_code,a.journal_name FROM lib_erp_journal a WHERE journal_id <> 8 
+[09:07:25] - SELECT a.journal_id,b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE journal_id = '1'
+[09:07:39] - CALL SaveTransaction('Update','transaction_locking_book','transaction_locking_id,journal_id,date_from,date_to,isLock,book_id','|1|2019-01-01|2019-01-31|1|1|','transaction_locking_id','','DESKTOP-PL80BO2','Raymond T. Villegas','909');
+[09:07:41] - Incorrect integer value: '' for column 'transaction_locking_id' at row 1
+[09:07:46] - SELECT a.journal_id,a.journal_code,a.journal_name FROM lib_erp_journal a WHERE journal_id <> 8 
+[09:07:46] - SELECT a.journal_id,a.journal_code,a.journal_name FROM lib_erp_journal a WHERE journal_id <> 8 
+[09:08:39] - ExecuteWithParameter : get_lib_erp_chart_drilled_down
+[09:08:39] - parameters : '0','','','','','','','','','',''
+[09:08:39] - Execution Time: 2019-07-30 09:08:39
+[09:08:46] - Done Time: 2019-07-30 09:08:46
+[09:09:11] - ExecuteWithParameter : get_lib_erp_chart_drilled_down
+[09:09:11] - parameters : '1','','3','','2','2019-01-01','2019-07-30','','','',''
+[09:09:11] - Execution Time: 2019-07-30 09:09:11
+[09:09:18] - Done Time: 2019-07-30 09:09:18
+[09:09:38] - ExecuteWithParameter : get_lib_erp_chart_drilled_down
+[09:09:38] - parameters : '1','','3','','2','2019-01-01','2019-07-30','','','',''
+[09:09:38] - Execution Time: 2019-07-30 09:09:38
+[09:09:46] - Done Time: 2019-07-30 09:09:46
+[10:06:51] - ----- Accounting Close -----
+[10:20:26] - ----- Accounting Start -----
+[10:20:26] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:20:26] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:20:30] - Login Button Click
+[10:20:30] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:20:30] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-30 10:20:30',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[10:20:30] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-30 10:20:30' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[10:20:30] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:20:30] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:20:31] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[10:20:31] - select * from lib_erp_journal
+[10:20:31] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:20:31] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[10:20:32] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[10:20:33] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:20:33] - End of Initialization
+[10:20:55] - Unable to connect to any of the specified MySQL hosts.
+[10:21:05] - Unable to connect to any of the specified MySQL hosts.
+[10:21:11] - ----- Accounting Start -----
+[10:21:11] - Main Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:21:11] - FS Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:21:13] - ----- Accounting Close -----
+[10:21:15] - ----- Accounting Start -----
+[10:21:15] - Main Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_accounting_nhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:21:15] - FS Connection String = Server=192.168.2.20;User Id=root;Password=root;Database=erp_fs_alhi;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:21:21] - Login Button Click
+[10:21:21] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[10:21:21] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-07-30 10:21:21',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[10:21:21] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-07-30 10:21:21' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[10:21:21] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[10:21:21] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[10:21:22] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[10:21:22] - select * from lib_erp_journal
+[10:21:22] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[10:21:22] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[10:21:24] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[10:21:24] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[10:21:24] - End of Initialization
+[10:21:37] - SELECT * FROM lib_erp_book WHERE company_id = '6'
+[10:21:38] - SELECT * FROM lib_erp_currency
+[10:21:39] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 72 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:21:39] - SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id
+                ORDER BY account_code ASC 
+[10:21:40] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:40] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:40] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:40] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:21:40] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:40] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:44] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:45] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:45] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:21:45] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:21:45] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:21:45] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:39:08] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[10:39:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[10:39:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[10:39:11] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[10:39:11] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[10:39:11] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[10:39:11] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '301'
+[10:39:11] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '301'
+[10:39:11] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '301'
+[10:41:07] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:41:07] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:41:07] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:41:07] - SELECT * FROM lib_erp_chart WHERE account_id = '65'
+[10:41:08] - SELECT * FROM lib_erp_chart WHERE account_id = '65'
+[10:41:08] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[10:41:20] - SELECT * FROM lib_erp_book WHERE company_id = '6'
+[10:41:22] - SELECT * FROM lib_erp_currency
+[10:41:22] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 73 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:41:22] - SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id
+                ORDER BY account_code ASC 
+[10:41:22] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:23] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:41:23] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:23] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:26] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:27] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:27] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:27] - SELECT * FROM lib_erp_chart WHERE account_id = '286'
+[10:41:27] - SELECT * FROM lib_erp_chart WHERE account_id = '286'
+[10:41:27] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:34] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:34] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:34] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:41:34] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:43:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '301'
+[10:43:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[10:43:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[10:43:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '17'
+[10:43:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '17'
+[10:43:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '102'
+[10:43:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '102'
+[10:43:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '326'
+[11:26:30] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '326'
+[11:26:30] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[11:26:31] - SELECT a.chart_class_id,a.chart_class_code,a.chart_class_name,a.chart_type FROM lib_acc_chart_class a UNION SELECT b.id,b.name,b.name,'' FROM ( select 'g1' as id,'Group Code' AS name UNION SELECT 'v1','Bank/Cash' union select 'v2','AR' union select 'v3','AP' union select 'v4','EWT' union select 'v5','Final Tax' union select 'v6','Input Vat' union select 'v7','Output Vat' union select 'v8','Prepayment' union select 'v9','Fixed Asset' union select 'v10','Gain or Loss' union select 'a1','All' ) b
+[11:26:31] - SELECT 'a.account_code' AS id,'Account Code' AS code,'Account Code' AS name UNION SELECT 'a.account_name','Title','Title' UNION SELECT 'b.chart_type','Account Type','Account Type' UNION SELECT 'd.chart_group_code','Group','Group'
+[11:26:42] - SELECT a.account_id,a.account_code,a.account_name,a.chart_class_id,a.date,a.validation ,IF(a.validation IS NULL OR a.validation = 0,'No Validation',IF(a.validation = 1,'Bank / Cash',IF(a.validation = 2,'AR',IF(a.validation = 3,'AP',IF(a.validation = 4,'EWT',IF(a.validation = 5,'Final Tax',IF(a.validation = 6,'Input Vat',IF(a.validation = 7,'Output Vat',IF(a.validation = 8,'Prepayment',IF(a.validation = 9,'Fixed Asset',IF(a.validation = 10,'Gain or Loss','No Validation'))))))))))) AS validation_name ,b.chart_class_code,b.chart_class_name ,d.chart_group_code,d.chart_group_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id LEFT JOIN lib_erp_chart_group c ON c.account_id = a.account_id LEFT JOIN lib_acc_chart_group d ON d.chart_group_id = c.group_id 
+[13:01:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:01:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:01:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:01:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[13:01:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[13:01:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[13:01:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[13:01:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[13:01:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[13:01:17] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[13:01:20] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 465 
+[13:01:27] - select * from lib_acc_chart_class
+[13:01:30] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','465|2-3011-531|LOANS PAYABLE - TRANSACTION COSTS|4|2018-12-31T00:00:00|||0|0|0|','account_id','465','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:01:30] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','468|29|465|','chart_group_id','468','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:01:32] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[13:01:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[13:01:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:01:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[13:01:35] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '493'
+[13:01:36] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[13:01:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '464'
+[13:01:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[13:01:49] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[13:01:49] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:49] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:49] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:01:50] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:01:50] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[13:01:50] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[13:01:50] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[13:01:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[13:01:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[13:01:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[13:01:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:01:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:01:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:01:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:01:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:01:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:01:55] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:01:55] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '53'
+[13:01:56] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '53'
+[13:01:56] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '427'
+[13:02:00] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '427'
+[13:02:00] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '53'
+[13:02:01] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '53'
+[13:02:01] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:01] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:01] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:01] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '109'
+[13:02:10] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[13:02:14] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 428 
+[13:02:41] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','428|2-2010-504|WITHHOLDING TAX PAYABLE - FINAL PAY|3|2018-12-31T00:00:00|||0|0|0|','account_id','428','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:02:41] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','431|27|428|','chart_group_id','431','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:02:43] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[13:02:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[13:02:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:02:43] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[13:02:44] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[13:02:45] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:45] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:45] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '75'
+[13:02:50] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[13:02:51] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 429 
+[13:02:53] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','429|2-2011-504|WITHHOLDING TAX PAYABLE - COMPENSATION|3|2018-12-31T00:00:00|||0|0|0|','account_id','429','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:02:53] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','432|27|429|','chart_group_id','432','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:02:55] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[13:02:55] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[13:02:55] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:02:55] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[13:02:57] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[13:02:57] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '51'
+[13:02:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[13:03:00] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 430 
+[13:03:02] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','430|2-2018-504|WITHOLDING TAXES PAYABLE - DIVIDENDS|3|2018-12-31T00:00:00|||0|0|0|','account_id','430','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:03:02] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','433|27|430|','chart_group_id','433','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[13:03:03] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[13:03:03] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[13:03:04] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:03:04] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[13:36:18] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[13:36:19] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:36:19] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:36:19] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:36:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[13:36:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:36:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:36:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:36:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[13:36:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[13:49:39] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:49:39] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:49:40] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:49:40] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:49:40] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:49:40] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:49:40] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:49:41] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[13:49:41] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[13:49:41] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[13:49:41] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[13:49:41] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:49:45] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:49:45] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:49:45] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:49:45] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:49:45] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:49:46] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:46] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:46] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:46] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:46] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:46] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:47] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:48] - SELECT * FROM lib_erp_department
+[13:49:48] - SELECT * FROM lib_erp_project
+[13:49:48] - SELECT * FROM lib_erp_chart WHERE account_id = 466
+[13:49:49] - SELECT * FROM lib_erp_chart ORDER BY account_code
+[13:49:53] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:49:53] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:50:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[13:50:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '419'
+[13:50:32] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[13:50:32] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:50:32] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:50:32] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:50:33] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:50:33] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:50:33] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:50:33] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:50:33] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:50:33] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:50:37] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:50:37] - SELECT * FROM lib_erp_chart WHERE account_id = '487'
+[13:50:37] - SELECT * FROM lib_erp_chart WHERE account_id = '487'
+[13:50:37] - SELECT * FROM lib_erp_chart WHERE account_id = '487'
+[13:50:38] - SELECT * FROM lib_erp_chart WHERE account_id = '487'
+[13:50:38] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:56:10] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:56:11] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:56:11] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:56:11] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:56:11] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:56:11] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:56:11] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:56:12] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:56:12] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:56:12] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:56:14] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:56:14] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:56:15] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:56:15] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:56:15] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:56:15] - SELECT * FROM lib_erp_chart WHERE account_id = '189'
+[13:56:15] - SELECT * FROM lib_erp_chart WHERE account_id = '189'
+[13:56:16] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[13:56:16] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[13:56:16] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:56:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '419'
+[13:56:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:33] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:34] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '161'
+[13:56:34] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '161'
+[13:56:34] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '431'
+[13:56:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '431'
+[13:56:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:56:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[13:56:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:56:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[13:56:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[13:56:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '436'
+[13:56:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '436'
+[13:56:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '451'
+[13:57:01] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:57:01] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:57:01] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:57:02] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:57:02] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[13:57:02] - SELECT * FROM lib_erp_chart WHERE account_id = '189'
+[13:57:02] - SELECT * FROM lib_erp_chart WHERE account_id = '189'
+[13:57:02] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[13:57:02] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[13:57:03] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[13:57:03] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[13:57:03] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[13:57:05] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:57:05] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:57:05] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[13:57:05] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:57:05] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[13:57:06] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:57:06] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:57:06] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:57:06] - SELECT * FROM lib_erp_chart WHERE account_id = '172'
+[13:57:06] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:15:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '451'
+[14:15:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[14:15:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[14:15:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:15:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:15:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[14:15:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[14:15:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[14:15:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[14:15:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[14:15:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[14:15:54] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '469'
+[14:16:00] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:16:00] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:16:01] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:16:01] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[14:16:01] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[14:16:01] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[14:16:01] - SELECT * FROM lib_erp_chart WHERE account_id = '264'
+[14:16:01] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[14:16:02] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[14:16:02] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[14:16:02] - SELECT * FROM lib_erp_chart WHERE account_id = '206'
+[14:16:02] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '43'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[14:16:06] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[14:16:07] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[14:16:07] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[14:16:07] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[14:16:07] - SELECT * FROM lib_erp_chart WHERE account_id = '466'
+[14:16:07] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:46:33] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[14:46:33] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[14:46:34] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no 
+[14:46:34] - SELECT book_id,book_code,book_name 
+FROM lib_erp_book a 
+WHERE a.company_id = '6' 
+[14:46:39] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no WHERE book_id IN (72)
+[14:46:39] - SELECT book_unit_no_id AS unit_id,book_unit_no_code AS unit_code,book_unit_no_name AS unit_name
+            FROM lib_erp_book_unit_no WHERE book_id IN (72,73)
+[14:46:48] - SELECT * FROM (SELECT a.account_id,a.account_code,a.account_name
+            ,a.chart_class_id,b.chart_class_code,b.chart_class_name
+            ,b.chart_type,c.currency_id,c.project_id,c.department_id,e.currency_name
+            ,unit.book_unit_no_code AS unit_code,unit.book_unit_no_name AS unit_name
+            ,project.project_code,project.project_name
+            ,department.department_code,department.department_name
+            
+,IF(SUM(c.debit) > SUM(c.credit), 
+  (SUM(c.debit) - SUM(c.credit)),0 
+) AS debit, 
+IF(SUM(c.credit) > SUM(c.debit), 
+  (SUM(c.credit) - SUM(c.debit)),0 
+) AS credit, 
+IF(SUM(c.debit_based) > SUM(c.credit_based), 
+  (SUM(c.debit_based) - SUM(c.credit_based)),0 
+) AS debit_based, 
+IF(SUM(c.credit_based) > SUM(c.debit_based), 
+  (SUM(c.credit_based) - SUM(c.debit_based)),0 
+) AS credit_based 
+,_book.book_id,_book.book_code,'TRIAL BALANCE' AS book_name 
+,chart_group.group_id,account_group.chart_group_code,CONCAT(account_group.chart_group_code,' - ',account_group.chart_group_name) AS chart_group_name 
+FROM lib_erp_chart a 
+LEFT JOIN lib_erp_book _book ON 1 = 1 
+LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id 
+LEFT JOIN (
+                SELECT a.chart_group_id,a.account_id,a.group_id
+			    FROM lib_erp_chart_group a
+			    GROUP BY a.account_id
+            ) chart_group ON chart_group.account_id = a.account_id 
+LEFT JOIN lib_acc_chart_group account_group ON account_group.chart_group_id = chart_group.group_id 
+LEFT JOIN erp_accounting_nhi.trans_jbooks c ON c.account_id = a.account_id 
+LEFT JOIN erp_accounting_nhi.trans_header d ON d.trans_id = c.trans_id AND d.book_id = _book.book_id
+            LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no unit ON unit.book_unit_no_id = c.book_unit_no_id 
+LEFT JOIN erp_fs_alhi.lib_erp_project project ON project.project_id = c.project_id 
+LEFT JOIN erp_fs_alhi.lib_erp_department department ON department.department_id = c.department_id 
+LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = c.currency_id WHERE d.trans_date <= '2018-12-31'   AND _book.book_id IN (72,73) GROUP BY a.account_id  ORDER BY a.account_code,FIELD(b.chart_type,'A','L','C','I','E') ) a WHERE (a.debit-a.credit <> 0 OR a.debit_based - a.credit_based <> 0)
+[14:46:48] - SELECT b.company_name,b.address1 AS address,b.tin FROM sys_default a LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id
+[14:50:44] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 73 AND trans_date = '2018-12-31' AND journal_id = 8
+[14:50:44] - SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id
+                ORDER BY account_code ASC 
+[14:50:44] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:44] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[14:50:45] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:45] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:47] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:47] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:47] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:48] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:48] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:48] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:48] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:48] - SELECT * FROM lib_erp_chart WHERE account_id = '286'
+[14:50:49] - SELECT * FROM lib_erp_chart WHERE account_id = '286'
+[14:50:49] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[14:50:56] - SELECT * FROM lib_erp_book WHERE company_id = '6'
+[14:50:58] - SELECT * FROM lib_erp_currency
+[14:50:58] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 72 AND trans_date = '2018-12-31' AND journal_id = 8
+[14:50:58] - SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id
+                UNION
+                SELECT z.project_unit_no_names,IFNULL(a.book_unit_no_id,a.project_unit_no_id) AS book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,CONVERT(IFNULL(f.book_unit_no_name,z.project_unit_no_names)USING UTF8) AS book_unit_no_name,CONVERT(IFNULL(f.book_unit_no_code,z.project_unit_no_codes)USING UTF8) AS book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id
+                ORDER BY account_code ASC 
+[14:50:58] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:50:58] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[14:50:59] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:50:59] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:51:01] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:51:01] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:51:01] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:51:02] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:51:02] - SELECT * FROM lib_erp_chart WHERE account_id = '38'
+[14:51:02] - SELECT * FROM lib_erp_chart WHERE account_id = '149'
+[14:51:02] - SELECT * FROM lib_erp_chart WHERE account_id = '149'
+[14:51:02] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[14:51:02] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[14:51:03] - SELECT * FROM lib_erp_chart WHERE account_id = '173'
+[14:51:03] - SELECT * FROM lib_erp_chart WHERE account_id = '173'
+[14:51:03] - SELECT * FROM lib_erp_chart WHERE account_id = '173'
+[14:53:20] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '469'
+[14:53:20] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[14:53:20] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[14:53:20] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[14:53:21] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[14:53:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[16:10:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '424'
+[16:10:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '396'
+[16:10:23] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '396'
+[16:10:24] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:24] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:24] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:24] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:24] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:27] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 183 
+[16:10:31] - select * from lib_acc_chart_class
+[16:10:33] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','183|1-5510-221|CONDOMINIUM SALES RECEIVABLE - NONCURRENT|2|2018-12-31T00:00:00|||0|0|0|','account_id','183','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:10:33] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','186|16|183|','chart_group_id','186','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:10:34] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[16:10:34] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:35] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:35] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '183'
+[16:10:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:51] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:10:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[16:10:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[16:10:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[16:10:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '290'
+[16:10:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '301'
+[16:10:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '301'
+[16:10:53] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '302'
+[16:11:09] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 302 
+[16:11:12] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','302|1-4031-313|PREPAID TAX - REAL PROPERTY|1|2018-12-31T00:00:00|8||0|0|0|','account_id','302','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:11:12] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','305|13|302|','chart_group_id','305','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:12:08] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[16:12:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '302'
+[16:12:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:12:08] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '302'
+[16:13:00] - select a.chart_group_id as group_id,a.chart_group_code,a.chart_group_name FROM lib_acc_chart_group a
+[16:13:55] - select * from lib_acc_chart_class
+[16:13:59] - CALL SaveTransaction('Insert','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','|1-4038-313|PREPAID TAX - COMPENSATION|1|2018-12-31T16:12:19|2||0|0|0|','account_id','','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:13:59] - CALL SaveTransaction('Insert','lib_erp_chart_group','chart_group_id,group_id,account_id','|13|646|','chart_group_id','','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:13:59] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[16:13:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '302'
+[16:13:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:14:00] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '646'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '646'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[16:14:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[16:14:17] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[16:14:17] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '172'
+[16:14:17] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[16:14:17] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[16:14:17] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[16:14:32] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 428 
+[16:14:34] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','428|2-2010-504|WITHHOLDING TAX PAYABLE - FINAL PAY|3|2018-12-31T00:00:00|3||0|0|0|','account_id','428','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:14:35] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','431|27|428|','chart_group_id','431','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:14:36] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[16:14:36] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[16:14:36] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:14:37] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '428'
+[16:14:41] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[16:14:47] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 429 
+[16:14:48] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','429|2-2011-504|WITHHOLDING TAX PAYABLE - COMPENSATION|3|2018-12-31T00:00:00|3||0|0|0|','account_id','429','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:14:49] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','432|27|429|','chart_group_id','432','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:14:58] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[16:14:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[16:14:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:14:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '429'
+[16:15:02] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[16:15:03] - SELECT a.jbooks_id FROM erp_accounting_nhi.trans_jbooks a WHERE a.account_id = 430 
+[16:15:21] - CALL SaveTransaction('Update','lib_erp_chart','account_id,account_code,account_name,chart_class_id,date,validation,description,unit_applicable,isRestatement,noCompute','430|2-2018-504|WITHhOLDING TAXES PAYABLE - DIVIDENDS|3|2018-12-31T00:00:00|||0|0|0|','account_id','430','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:15:21] - CALL SaveTransaction('Update','lib_erp_chart_group','chart_group_id,group_id,account_id','433|27|430|','chart_group_id','433','DESKTOP-PL80BO2','Raymond T. Villegas','30');
+[16:15:22] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[16:15:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[16:15:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:15:22] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[16:15:27] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '430'
+[16:15:27] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[16:15:27] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '2'
+[16:15:28] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[16:15:28] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '3'
+[16:15:28] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[16:15:28] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '251'
+[16:15:29] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[16:15:29] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[16:15:29] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[16:15:29] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '206'
+[16:15:29] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[16:21:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '465'
+[16:21:58] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:21:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:21:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:21:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[16:21:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '42'
+[16:21:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '42'
+[16:21:59] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '437'
+[18:21:01] - ----- Accounting Close -----

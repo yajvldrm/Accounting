@@ -1,0 +1,447 @@
+Log for Debugging - 06/10/2019
+[12:17:23] - ----- Accounting Start -----
+[12:17:23] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[12:17:23] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[12:17:27] - Login Button Click
+[12:17:27] - SELECT user_id FROM erp_fs_ngg.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[12:17:27] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-10 12:17:27',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','SERVER2016','austria_na');
+[12:17:27] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-10 12:17:27' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'SERVER2016' AND machine_user = 'austria_na';
+[12:17:27] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[12:17:27] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_ngg.sys_erp_modules a LEFT JOIN erp_fs_ngg.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_ngg.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_ngg.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[12:17:27] - SELECT module_code FROM erp_fs_ngg.sys_erp_modules WHERE system_id = 2 
+[12:17:28] - select * from lib_erp_journal
+[12:17:28] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_ngg.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_ngg.lib_erp_currency c ON c.currency_id = a.currency_id 
+[12:17:28] - select a.*,b.module_code from sys_default_det a inner join erp_fs_ngg.sys_erp_modules b on a.module_id = b.module_id
+[12:17:29] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[12:17:29] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[12:17:29] - End of Initialization
+[12:17:38] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '1' AND b.company_id = '1' ORDER BY b.book_code 
+[12:17:42] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00101'
+[12:17:43] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_ngg.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-02' ORDER BY a.trans_no ASC 
+[12:17:50] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_ngg.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-01' ORDER BY a.trans_no ASC 
+[12:17:55] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_ngg.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2018-01' ORDER BY a.trans_no ASC 
+[12:17:55] - SELECT b.trans_project_management_id,a.trans_id,a.trans_no,a.trans_date
+        ,b.project_management_det_id,d.pm_year
+        ,d.project_id,e.project_code,e.project_name
+        ,d.general_id,f.general_code,f.general_name
+        ,c.department_code,c.project_name AS project_name_det
+        ,c.contract_amount,c.contract_amount_based
+        ,b.billed_amount,b.billed_amount_based
+        ,IFNULL(c.contract_amount,0) - IFNULL(b.billed_amount,0) AS balance_amount
+        ,IFNULL(c.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS balance_amount_based
+        FROM trans_header a
+        LEFT JOIN trans_header_project_management b ON b.trans_id = a.trans_id
+        LEFT JOIN (
+	        SELECT a.project_management_det_id,a.project_management_id
+	        ,a.department_code,a.project_name
+	        ,a.contract_amount,a.contract_amount_based
+	        ,IFNULL(a.contract_amount,0) - IFNULL(b.billed_amount,0) AS billed_amount
+	        ,IFNULL(a.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS billed_amount_based
+	        FROM trans_project_management_det a
+	        LEFT JOIN (
+		        SELECT a.project_management_det_id
+		        ,SUM(a.billed_amount) AS billed_amount
+		        ,SUM(a.billed_amount_based) AS billed_amount_based
+		        FROM trans_header_project_management a
+		        GROUP BY a.project_management_det_id
+	        ) b ON b.project_management_det_id = b.project_management_det_id
+            GROUP BY a.project_management_det_id
+        ) c ON c.project_management_det_id = b.project_management_det_id
+        LEFT JOIN trans_project_management d ON d.project_management_id = c.project_management_id
+        LEFT JOIN erp_fs_ngg.lib_erp_project e ON e.project_id = d.project_id
+        LEFT JOIN erp_fs_ngg.lib_erp_general f ON f.general_id = d.general_id
+        WHERE a.trans_id = '9912' AND IFNULL(b.project_management_det_id,'') <> '' and d.deleted=0
+
+[12:17:55] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_ewt WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_final_tax WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_input_vat WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_output_vat WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_prepaid WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_fixed_asset WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM select_checks WHERE trans_id = 9912
+[12:17:56] - SELECT * FROM trans_header_particular WHERE trans_id = 9912
+[12:18:06] - SELECT b.trans_project_management_id,a.trans_id,a.trans_no,a.trans_date
+        ,b.project_management_det_id,d.pm_year
+        ,d.project_id,e.project_code,e.project_name
+        ,d.general_id,f.general_code,f.general_name
+        ,c.department_code,c.project_name AS project_name_det
+        ,c.contract_amount,c.contract_amount_based
+        ,b.billed_amount,b.billed_amount_based
+        ,IFNULL(c.contract_amount,0) - IFNULL(b.billed_amount,0) AS balance_amount
+        ,IFNULL(c.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS balance_amount_based
+        FROM trans_header a
+        LEFT JOIN trans_header_project_management b ON b.trans_id = a.trans_id
+        LEFT JOIN (
+	        SELECT a.project_management_det_id,a.project_management_id
+	        ,a.department_code,a.project_name
+	        ,a.contract_amount,a.contract_amount_based
+	        ,IFNULL(a.contract_amount,0) - IFNULL(b.billed_amount,0) AS billed_amount
+	        ,IFNULL(a.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS billed_amount_based
+	        FROM trans_project_management_det a
+	        LEFT JOIN (
+		        SELECT a.project_management_det_id
+		        ,SUM(a.billed_amount) AS billed_amount
+		        ,SUM(a.billed_amount_based) AS billed_amount_based
+		        FROM trans_header_project_management a
+		        GROUP BY a.project_management_det_id
+	        ) b ON b.project_management_det_id = b.project_management_det_id
+            GROUP BY a.project_management_det_id
+        ) c ON c.project_management_det_id = b.project_management_det_id
+        LEFT JOIN trans_project_management d ON d.project_management_id = c.project_management_id
+        LEFT JOIN erp_fs_ngg.lib_erp_project e ON e.project_id = d.project_id
+        LEFT JOIN erp_fs_ngg.lib_erp_general f ON f.general_id = d.general_id
+        WHERE a.trans_id = '8954' AND IFNULL(b.project_management_det_id,'') <> '' and d.deleted=0
+
+[12:18:06] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_ewt WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_final_tax WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_input_vat WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_output_vat WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_prepaid WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_fixed_asset WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM select_checks WHERE trans_id = 8954
+[12:18:06] - SELECT * FROM trans_header_particular WHERE trans_id = 8954
+[12:18:07] - SELECT b.trans_project_management_id,a.trans_id,a.trans_no,a.trans_date
+        ,b.project_management_det_id,d.pm_year
+        ,d.project_id,e.project_code,e.project_name
+        ,d.general_id,f.general_code,f.general_name
+        ,c.department_code,c.project_name AS project_name_det
+        ,c.contract_amount,c.contract_amount_based
+        ,b.billed_amount,b.billed_amount_based
+        ,IFNULL(c.contract_amount,0) - IFNULL(b.billed_amount,0) AS balance_amount
+        ,IFNULL(c.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS balance_amount_based
+        FROM trans_header a
+        LEFT JOIN trans_header_project_management b ON b.trans_id = a.trans_id
+        LEFT JOIN (
+	        SELECT a.project_management_det_id,a.project_management_id
+	        ,a.department_code,a.project_name
+	        ,a.contract_amount,a.contract_amount_based
+	        ,IFNULL(a.contract_amount,0) - IFNULL(b.billed_amount,0) AS billed_amount
+	        ,IFNULL(a.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS billed_amount_based
+	        FROM trans_project_management_det a
+	        LEFT JOIN (
+		        SELECT a.project_management_det_id
+		        ,SUM(a.billed_amount) AS billed_amount
+		        ,SUM(a.billed_amount_based) AS billed_amount_based
+		        FROM trans_header_project_management a
+		        GROUP BY a.project_management_det_id
+	        ) b ON b.project_management_det_id = b.project_management_det_id
+            GROUP BY a.project_management_det_id
+        ) c ON c.project_management_det_id = b.project_management_det_id
+        LEFT JOIN trans_project_management d ON d.project_management_id = c.project_management_id
+        LEFT JOIN erp_fs_ngg.lib_erp_project e ON e.project_id = d.project_id
+        LEFT JOIN erp_fs_ngg.lib_erp_general f ON f.general_id = d.general_id
+        WHERE a.trans_id = '9912' AND IFNULL(b.project_management_det_id,'') <> '' and d.deleted=0
+
+[12:18:07] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_ewt WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_final_tax WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_input_vat WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_output_vat WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_prepaid WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_fixed_asset WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM select_checks WHERE trans_id = 9912
+[12:18:07] - SELECT * FROM trans_header_particular WHERE trans_id = 9912
+[12:18:11] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '2' AND b.company_id = '1' ORDER BY b.book_code 
+[12:18:15] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00201'
+[12:18:15] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_cr_id,'') AS trans_cr_id,IFNULL(b.si_no,'') AS si_no ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_cr b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '2' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2018-06' ORDER BY a.trans_no ASC 
+[12:18:15] - SELECT a.offset_project_management_id,a.jbooks_id,a.trans_project_management_id,a.amount_collected,a.amount_collected_based,a.currency_id,a.exchange_rate,a.based_rate,1 AS sel
+                FROM trans_project_management_offset a
+                LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id
+                WHERE b.trans_id = '1899'
+            
+[12:18:15] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 1899
+[12:18:15] - SELECT * FROM select_ewt WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM select_final_tax WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM select_input_vat WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM select_output_vat WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM select_prepaid WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM select_fixed_asset WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM select_checks WHERE trans_id = 1899
+[12:18:16] - SELECT * FROM trans_header_particular WHERE trans_id = 1899
+[12:18:18] - SELECT a.offset_project_management_id,a.jbooks_id,a.trans_project_management_id,a.amount_collected,a.amount_collected_based,a.currency_id,a.exchange_rate,a.based_rate,1 AS sel
+                FROM trans_project_management_offset a
+                LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id
+                WHERE b.trans_id = '407'
+            
+[12:18:18] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_ewt WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_final_tax WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_input_vat WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_output_vat WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_prepaid WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_fixed_asset WHERE trans_id = 407
+[12:18:18] - SELECT * FROM select_checks WHERE trans_id = 407
+[12:18:18] - SELECT * FROM trans_header_particular WHERE trans_id = 407
+[12:18:19] - SELECT a.offset_project_management_id,a.jbooks_id,a.trans_project_management_id,a.amount_collected,a.amount_collected_based,a.currency_id,a.exchange_rate,a.based_rate,1 AS sel
+                FROM trans_project_management_offset a
+                LEFT JOIN trans_jbooks b ON b.jbooks_id = a.jbooks_id
+                WHERE b.trans_id = '1899'
+            
+[12:18:19] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_ewt WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_final_tax WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_input_vat WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_output_vat WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_prepaid WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_fixed_asset WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM select_checks WHERE trans_id = 1899
+[12:18:20] - SELECT * FROM trans_header_particular WHERE trans_id = 1899
+[12:18:24] -  Select max(sub_contract_id) AS sub_contract_id
+            from erp_accounting_ngg.trans_sub_contract
+[12:18:24] - SELECT a.sub_contract_id,a.sc_year,a.project_id
+                        ,b.project_code,b.project_name
+                        FROM trans_sub_contract a
+                        LEFT JOIN erp_fs_ngg.lib_erp_project b ON b.project_id = a.project_id
+                        WHERE a.sub_contract_id='0' 
+[12:18:30] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '3' AND b.company_id = '1' ORDER BY b.book_code 
+[12:18:34] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00301'
+[12:18:35] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ap_id,'') AS trans_ap_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.rr_no,'') AS rr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ap b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_ngg.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '3' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2018-01' ORDER BY a.trans_no ASC 
+[12:18:35] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_fs_ngg.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_fs_ngg.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_fs_ngg.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='23'
+[12:18:35] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '23'
+[12:18:35] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_ewt WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_final_tax WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_input_vat WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_output_vat WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_prepaid WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_fixed_asset WHERE trans_id = 23
+[12:18:35] - SELECT * FROM select_checks WHERE trans_id = 23
+[12:18:35] - SELECT * FROM trans_header_particular WHERE trans_id = 23
+[12:18:39] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_fs_ngg.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_fs_ngg.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_fs_ngg.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='1555'
+[12:18:39] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '1555'
+[12:18:39] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_ewt WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_final_tax WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_input_vat WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_output_vat WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_prepaid WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_fixed_asset WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM select_checks WHERE trans_id = 1555
+[12:18:40] - SELECT * FROM trans_header_particular WHERE trans_id = 1555
+[12:18:41] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_fs_ngg.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_fs_ngg.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_fs_ngg.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='970'
+[12:18:41] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '970'
+[12:18:41] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_ewt WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_final_tax WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_input_vat WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_output_vat WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_prepaid WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_fixed_asset WHERE trans_id = 970
+[12:18:41] - SELECT * FROM select_checks WHERE trans_id = 970
+[12:18:41] - SELECT * FROM trans_header_particular WHERE trans_id = 970
+[12:18:42] - SELECT a.trans_sub_contract_id,a.trans_id,a.sub_contract_det_id,a.billed_amount,a.billed_amount_based
+            ,a.currency_id,f.currency_code,f.currency_name,a.exchange_rate,a.based_rate
+            ,b.subconid,e.subconcode,e.subconname,b.cons1,b.cons2,b.amount,b.amount_based,b.po_no
+            ,b.trans_date
+            ,sc_offset.amount_collected,sc_offset.amount_collected_based
+            FROM trans_header_sub_contract a
+            LEFT JOIN trans_sub_contract_det b ON b.sub_contract_det_id = a.sub_contract_det_id
+            LEFT JOIN trans_sub_contract c ON c.sub_contract_id = b.sub_contract_id
+            LEFT JOIN erp_fs_ngg.lib_erp_project d ON d.project_id = c.project_id
+            LEFT JOIN erp_fs_ngg.lib_subcon e ON e.subConid = b.subconid
+            LEFT JOIN erp_fs_ngg.lib_erp_currency f ON f.currency_id = a.currency_id
+            LEFT JOIN (
+	            SELECT a.trans_sub_contract_id
+	            ,SUM(a.amount_collected) AS amount_collected
+	            ,SUM(a.amount_collected_based) AS amount_collected_based
+	            FROM trans_sub_contract_offset a
+	            GROUP BY a.trans_sub_contract_id
+            ) sc_offset ON sc_offset.trans_sub_contract_id = a.trans_sub_contract_id
+            WHERE a.trans_id='1555'
+[12:18:42] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '1555'
+[12:18:42] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_ewt WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_final_tax WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_input_vat WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_output_vat WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_prepaid WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_fixed_asset WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM select_checks WHERE trans_id = 1555
+[12:18:42] - SELECT * FROM trans_header_particular WHERE trans_id = 1555
+[12:18:47] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '4' AND b.company_id = '1' ORDER BY b.book_code 
+[12:18:49] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00401'
+[12:18:50] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_cv_id,'') AS trans_cv_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.rr_no,'') AS rr_no ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_cv b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '4' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2018-06' ORDER BY a.trans_no ASC 
+[12:18:50] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '4803'
+[12:18:50] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_ewt WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_final_tax WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_input_vat WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_output_vat WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_prepaid WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_fixed_asset WHERE trans_id = 4803
+[12:18:50] - SELECT * FROM select_checks WHERE trans_id = 4803
+[12:18:51] - SELECT * FROM trans_header_particular WHERE trans_id = 4803
+[12:18:52] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '4655'
+[12:18:52] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_ewt WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_final_tax WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_input_vat WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_output_vat WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_prepaid WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_fixed_asset WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM select_checks WHERE trans_id = 4655
+[12:18:53] - SELECT * FROM trans_header_particular WHERE trans_id = 4655
+[12:18:53] - 
+                    select a.trans_detailed_particular_id, a.trans_id, a.po_no,a.rr_no,a.dr_no,a.si_no,a.due_date,ROUND(a.trans_header_detailed_amount, 2) as trans_header_detailed_amount 
+                    from trans_header_detailed_particular a
+                    WHERE trans_id = '4803'
+[12:18:53] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_ewt WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_final_tax WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_input_vat WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_output_vat WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_prepaid WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_fixed_asset WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM select_checks WHERE trans_id = 4803
+[12:18:54] - SELECT * FROM trans_header_particular WHERE trans_id = 4803
+[12:18:58] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '2' AND b.company_id = '1' ORDER BY b.book_code 
+[12:19:00] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00201'
+[12:19:00] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_cr_id,'') AS trans_cr_id,IFNULL(b.si_no,'') AS si_no ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_cr b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '2' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-06' ORDER BY a.trans_no ASC 
+[12:19:02] - select a.currency_id,a.currency_code,a.currency_name ,b.exchange_rate,b.based_rate from lib_erp_currency a inner join (select a.currency_id,a.exchange_rate,a.based_rate from lib_erp_currency_rate a inner join (SELECT currency_id,max(effectivitydate) as effectivitydate FROM lib_erp_currency_rate where DATE_FORMAT(effectivitydate,'%Y-%m') = '2019-06' group by currency_id) b on a.currency_id = b.currency_id and a.effectivitydate = b.effectivitydate) b on a.currency_id = b.currency_id
+[12:19:02] - SELECT auto_number FROM lib_erp_journal WHERE journal_id = 2
+[12:19:05] - SELECT a.general_id,a.general_code,a.general_name,a.terms_id ,b.terms_code,b.terms_name,IFNULL(a.nodays,b.nodays) AS nodays,b.fixed_day FROM lib_erp_general a LEFT JOIN lib_erp_terms b ON b.terms_id = a.terms_id ORDER BY FIELD(a.category_id,1,2),a.general_code ASC 
+[12:19:06] - select a.currency_id,a.currency_code,a.currency_name ,b.exchange_rate,b.based_rate from lib_erp_currency a inner join (select a.currency_id,a.exchange_rate,a.based_rate from lib_erp_currency_rate a inner join (SELECT currency_id,max(effectivitydate) as effectivitydate FROM lib_erp_currency_rate where left(effectivitydate,7) <= '2019-06' group by currency_id) b on a.currency_id = b.currency_id and a.effectivitydate = b.effectivitydate) b on a.currency_id = b.currency_id
+[12:19:08] - SELECT * FROM lib_erp_chart
+[12:19:11] - SELECT * FROM lib_erp_project
+[12:19:12] - SELECT * FROM lib_erp_department
+[12:19:12] - SELECT * FROM lib_erp_department
+[12:19:12] - SELECT * FROM lib_erp_project_unit_no WHERE project_id = '1'
+[12:19:14] - SELECT * FROM lib_erp_project_unit_no WHERE project_id = '1'
+[12:19:16] - SELECT a.general_id,a.general_code,a.general_name,a.terms_id ,b.terms_code,b.terms_name,IFNULL(a.nodays,b.nodays) AS nodays,b.fixed_day FROM lib_erp_general a LEFT JOIN lib_erp_terms b ON b.terms_id = a.terms_id ORDER BY FIELD(a.category_id,1,2),a.general_code ASC 
+[12:19:17] - SELECT a.jbooks_id AS ref_jbooks_id,'' AS jbooks_id_tmp,'' AS trans_id,IFNULL(m.journal_code,'') AS ref_journal_code ,a.trans_id,IF(IFNULL(b.ref_no,'') = '',c.trans_no,CONCAT(c.trans_no,' - ',b.ref_no)) AS ref_trans_no,c.trans_date AS ref_trans_date ,a.project_id,d.project_code,d.project_name ,a.department_id,e.department_code,e.department_name ,IFNULL(a.allocation_id,'') AS allocation_id,IFNULL(f.allocation_code,'') AS allocation_code,IFNULL(f.allocation_name,'') AS allocation_name ,a.account_id,g.account_code,g.account_name,g.validation,g.unit_applicable ,a.currency_id,h.currency_code,h.currency_name ,a.exchange_rate,a.based_rate,a.credit,(a.debit - IF(j.credit IS NULL,0,j.credit)) AS tmp_amount,0 AS credit ,a.credit_based,0 AS credit_based,a.line_remarks ,a.general_id,i.general_code,i.general_name ,IF(a.debit != 0,1,2) as dc ,k.terms_id,k.jbooks_ar_id AS jbooks_terms_id,k.nodays ,IF(c.journal_id = '8',k.si_no,n.si_no) AS si_no,IF(c.journal_id = '8',k.dr_no,n.dr_no) AS dr_no,IF(c.journal_id = '8',k.po_no,n.po_no) AS po_no ,l.terms_code,l.terms_name ,a.book_unit_no_id,o.book_unit_no_code,o.book_unit_no_name,a.line_remarks AS particulars 
+                ,a.project_unit_no_id,p.project_unit_no_codes,p.project_unit_no_names 
+                ,c.description FROM trans_jbooks a LEFT JOIN trans_jbooks_ref b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_header c ON c.trans_id = a.trans_id LEFT JOIN erp_fs_ngg.lib_erp_project d ON d.project_id = a.project_id LEFT JOIN erp_fs_ngg.lib_erp_department e ON e.department_id = a.department_id LEFT JOIN erp_fs_ngg.lib_erp_allocation f ON f.allocation_id = a.allocation_id LEFT JOIN erp_fs_ngg.lib_erp_chart g ON g.account_id = a.account_id LEFT JOIN erp_fs_ngg.lib_erp_currency h ON h.currency_id = a.currency_id LEFT JOIN erp_fs_ngg.lib_erp_general i ON i.general_id = a.general_id LEFT JOIN (SELECT a.ref_jbooks_id AS jbooks_id,SUM(a.credit) AS credit FROM trans_jbooks a LEFT JOIN trans_header b ON b.trans_id = a.trans_id GROUP BY ref_jbooks_id) j ON j.jbooks_id = a.jbooks_id LEFT JOIN erp_accounting_ngg.trans_jbooks_ar k ON k.jbooks_id = a.jbooks_id LEFT JOIN erp_fs_ngg.lib_erp_terms l ON l.terms_id = k.terms_id LEFT JOIN erp_fs_ngg.lib_erp_journal m ON m.journal_id = c.journal_id LEFT JOIN erp_accounting_ngg.trans_header_ib n ON n.trans_id = c.trans_id LEFT JOIN erp_fs_ngg.lib_erp_book_unit_no o ON o.book_unit_no_id = a.book_unit_no_id LEFT JOIN erp_fs_ngg.lib_erp_project_unit_no p ON p.project_unit_no_id = a.project_unit_no_id WHERE a.account_id = 46 AND c.trans_date <= '2019-6-10' AND a.general_id = '52' AND a.currency_id = '1' AND a.project_id  = 1 AND a.department_id  = 1 AND IFNULL(a.book_unit_no_id,'') = '' AND a.ref_jbooks_id IS NULL AND (a.debit - IF(j.credit IS NULL,0,j.credit)) <> 0 
+[12:19:23] - SELECT b.book_id,b.book_code,b.book_name FROM sys_acc_journal_book a LEFT JOIN lib_erp_book b ON b.book_id = a.book_id WHERE b.book_code IS NOT NULL AND a.journal_id = '1' AND b.company_id = '1' ORDER BY b.book_code 
+[12:19:26] - SELECT COUNT(a.approval_id) AS numRow FROM sys_erp_approval a LEFT JOIN sys_erp_modules b ON b.module_id = a.module_id WHERE b.module_code = 'ACC00101'
+[12:19:26] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_ngg.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2018-06' ORDER BY a.trans_no ASC 
+[12:19:32] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_ib_id,'') AS trans_ib_id,IFNULL(b.si_no,'') AS si_no,IFNULL(b.dr_no,'') AS dr_no,IFNULL(b.po_no,'') AS po_no ,IFNULL(b.terms_id,'') AS terms_id,IFNULL(b.nodays,0) AS nodays,e.terms_name,b.due_date ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_ib b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN erp_fs_ngg.lib_erp_terms e ON b.terms_id = e.terms_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '1' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2018-01' ORDER BY a.trans_no ASC 
+[12:19:32] - SELECT b.trans_project_management_id,a.trans_id,a.trans_no,a.trans_date
+        ,b.project_management_det_id,d.pm_year
+        ,d.project_id,e.project_code,e.project_name
+        ,d.general_id,f.general_code,f.general_name
+        ,c.department_code,c.project_name AS project_name_det
+        ,c.contract_amount,c.contract_amount_based
+        ,b.billed_amount,b.billed_amount_based
+        ,IFNULL(c.contract_amount,0) - IFNULL(b.billed_amount,0) AS balance_amount
+        ,IFNULL(c.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS balance_amount_based
+        FROM trans_header a
+        LEFT JOIN trans_header_project_management b ON b.trans_id = a.trans_id
+        LEFT JOIN (
+	        SELECT a.project_management_det_id,a.project_management_id
+	        ,a.department_code,a.project_name
+	        ,a.contract_amount,a.contract_amount_based
+	        ,IFNULL(a.contract_amount,0) - IFNULL(b.billed_amount,0) AS billed_amount
+	        ,IFNULL(a.contract_amount_based,0) - IFNULL(b.billed_amount_based,0) AS billed_amount_based
+	        FROM trans_project_management_det a
+	        LEFT JOIN (
+		        SELECT a.project_management_det_id
+		        ,SUM(a.billed_amount) AS billed_amount
+		        ,SUM(a.billed_amount_based) AS billed_amount_based
+		        FROM trans_header_project_management a
+		        GROUP BY a.project_management_det_id
+	        ) b ON b.project_management_det_id = b.project_management_det_id
+            GROUP BY a.project_management_det_id
+        ) c ON c.project_management_det_id = b.project_management_det_id
+        LEFT JOIN trans_project_management d ON d.project_management_id = c.project_management_id
+        LEFT JOIN erp_fs_ngg.lib_erp_project e ON e.project_id = d.project_id
+        LEFT JOIN erp_fs_ngg.lib_erp_general f ON f.general_id = d.general_id
+        WHERE a.trans_id = '9912' AND IFNULL(b.project_management_det_id,'') <> '' and d.deleted=0
+
+[12:19:32] - SELECT a.* ,IF(b.offset_ar <> 0 AND b.offset_ar IS NOT NULL,b.offset_ar,IF(b.offset_ap <> 0 AND b.offset_ap IS NOT NULL,b.offset_ap,IF(b.offset_ewt <> 0 AND b.offset_ewt IS NOT NULL,b.offset_ewt,IF(b.offset_final_tax <> 0 AND b.offset_final_tax IS NOT NULL,b.offset_final_tax,IF(b.offset_input_vat <> 0 AND b.offset_input_vat IS NOT NULL,b.offset_input_vat,IF(b.offset_output_vat <> 0 AND b.offset_output_vat IS NOT NULL,b.offset_output_vat,IF(b.offset_prepaid <> 0 AND b.offset_prepaid IS NOT NULL,b.offset_prepaid,IF(b.offset_fixed_asset <> 0 AND b.offset_fixed_asset IS NOT NULL,b.offset_fixed_asset,0)))))))) AS offset ,IF(b.offset_ar IS NOT NULL AND b.offset_ar > 0,c.credit,IF(b.offset_ap IS NOT NULL AND b.offset_ap > 0,c.debit,0)) AS minimum FROM select_jbooks a LEFT JOIN selectReferenceOffset b ON b.jbooks_id = a.jbooks_id LEFT JOIN selectReferenceARAP c ON c.jbooks_id = a.jbooks_id WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_ewt WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_final_tax WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_input_vat WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_output_vat WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_prepaid WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_fixed_asset WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM select_checks WHERE trans_id = 9912
+[12:19:33] - SELECT * FROM trans_header_particular WHERE trans_id = 9912
+[12:19:46] - SELECT a.general_id,a.general_code,a.general_name,a.terms_id ,b.terms_code,b.terms_name,IFNULL(a.nodays,b.nodays) AS nodays,b.fixed_day FROM lib_erp_general a LEFT JOIN lib_erp_terms b ON b.terms_id = a.terms_id ORDER BY FIELD(a.category_id,1,2),a.general_code ASC 
+[12:19:52] - select a.currency_id,a.currency_code,a.currency_name ,b.exchange_rate,b.based_rate from lib_erp_currency a inner join (select a.currency_id,a.exchange_rate,a.based_rate from lib_erp_currency_rate a inner join (SELECT currency_id,max(effectivitydate) as effectivitydate FROM lib_erp_currency_rate where left(effectivitydate,7) <= '2019-06' group by currency_id) b on a.currency_id = b.currency_id and a.effectivitydate = b.effectivitydate) b on a.currency_id = b.currency_id
+[12:20:00] - SELECT * FROM lib_erp_chart
+[12:20:02] - SELECT * FROM lib_erp_project
+[12:20:08] - SELECT * FROM lib_erp_department
+[12:20:10] - SELECT * FROM lib_erp_department
+[12:20:13] - SELECT * FROM lib_erp_project_unit_no WHERE project_id = '7'
+[12:20:24] - SELECT * FROM lib_erp_project_unit_no WHERE project_id = '7'
+[12:20:28] - SELECT a.general_id,a.general_code,a.general_name,a.terms_id ,b.terms_code,b.terms_name,IFNULL(a.nodays,b.nodays) AS nodays,b.fixed_day FROM lib_erp_general a LEFT JOIN lib_erp_terms b ON b.terms_id = a.terms_id ORDER BY FIELD(a.category_id,1,2),a.general_code ASC 
+[12:20:29] - SELECT a.jbooks_id AS ref_jbooks_id,'' AS jbooks_id_tmp,'' AS trans_id,IFNULL(m.journal_code,'') AS ref_journal_code ,a.trans_id,IF(IFNULL(b.ref_no,'') = '',c.trans_no,CONCAT(c.trans_no,' - ',b.ref_no)) AS ref_trans_no,c.trans_date AS ref_trans_date ,a.project_id,d.project_code,d.project_name ,a.department_id,e.department_code,e.department_name ,IFNULL(a.allocation_id,'') AS allocation_id,IFNULL(f.allocation_code,'') AS allocation_code,IFNULL(f.allocation_name,'') AS allocation_name ,a.account_id,g.account_code,g.account_name,g.validation,g.unit_applicable ,a.currency_id,h.currency_code,h.currency_name ,a.exchange_rate,a.based_rate,a.credit,(a.debit - IF(j.credit IS NULL,0,j.credit)) AS tmp_amount,0 AS credit ,a.credit_based,0 AS credit_based,a.line_remarks ,a.general_id,i.general_code,i.general_name ,IF(a.debit != 0,1,2) as dc ,k.terms_id,k.jbooks_ar_id AS jbooks_terms_id,k.nodays ,IF(c.journal_id = '8',k.si_no,n.si_no) AS si_no,IF(c.journal_id = '8',k.dr_no,n.dr_no) AS dr_no,IF(c.journal_id = '8',k.po_no,n.po_no) AS po_no ,l.terms_code,l.terms_name ,a.book_unit_no_id,o.book_unit_no_code,o.book_unit_no_name,a.line_remarks AS particulars 
+                ,a.project_unit_no_id,p.project_unit_no_codes,p.project_unit_no_names 
+                ,c.description FROM trans_jbooks a LEFT JOIN trans_jbooks_ref b ON b.jbooks_id = a.jbooks_id LEFT JOIN trans_header c ON c.trans_id = a.trans_id LEFT JOIN erp_fs_ngg.lib_erp_project d ON d.project_id = a.project_id LEFT JOIN erp_fs_ngg.lib_erp_department e ON e.department_id = a.department_id LEFT JOIN erp_fs_ngg.lib_erp_allocation f ON f.allocation_id = a.allocation_id LEFT JOIN erp_fs_ngg.lib_erp_chart g ON g.account_id = a.account_id LEFT JOIN erp_fs_ngg.lib_erp_currency h ON h.currency_id = a.currency_id LEFT JOIN erp_fs_ngg.lib_erp_general i ON i.general_id = a.general_id LEFT JOIN (SELECT a.ref_jbooks_id AS jbooks_id,SUM(a.credit) AS credit FROM trans_jbooks a LEFT JOIN trans_header b ON b.trans_id = a.trans_id GROUP BY ref_jbooks_id) j ON j.jbooks_id = a.jbooks_id LEFT JOIN erp_accounting_ngg.trans_jbooks_ar k ON k.jbooks_id = a.jbooks_id LEFT JOIN erp_fs_ngg.lib_erp_terms l ON l.terms_id = k.terms_id LEFT JOIN erp_fs_ngg.lib_erp_journal m ON m.journal_id = c.journal_id LEFT JOIN erp_accounting_ngg.trans_header_ib n ON n.trans_id = c.trans_id LEFT JOIN erp_fs_ngg.lib_erp_book_unit_no o ON o.book_unit_no_id = a.book_unit_no_id LEFT JOIN erp_fs_ngg.lib_erp_project_unit_no p ON p.project_unit_no_id = a.project_unit_no_id WHERE a.account_id = 437 AND c.trans_date <= '2019-6-10' AND a.general_id = '463' AND a.currency_id = '1' AND a.project_id  = 7 AND a.department_id  = 8 AND IFNULL(a.book_unit_no_id,'') = '' AND a.ref_jbooks_id IS NULL AND (a.debit - IF(j.credit IS NULL,0,j.credit)) <> 0 
+[12:20:38] - SEL: jbooks_id = '' AND ref_jbooks_id = '45126' , FOUND: 0
+[12:20:41] - SELECT currentapprover.user_id AS current_approver,currentapprover.status AS current_status ,prevapprover.user_id AS prev_approver,prevapprover.status AS prev_status ,creator.user_id,creator.stage_id ,a.* ,c.general_code,c.general_name ,d.currency_code,d.currency_name ,IFNULL(b.trans_cr_id,'') AS trans_cr_id,IFNULL(b.si_no,'') AS si_no ,IFNULL(_lock.isLock,0) AS isLock  FROM trans_header a LEFT JOIN selectTransactionLocking _lock ON _lock.trans_id = a.trans_id LEFT JOIN trans_header_cr b ON a.trans_id = b.trans_id LEFT JOIN erp_fs_ngg.lib_erp_general c ON a.general_id = c.general_id LEFT JOIN erp_fs_ngg.lib_erp_currency d ON a.currency_id = d.currency_id LEFT JOIN ( SELECT * FROM trans_header_status GROUP BY ref_id ) creator ON creator.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(approved_date) AS approved_date,ref_id FROM trans_header_status GROUP BY ref_id ) a LEFT JOIN trans_header_status b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id GROUP BY ref_id ) currentapprover ON currentapprover.ref_id = a.trans_id LEFT JOIN ( SELECT b.* FROM ( SELECT MAX(b.approved_date) AS approved_date,b.ref_id,b.user_id FROM ( SELECT MAX(approved_date) AS approved_date,ref_id,user_id,status FROM trans_header_approval GROUP BY ref_id,user_id ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id WHERE b.status <> 2 GROUP BY b.ref_id ORDER BY b.approved_date ) a LEFT JOIN trans_header_approval b ON b.approved_date = a.approved_date AND b.ref_id = a.ref_id ) prevapprover ON prevapprover.ref_id = a.trans_id WHERE a.journal_id = '2' AND a.book_id = '11' AND DATE_FORMAT(a.trans_date,'%Y-%m') = '2019-06' ORDER BY a.trans_no ASC 
+[12:20:50] - ----- Accounting Close -----

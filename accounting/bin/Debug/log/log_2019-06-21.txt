@@ -1,0 +1,29 @@
+Log for Debugging - 06/21/2019
+[16:55:49] - ----- Accounting Start -----
+[16:55:49] - Main Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[16:55:49] - FS Connection String = Server=localhost;User Id=root;Password=snoitulos;Database=erp_file_setup_accounting_afsc;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[16:55:58] - Login Button Click
+[16:55:58] - SELECT user_id FROM erp_file_setup_accounting_afsc.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[16:55:58] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-06-21 16:55:58',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[16:55:58] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-06-21 16:55:58' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[16:55:59] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[16:55:59] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_file_setup_accounting_afsc.sys_erp_modules a LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_file_setup_accounting_afsc.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[16:55:59] - SELECT module_code FROM erp_file_setup_accounting_afsc.sys_erp_modules WHERE system_id = 2 
+[16:55:59] - select * from lib_erp_journal
+[16:55:59] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_currency c ON c.currency_id = a.currency_id 
+[16:56:00] - select a.*,b.module_code from sys_default_det a inner join erp_file_setup_accounting_afsc.sys_erp_modules b on a.module_id = b.module_id
+[16:56:01] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[16:56:01] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[16:56:02] - End of Initialization
+[16:56:14] - SELECT False AS sel,journal_id,journal_code,journal_name FROM lib_erp_journal WHERE journal_id <> 8
+[16:56:15] - SELECT False AS sel,b.book_id,c.book_code,c.book_name 
+FROM erp_file_setup_accounting_afsc.lib_erp_journal a 
+LEFT JOIN erp_file_setup_accounting_afsc.sys_acc_journal_book b ON b.journal_id = a.journal_id 
+LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_book c ON c.book_id = b.book_id WHERE a.journal_id IN (4) AND c.book_code IS NOT NULL AND c.company_id = '1'  GROUP BY c.book_id 
+[16:56:23] - SELECT a.trans_id,a.trans_no,a.trans_date ,a.description,a.general_id,a.account_id,a.journal_id,a.amount,a.amount_based ,a.general_code,a.general_name,a.tin,a.check_no,a.account_code,a.account_name ,a.currency_id,a.currency_code,a.currency_name
+            ,a.project_id,a.project_code,a.project_name
+            ,a.department_id,a.department_code,a.department_name
+            FROM SelectTransactionBook a LEFT JOIN erp_file_setup_accounting_afsc.lib_erp_book b ON b.book_id = a.book_id WHERE a.trans_date BETWEEN '2019-06-01' AND '2019-06-30' AND (a.journal_id = '3' OR a.journal_id = 8) AND b.company_id = '1' 
+
+[16:56:24] - SELECT a.account_id,a.account_code,a.account_name FROM SelectTransactionBook a WHERE a.trans_date BETWEEN '2019-06-01' AND '2019-06-30' AND a.journal_id = '3' GROUP BY a.account_id ORDER BY a.account_code 
+[18:04:07] - ----- Accounting Close -----

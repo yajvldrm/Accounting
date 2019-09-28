@@ -1,0 +1,12 @@
+Log for Debugging - 08/31/2019
+[10:30:51] - ----- Accounting Start -----
+[10:30:51] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:30:51] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_file_setup_accounting_morning;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[10:31:17] - Unable to connect to any of the specified MySQL hosts.
+[10:32:14] - Authentication to host '192.168.10.200' for user 'dbadmin' using method 'mysql_native_password' failed with message: Unknown database 'erp_accounting_morning_afsc'
+[10:32:32] - Authentication to host '192.168.10.200' for user 'dbadmin' using method 'mysql_native_password' failed with message: Unknown database 'erp_fs_afsc'
+[10:32:47] - Authentication to host '192.168.10.200' for user 'dbadmin' using method 'mysql_native_password' failed with message: Unknown database 'erp_fs_afsc'
+[10:33:03] - Authentication to host '192.168.10.200' for user 'dbadmin' using method 'mysql_native_password' failed with message: Unknown database 'erp_file_setup_afsc'
+[10:33:18] - Authentication to host '192.168.10.200' for user 'dbadmin' using method 'mysql_native_password' failed with message: Unknown database 'erp_file_setup_accouting_afsc'
+[10:33:35] - Authentication to host '192.168.10.200' for user 'dbadmin' using method 'mysql_native_password' failed with message: Unknown database 'erp_fs_afsc'
+[06:52:03] - ----- Accounting Close -----

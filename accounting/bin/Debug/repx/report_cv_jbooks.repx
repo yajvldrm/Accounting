@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.2.5.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="jbooks" Margins="0, 0, 0, 0" PaperKind="Custom" PageWidth="430" PageHeight="150" Version="17.2" DataMember="Header">
+  <Bands>
+    <Item1 Ref="1" ControlType="TopMarginBand" Name="TopMargin" HeightF="0" />
+    <Item2 Ref="2" ControlType="DetailBand" Name="Detail" HeightF="0" />
+    <Item3 Ref="3" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="0" />
+    <Item4 Ref="4" ControlType="DetailReportBand" Name="DetailReport" Level="0" DataMember="Header.Header_JBooks">
+      <Bands>
+        <Item1 Ref="5" ControlType="DetailBand" Name="Detail1" HeightF="25">
+          <Controls>
+            <Item1 Ref="6" ControlType="XRTable" Name="table1" SizeF="430,25" LocationFloat="0, 0" Font="Calibri, 9.75pt">
+              <Rows>
+                <Item1 Ref="7" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="8" ControlType="XRTableCell" Name="tableCell1" Weight="0.78820230057970175" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="9" Expression="[account_name]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item1>
+                    <Item2 Ref="10" ControlType="XRTableCell" Name="tableCell2" Weight="0.242049641761043" TextFormatString="{0:##,##0.00}" TextAlignment="MiddleRight" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="11" Expression="Iif(ToDecimal([debit]) = 0,'',ToDecimal([debit]))" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="12" UseTextAlignment="false" />
+                    </Item2>
+                    <Item3 Ref="13" ControlType="XRTableCell" Name="tableCell3" Weight="0.23290592274339073" TextFormatString="{0:##,##0.00}" TextAlignment="MiddleRight" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="14" Expression="Iif(ToDecimal([credit]) = 0,'',ToDecimal([credit]))" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="15" UseTextAlignment="false" />
+                    </Item3>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="16" UseFont="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="17" ControlType="GroupFooterBand" Name="GroupFooter1" HeightF="25">
+          <Controls>
+            <Item1 Ref="18" ControlType="XRTable" Name="table2" SizeF="430,25" LocationFloat="0, 0" Font="Calibri, 9.75pt" Borders="Top">
+              <Rows>
+                <Item1 Ref="19" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="20" ControlType="XRTableCell" Name="tableCell4" Weight="0.78820230057970186" Text="Total :" TextAlignment="MiddleRight" Padding="2,2,0,0,100">
+                      <StylePriority Ref="21" UseTextAlignment="false" />
+                    </Item1>
+                    <Item2 Ref="22" ControlType="XRTableCell" Name="tableCell5" Weight="0.24204973140876118" TextFormatString="{0:##,##0.00}" TextAlignment="MiddleRight" Padding="2,2,0,0,100">
+                      <Summary Ref="23" Running="Group" />
+                      <ExpressionBindings>
+                        <Item1 Ref="24" Expression="sumSum([debit])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="25" UseTextAlignment="false" />
+                    </Item2>
+                    <Item3 Ref="26" ControlType="XRTableCell" Name="tableCell6" Weight="0.23290583309567248" TextFormatString="{0:##,##0.00}" TextAlignment="MiddleRight" Padding="2,2,0,0,100">
+                      <Summary Ref="27" Running="Group" />
+                      <ExpressionBindings>
+                        <Item1 Ref="28" Expression="sumSum([credit])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="29" UseTextAlignment="false" />
+                    </Item3>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="30" UseFont="false" UseBorders="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+      </Bands>
+    </Item4>
+  </Bands>
+</XtraReportsLayoutSerializer>

@@ -1,0 +1,409 @@
+Log for Debugging - 05/24/2019
+[08:53:40] - ----- Accounting Start -----
+[08:53:40] - Main Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_accounting_nhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[08:53:40] - FS Connection String = Server=192.168.10.200;User Id=dbadmin;Password=P@$$w0rd;Database=erp_fs_alhi;Port=3858;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:07:09] - Login Button Click
+[09:07:09] - SELECT user_id FROM erp_fs_alhi.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:07:09] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-05-24 09:07:09',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','DESKTOP-PL80BO2','Raymond T. Villegas');
+[09:07:10] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-05-24 09:07:09' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'DESKTOP-PL80BO2' AND machine_user = 'Raymond T. Villegas';
+[09:07:10] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:07:10] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_alhi.sys_erp_modules a LEFT JOIN erp_fs_alhi.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_alhi.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_alhi.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:07:10] - SELECT module_code FROM erp_fs_alhi.sys_erp_modules WHERE system_id = 2 
+[09:07:10] - select * from lib_erp_journal
+[09:07:10] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_alhi.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:07:10] - select a.*,b.module_code from sys_default_det a inner join erp_fs_alhi.sys_erp_modules b on a.module_id = b.module_id
+[09:07:10] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '6'
+[09:07:10] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:07:10] - End of Initialization
+[09:47:44] - SELECT a.* FROM lib_acc_ewt a
+[09:48:06] - CALL SaveTransaction('Insert','lib_acc_ewt','ewt_id,ewt_code,ewt_name,tax_rate','|WC 051|-|15.00|','ewt_id','','DESKTOP-PL80BO2','Raymond T. Villegas','10');
+[09:48:06] - SELECT a.* FROM lib_acc_ewt a
+[10:14:42] - SELECT * FROM lib_erp_book WHERE company_id = '6'
+[10:14:43] - SELECT * FROM lib_erp_currency
+[10:14:44] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 72 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:14:44] - SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id,a.project_unit_no_id
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id,a.book_unit_no_id,a.project_unit_no_id
+                ORDER BY account_code ASC 
+[10:14:44] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:14:44] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:14:44] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:14:44] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:14:49] - SELECT * FROM lib_erp_book WHERE company_id = '6'
+[10:14:50] - SELECT * FROM lib_erp_currency
+[10:14:50] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 73 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:14:51] - SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id,a.project_unit_no_id
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id,a.book_unit_no_id,a.project_unit_no_id
+                ORDER BY account_code ASC 
+[10:14:51] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:14:51] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:14:51] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:14:51] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:14:58] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:15:03] - SELECT * FROM lib_erp_chart WHERE account_id = '459'
+[10:15:05] - SELECT * FROM lib_erp_chart WHERE account_id = '441'
+[10:15:05] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:15:20] - SELECT * FROM lib_erp_department
+[10:15:20] - SELECT * FROM lib_erp_project
+[10:15:20] - SELECT * FROM lib_erp_chart WHERE account_id = 431
+[10:15:20] - SELECT a.ewt_id,a.jbooks_id,a.general_id,a.currency_id,a.exchange_rate,a.based_rate,a.fs_ewt_id ,a.offset_type,a.tax_rate,a.amount,a.tax_amount,a.debit,a.credit,a.amount_based,a.tax_amount_based ,a.debit_based,a.credit_based,a.ref_ewt_id,b.general_code,b.general_name,c.currency_name,d.ewt_code,e.ref_no ,IF(a.credit > f.debit,'Partially Paid',IF(a.credit = f.debit,'Fully Paid','')) AS status ,IF(a.credit > f.debit,f.debit,IF(a.credit = f.debit,a.credit,0)) AS minimum FROM trans_ewt a LEFT JOIN erp_fs_alhi.lib_erp_general b ON b.general_id = a.general_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id LEFT JOIN erp_fs_alhi.lib_acc_ewt d ON d.ewt_id = a.fs_ewt_id LEFT JOIN trans_ewt_ref e ON e.ewt_id = a.ewt_id LEFT JOIN ( SELECT c.ref_ewt_id AS ewt_id,SUM(c.debit) AS debit,SUM(c.credit) AS credit ,SUM(c.debit_based) AS debit_based,SUM(c.credit_based) AS credit_based FROM trans_header a LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id WHERE c.ref_ewt_id IS NOT NULL AND (a.status <> 'C' OR a.status IS NULL) GROUP BY c.ref_ewt_id ) f ON f.ewt_id = a.ewt_id WHERE a.jbooks_id = 681 AND a.currency_id = 1
+[10:15:20] - SELECT a.currency_code,a.currency_name FROM lib_erp_currency a WHERE a.currency_id = 1
+[10:15:24] - UPDATE trans_jbooks SET project_id='2',currency_id='1',exchange_rate='1',based_rate='1',department_id='37',account_id='431',debit='0',credit='24401.63',debit_based='0',credit_based='24401.63',ref_jbooks_id=default,book_unit_no_id=default WHERE jbooks_id=681
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='351738.0000000000',tax_amount='7034.7600000000',debit='0.0000000000',credit='7034.7600000000',amount_based='351738.0000000000',tax_amount_based='7034.7600000000',debit_based='0.0000000000',credit_based='7034.7600000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=6
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='210.0000000000',tax_amount='4.2000000000',debit='0.0000000000',credit='4.2000000000',amount_based='210.0000000000',tax_amount_based='4.2000000000',debit_based='0.0000000000',credit_based='4.2000000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=7
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='26016.1700000000',tax_amount='520.3200000000',debit='0.0000000000',credit='520.3200000000',amount_based='26016.1700000000',tax_amount_based='520.3200000000',debit_based='0.0000000000',credit_based='520.3200000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=8
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='40606.1600000000',tax_amount='812.1200000000',debit='0.0000000000',credit='812.1200000000',amount_based='40606.1600000000',tax_amount_based='812.1200000000',debit_based='0.0000000000',credit_based='812.1200000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=9
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='13943.2600000000',tax_amount='278.8700000000',debit='0.0000000000',credit='278.8700000000',amount_based='13943.2600000000',tax_amount_based='278.8700000000',debit_based='0.0000000000',credit_based='278.8700000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=10
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='164590.7300000000',tax_amount='3291.8100000000',debit='0.0000000000',credit='3291.8100000000',amount_based='164590.7300000000',tax_amount_based='3291.8100000000',debit_based='0.0000000000',credit_based='3291.8100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=11
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='40974.0700000000',tax_amount='819.4800000000',debit='0.0000000000',credit='819.4800000000',amount_based='40974.0700000000',tax_amount_based='819.4800000000',debit_based='0.0000000000',credit_based='819.4800000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=12
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='10409.7500000000',tax_amount='208.2000000000',debit='0.0000000000',credit='208.2000000000',amount_based='10409.7500000000',tax_amount_based='208.2000000000',debit_based='0.0000000000',credit_based='208.2000000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=13
+[10:15:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='144120.7100000000',tax_amount='2882.4100000000',debit='0.0000000000',credit='2882.4100000000',amount_based='144120.7100000000',tax_amount_based='2882.4100000000',debit_based='0.0000000000',credit_based='2882.4100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=14
+[10:15:26] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='335840.3300000000',tax_amount='6716.8100000000',debit='0.0000000000',credit='6716.8100000000',amount_based='335840.3300000000',tax_amount_based='6716.8100000000',debit_based='0.0000000000',credit_based='6716.8100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=15
+[10:15:26] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='23047.0200000000',tax_amount='460.9400000000',debit='0.0000000000',credit='460.9400000000',amount_based='23047.0200000000',tax_amount_based='460.9400000000',debit_based='0.0000000000',credit_based='460.9400000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=16
+[10:15:26] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='19966.1600000000',tax_amount='399.3200000000',debit='0.0000000000',credit='399.3200000000',amount_based='19966.1600000000',tax_amount_based='399.3200000000',debit_based='0.0000000000',credit_based='399.3200000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=17
+[10:15:26] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='42717.6100000000',tax_amount='854.3500000000',debit='0.0000000000',credit='854.3500000000',amount_based='42717.6100000000',tax_amount_based='854.3500000000',debit_based='0.0000000000',credit_based='854.3500000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=18
+[10:15:26] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='5901.8000000000',tax_amount='118.0400000000',debit='0.0000000000',credit='118.0400000000',amount_based='5901.8000000000',tax_amount_based='118.0400000000',debit_based='0.0000000000',credit_based='118.0400000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=19
+[10:15:26] - UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=6;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=7;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=8;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=9;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=10;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=11;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=12;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=13;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=14;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=15;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=16;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=17;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=18;UPDATE trans_ewt_ref SET ref_no=default WHERE ewt_id=19;
+[10:15:26] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:15:26] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 72 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:15:27] - SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id,a.project_unit_no_id
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id,a.book_unit_no_id,a.project_unit_no_id
+                ORDER BY account_code ASC 
+[10:15:27] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:15:27] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:34:02] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:34:03] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:34:03] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:34:03] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:03] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:03] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:05] - SELECT * FROM lib_erp_chart WHERE account_id = '426'
+[10:34:05] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:06] - SELECT * FROM lib_erp_department
+[10:34:06] - SELECT * FROM lib_erp_project
+[10:34:06] - SELECT * FROM lib_erp_chart WHERE account_id = 431
+[10:34:07] - SELECT a.ewt_id,a.jbooks_id,a.general_id,a.currency_id,a.exchange_rate,a.based_rate,a.fs_ewt_id ,a.offset_type,a.tax_rate,a.amount,a.tax_amount,a.debit,a.credit,a.amount_based,a.tax_amount_based ,a.debit_based,a.credit_based,a.ref_ewt_id,b.general_code,b.general_name,c.currency_name,d.ewt_code,e.ref_no ,IF(a.credit > f.debit,'Partially Paid',IF(a.credit = f.debit,'Fully Paid','')) AS status ,IF(a.credit > f.debit,f.debit,IF(a.credit = f.debit,a.credit,0)) AS minimum FROM trans_ewt a LEFT JOIN erp_fs_alhi.lib_erp_general b ON b.general_id = a.general_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id LEFT JOIN erp_fs_alhi.lib_acc_ewt d ON d.ewt_id = a.fs_ewt_id LEFT JOIN trans_ewt_ref e ON e.ewt_id = a.ewt_id LEFT JOIN ( SELECT c.ref_ewt_id AS ewt_id,SUM(c.debit) AS debit,SUM(c.credit) AS credit ,SUM(c.debit_based) AS debit_based,SUM(c.credit_based) AS credit_based FROM trans_header a LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id WHERE c.ref_ewt_id IS NOT NULL AND (a.status <> 'C' OR a.status IS NULL) GROUP BY c.ref_ewt_id ) f ON f.ewt_id = a.ewt_id WHERE a.jbooks_id = 681 AND a.currency_id = 1
+[10:34:07] - SELECT a.currency_code,a.currency_name FROM lib_erp_currency a WHERE a.currency_id = 1
+[10:34:23] - UPDATE trans_jbooks SET project_id='2',currency_id='1',exchange_rate='1',based_rate='1',department_id='37',account_id='431',debit='0',credit='24401.63',debit_based='0',credit_based='24401.63',ref_jbooks_id=default,book_unit_no_id=default WHERE jbooks_id=681
+[10:34:23] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='351738.0000000000',tax_amount='7034.7600000000',debit='0.0000000000',credit='7034.7600000000',amount_based='351738.0000000000',tax_amount_based='7034.7600000000',debit_based='0.0000000000',credit_based='7034.7600000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=6
+[10:34:23] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='210.0000000000',tax_amount='4.2000000000',debit='0.0000000000',credit='4.2000000000',amount_based='210.0000000000',tax_amount_based='4.2000000000',debit_based='0.0000000000',credit_based='4.2000000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=7
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='26016.1700000000',tax_amount='520.3200000000',debit='0.0000000000',credit='520.3200000000',amount_based='26016.1700000000',tax_amount_based='520.3200000000',debit_based='0.0000000000',credit_based='520.3200000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=8
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='40606.1600000000',tax_amount='812.1200000000',debit='0.0000000000',credit='812.1200000000',amount_based='40606.1600000000',tax_amount_based='812.1200000000',debit_based='0.0000000000',credit_based='812.1200000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=9
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='13943.2600000000',tax_amount='278.8700000000',debit='0.0000000000',credit='278.8700000000',amount_based='13943.2600000000',tax_amount_based='278.8700000000',debit_based='0.0000000000',credit_based='278.8700000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=10
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1646',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='164590.7300000000',tax_amount='3291.8100000000',debit='0.0000000000',credit='3291.8100000000',amount_based='164590.7300000000',tax_amount_based='3291.8100000000',debit_based='0.0000000000',credit_based='3291.8100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=11
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='40974.0700000000',tax_amount='819.4800000000',debit='0.0000000000',credit='819.4800000000',amount_based='40974.0700000000',tax_amount_based='819.4800000000',debit_based='0.0000000000',credit_based='819.4800000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=12
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='10409.7500000000',tax_amount='208.2000000000',debit='0.0000000000',credit='208.2000000000',amount_based='10409.7500000000',tax_amount_based='208.2000000000',debit_based='0.0000000000',credit_based='208.2000000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=13
+[10:34:24] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='144120.7100000000',tax_amount='2882.4100000000',debit='0.0000000000',credit='2882.4100000000',amount_based='144120.7100000000',tax_amount_based='2882.4100000000',debit_based='0.0000000000',credit_based='2882.4100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=14
+[10:34:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='335840.3300000000',tax_amount='6716.8100000000',debit='0.0000000000',credit='6716.8100000000',amount_based='335840.3300000000',tax_amount_based='6716.8100000000',debit_based='0.0000000000',credit_based='6716.8100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=15
+[10:34:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='23047.0200000000',tax_amount='460.9400000000',debit='0.0000000000',credit='460.9400000000',amount_based='23047.0200000000',tax_amount_based='460.9400000000',debit_based='0.0000000000',credit_based='460.9400000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=16
+[10:34:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='19966.1600000000',tax_amount='399.3200000000',debit='0.0000000000',credit='399.3200000000',amount_based='19966.1600000000',tax_amount_based='399.3200000000',debit_based='0.0000000000',credit_based='399.3200000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=17
+[10:34:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='42717.6100000000',tax_amount='854.3500000000',debit='0.0000000000',credit='854.3500000000',amount_based='42717.6100000000',tax_amount_based='854.3500000000',debit_based='0.0000000000',credit_based='854.3500000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=18
+[10:34:25] - UPDATE trans_ewt SET jbooks_id='681',general_id='1648',fs_ewt_id='10',offset_type=default,tax_rate='0.0200000000',amount='5901.8000000000',tax_amount='118.0400000000',debit='0.0000000000',credit='118.0400000000',amount_based='5901.8000000000',tax_amount_based='118.0400000000',debit_based='0.0000000000',credit_based='118.0400000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=19
+[10:34:25] - UPDATE trans_ewt_ref SET ref_no='APV-12-2018-006NHI' WHERE ewt_id=6;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-007NHI' WHERE ewt_id=7;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-027NHI' WHERE ewt_id=8;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-028NHI' WHERE ewt_id=9;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-029NHI' WHERE ewt_id=10;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-030NHI' WHERE ewt_id=11;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-003NHI' WHERE ewt_id=12;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-004NHI' WHERE ewt_id=13;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-005NHI' WHERE ewt_id=14;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-008NHI' WHERE ewt_id=15;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-024NHI' WHERE ewt_id=16;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-025NHI' WHERE ewt_id=17;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-026NHI' WHERE ewt_id=18;UPDATE trans_ewt_ref SET ref_no='JV-12-2018-031NHI' WHERE ewt_id=19;
+[10:34:26] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:26] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 72 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:34:26] - SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id,a.project_unit_no_id
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '1' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id,a.book_unit_no_id,a.project_unit_no_id
+                ORDER BY account_code ASC 
+[10:34:26] - SELECT * FROM lib_erp_chart WHERE account_id = '188'
+[10:34:26] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:34:27] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:27] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:28] - SELECT * FROM lib_erp_department
+[10:34:29] - SELECT * FROM lib_erp_project
+[10:34:29] - SELECT * FROM lib_erp_chart WHERE account_id = 431
+[10:34:29] - SELECT a.ewt_id,a.jbooks_id,a.general_id,a.currency_id,a.exchange_rate,a.based_rate,a.fs_ewt_id ,a.offset_type,a.tax_rate,a.amount,a.tax_amount,a.debit,a.credit,a.amount_based,a.tax_amount_based ,a.debit_based,a.credit_based,a.ref_ewt_id,b.general_code,b.general_name,c.currency_name,d.ewt_code,e.ref_no ,IF(a.credit > f.debit,'Partially Paid',IF(a.credit = f.debit,'Fully Paid','')) AS status ,IF(a.credit > f.debit,f.debit,IF(a.credit = f.debit,a.credit,0)) AS minimum FROM trans_ewt a LEFT JOIN erp_fs_alhi.lib_erp_general b ON b.general_id = a.general_id LEFT JOIN erp_fs_alhi.lib_erp_currency c ON c.currency_id = a.currency_id LEFT JOIN erp_fs_alhi.lib_acc_ewt d ON d.ewt_id = a.fs_ewt_id LEFT JOIN trans_ewt_ref e ON e.ewt_id = a.ewt_id LEFT JOIN ( SELECT c.ref_ewt_id AS ewt_id,SUM(c.debit) AS debit,SUM(c.credit) AS credit ,SUM(c.debit_based) AS debit_based,SUM(c.credit_based) AS credit_based FROM trans_header a LEFT JOIN trans_jbooks b ON b.trans_id = a.trans_id LEFT JOIN trans_ewt c ON c.jbooks_id = b.jbooks_id WHERE c.ref_ewt_id IS NOT NULL AND (a.status <> 'C' OR a.status IS NULL) GROUP BY c.ref_ewt_id ) f ON f.ewt_id = a.ewt_id WHERE a.jbooks_id = 680 AND a.currency_id = 1
+[10:34:29] - SELECT a.currency_code,a.currency_name FROM lib_erp_currency a WHERE a.currency_id = 1
+[10:34:42] - SELECT ewt_id FROM trans_ewt_ref WHERE ref_no = 'APV-12-2018-012PV' AND ewt_id <> '1'
+[10:34:43] - SELECT b.*,b.ewt_id as fs_ewt_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '643'
+[10:34:45] - SELECT b.*,b.ewt_id as fs_ewt_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '643'
+[10:34:47] - SELECT ewt_id FROM trans_ewt_ref WHERE ref_no = 'APV-12-2018-012PV' AND ewt_id <> '1'
+[10:34:49] - UPDATE trans_jbooks SET project_id='2',currency_id='1',exchange_rate='1',based_rate='1',department_id='37',account_id='431',debit='0',credit='52391.79',debit_based='0',credit_based='52391.79',ref_jbooks_id=default,book_unit_no_id=default WHERE jbooks_id=680
+[10:34:49] - UPDATE trans_ewt SET jbooks_id='680',general_id='643',fs_ewt_id='5',offset_type=default,tax_rate='0.0200000000',amount='70870.5400000000',tax_amount='1417.4100000000',debit='0.0000000000',credit='1417.4100000000',amount_based='70870.5400000000',tax_amount_based='1417.4100000000',debit_based='0.0000000000',credit_based='1417.4100000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=1
+[10:34:49] - UPDATE trans_ewt SET jbooks_id='680',general_id='123',fs_ewt_id='5',offset_type=default,tax_rate='0.0200000000',amount='150869.5400000000',tax_amount='3017.3900000000',debit='0.0000000000',credit='3017.3900000000',amount_based='150869.5400000000',tax_amount_based='3017.3900000000',debit_based='0.0000000000',credit_based='3017.3900000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=2
+[10:34:49] - UPDATE trans_ewt SET jbooks_id='680',general_id='686',fs_ewt_id='5',offset_type=default,tax_rate='0.0200000000',amount='400000.0000000000',tax_amount='8000.0000000000',debit='0.0000000000',credit='8000.0000000000',amount_based='400000.0000000000',tax_amount_based='8000.0000000000',debit_based='0.0000000000',credit_based='8000.0000000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=3
+[10:34:49] - UPDATE trans_ewt SET jbooks_id='680',general_id='687',fs_ewt_id='5',offset_type=default,tax_rate='0.0200000000',amount='219874.0000000000',tax_amount='4397.4800000000',debit='0.0000000000',credit='4397.4800000000',amount_based='219874.0000000000',tax_amount_based='4397.4800000000',debit_based='0.0000000000',credit_based='4397.4800000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=4
+[10:34:49] - UPDATE trans_ewt SET jbooks_id='680',general_id='509',fs_ewt_id='5',offset_type=default,tax_rate='0.0200000000',amount='221828.4200000000',tax_amount='4436.5700000000',debit='0.0000000000',credit='4436.5700000000',amount_based='221828.4200000000',tax_amount_based='4436.5700000000',debit_based='0.0000000000',credit_based='4436.5700000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=5
+[10:34:49] - UPDATE trans_ewt SET jbooks_id='680',general_id='1573',fs_ewt_id='29',offset_type=default,tax_rate='0.1000000000',amount='206229.4100000000',tax_amount='20622.9400000000',debit='0.0000000000',credit='20622.9400000000',amount_based='206229.4100000000',tax_amount_based='20622.9400000000',debit_based='0.0000000000',credit_based='20622.9400000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=20
+[10:34:50] - UPDATE trans_ewt SET jbooks_id='680',general_id='509',fs_ewt_id='38',offset_type=default,tax_rate='0.1500000000',amount='70000.0000000000',tax_amount='10500.0000000000',debit='0.0000000000',credit='10500.0000000000',amount_based='70000.0000000000',tax_amount_based='10500.0000000000',debit_based='0.0000000000',credit_based='10500.0000000000',currency_id='1',exchange_rate='1.0000000000',based_rate='1.0000000000' WHERE ewt_id=21
+[10:34:50] - UPDATE trans_ewt_ref SET ref_no='APV-12-2018-012PV' WHERE ewt_id=1;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-003PV' WHERE ewt_id=2;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-011PV' WHERE ewt_id=3;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-005PV' WHERE ewt_id=4;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-001PV' WHERE ewt_id=5;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-007PV' WHERE ewt_id=20;UPDATE trans_ewt_ref SET ref_no='APV-12-2018-010PV' WHERE ewt_id=21;
+[10:34:50] - SELECT * FROM lib_erp_chart WHERE account_id = '431'
+[10:34:50] - SELECT trans_id FROM trans_header WHERE currency_id = 1 AND book_id = 73 AND trans_date = '2018-12-31' AND journal_id = 8
+[10:34:50] - SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,a.debit,a.credit,a.debit_based
+                ,a.credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code
+                ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation <> 3 AND b.validation <> 2
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 3
+                GROUP BY a.account_id,a.project_id,a.department_id,a.project_unit_no_id
+                UNION
+                SELECT z.project_unit_no_names,a.book_unit_no_id,a.project_unit_no_id,a.jbooks_id,a.trans_id,a.project_id,a.department_id,a.allocation_id,a.account_id,a.currency_id,a.exchange_rate,a.based_rate,SUM(a.debit) AS debit,SUM(a.credit) AS credit
+                ,SUM(a.debit_based) AS debit_based,SUM(a.credit_based) AS credit_based,a.general_id,a.ref_jbooks_id,a.line_remarks,b.account_name,b.account_code,b.validation,c.project_code,c.project_name,d.department_code,d.department_name
+                ,e.currency_name,e.currency_code ,f.book_unit_no_name,f.book_unit_no_code
+                FROM trans_jbooks a
+                LEFT JOIN erp_fs_alhi.lib_erp_chart b ON b.account_id = a.account_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project c ON c.project_id = a.project_id
+                LEFT JOIN erp_fs_alhi.lib_erp_department d ON d.department_id = a.department_id
+                LEFT JOIN erp_fs_alhi.lib_erp_currency e ON e.currency_id = a.currency_id
+                LEFT JOIN erp_fs_alhi.lib_erp_book_unit_no f ON f.book_unit_no_id = a.book_unit_no_id
+                LEFT JOIN erp_fs_alhi.lib_erp_project_unit_no z ON z.project_unit_no_id = a.project_unit_no_id
+                WHERE a.trans_id = '2' AND b.validation = 2
+                GROUP BY a.account_id,a.project_id,a.department_id,a.book_unit_no_id,a.project_unit_no_id
+                ORDER BY account_code ASC 
+[10:34:50] - SELECT * FROM lib_erp_chart WHERE account_id = '150'
+[10:34:51] - SELECT * FROM lib_erp_currency_rate WHERE currency_id = 1 AND effectivitydate <= '2018-12-31' ORDER BY effectivitydate DESC LIMIT 1
+[10:48:04] - SELECT a.*,ELT(a.general_type,'Supplier','Client','Both') AS general_type_name,b.category_name,c.terms_name,d.industry_name FROM lib_erp_general a LEFT JOIN lib_erp_category b ON b.category_id = a.category_id LEFT JOIN lib_erp_terms c ON c.terms_id = a.terms_id LEFT JOIN lib_erp_industry d ON d.industry_id = a.industry_id ORDER BY a.general_code,a.general_name ASC 
+[10:48:05] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:05] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:05] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:05] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:05] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:06] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:07] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:07] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:12] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:12] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:14] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:14] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:14] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:14] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:15] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2'
+[10:48:15] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2
+[10:48:15] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '70'
+[10:48:15] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 70
+[10:48:15] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '70'
+[10:48:15] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 70
+[10:48:15] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2637'
+[10:48:15] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2637
+[10:48:19] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '6636'
+[10:48:20] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 6636
+[10:48:23] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2637'
+[10:48:23] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2637
+[10:48:30] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2637'
+[10:48:30] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2637
+[10:48:43] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '137'
+[10:48:43] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 137
+[10:48:46] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '576'
+[10:48:46] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 576
+[10:48:51] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '505'
+[10:48:51] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 505
+[10:48:52] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '396'
+[10:48:52] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 396
+[10:48:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '368'
+[10:48:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 368
+[10:48:53] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '137'
+[10:48:53] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 137
+[10:49:02] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '137'
+[10:49:02] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 137
+[10:49:04] - SELECT b.ewt_id,b.ewt_code,b.ewt_name,b.tax_rate,a.general_ewt_id,a.general_id FROM lib_erp_general_ewt a LEFT JOIN lib_acc_ewt b ON b.ewt_id = a.ewt_id WHERE a.general_id = '2380'
+[10:49:04] - SELECT b.final_tax_id,b.final_tax_code,b.final_tax_name,b.final_tax_rate,a.general_final_tax_id,a.general_id FROM lib_erp_general_final_tax a LEFT JOIN lib_acc_final_tax b ON b.final_tax_id = a.final_tax_id WHERE a.general_id = 2380
+[19:01:35] - ExecuteWithParameter : acc_get_pending_ap
+[19:01:35] - parameters : 'erp_fs_alhi','1'
+[19:01:35] - Execution Time: 2019-05-24 19:01:35
+[19:01:37] - Done Time: 2019-05-24 19:01:37
+[19:01:38] - SELECT a.*,b.chart_class_name FROM lib_erp_chart a LEFT JOIN lib_acc_chart_class b ON b.chart_class_id = a.chart_class_id ORDER BY a.account_code,a.account_name ASC 
+[19:01:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:01:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:01:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:01:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:01:40] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '274'
+[19:11:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '274'
+[19:11:52] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '216'
+[19:29:04] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '216'
+[19:29:05] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '471'
+[19:29:09] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '471'
+[19:29:09] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:29:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:29:32] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '471'
+[19:29:48] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '471'
+[19:29:48] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '501'
+[19:30:30] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '501'
+[19:30:30] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '471'
+[19:31:31] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '471'
+[19:31:31] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '476'
+[19:32:06] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '476'
+[19:32:06] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '191'
+[19:32:15] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '191'
+[19:32:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '475'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '475'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '1'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:38] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:33:39] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:34:13] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '320'
+[19:34:13] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '487'
+[19:37:05] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '487'
+[19:37:06] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '178'
+[19:38:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '178'
+[19:38:16] - SELECT b.chart_group_id AS group_id,b.chart_group_code,b.chart_group_name,a.chart_group_id,a.account_id FROM lib_erp_chart_group a LEFT JOIN lib_acc_chart_group b ON b.chart_group_id = a.group_id WHERE a.account_id = '487'
+[20:05:39] - ----- Accounting Close -----

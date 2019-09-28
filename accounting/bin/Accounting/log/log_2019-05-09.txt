@@ -1,0 +1,596 @@
+Log for Debugging - 05/09/2019
+[09:46:27] - ----- Accounting Start -----
+[09:46:27] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:46:27] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[09:46:30] - Login Button Click
+[09:46:30] - SELECT user_id FROM erp_fs_ngg.sys_erp_user WHERE username = 'alas' AND password = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' 
+[09:46:30] - INSERT INTO sys_log(log_date,user_id,log_code_3,machine_name,machine_user) VALUES('2019-05-09 09:46:30',1,'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580','SERVER2016','austria_na');
+[09:46:30] - SELECT log_id AS id FROM sys_log WHERE log_date = '2019-05-09 09:46:30' AND user_id = 1 AND log_code_3 = 'a8013ff5b4ddb52f129615ca3b0a9420bdd5ff8bd6e584a4996ffcc454efc580' AND machine_name = 'SERVER2016' AND machine_user = 'austria_na';
+[09:46:30] - SELECT a.stage_id,c.module_code,b.user_id FROM sys_erp_approval a LEFT JOIN sys_erp_approval_user b on b.approval_id = a.approval_id LEFT JOIN sys_erp_modules c ON c.module_id = a.module_id 
+[09:46:30] - SELECT a.module_code,b.m_view,b.m_add,b.m_edit,b.m_delete,b.m_cancel,b.m_verify,b.m_approve,b.m_print FROM erp_fs_ngg.sys_erp_modules a LEFT JOIN erp_fs_ngg.sys_erp_profile_det b ON b.module_id = a.module_id LEFT JOIN erp_fs_ngg.sys_erp_user_profile c ON c.profile_id = b.profile_id AND c.system_id = a.system_id LEFT JOIN erp_fs_ngg.sys_erp_user d ON d.user_id = c.user_id WHERE a.system_id = 2 AND d.username = 'alas' 
+[09:46:30] - SELECT module_code FROM erp_fs_ngg.sys_erp_modules WHERE system_id = 2 
+[09:46:31] - select * from lib_erp_journal
+[09:46:31] - SELECT a.*,b.company_code,b.company_name,b.address1,b.address2,b.tin,b.rdo_code ,a.currency_id,c.currency_code,c.currency_name,c.symbol  FROM sys_default a  LEFT JOIN erp_fs_ngg.lib_erp_company b ON b.company_id = a.company_id LEFT JOIN erp_fs_ngg.lib_erp_currency c ON c.currency_id = a.currency_id 
+[09:46:31] - select a.*,b.module_code from sys_default_det a inner join erp_fs_ngg.sys_erp_modules b on a.module_id = b.module_id
+[09:46:32] - SELECT a.book_id,a.book_code,a.book_name FROM lib_erp_book a WHERE a.company_id = '1'
+[09:46:32] - SELECT 1 AS id,'January' AS name UNION SELECT 2,'February' UNION SELECT 3,'March' UNION SELECT 4,'April' UNION SELECT 5,'May' UNION SELECT 6,'June' UNION SELECT 7,'July' UNION SELECT 8,'August' UNION SELECT 9,'September' UNION SELECT 10,'October' UNION SELECT 11,'November' UNION SELECT 12,'December' 
+[09:46:32] - End of Initialization
+[09:46:35] - SELECT a.*,b.profile_name,c.department_name,'' AS retype_password FROM erp_fs_ngg.sys_erp_user a LEFT JOIN erp_fs_ngg.sys_erp_profile b ON b.profile_id = a.profile_id LEFT JOIN erp_fs_ngg.lib_erp_department c ON c.department_id = a.department_id ORDER BY a.username,a.user_fullname ASC 
+[09:46:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[09:46:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[09:46:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[09:46:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[09:46:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[09:46:35] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '6'
+[09:46:37] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[09:46:37] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '1'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '11'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '11'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '27'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '27'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '12'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '12'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '39'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '39'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '13'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '13'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '14'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '14'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '38'
+[09:46:38] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '38'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '28'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '28'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '15'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '15'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '33'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '33'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '7'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '7'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '48'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '48'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '29'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '29'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '40'
+[09:46:39] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '40'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '34'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '34'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '49'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '49'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '24'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '24'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '25'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '25'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '55'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '55'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '16'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '16'
+[09:46:40] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '42'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '42'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '2'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '2'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '44'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '44'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '35'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '35'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '23'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '23'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '36'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '36'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '17'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '17'
+[09:46:41] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '18'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '18'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '50'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '50'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '45'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '45'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '8'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '8'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '46'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '46'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '3'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '3'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '26'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '26'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '51'
+[09:46:42] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '51'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '41'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '41'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '4'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '4'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '19'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '19'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '53'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '53'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '20'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '20'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '54'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '54'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '43'
+[09:46:43] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '43'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '30'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '30'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '31'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '31'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '21'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '21'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '5'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '5'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '32'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '32'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '9'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '9'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '37'
+[09:46:44] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '37'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '10'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '22'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '22'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '52'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '52'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '47'
+[09:46:45] - SELECT a.user_profile_id,a.user_id,a.system_id,a.profile_id
+            ,b.profile_code,b.profile_name
+            FROM sys_erp_user_profile a
+            LEFT JOIN sys_erp_profile b ON b.profile_id = a.profile_id
+            WHERE system_id = '2' AND user_id = '47'
+[09:46:50] - ----- Accounting Close -----
+[15:14:38] - ----- Accounting Start -----
+[15:14:38] - ----- Accounting Start -----
+[15:14:38] - Main Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_accounting_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:14:38] - FS Connection String = Server=server2016;User Id=root;Password=snoitulos;Database=erp_fs_ngg;Port=3306;allowzerodatetime=True;convertzerodatetime=True;Connect Timeout=6000000
+[15:14:43] - ----- Accounting Close -----
+[15:14:46] - ----- Accounting Close -----
+[15:16:20] - ----- Accounting Close -----
