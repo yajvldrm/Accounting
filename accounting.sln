@@ -9,7 +9,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "libacctng", "libacctng\liba
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "user_control", "user_control\user_control.vbproj", "{A5B1BBBC-978B-42D6-9DDD-17629A0A3E77}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "connectionlib", "..\AlasDrivers\connectionlib\connectionlib.vbproj", "{9D57FBC9-F345-4973-8E4A-E59BF943A898}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "connectionlib", "connectionlib\connectionlib.vbproj", "{9D57FBC9-F345-4973-8E4A-E59BF943A898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
